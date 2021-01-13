@@ -1,2 +1,5 @@
 vendor/
 commands/
+.htpasswd
+.htaccess
+data.sql
