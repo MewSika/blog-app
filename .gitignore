@@ -1,2 +1,4 @@
-vendor/
 commands/
+vendor/
+.htaccess
+*.sql
