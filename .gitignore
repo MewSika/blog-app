@@ -1,4 +1,5 @@
 commands/
 vendor/
+<<<<<<< HEAD
 .htaccess
 *.sql
