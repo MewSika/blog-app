@@ -1,0 +1,6 @@
+.caption {
+    position: absolute;
+    color: white;
+    opacity: 0.5;
+    text-shadow: black 2px 2px;
+  }
