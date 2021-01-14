@@ -1,8 +1,8 @@
-<p class="font-weight-bold mb-3">
+<p class="fw-bold mb-3">
     <a href="<?= $router->url('posts_manage'); ?>" class="text-dark"><i class='fas fa-angle-double-left'></i> Retour vers la gestion des articles</a>
 </p>
 <form action="" method="post" class="mb-4" enctype="multipart/form-data">
-    <p class="font-weight-bold">Image à la une</p>
+    <p class="fw-bold">Image à la une</p>
     <?php if($post->getImage()) : ?>
         <img src="<?= $post->getImageURL('medium') ?>" alt="" class="rounded shadow-sm mb-4">
     <?php endif; ?>

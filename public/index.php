@@ -2,14 +2,13 @@
 require '../vendor/autoload.php';
 
 define('DEBUG_TIME', microtime(true));
-
+define('UPLOAD_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'img');
+define('CSS_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'style/style.css');
 
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
-define('UPLOAD_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'img');
-define('CSS_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'style/style.css');
 
 if (isset($_GET['p']) && $_GET['p'] === '1') {
     $url = explode('?', $_SERVER['REQUEST_URI'])[0];

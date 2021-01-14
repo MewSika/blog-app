@@ -43,10 +43,7 @@ class Router {
 
         }
         $router = $this;
-        $isLogin = strpos($view, "login/") !== false;
-        if($isLogin) {
-            $layout = "login/layout/layout";
-        }
+
         $isAdmin = strpos($view, "admin/") !== false;
         $layout = $isAdmin ? "admin/layout/layout" : "layout/layout";
         if($view === null) {

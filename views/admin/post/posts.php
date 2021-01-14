@@ -38,7 +38,7 @@ $link = $router->url('posts_manage');
         <th class="align-middle">n°ID</th>
         <th class="align-middle">Titre</th>
         <th class="align-middle">Date de création</th>
-        <th class="text-right"><a href="<?= $router->url('admin_post_new') ?>" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
+        <th class="text-end"><a href="<?= $router->url('admin_post_new') ?>" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
     </thead>
     <tbody>
         <?php   
@@ -49,9 +49,9 @@ $link = $router->url('posts_manage');
         ?>
         <tr>
             <td>#<?= $post->getID();?></td>
-            <td><a href="<?= $edit ?>" class="text-dark font-weight-bold"><?= e($post->getName()) ;?></a></td>
-            <td class="font-italic"><?= e($post->getCreatedAt()->format('d/m/Y'));?></td>
-            <td class="text-right">
+            <td><a href="<?= $edit ?>" class="text-dark fw-bold"><?= e($post->getName()) ;?></a></td>
+            <td class="fst-italic"><?= e($post->getCreatedAt()->format('d/m/Y'));?></td>
+            <td class="text-end">
                 <a href="<?= $edit ?>" class="btn btn-sm btn-info">
                     Editer
                 </a>

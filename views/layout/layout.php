@@ -16,7 +16,7 @@ use App\HTML\Nav;
     </title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="<?= CSS_PATH ?>"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <!-- Favicons -->
     <meta name="theme-color" content="#563d7c">
 
@@ -45,7 +45,8 @@ use App\HTML\Nav;
     </style>
     <!-- Custom styles for this template -->
 </head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3">
   <a class="navbar-brand" href="/"><i class='fas fa-home'></i></a>
   <ul class="navbar-nav mr-auto">
     <?= Nav::nav_menu('nav-link', $router) ?>
@@ -57,14 +58,7 @@ use App\HTML\Nav;
 
 <body class="d-flex flex-column h-100 bg-light">
     <div class="container">
-      <div class="row">
-        <aside class="col-md-3">
-          <?php require dirname(__DIR__). '/blog/_side.php' ;?>
-        </aside>
-        <div class="col-md-9 mb-3">
-          <?= $pageContent ?>
-        </div>
-      </div>
+        <?= $pageContent ?>
     </div>
     <footer class="bg-dark py-4 footer mt-auto">
       <div class="container text-light">

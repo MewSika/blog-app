@@ -72,4 +72,15 @@ final class PostTable extends Table {
         (new CategoryTable($this->pdo))->hydratePost($posts);
         return [$posts, $paginatedQuery];
     }
+
+        
+    /**
+     * Récupère les derniers articles rédigés
+     *
+     * @return array
+     */
+    public function getLastPosts(int $limit): array
+    {
+        return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY created_at DESC LIMIT {$limit}");
+    }
 }

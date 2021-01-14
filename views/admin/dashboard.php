@@ -24,7 +24,7 @@ $user = $auth->user();
   <?php endif; ?>
 
   <?php if($user) : ?>
-      <p class=>Vous êtes connecté en tant que <span class="font-weight-bold"><?= $user->getUsername() ;?></span></p>
+      <p class=>Vous êtes connecté en tant que <span class="fw-bold"><?= $user->getUsername() ;?></span></p>
   <?php endif; ?>
   <?php if(isset($_GET['denied'])) : ?>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">

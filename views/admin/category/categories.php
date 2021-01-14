@@ -35,7 +35,7 @@ $link = $router->url('categories_manage');
     <thead>
         <th class="align-middle">n°ID</th>
         <th class="align-middle">Titre</th>
-        <th class="text-right"><a href="<?= $router->url('admin_category_new') ?>" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
+        <th class="text-end"><a href="<?= $router->url('admin_category_new') ?>" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
     </thead>
     <tbody>
         <?php   
@@ -45,8 +45,8 @@ $link = $router->url('categories_manage');
         ?>
         <tr>
             <td>#<?= $item->getID();?></td>
-            <td><a href="<?= $edit ?>" class="text-dark font-weight-bold"><?= e($item->getName()) ;?></a></td>
-            <td class="text-right">
+            <td><a href="<?= $edit ?>" class="text-dark fw-bold"><?= e($item->getName()) ;?></a></td>
+            <td class="text-end">
                 <a href="<?= $edit ?>" class="btn btn-sm btn-info">
                     Editer
                 </a>

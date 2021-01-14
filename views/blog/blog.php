@@ -9,8 +9,14 @@ $pdo = Database::getPDO();
 $table = new PostTable($pdo);
 [$posts, $pagination] = $table->findPaginated();
 ?>
+<div class="row">
 
-<h1 class="text-right">Index des articles</h1>
+<aside class="col-md-3">
+    <?php require '_side.php' ;?>
+</aside>
+
+<div class="col-md-9">
+<h1 class="text-end">Index des articles</h1>
 <hr>
 <?php foreach($posts as $post) :?>
     <?php require '_card.php'; ?>
@@ -19,3 +25,6 @@ $table = new PostTable($pdo);
     <?= $pagination->previousLink($link); ?>
     <?= $pagination->nextLink($link); ?>
 </aside>
+</div>
+
+</div>

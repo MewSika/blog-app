@@ -3,10 +3,11 @@ $categories = [];
 foreach($post->getCategories() as $category) {
     $url = $router->url('category', ['id' => $category->getId(), 'slug' => $category->getSlug()]);
     $categories[] = <<<HTML
-    <a href="{$url}" class="text-dark text-muted font-weight-light font-italic">{$category->getName()}</a>
+    <a href="{$url}" class="text-dark text-muted fw-light fst-italic">{$category->getName()}</a>
 HTML;
 }
 ?>
+
 <div class="card shadow p-2 mb-4 bg-white rounded">
     <div class="card-body">
         <div class="container p-0">
@@ -19,7 +20,7 @@ HTML;
         <?= nl2br(e($post->getExcerpt())) ?>
         <a class="badge badge-light" href="
             <?= $router->url('article', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>">...lire la suite</a>
-        <footer class="blockquote-footer text-right pt-3"><?= e($post->getAuthor()) ?>, le <?= $post->getCreatedAt()->format('j F Y à H:i');?>
+        <footer class="blockquote-footer text-end pt-3"><?= e($post->getAuthor()) ?>, le <?= $post->getCreatedAt()->format('j F Y à H:i');?>
         <?php if(!empty($post->getCategories())) :?>
             <hr>
             Catégories associées :
