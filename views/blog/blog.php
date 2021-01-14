@@ -9,6 +9,7 @@ $pdo = Database::getPDO();
 $table = new PostTable($pdo);
 [$posts, $pagination] = $table->findPaginated();
 ?>
+
 <div class="row">
 
 <aside class="col-md-3">

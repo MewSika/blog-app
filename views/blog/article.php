@@ -18,12 +18,13 @@ if($post->getSlug() !== $slug) {
     header('Location: '.$url);
 } 
 ?>
-<article class="container p-0">
-    <h1 class="text-end"><?= e($post->getName()) ?></h1>
-    <?php if($post->getImage()) : ?>
-        <img src="<?= $post->getImageURL('large') ?>" alt="<?= $post->getName() ;?>" class="card-img-top">
-    <?php endif; ?>
-</article>
+    <article class="container p-0">
+        <h1 class="text-center"><?= e($post->getName()) ?></h1><hr>
+        <?php require '_breadcrumb.php'; ?>
+        <?php if($post->getImage()) : ?>
+            <img src="<?= $post->getImageURL('large') ?>" alt="<?= $post->getName() ;?>" class="card-img-top">
+        <?php endif; ?>
+    </article>
 
 
     <p class="text-muted text-end">Publié le <?= $post->getCreatedAt()->format('d F Y') ?></p>

@@ -18,7 +18,7 @@ if($category->getSlug() !== $slug) {
 
 [$posts, $pagination] = (new PostTable($pdo))->findPaginatedForCategory($category->getID());
 
-$title = "Catégorie - " . ucfirst($category->getName());
+$title = "Articles de la catégorie - " . ucfirst($category->getName());
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 ?>
 
@@ -26,14 +26,17 @@ $link = $router->url('category', ['id' => $category->getID(), 'slug' => $categor
 <hr>
 
 <div class="row">
-    <?php foreach($posts as $post) :?>
-    <div class="col-md-12 mb-3">
-        <?php require '_card.php'; ?>
+    <div class="col-md-3">
+        <?php require '_side.php'; ?>
     </div>
-    <?php endforeach ;?>
-</div>
+    <div class="col-md-9">
+        <?php foreach($posts as $post) :?>
+            <?php require '_card.php'; ?>
+        <?php endforeach ;?>
+    </div>
 
-<aside class="text-center mb-5">
-    <?= $pagination->previousLink($link) ?>
-    <?= $pagination->nextLink($link) ?>
-</aside>
+    <aside class="text-center mb-5">
+        <?= $pagination->previousLink($link) ?>
+        <?= $pagination->nextLink($link) ?>
+    </aside>
+</div>
