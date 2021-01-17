@@ -21,11 +21,7 @@ use App\HTML\Nav;
     <meta name="theme-color" content="#563d7c">
 
     <style>
-      .caption {
-        position: absolute;
-        color: white;
-        opacity: 0.63;
-        text-shadow: black 2px 2px;
+      .text-border {
       }
 
       .bd-placeholder-img {

@@ -18,7 +18,7 @@ HTML;
             <?php endif ;?>
         </div>
         <?= nl2br(e($post->getExcerpt())) ?>
-        <a class="badge badge-light" href="
+        <a class="badge bg-light text-dark" href="
             <?= $router->url('article', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>">...lire la suite</a>
         <footer class="blockquote-footer text-end pt-3"><?= e($post->getAuthor()) ?>, le <?= $post->getCreatedAt()->format('j F Y à H:i');?>
         <?php if(!empty($post->getCategories())) :?>

@@ -18,9 +18,7 @@ class Form {
         $type = $key === 'password' ? 'password' : 'text';
         return <<<HTML
         <div class="input-group mb-3">
-            <div class="input-group-prepend p-0">
-                <label class="input-group-text" for="field{$key}">{$label}</label>
-            </div>
+            <label class="input-group-text" for="field{$key}">{$label}</label>
             <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="{$value}" placeholder={$placeholder}>
             {$this->getErrorFeedback($key)}
         </div>

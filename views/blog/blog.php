@@ -11,21 +11,18 @@ $table = new PostTable($pdo);
 ?>
 
 <div class="row">
-
-<aside class="col-md-3">
-    <?php require '_side.php' ;?>
-</aside>
-
-<div class="col-md-9">
-<h1 class="text-end">Index des articles</h1>
-<hr>
-<?php foreach($posts as $post) :?>
-    <?php require '_card.php'; ?>
-<?php endforeach ;?>
-<aside class="text-center mb-5">
-    <?= $pagination->previousLink($link); ?>
-    <?= $pagination->nextLink($link); ?>
-</aside>
-</div>
-
+    <div class="col-md-9">
+        <h1 class="text-end">Index des articles</h1>
+        <hr>
+        <?php foreach($posts as $post) :?>
+            <?php require '_card.php'; ?>
+        <?php endforeach ;?>
+        <aside class="text-center mb-5">
+            <?= $pagination->previousLink($link); ?>
+            <?= $pagination->nextLink($link); ?>
+        </aside>
+    </div>
+    <aside class="col-md-3">
+        <?php require '_side.php' ;?>
+    </aside>
 </div>

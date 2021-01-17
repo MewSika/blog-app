@@ -20,7 +20,7 @@ if($post->getSlug() !== $slug) {
 ?>
     <article class="container p-0">
         <h1 class="text-center"><?= e($post->getName()) ?></h1><hr>
-        <?php require '_breadcrumb.php'; ?>
+        <?php require __DIR__.'/_breadcrumb.php'; ?>
         <?php if($post->getImage()) : ?>
             <img src="<?= $post->getImageURL('large') ?>" alt="<?= $post->getName() ;?>" class="card-img-top">
         <?php endif; ?>

@@ -51,7 +51,7 @@ final class PostTable extends Table {
             "SELECT * FROM {$this->table} 
             ORDER BY created_at DESC",
             "SELECT COUNT(id) FROM post",
-            $this->pdo
+            $this->pdo,
         );
         $posts = $paginatedQuery->getItems(Post::class);
         (new CategoryTable($this->pdo))->hydratePost($posts);
@@ -76,7 +76,6 @@ final class PostTable extends Table {
         
     /**
      * Récupère les derniers articles rédigés
-     *
      * @return array
      */
     public function getLastPosts(int $limit): array

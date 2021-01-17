@@ -3,7 +3,7 @@ namespace App\Helpers;
 
 class TextHelper {
 
-    public static function excerpt(string $content, int $limit = 300) : string
+    public static function excerpt(string $content, int $limit) : string
     {
         if(mb_strlen($content) < $limit) {
             return $content;

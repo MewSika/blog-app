@@ -6,8 +6,7 @@ $title = "Accueil - Pixel Blog";
 $link = $router->url('blog');
 
 $pdo = Database::getPDO();
-$table = new PostTable($pdo);
-[$posts, $pagination] = $table->findPaginated();
+$lastPosts = (new PostTable($pdo))->getLastPosts(6);
 ?>
 
 <h1 class="display-3 fw-bold">Bienvenue sur Pixel Blog !</h1>
@@ -15,21 +14,14 @@ $table = new PostTable($pdo);
 
 <div class="row">
     <aside class="col-md-3">
-        <?php require '../views/blog/_side.php'; ?>
+        <?php require __DIR__.'/blog/_side.php'; ?>
     </aside>
     <div class="col-md-9">
-        <h2>Voici un apperçu des dernières actualités : </h2>
-        <div class="row">
-            <?php foreach($posts as $post) :?>
-            <div class="col-md-6">
-                <?php require '../views/blog/_card.php'; ?>
-            </div>
-            <?php endforeach ;?>
+        <h2>Dernières actualités : </h2>
+        <div class="row justify-content-center">
+                <?php foreach($lastPosts as $k => $post) :?>
+                    <?php require '../views/blog/_homeTable.php'; ?>
+                <?php endforeach ;?>
         </div>
     </div>
-
-    <aside class="text-center mb-5">
-        <?= $pagination->previousLink($link); ?>
-        <?= $pagination->nextLink($link); ?>
-    </aside>
 </div>
