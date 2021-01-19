@@ -40,7 +40,6 @@ class Router {
         } else {
             $view = $match['target'] ;
             $params = $match['params'];
-
         }
         $router = $this;
 

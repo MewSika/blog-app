@@ -10,15 +10,15 @@
     <div class="card-body bg-light p-0">
         <?php if($post->getImage()) :?>
             <a href="<?= $router->url('article', ['id' => $post->getId(), 'slug' => $post->getSlug()]);?>">
-                <div class="card-img-top d-flex justify-content-center align-items-center "><img class="rounded" src="<?= $post->getimageURL('small');?>" alt=""></div>
+                <div class="card-img-top d-flex justify-content-center align-items-center"><img class="rounded shadow" src="<?= $post->getimageURL('small');?>" alt=""></div>
             </a>
         <?php endif ;?>
-        <div class="card-text bg-light p-2">
+        <div class="card-text p-2">
             <h5 class="fw-bold"><?= $post->getName(); ?></h5>
-            <p class="small"><?= $post->getExcerpt(100) ?> <a href="<?= $router->url('article', ['id' => $post->getId(), 'slug' => $post->getSlug()]);?>" class="text-secondary fst-italic">...lire la suite</a></p>
+            <p class="small m-2"><?= $post->getExcerpt(100) ?> <a href="<?= $router->url('article', ['id' => $post->getId(), 'slug' => $post->getSlug()]);?>" class="text-secondary fst-italic">...lire la suite</a></p>
         </div>
     </div>
-    <div class="card-footer text-end">
+    <div class="card-footer bg-light text-end">
       <small class="text-muted">Publié le <?= $post->getCreatedAt()->format('d/m/Y à H\hi') ?></small>
     </div>
 </div>

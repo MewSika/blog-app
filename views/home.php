@@ -11,7 +11,6 @@ $lastPosts = (new PostTable($pdo))->getLastPosts(6);
 
 <h1 class="display-3 fw-bold">Bienvenue sur Pixel Blog !</h1>
 <hr>
-
 <div class="row">
     <aside class="col-md-3">
         <?php require __DIR__.'/blog/_side.php'; ?>
