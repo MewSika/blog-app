@@ -1,0 +1,29 @@
+{% extends 'layout/layout.twig' %}
+
+{% block head %}
+    <title> Article - {{ slug|capitalize}}</title>
+{% endblock %}
+
+{% block content %}
+    <article class="container p-0">
+        <h1 class="text-center"> {{ post.getName() }}</h1><hr>
+        {% include 'blog/_breadcrumb.twig' %}
+        {% if post.getImage() %}
+            <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top">
+        {% endif %}
+    </article>
+
+
+    <p class="text-muted text-end">Publié le {{ post.getCreatedAt()|format_date('full', locale='fr') }}</p>
+    <p class="text-end fw-light fst-italic">
+    {% for category in post.getCategories() %}
+        {% if loop.index > 1 %}
+            <span class="fw-light">|</span>
+        {% endif %}
+        <a href="{{ router.url('category', {'id': category.getId(), 'slug': category.getSlug()}) }}" class="text-secondary">{{ post.getName() }}</a>
+    {% endfor %}
+    </p>
+<hr>
+<p class="text-justify lh-sm"> {{ post.getContent()|nl2br }}</p>
+<p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor() }}</em></p>
+{% endblock %}

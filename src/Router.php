@@ -8,22 +8,29 @@ class Router {
     /**
      * @var string
      */
-    private $viewPath;
+    private $controllerPath;
 
     /**
      * @var AltoRouter
      */
     private $router;
+    
+    /**
+     *
+     * @var Twig\Environment
+     */
+    private $twig;
 
-    public function __construct(string $viewPath)
+    public function __construct(\Twig\Environment $twig, string $controllerPath)
     {
-        $this->viewPath = $viewPath;
+        $this->twig = $twig;
+        $this->controllerPath = $controllerPath;
         $this->router = new \AltoRouter();
     }
 
-    public function match(string $url, string $view, ?string $name = null): self
+    public function match(string $url, string $controller, ?string $name = null): self
     {
-        $this->router->map('GET|POST', $url, $view, $name);
+        $this->router->map('GET|POST', $url, $controller, $name);
 
         return $this;
     }
@@ -36,22 +43,21 @@ class Router {
     {
         $match = $this->router->match();
         if($match === false) {
-            $view = "e404";
+            $controller = "e404";
         } else {
-            $view = $match['target'] ;
+            $controller = $match['target'] ;
             $params = $match['params'];
         }
         $router = $this;
+        $twig = $this->twig;
 
-        $isAdmin = strpos($view, "admin/") !== false;
+        $isAdmin = strpos($controller, "admin/") !== false;
         $layout = $isAdmin ? "admin/layout/layout" : "layout/layout";
-        if($view === null) {
-            $view = "e404";
+        if($controller === null) {
+            $controller = "e404";
         }
-        ob_start();
-        require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
-        $pageContent = ob_get_clean();
-        require $this->viewPath . DIRECTORY_SEPARATOR . $layout . '.php';
+        
+        echo require $this->controllerPath . DIRECTORY_SEPARATOR . $controller .'.php';
 
         return $this;
     }

@@ -1,0 +1,10 @@
+{% extends 'layout/layout.twig' %}
+{% block content %}
+<div class="text-center p-3 mb-2">
+    <h1>Whoops! <br>Page indisponible</h1>
+    <i class="fa fa-ban text-danger fa-spin fa-5x fa-fw"></i>
+</div>
+<hr>
+<h2 class="text-center"> Par <a href="{{ router.url('home')}}" class="fst-italic text-secondary">ici</a> pour retourner à l'accueil du site ! </h2>
+
+{% endblock %}

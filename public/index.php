@@ -1,21 +1,27 @@
 <?php
+
 require '../vendor/autoload.php';
 
 define('DEBUG_TIME', microtime(true));
 define('UPLOAD_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'img');
-define('CSS_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'style/style.css');
 
+/** Debug  */
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
+/** Twig */
 $loader = new Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/templates');
 $twig = new Twig\Environment($loader, [
     'cache' =>  __DIR__ . '/tmp',
     'debug' => true
 ]);
+$twig->addExtension(new Twig\Extension\DebugExtension());
+$twig->addExtension(new App\Twig\CustomExtensions());
+$twig->addExtension(new Twig\Extra\Intl\IntlExtension());
+$twig->addGlobal('current_page', $_SERVER['REQUEST_URI']);
 
-
+/** Redirect pagination */
 if (isset($_GET['p']) && $_GET['p'] === '1') {
     $url = explode('?', $_SERVER['REQUEST_URI'])[0];
     unset($_GET['p']);
@@ -27,14 +33,14 @@ if (isset($_GET['p']) && $_GET['p'] === '1') {
     exit();
 }
 
-    
-$router = new App\Router(dirname(__DIR__). '/views');
+
+$router = new App\Router($twig, dirname(__DIR__). '/controllers');
 $router
     ->match('/', 'home', 'home')
     ->match('/realestate', 'table', 'table')
     ->match('/contact', 'contact', 'contact')
 
-    ->match('/blog', 'blog/blog', 'blog')
+    ->match('/blog', 'blog', 'blog')
     ->match('/blog/category/[*:slug]-[i:id]', 'blog/category', 'category')
     ->match('/blog/[*:slug]-[i:id]', 'blog/article', 'article')
 
@@ -57,6 +63,5 @@ $router
     ->match('/lagestion/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
 
     ->match('/user', 'user', 'user')
-    ->match('', '404', '404')
     
     ->run();

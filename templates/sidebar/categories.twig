@@ -1,0 +1,12 @@
+<div class="card mb-3 shadow">
+    <h6 class="card-header">
+        Catégories
+    </h6>
+    <ul class="nav flex-column ">
+        {% for sideCategory in categories %}
+        <a href="{{ router.url('category',{'id': sideCategory.getId(), 'slug': sideCategory.getSlug()})}}" class="text-secondary text-decoration-none">
+            <li class="list-group-item list-group-item-action">{{ sideCategory.getName() }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+</div>

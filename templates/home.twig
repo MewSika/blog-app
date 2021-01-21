@@ -1,0 +1,21 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+<h1 class="display-3 fw-bold">Bienvenue sur Pixel Blog !</h1>
+<hr>
+<div class="row">
+    <aside class="col-md-3">
+        {% block sidebar %}
+            {% include '_side.twig' %}
+        {% endblock %}
+    </aside>
+    <div class="col-md-9">
+        <h2>Dernières actualités : </h2>
+        <div class="row justify-content-center">
+                {% for post in lastPosts %}
+                    {% include 'blog/_homeTable.twig' %}
+                {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
