@@ -55,28 +55,9 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 17
         echo "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1\" crossorigin=\"anonymous\">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Favicons -->
     <meta name=\"theme-color\" content=\"#563d7c\">
-
-    <style>
-      .text-border {
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
 </head>
 
@@ -84,23 +65,23 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
   <a class=\"navbar-brand\" href=\"/\"><i class='fas fa-home'></i></a>
   <ul class=\"navbar-nav mr-auto\">
     ";
-        // line 46
-        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 46)->unwrap();
-        // line 47
+        // line 27
+        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 27)->unwrap();
+        // line 28
         echo "      ";
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 47), "Accueil", "/"], 47, $context, $this->getSourceContext());
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 28), "Accueil", "/"], 28, $context, $this->getSourceContext());
         echo "
       ";
-        // line 48
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 48), "Blog", "/blog"], 48, $context, $this->getSourceContext());
+        // line 29
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 29), "Blog", "/blog"], 29, $context, $this->getSourceContext());
         echo "
       ";
-        // line 49
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 49), "Nous contacter", "/contact"], 49, $context, $this->getSourceContext());
+        // line 30
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 30), "Contact", "/contact"], 30, $context, $this->getSourceContext());
         echo "
       ";
-        // line 50
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "table"], "method", false, false, false, 50), "Todo", "test"], 50, $context, $this->getSourceContext());
+        // line 31
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "table"], "method", false, false, false, 31), "Todo", "test"], 31, $context, $this->getSourceContext());
         echo "
   </ul>
   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarDefault\" aria-controls=\"navbarDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -111,9 +92,9 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 <body class=\"d-flex flex-column h-100 bg-light\">
     <div class=\"container\">
       ";
-        // line 59
+        // line 40
         $this->displayBlock('content', $context, $blocks);
-        // line 61
+        // line 42
         echo "    </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
@@ -145,15 +126,15 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     {
         $macros = $this->macros;
         // line 15
-        echo "    <link rel=\"stylesheet\" type=\"text/css\" href=\"style/styles.css\"/>
+        echo "    <link rel=\"stylesheet\" type=\"text/css\" href=\"/style/style.css\"/>
     ";
     }
 
-    // line 59
+    // line 40
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 60
+        // line 41
         echo "      ";
     }
 
@@ -169,7 +150,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  157 => 60,  153 => 59,  148 => 15,  144 => 14,  138 => 10,  134 => 9,  117 => 61,  115 => 59,  103 => 50,  99 => 49,  95 => 48,  90 => 47,  88 => 46,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  138 => 41,  134 => 40,  129 => 15,  125 => 14,  119 => 10,  115 => 9,  98 => 42,  96 => 40,  84 => 31,  80 => 30,  76 => 29,  71 => 28,  69 => 27,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -188,31 +169,12 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
       {% endblock %}
     <!-- Bootstrap core CSS -->
     {% block stylesheets %}
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"style/styles.css\"/>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"/style/style.css\"/>
     {% endblock %}
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1\" crossorigin=\"anonymous\">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Favicons -->
     <meta name=\"theme-color\" content=\"#563d7c\">
-
-    <style>
-      .text-border {
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
 </head>
 
@@ -222,7 +184,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     {% import \"_navbar.twig\" as navbar %}
       {{ navbar.item(router.url('home'), 'Accueil', '/') }}
       {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
-      {{ navbar.item(router.url('contact'), 'Nous contacter', '/contact') }}
+      {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
       {{ navbar.item(router.url('table'), 'Todo', 'test') }}
   </ul>
   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarDefault\" aria-controls=\"navbarDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">

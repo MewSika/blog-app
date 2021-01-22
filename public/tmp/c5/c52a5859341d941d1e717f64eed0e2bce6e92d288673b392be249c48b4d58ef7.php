@@ -35,7 +35,7 @@ class __TwigTemplate_123d9558cba8c00ab50de4c7d93ee5e3811e355d8b16d2405f6493e212b
         $macros = $this->macros;
         // line 1
         echo "<div class=\"card mb-3 shadow\">
-    <h6 class=\"card-header\">
+    <h6 class=\"card-header fw-bold\">
         Catégories
     </h6>
     <ul class=\"nav flex-column \">
@@ -81,7 +81,7 @@ class __TwigTemplate_123d9558cba8c00ab50de4c7d93ee5e3811e355d8b16d2405f6493e212b
     public function getSourceContext()
     {
         return new Source("<div class=\"card mb-3 shadow\">
-    <h6 class=\"card-header\">
+    <h6 class=\"card-header fw-bold\">
         Catégories
     </h6>
     <ul class=\"nav flex-column \">

@@ -52,8 +52,8 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
         try {
             // line 2
             echo "
-    <li class=\"nav_item\">
-        <a class=\"nav-link  ";
+    <li class=\"nav_item text-center\">
+        <a class=\"nav-link navhover ";
             // line 4
             echo twig_escape_filter($this->env, $this->extensions['App\Twig\CustomExtensions']->activeClass($context, ($context["name"] ?? null)), "html", null, true);
             echo "\" href=";
@@ -90,8 +90,8 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
     {
         return new Source("{% macro item(link, title, name)%}
 
-    <li class=\"nav_item\">
-        <a class=\"nav-link  {{ activeClass(name) }}\" href={{link}}>{{ title }}</a>
+    <li class=\"nav_item text-center\">
+        <a class=\"nav-link navhover {{ activeClass(name) }}\" href={{link}}>{{ title }}</a>
     </li>
 
 {% endmacro %}", "_navbar.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\_navbar.twig");

@@ -57,7 +57,7 @@ class Router {
             $controller = "e404";
         }
         
-        echo require $this->controllerPath . DIRECTORY_SEPARATOR . $controller .'.php';
+        echo require $this->controllerPath . DIRECTORY_SEPARATOR . $controller   .'.php';
 
         return $this;
     }

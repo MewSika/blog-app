@@ -12,31 +12,12 @@
       {% endblock %}
     <!-- Bootstrap core CSS -->
     {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="style/styles.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/style.css"/>
     {% endblock %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Favicons -->
     <meta name="theme-color" content="#563d7c">
-
-    <style>
-      .text-border {
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
 </head>
 
@@ -46,7 +27,7 @@
     {% import "_navbar.twig" as navbar %}
       {{ navbar.item(router.url('home'), 'Accueil', '/') }}
       {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
-      {{ navbar.item(router.url('contact'), 'Nous contacter', '/contact') }}
+      {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
       {{ navbar.item(router.url('table'), 'Todo', 'test') }}
   </ul>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
