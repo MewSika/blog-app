@@ -8,12 +8,12 @@
     <div class="card-body bg-light p-0">
         {% if post.getImage() %}
             <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}">
-                <div class="card-img-top d-flex justify-content-center align-items-center"><img class="rounded shadow img-fluid" src="{{ post.getimageURL('small') }}" alt=""></div>
+                <div class="card-img-top d-flex justify-content-center align-items-center"><img class="rounded w-100 shadow img-fluid" src="{{ post.getimageURL('small') }}" alt=""></div>
             </a>
         {% endif %}
-        <div class="card-text p-2">
+        <div class="card-text p-2 mt-2">
             <h5 class="fw-bold"> {{ post.getName() }}</h5>
-            <p class="small m-2"> {{ post.getContent()[:100] }} <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-secondary fst-italic text-decoration-none">...lire la suite</a></p>
+            <p class="small"> {{ post.getContent()[:100] }} <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-secondary fst-italic text-decoration-none">...lire la suite</a></p>
         </div>
     </div>
     <div class="card-footer bg-light text-end">

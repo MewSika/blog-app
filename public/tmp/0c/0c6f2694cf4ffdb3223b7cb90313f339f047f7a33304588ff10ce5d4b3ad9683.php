@@ -66,7 +66,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         // line 12
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getID", [], "method", false, false, false, 12), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 12)]], "method", false, false, false, 12), "html", null, true);
         echo "\">...lire la suite</a>
-        <footer class=\"blockquote-footer text-end pt-3\">";
+        <footer class=\"blockquote-footer fst-italic text-end pt-3\">";
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 13), "html", null, true);
         echo ", le ";
@@ -82,24 +82,52 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
             // line 17
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCategories", [], "method", false, false, false, 17));
+            $context['loop'] = [
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            ];
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
             foreach ($context['_seq'] as $context["_key"] => $context["assocCat"]) {
                 // line 18
+                echo "                    ";
+                if ((1 === twig_compare(twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 18), 1))) {
+                    // line 19
+                    echo "                        <span class=\"fw-light\">|</span>
+                    ";
+                }
+                // line 21
                 echo "                   <a href=\"";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "category", 1 => ["id" => twig_get_attribute($this->env, $this->source, $context["assocCat"], "getId", [], "method", false, false, false, 18), "slug" => twig_get_attribute($this->env, $this->source, $context["assocCat"], "getSlug", [], "method", false, false, false, 18)]], "method", false, false, false, 18), "html", null, true);
-                echo "\" class=\"text-dark text-muted fst-italic text-decoration-none ";
-                echo (((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["assocCat"], "getName", [], "method", false, false, false, 18), twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getName", [], "method", false, false, false, 18)))) ? ("fw-bold") : ("fw-light"));
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "category", 1 => ["id" => twig_get_attribute($this->env, $this->source, $context["assocCat"], "getId", [], "method", false, false, false, 21), "slug" => twig_get_attribute($this->env, $this->source, $context["assocCat"], "getSlug", [], "method", false, false, false, 21)]], "method", false, false, false, 21), "html", null, true);
+                echo "\" class=\"text-dark text-muted text-decoration-none ";
+                echo (((0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["assocCat"], "getName", [], "method", false, false, false, 21), twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getName", [], "method", false, false, false, 21)))) ? ("fw-bold") : ("fw-light"));
                 echo "\">";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["assocCat"], "getName", [], "method", false, false, false, 18), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["assocCat"], "getName", [], "method", false, false, false, 21), "html", null, true);
                 echo "</a>
                 ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['assocCat'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 20
+            // line 23
             echo "        ";
         }
-        // line 21
+        // line 24
         echo "        </footer>
     </div>
 </div>";
@@ -117,7 +145,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
 
     public function getDebugInfo()
     {
-        return array (  103 => 21,  100 => 20,  87 => 18,  83 => 17,  79 => 15,  77 => 14,  71 => 13,  67 => 12,  62 => 10,  59 => 9,  49 => 7,  47 => 6,  42 => 4,  37 => 1,);
+        return array (  131 => 24,  128 => 23,  107 => 21,  103 => 19,  100 => 18,  83 => 17,  79 => 15,  77 => 14,  71 => 13,  67 => 12,  62 => 10,  59 => 9,  49 => 7,  47 => 6,  42 => 4,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -134,12 +162,15 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         {{ post.getContent()[:300] | nl2br }}
         <a class=\"text-secondary fst-italic text-decoration-none \" href=\"
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">...lire la suite</a>
-        <footer class=\"blockquote-footer text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\\\hi') }}
+        <footer class=\"blockquote-footer fst-italic text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\\\hi') }}
         {% if post.getCategories() %}
             <hr>
             Catégories associées :
                 {% for assocCat in post.getCategories() %}
-                   <a href=\"{{router.url(\"category\", {\"id\": assocCat.getId(), \"slug\": assocCat.getSlug()}) }}\" class=\"text-dark text-muted fst-italic text-decoration-none {{ (assocCat.getName() == category.getName()) ? 'fw-bold' : 'fw-light' }}\">{{ assocCat.getName()}}</a>
+                    {% if loop.index > 1 %}
+                        <span class=\"fw-light\">|</span>
+                    {% endif %}
+                   <a href=\"{{router.url(\"category\", {\"id\": assocCat.getId(), \"slug\": assocCat.getSlug()}) }}\" class=\"text-dark text-muted text-decoration-none {{ (assocCat.getName() == category.getName()) ? 'fw-bold' : 'fw-light' }}\">{{ assocCat.getName()}}</a>
                 {% endfor %}
         {% endif %}
         </footer>

@@ -19,6 +19,8 @@ if($auth->user() !== null) {
     header('Location:' . $router->url('dashboard'));
 }
 
+$forbidden = $_GET['forbidden'] ?? '';
+
 if(!empty($_POST)) {
     $user->setUsername($_POST['username']);
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
@@ -38,21 +40,10 @@ if(!empty($_POST)) {
 }
 
 $form = new Form($user, $errors);
-?>
-<h2 class="text-center">Connexion</h2><hr>
-<?php if(isset($_GET['forbidden'])) : ?>
-    <div class="alert alert-danger">
-        Vous n'avez pas accès à cette page
-    </div>
-<?php endif; ?>
 
-<form action="<?= $router->url('login'); ?>" method="post" class="m-auto col-3 text-center">
-    <?= $form->input('username', '<i class="fa fa-user fa-fw m-auto" aria-hidden="true"></i>', 'Login') ?>
-    <?= $form->input('password', '<i class="fa fa-lock fa-fw m-auto" aria-hidden="true"></i>', 'Password') ?>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Rester connecté(e)
-      </label>
-    </div>
-    <button class="btn btn-secondary ml-3"> Se connecter</button>
-</form>
+return $twig->render('auth/login.twig', [
+    'user' => $user,
+    'form' => $form,
+    'router' => $router,
+    'forbidden' => $forbidden
+]);

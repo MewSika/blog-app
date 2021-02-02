@@ -1,17 +1,8 @@
-<?php
-require '../vendor/autoload.php';
-use App\Auth\ {
-  Auth,
-  App
-};
-use App\Config\Database;
-
-$title = "Administration";
-$pageDescribe = "Zone d'administration";
-$auth = App::getAuth();
-$user = $auth->user();
-
-?>
+{% extends 'admin/layout/layout.twig' %}
+{% block head %}
+    <title>Accueil administrator</title>
+{% endblock %}
+{% block content %}
 <h1>Dashboard</h1>
   <hr>
   <?php if(isset($_GET['login'])) : ?>
@@ -34,3 +25,4 @@ $user = $auth->user();
     </button>
   </div>
   <?php endif; ?>
+{% endblock %}

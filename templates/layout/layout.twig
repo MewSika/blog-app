@@ -21,15 +21,18 @@
     <!-- Custom styles for this template -->
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 d-flex">
   <a class="navbar-brand" href="/"><i class='fas fa-home'></i></a>
   <ul class="navbar-nav mr-auto">
     {% import "_navbar.twig" as navbar %}
       {{ navbar.item(router.url('home'), 'Accueil', '/') }}
       {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
       {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
-      {{ navbar.item(router.url('table'), 'Todo', 'test') }}
   </ul>
+  <form class="form-inline form-navbar my-2 my-lg-0 ms-auto" action="">
+      <input class="form-control" name="q" type="text" placeholder="Rechercher">
+  </form>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

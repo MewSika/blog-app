@@ -61,7 +61,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     <!-- Custom styles for this template -->
 </head>
 
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3\">
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 d-flex\">
   <a class=\"navbar-brand\" href=\"/\"><i class='fas fa-home'></i></a>
   <ul class=\"navbar-nav mr-auto\">
     ";
@@ -79,11 +79,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
         // line 30
         echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 30), "Contact", "/contact"], 30, $context, $this->getSourceContext());
         echo "
-      ";
-        // line 31
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "table"], "method", false, false, false, 31), "Todo", "test"], 31, $context, $this->getSourceContext());
-        echo "
   </ul>
+  <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"\">
+      <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+  </form>
+
   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarDefault\" aria-controls=\"navbarDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
   </button>
@@ -92,9 +92,9 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 <body class=\"d-flex flex-column h-100 bg-light\">
     <div class=\"container\">
       ";
-        // line 40
+        // line 43
         $this->displayBlock('content', $context, $blocks);
-        // line 42
+        // line 45
         echo "    </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
@@ -130,11 +130,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     ";
     }
 
-    // line 40
+    // line 43
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 41
+        // line 44
         echo "      ";
     }
 
@@ -150,7 +150,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  138 => 41,  134 => 40,  129 => 15,  125 => 14,  119 => 10,  115 => 9,  98 => 42,  96 => 40,  84 => 31,  80 => 30,  76 => 29,  71 => 28,  69 => 27,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  138 => 44,  134 => 43,  129 => 15,  125 => 14,  119 => 10,  115 => 9,  98 => 45,  96 => 43,  80 => 30,  76 => 29,  71 => 28,  69 => 27,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -178,15 +178,18 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     <!-- Custom styles for this template -->
 </head>
 
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3\">
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 d-flex\">
   <a class=\"navbar-brand\" href=\"/\"><i class='fas fa-home'></i></a>
   <ul class=\"navbar-nav mr-auto\">
     {% import \"_navbar.twig\" as navbar %}
       {{ navbar.item(router.url('home'), 'Accueil', '/') }}
       {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
       {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
-      {{ navbar.item(router.url('table'), 'Todo', 'test') }}
   </ul>
+  <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"\">
+      <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+  </form>
+
   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarDefault\" aria-controls=\"navbarDefault\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
   </button>

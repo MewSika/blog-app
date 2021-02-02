@@ -14,12 +14,12 @@ class Form {
 
     public function input(string $key, string $label, ?string $placeholder = null): string
     {
-        $value = $this->getValue($key);
+        // $value = $this->getValue($key);
         $type = $key === 'password' ? 'password' : 'text';
         return <<<HTML
         <div class="input-group mb-3">
             <label class="input-group-text" for="field{$key}">{$label}</label>
-            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="{$value}" placeholder={$placeholder}>
+            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="" placeholder={$placeholder}>
             {$this->getErrorFeedback($key)}
         </div>
 HTML;
@@ -81,18 +81,18 @@ HTML;
      * 
      * @param string $key représente la valeur du get
      */
-    public function getValue(string $key)
-    {
-        if(is_array($this->data)) {
-            return $this->data[$key] ?? null;
-        }
-        $method = 'get' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
-        $value = $this->data->$method();
-        if($value instanceof \DateTimeInterface) {
-            return $value->format('Y-m-d H:i:s');
-        }
-        return $value;
-    }
+    // public function getValue(string $key)
+    // {
+    //     if(is_array($this->data)) {
+    //         return $this->data[$key] ?? null;
+    //     }
+    //     $method = 'get' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
+    //     $value = $this->data->$method();
+    //     if($value instanceof \DateTimeInterface) {
+    //         return $value->format('Y-m-d H:i:s');
+    //     }
+    //     return $value;
+    // }
 
     private function getInputClass(string $key): string
     {

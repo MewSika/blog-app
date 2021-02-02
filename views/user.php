@@ -6,7 +6,7 @@ use App\Auth\App;
 use App\Exception\ForbiddenException;
 
 $error = null;
-Auth::adminOnly($router);
+Auth::check($router);
 
 $title = "Votre compte"
 ?>

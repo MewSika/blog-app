@@ -65,7 +65,7 @@ class Auth {
         }
     }
 
-    public static function adminOnly($router){
+    public static function check($router){
         try{
             $user = App::getAuth()->requireRole('admin');
         } catch(ForbiddenException $e) {

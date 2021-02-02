@@ -1,0 +1,22 @@
+{% extends 'layout/layout.twig' %}
+{% block content %}
+<h2 class="text-center">Connexion</h2><hr>
+{{ layout.request.query.get("page") }}
+
+{% if forbidden %}
+    <div class="alert alert-danger">
+        Vous n'avez pas accès à cette page
+    </div>
+{% endif %}
+
+<form action="{{ router.url('login') }}" method="post" class="m-auto col-xs-6 col-md-3 text-center">
+    {{ form.input('username', '<i class="fa fa-user fa-fw m-auto" aria-hidden="true"></i>', 'Login')|raw }}
+    {{ form.input('password', '<i class="fa fa-lock fa-fw m-auto" aria-hidden="true"></i>', 'Password')|raw }}
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Rester connecté(e) 
+      </label>
+    </div>
+    <button class="btn btn-secondary ml-3"> Se connecter</button>
+</form>
+{% endblock %}

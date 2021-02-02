@@ -52,7 +52,7 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
             echo "            <a href=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 10), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 10)]], "method", false, false, false, 10), "html", null, true);
             echo "\">
-                <div class=\"card-img-top d-flex justify-content-center align-items-center\"><img class=\"rounded shadow img-fluid\" src=\"";
+                <div class=\"card-img-top d-flex justify-content-center align-items-center\"><img class=\"rounded w-100 shadow img-fluid\" src=\"";
             // line 11
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getimageURL", [0 => "small"], "method", false, false, false, 11), "html", null, true);
             echo "\" alt=\"\"></div>
@@ -60,12 +60,12 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
         ";
         }
         // line 14
-        echo "        <div class=\"card-text p-2\">
+        echo "        <div class=\"card-text p-2 mt-2\">
             <h5 class=\"fw-bold\"> ";
         // line 15
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 15), "html", null, true);
         echo "</h5>
-            <p class=\"small m-2\"> ";
+            <p class=\"small\"> ";
         // line 16
         echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 16), 0, 100), "html", null, true);
         echo " <a href=\"";
@@ -109,12 +109,12 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
     <div class=\"card-body bg-light p-0\">
         {% if post.getImage() %}
             <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\">
-                <div class=\"card-img-top d-flex justify-content-center align-items-center\"><img class=\"rounded shadow img-fluid\" src=\"{{ post.getimageURL('small') }}\" alt=\"\"></div>
+                <div class=\"card-img-top d-flex justify-content-center align-items-center\"><img class=\"rounded w-100 shadow img-fluid\" src=\"{{ post.getimageURL('small') }}\" alt=\"\"></div>
             </a>
         {% endif %}
-        <div class=\"card-text p-2\">
+        <div class=\"card-text p-2 mt-2\">
             <h5 class=\"fw-bold\"> {{ post.getName() }}</h5>
-            <p class=\"small m-2\"> {{ post.getContent()[:100] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary fst-italic text-decoration-none\">...lire la suite</a></p>
+            <p class=\"small\"> {{ post.getContent()[:100] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary fst-italic text-decoration-none\">...lire la suite</a></p>
         </div>
     </div>
     <div class=\"card-footer bg-light text-end\">

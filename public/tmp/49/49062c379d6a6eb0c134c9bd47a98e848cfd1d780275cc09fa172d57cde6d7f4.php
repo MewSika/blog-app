@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* _navbar.twig */
-class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038dbc1f extends Template
+/* _form.twig */
+class __TwigTemplate_9127346b6239050ebc72d5838293eb8e7395c68629b8d3c325c498c19e005b87 extends Template
 {
     private $source;
     private $macros = [];
@@ -33,19 +33,13 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
-        echo "
-";
     }
 
     // line 1
-    public function macro_item($__link__ = null, $__title__ = null, $__name__ = null, ...$__varargs__)
+    public function macro_form(...$__varargs__)
     {
         $macros = $this->macros;
         $context = $this->env->mergeGlobals([
-            "link" => $__link__,
-            "title" => $__title__,
-            "name" => $__name__,
             "varargs" => $__varargs__,
         ]);
 
@@ -54,16 +48,11 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
         ob_start();
         try {
             // line 2
-            echo "    <li class=\"nav_item text-center\">
-        <a class=\"nav-link navhover ";
-            // line 3
-            echo twig_escape_filter($this->env, $this->extensions['App\Twig\CustomExtensions']->activeClass($context, ($context["name"] ?? null)), "html", null, true);
-            echo "\" href=";
-            echo twig_escape_filter($this->env, ($context["link"] ?? null), "html", null, true);
-            echo ">";
-            echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
-            echo "</a>
-    </li>
+            echo "    <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 2), "html", null, true);
+            echo "\">
+        <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+    </form>
 ";
 
             return ('' === $tmp = ob_get_contents()) ? '' : new Markup($tmp, $this->env->getCharset());
@@ -74,7 +63,7 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
 
     public function getTemplateName()
     {
-        return "_navbar.twig";
+        return "_form.twig";
     }
 
     public function isTraitable()
@@ -84,17 +73,15 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
 
     public function getDebugInfo()
     {
-        return array (  60 => 3,  57 => 2,  42 => 1,  37 => 6,);
+        return array (  51 => 2,  39 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% macro item(link, title, name)%}
-    <li class=\"nav_item text-center\">
-        <a class=\"nav-link navhover {{ activeClass(name) }}\" href={{link}}>{{ title }}</a>
-    </li>
-{% endmacro %}
-
-", "_navbar.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\_navbar.twig");
+        return new Source("{% macro form() %}
+    <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"{{ router.url('blog')}}\">
+        <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+    </form>
+{% endmacro %}", "_form.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\_form.twig");
     }
 }
