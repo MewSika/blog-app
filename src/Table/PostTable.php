@@ -44,16 +44,19 @@ final class PostTable extends Table {
             $query->execute(['post_id' => $id, 'category_id' => $category]);
         }
     }
-
-    public function findPaginated()
+    
+    // Todo Params
+    public function findPaginated(?string $key = null)
     {
+        // Todo : Factoriser les requetes
         $paginatedQuery = new PaginatedQuery(
-            "SELECT * FROM {$this->table} 
-            ORDER BY created_at DESC",
-            "SELECT COUNT(id) FROM post",
+            "SELECT * FROM {$this->table} ".
+            (!is_null($key) ? ' WHERE '.$key.' LIKE :'.$key : '').
+            " ORDER BY created_at DESC ",
+            "SELECT COUNT(id) FROM {$this->table}",
             $this->pdo,
         );
-        $posts = $paginatedQuery->getItems(Post::class);
+        $posts = $paginatedQuery->getItems(Post::class, $key);
         (new CategoryTable($this->pdo))->hydratePost($posts);
         return [$posts, $paginatedQuery];
     }

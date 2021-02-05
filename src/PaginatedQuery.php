@@ -25,7 +25,7 @@ class PaginatedQuery {
         $this->perPage = $perPage;
     }
 
-    public function getItems(string $classMapping):array
+    public function getItems(string $classMapping, ?string $key = null):array
     {
         if($this->items === null) {
             $currentPage = $this->getCurrentPage();
@@ -33,14 +33,21 @@ class PaginatedQuery {
             if($currentPage > $pages) {
                 throw new Exception('Cette page n\'existe pas');
             }
+            
             $offset = $this->perPage*($currentPage - 1);
-            $this->items = $this->pdo->query(
+            if(null !== $key) {
+                $sql = $this->pdo->prepare(
+                    $this->query .
+                    " LIMIT {$this->perPage} OFFSET $offset");
+                $sql->bindValue($key, '%'.$_GET['q'].'%', PDO::PARAM_STR);
+                $sql->execute();
+                return $this->items = $sql->fetchAll(PDO::FETCH_CLASS, $classMapping);
+            }
+            return $this->items = $this->pdo->query(
                 $this->query . 
                 " LIMIT {$this->perPage} OFFSET $offset")
                 ->fetchAll(PDO::FETCH_CLASS, $classMapping);
         }
-        return $this->items;
-
     }
 
     private function getCurrentPage(): int
@@ -48,6 +55,7 @@ class PaginatedQuery {
         return URLHelper::getPositiveInt('p', 1);
     }
 
+    // Todo : Params [] url 
     public function previousLink(string $link): ?string
     {
         $currentPage = $this->getCurrentPage();
@@ -60,8 +68,9 @@ class PaginatedQuery {
         <a href="{$l}" class="text-dark"><i class='fas fa-angle-left'></i></a>
 HTML;
     }
-    
-    public function nextLink(string $link): ?string
+
+    // Todo : Params [] url 
+    public function nextLink(string $link, array $params = []): ?string
     {
         $currentPage = $this->getCurrentPage();
         $pages = $this->getPages();
@@ -74,6 +83,7 @@ HTML;
         <a href="{$link}?p={$pages}" class="text-dark"><i class='fas fa-angle-double-right'></i></a>
 HTML;
     }
+
     private function getPages()
     {
         if($this->count === null) {

@@ -20,13 +20,16 @@ final class CategoryTable extends Table {
             $post->setCategories([]);
             $postByID[$post->getID()] = $post;
         }
-        $categories = $this->pdo->query('SELECT c.*, pc.post_id 
+
+        if(!empty($postByID)){
+            $categories = $this->pdo->query('SELECT c.*, pc.post_id 
                     FROM post_category pc
                     JOIN category c ON c.id = pc.category_id
                     WHERE pc.post_id IN ('.implode(", ", array_keys($postByID)).')'
-        )->fetchAll(PDO::FETCH_CLASS, Category::class);
-        foreach ($categories as $key => $category) {
-            $postByID[$category->getPostID()]->addCategory($category);
+            )->fetchAll(PDO::FETCH_CLASS, Category::class);
+            foreach ($categories as $key => $category) {
+                $postByID[$category->getPostID()]->addCategory($category);
+            } 
         }
     }
 

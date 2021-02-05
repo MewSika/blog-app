@@ -66,7 +66,7 @@ class QueryBuilder {
         return $this;
     }
 
-    public function setParam (string $key, $value): self 
+    public function setParam(string $key, $value): self 
     {
         $this->params[$key] = $value;
         return $this;

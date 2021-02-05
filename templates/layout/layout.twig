@@ -29,7 +29,7 @@
       {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
       {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
   </ul>
-  <form class="form-inline form-navbar my-2 my-lg-0 ms-auto" action="">
+  <form class="form-inline form-navbar my-2 my-lg-0 ms-auto" action="{{router.url('results')}}">
       <input class="form-control" name="q" type="text" placeholder="Rechercher">
   </form>
 

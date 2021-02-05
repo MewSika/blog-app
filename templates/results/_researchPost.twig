@@ -1,0 +1,23 @@
+<div class="col-12 card rounded border-0 bg-light">
+        <div class="card-body pb-2">
+            <div class="row">
+            {% if post.getImage() %}
+            <aside class="col-md-3 col-xs-12">
+                <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}">
+                    <div class="card-img-top d-flex justify-content-start align-items-center my-2"><img class="rounded shadow img-fluid" src="{{ post.getimageURL('small') }}" alt=""></div>
+                </a>
+            </aside>
+            {% endif %}
+                <article class="card-text mt-2 col-9">
+                    <p class="text-muted fst-italic small mb-1"> {{ post.getAuthor() }}</p>    
+                    <a class="text-decoration-none text-dark" href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}">
+                        <h5 class="fw-bold"> {{ post.getName() }}</h5>
+                    </a>
+                    <p class="small"> {{ post.getContent()[:200] }} <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-secondary fst-italic text-decoration-none">...lire la suite</a></p>
+                </article>
+            </div>
+            <small class="text-muted">Publié le {{ post.getCreatedAt() | date('d/m/Y à H\\hi') }} </small>
+        </div>
+    <div class="card-footer bg-light">
+    </div>
+</div>

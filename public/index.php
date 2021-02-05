@@ -29,7 +29,7 @@ if (isset($_GET['p']) && $_GET['p'] === '1') {
     $url = $url . (empty($query) ? '' : '?' . $query);
 
     header('Location: ' . $url);
-    http_response_code(301);
+    http_response_code(302);
     exit();
 }
 
@@ -39,6 +39,7 @@ $router
     ->match('/', 'home', 'home')
     ->match('/realestate', 'table', 'table')
     ->match('/contact', 'contact', 'contact')
+    ->match('/results', 'results', 'results')
 
     ->match('/blog', 'blog', 'blog')
     ->match('/blog/category/[*:slug]-[i:id]', 'blog/category', 'category')

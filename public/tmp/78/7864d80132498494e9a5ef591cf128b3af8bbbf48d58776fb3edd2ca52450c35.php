@@ -80,7 +80,10 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
         echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 30), "Contact", "/contact"], 30, $context, $this->getSourceContext());
         echo "
   </ul>
-  <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"\">
+  <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"";
+        // line 32
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 32), "html", null, true);
+        echo "\">
       <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
   </form>
 
@@ -150,7 +153,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  138 => 44,  134 => 43,  129 => 15,  125 => 14,  119 => 10,  115 => 9,  98 => 45,  96 => 43,  80 => 30,  76 => 29,  71 => 28,  69 => 27,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  141 => 44,  137 => 43,  132 => 15,  128 => 14,  122 => 10,  118 => 9,  101 => 45,  99 => 43,  85 => 32,  80 => 30,  76 => 29,  71 => 28,  69 => 27,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -186,7 +189,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
       {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
       {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
   </ul>
-  <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"\">
+  <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"{{router.url('results')}}\">
       <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
   </form>
 

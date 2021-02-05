@@ -9,7 +9,6 @@ $pdo = Database::getPDO();
 $table = new PostTable($pdo);
 [$posts, $pagination] = $table->findPaginated();
 $associatedCategories = [];
-
 $lastPosts = (new PostTable($pdo))->getLastPosts(6);
 $categories = (new CategoryTable($pdo))->all();
 

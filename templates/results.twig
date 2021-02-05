@@ -1,0 +1,33 @@
+{% extends 'layout/layout.twig' %}
+
+{% block head %}
+    <title> Résultats de recherche {{ g | upper}} </title>
+{% endblock %}
+
+{% block content %}
+<h3 class="fw-bold">Résultats de recherche :</h3>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row justify-content-center">
+        {% if posts is empty %}
+            <h4 class="fw-bold text-center mb-2"> Désolé ! Aucun article ne correspond à votre recherche : {{ g | upper}} <h4>
+            <h4 class="fw-bold text-center">Retourner à <a href="{{ router.url('home')}}" class="text-dark">l'accueil</a> du site</h4>
+        </div>
+        {% elseif g|length < 2 %}
+            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir au moins 2 caractères<h4>
+            <h4 class="fw-bold text-center">Retourner à <a href="{{ router.url('home')}}" class="text-dark">l'accueil</a> du site</h4>
+        </div>
+        {% else %}
+            {% for post in posts %}
+                {% include "results/_researchPost.twig" %}
+            {% endfor %}
+        </div>
+        <aside class="text-center mb-5">
+            {{ pagination.previousLink(router.url('results'))|raw }}
+            {{ pagination.nextLink(router.url('results'))|raw }}
+        </aside>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
