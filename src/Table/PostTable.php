@@ -35,6 +35,12 @@ final class PostTable extends Table {
         $post->setID($id);
     }
 
+        
+    /**
+     * @param  int $id id de l'article
+     * @param App\Model\Category[] $categories
+     * @return void
+     */
     public function attachCategories(int $id, array $categories)
     {
         $this->pdo->exec('DELETE FROM post_category WHERE post_id = ' . $id);
@@ -45,10 +51,8 @@ final class PostTable extends Table {
         }
     }
     
-    // Todo Params
     public function findPaginated(?array $params = [], ?string $key = null)
     {
-        // Todo : Factoriser les requetes
         $where = (!null === $key) ? ' WHERE '.$key.' LIKE :'.$key : '';
         $paginatedQuery = new PaginatedQuery(
             "SELECT * FROM {$this->table} ".
@@ -63,6 +67,11 @@ final class PostTable extends Table {
         return [$posts, $paginatedQuery];
     }
 
+        
+    /**
+     * @param  int $categoryID
+     * @return void
+     */
     public function findPaginatedForCategory(int $categoryID)
     {
         $paginatedQuery = new PaginatedQuery(

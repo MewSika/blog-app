@@ -54,7 +54,6 @@ class PaginatedQuery {
         return URLHelper::getPositiveInt('p', 1);
     }
 
-    // Todo : Params [] url 
     public function previousLink(string $link, array $params = []): ?string
     {
         $currentPage = $this->getCurrentPage();
