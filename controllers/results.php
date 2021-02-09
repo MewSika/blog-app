@@ -1,23 +1,24 @@
 <?php
-use App\QueryBuilder;
 use App\Config\Database;
 use App\Table\PostTable;
 
 $pdo = Database::getPDO();
 $table = new PostTable($pdo);
 
-$query = (new QueryBuilder($pdo))->from('post');
+$get = htmlentities($_GET['q']);
+$data = [];
+$data = $_GET;
 
 // Todo paramètres dans l'appel de findPaginated()
-if(!empty($_GET['q'])){
-    [$posts, $pagination] = $table->findPaginated('name');
-    $get = $_GET['q'];
-} 
+if(!empty($get)){
+    [$posts, $pagination] = $table->findPaginated($data, 'name');
 
+} 
 
 return $twig->render('results.twig', [
     'router' => $router,
     'posts' => $posts,
     'pagination' => $pagination,
-    'g' => $get
+    'g' => $get,
+    'data' => $data
     ]);

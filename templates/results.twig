@@ -24,8 +24,8 @@
             {% endfor %}
         </div>
         <aside class="text-center mb-5">
-            {{ pagination.previousLink(router.url('results'))|raw }}
-            {{ pagination.nextLink(router.url('results'))|raw }}
+            {{ pagination.previousLink(router.url('results'), data)|raw }}
+            {{ pagination.nextLink(router.url('results'), data)|raw }}
         </aside>
         {% endif %}
     </div>

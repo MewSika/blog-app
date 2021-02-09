@@ -46,6 +46,11 @@ final class CategoryTable extends Table {
         return [$posts, $paginatedQuery];
     }
 
+        
+    /**
+     * @param  int $categoryID
+     * @return array 
+     */
     public function findPaginatedForCategory(int $categoryID)
     {
         $paginatedQuery = new PaginatedQuery(

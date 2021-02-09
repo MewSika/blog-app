@@ -25,15 +25,14 @@ class PaginatedQuery {
         $this->perPage = $perPage;
     }
 
-    public function getItems(string $classMapping, ?string $key = null):array
+    public function getItems(string $classMapping, ?array $data = [], ?string $key = null):array
     {
         if($this->items === null) {
             $currentPage = $this->getCurrentPage();
-            $pages = $this->getPages();
+            $pages = $this->getPages($data);
             if($currentPage > $pages) {
-                throw new Exception('Cette page n\'existe pas');
+                throw new \Exception('Cette page n\'existe pas');
             }
-            
             $offset = $this->perPage*($currentPage - 1);
             if(null !== $key) {
                 $sql = $this->pdo->prepare(
@@ -56,39 +55,56 @@ class PaginatedQuery {
     }
 
     // Todo : Params [] url 
-    public function previousLink(string $link): ?string
+    public function previousLink(string $link, array $params = []): ?string
     {
         $currentPage = $this->getCurrentPage();
         if($currentPage <= 1) return null;
         if($currentPage >= 2) {
-            $l = $link. "?p=" .($currentPage - 1);
+            $previous = $link. "?" . URLHelper::withParam($params, 'p', $currentPage-1);
         }
+        $start = $link . "?" . URLHelper::withParam($params, 'p', $currentPage = 1);
         return  <<<HTML
-        <a href="{$link}" class="text-dark"><i class='fas fa-angle-double-left'></i></a>
-        <a href="{$l}" class="text-dark"><i class='fas fa-angle-left'></i></a>
+        <a href="{$start}" class="text-dark"><i class='fas fa-angle-double-left'></i></a>
+        <a href="{$previous}" class="text-dark"><i class='fas fa-angle-left'></i></a>
 HTML;
     }
 
-    // Todo : Params [] url 
     public function nextLink(string $link, array $params = []): ?string
     {
+        $url = $this->getParams($params);
         $currentPage = $this->getCurrentPage();
         $pages = $this->getPages();
         if($currentPage >= $pages) return null;
         if($currentPage ) {
-            $l = $link. "?p=".($currentPage + 1);
+            $next = $link. "?".URLHelper::withParam($params, 'p', $currentPage+1);
         }
+        $end = $link . "?" . URLHelper::withParam($params, 'p', $pages);
         return  <<<HTML
-        <a href="{$l}" class="text-dark"><i class='fas fa-angle-right'></i></a>
-        <a href="{$link}?p={$pages}" class="text-dark"><i class='fas fa-angle-double-right'></i></a>
+        <a href="{$next}" class="text-dark"><i class='fas fa-angle-right'></i></a>
+        <a href="{$end}" class="text-dark"><i class='fas fa-angle-double-right'></i></a>
 HTML;
     }
 
-    private function getPages()
+    private function getParams(array $params):string
+    {
+        if(is_array($params)) {
+            $param = implode(',', $params);
+        }
+        return http_build_query($params, $param);
+    }
+
+    private function getPages(?array $data = []) :int
     {
         if($this->count === null) {
+            if(!empty($data)) {
+                $this->count = $this->pdo->prepare($this->query);
+                $this->count->bindValue("name", '%'.$_GET['q'].'%', PDO::PARAM_STR);
+                $this->count->execute();
+                $this->count =  $this->count->fetch(PDO::FETCH_NUM)[0];
+                return ceil($this->count/$this->perPage);
+            }
             $this->count = (int)$this->pdo
-            ->query($this->queryCount)
+            ->query($this->query)
             ->fetch(PDO::FETCH_NUM)[0];
         }
 
