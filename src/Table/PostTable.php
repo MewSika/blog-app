@@ -53,7 +53,6 @@ final class PostTable extends Table {
     
     public function findPaginated(?array $params = [], ?string $key = null)
     {
-        $where = (!null === $key) ? ' WHERE '.$key.' LIKE :'.$key : '';
         $paginatedQuery = new PaginatedQuery(
             "SELECT * FROM {$this->table} ".
             (!is_null($key) ? ' WHERE '.$key.' LIKE :'.$key : '').
@@ -80,7 +79,7 @@ final class PostTable extends Table {
             JOIN post_category pc ON pc.post_id = p.id
             WHERE pc.category_id = {$categoryID}
             ORDER BY created_at DESC",
-            "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$categoryID}",
+            "SELECT COUNT(post_id) FROM post_category WHERE category_id = {$categoryID}",
         );
         $posts = $paginatedQuery->getItems(Post::class);
         (new CategoryTable($this->pdo))->hydratePost($posts);

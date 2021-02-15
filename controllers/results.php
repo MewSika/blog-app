@@ -9,10 +9,8 @@ $get = htmlentities($_GET['q']);
 $data = [];
 $data = $_GET;
 
-// Todo paramètres dans l'appel de findPaginated()
 if(!empty($get)){
     [$posts, $pagination] = $table->findPaginated($data, 'name');
-
 } 
 
 return $twig->render('results.twig', [

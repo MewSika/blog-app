@@ -30,7 +30,7 @@ class PaginatedQuery {
         if($this->items === null) {
             $currentPage = $this->getCurrentPage();
             $pages = $this->getPages($data);
-            if($currentPage > $pages) {
+            if(!isset($key) && $currentPage > $pages) {
                 throw new \Exception('Cette page n\'existe pas');
             }
             $offset = $this->perPage*($currentPage - 1);
@@ -77,7 +77,12 @@ HTML;
         if($currentPage ) {
             $next = $link. "?".URLHelper::withParam($params, 'p', $currentPage+1);
         }
-        $end = $link . "?" . URLHelper::withParam($params, 'p', $pages);
+        if(!empty($params)) {
+            $end = $link . "?" . URLHelper::withParam($params, 'p', $pages);
+        } else {
+            $end = $link . "?p=" . $pages;
+        }
+
         return  <<<HTML
         <a href="{$next}" class="text-dark"><i class='fas fa-angle-right'></i></a>
         <a href="{$end}" class="text-dark"><i class='fas fa-angle-double-right'></i></a>
@@ -96,17 +101,16 @@ HTML;
     {
         if($this->count === null) {
             if(!empty($data)) {
-                $this->count = $this->pdo->prepare($this->query);
+                $this->count = $this->pdo->prepare($this->queryCount);
                 $this->count->bindValue("name", '%'.$_GET['q'].'%', PDO::PARAM_STR);
                 $this->count->execute();
                 $this->count =  $this->count->fetch(PDO::FETCH_NUM)[0];
                 return ceil($this->count/$this->perPage);
             }
             $this->count = (int)$this->pdo
-            ->query($this->query)
+            ->query($this->queryCount)
             ->fetch(PDO::FETCH_NUM)[0];
         }
-
         return ceil($this->count/$this->perPage);
     }
 }

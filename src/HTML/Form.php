@@ -14,12 +14,12 @@ class Form {
 
     public function input(string $key, string $label, ?string $placeholder = null): string
     {
-        // $value = $this->getValue($key);
+        $value = $this->getValue($key);
         $type = $key === 'password' ? 'password' : 'text';
         return <<<HTML
         <div class="input-group mb-3">
             <label class="input-group-text" for="field{$key}">{$label}</label>
-            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="" placeholder={$placeholder}>
+            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="" placeholder="{$placeholder}">
             {$this->getErrorFeedback($key)}
         </div>
 HTML;
@@ -29,9 +29,7 @@ HTML;
     {
         return <<<HTML
         <div class="input-group mb-3">
-            <div class="input-group-prepend p-0">
-                <span class="input-group-text" for="field{$key}">{$label}</span>
-            </div>
+            <label class="input-group-text" for="field{$key}">{$label}</label>
             <input type="file" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}">
             {$this->getErrorFeedback($key)}
         </div>
@@ -39,15 +37,13 @@ HTML;
     }
 
 
-    public function textarea(string $key, string $label): string
+    public function textarea(string $key, string $label, ?string $placeholder): string
     {
         $value = $this->getValue($key);
         return <<<HTML
         <div class="input-group mb-3">
-            <div class="input-group-prepend p-0">
-                <label class="input-group-text" for="field{$key}">{$label}</label>
-            </div>
-            <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="30" rows="10" required>{$value}</textarea>
+            <label class="input-group-text" for="field{$key}">{$label}</label>
+            <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="30" rows="10" placeholder="{$placeholder}" required>{$value}</textarea>
             {$this->getErrorFeedback($key)}
         </div>
 HTML;
@@ -65,9 +61,7 @@ HTML;
 
         return <<<HTML
         <div class="input-group mb-3">
-            <div class="input-group-prepend p-0">
-                <label class="input-group-text" for="field{$key}">{$label}</label>
-            </div>
+            <label class="input-group-text" for="field{$key}">{$label}</label>
             <select class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}[]" required multiple>
                 {$optionsHTML}
             </select>
@@ -81,18 +75,18 @@ HTML;
      * 
      * @param string $key représente la valeur du get
      */
-    // public function getValue(string $key)
-    // {
-    //     if(is_array($this->data)) {
-    //         return $this->data[$key] ?? null;
-    //     }
-    //     $method = 'get' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
-    //     $value = $this->data->$method();
-    //     if($value instanceof \DateTimeInterface) {
-    //         return $value->format('Y-m-d H:i:s');
-    //     }
-    //     return $value;
-    // }
+    public function getValue(string $key)
+    {
+        if(is_array($this->data)) {
+            return $this->data[$key] ?? null;
+        }
+        $method = 'get' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
+        $value = $this->data ? $this->data->$method() : '';
+        if($value instanceof \DateTimeInterface) {
+            return $value->format('Y-m-d H:i:s');
+        }
+        return $value;
+    }
 
     private function getInputClass(string $key): string
     {

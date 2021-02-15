@@ -13,7 +13,8 @@ class Category {
 
     private $post;
 
-    public function getID (): ?int {
+    public function getID (): ?int
+    {
         return $this->id;
     }
 
@@ -24,7 +25,8 @@ class Category {
         return $this;
     }
 
-    public function getSlug (): ?string {
+    public function getSlug (): ?string
+    {
         return $this->slug;
     }
 
@@ -35,7 +37,8 @@ class Category {
         return $this;
     }
 
-    public function getName (): ?string {
+    public function getName (): ?string
+    {
         return $this->name;
     }
 
@@ -54,5 +57,4 @@ class Category {
     public function setPost (Post $post) {
         $this->post = $post;
     }
-
 }

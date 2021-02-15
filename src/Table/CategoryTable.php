@@ -46,26 +46,6 @@ final class CategoryTable extends Table {
         return [$posts, $paginatedQuery];
     }
 
-        
-    /**
-     * @param  int $categoryID
-     * @return array 
-     */
-    public function findPaginatedForCategory(int $categoryID)
-    {
-        $paginatedQuery = new PaginatedQuery(
-            " SELECT p.* 
-            FROM {$this->table} p
-            JOIN post_category pc ON pc.post_id = p.id
-            WHERE pc.category_id = {$categoryID}
-            ORDER BY created_at DESC",
-            "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$categoryID}",
-        );
-        $posts = $paginatedQuery->getItems(Post::class);
-        (new CategoryTable($this->pdo))->hydratePost($posts);
-        return [$posts, $paginatedQuery];
-    }
-
     public function all(): array
     {
         return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY id DESC");

@@ -72,7 +72,6 @@ abstract class Table {
         if($create === false) {
             throw new \Exception("Impossible de créer l'enregistrement dans la table {$this->table}");
         }
-
         return $this->pdo->lastInsertId();
     }
 
