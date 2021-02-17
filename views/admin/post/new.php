@@ -25,7 +25,6 @@ $categoryTable = new CategoryTable($pdo);
 $categories = $categoryTable->list();
 
 if(!empty($_POST)) {
-    $pdo = Database::getPDO();
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);
     $fields = ['name', 'slug', 'content', 'author', 'created_at', 'image'];

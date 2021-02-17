@@ -24,10 +24,10 @@ final class AuthTest extends TestCase {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION            
         ]);
-        $pdo->query('CREATE TABLE users (id INTEGER, username TEXT, password TEXT, role TEXT)');
+        $pdo->query('CREATE TABLE users_b (id INTEGER, username TEXT, password TEXT, role TEXT)');
         for($i = 1;$i <= 10;$i++) {
             $password = password_hash("user$i", PASSWORD_BCRYPT);
-            $pdo->query("INSERT INTO users (id, username, password, role) VALUES($i, 'user$i', '$password', 'user$i')");
+            $pdo->query("INSERT INTO users_b (id, username, password, role) VALUES($i, 'user$i', '$password', 'user$i')");
         }
         $this->auth = new Auth($pdo, "login", $this->session);
     }

@@ -21,52 +21,52 @@ final class QueryBuilderTest extends TestCase
 
     public function testSimpleQuery()
     {
-        $q = $this->getBuilder()->from("users", "u")->toSQL();
-        $this->assertEquals("SELECT * FROM users u", $q);
+        $q = $this->getBuilder()->from("users_b", "u")->toSQL();
+        $this->assertEquals("SELECT * FROM users_b u", $q);
     }
 
     public function testOrderBy()
     {
-        $q = $this->getBuilder()->from("users", "u")->orderBy("id", "DESC")->toSQL();
-        $this->assertEquals("SELECT * FROM users u ORDER BY id DESC", $q);
+        $q = $this->getBuilder()->from("users_b", "u")->orderBy("id", "DESC")->toSQL();
+        $this->assertEquals("SELECT * FROM users_b u ORDER BY id DESC", $q);
     }
 
     public function testMultipleOrderBy()
     {
         $q = $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->orderBy("id", "ezaearz")
             ->orderBy("name", "DESC")
             ->toSQL();
-        $this->assertEquals("SELECT * FROM users ORDER BY id, name DESC", $q);
+        $this->assertEquals("SELECT * FROM users_b ORDER BY id, name DESC", $q);
     }
 
     public function testLimit()
     {
         $q = $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->limit(10)
             ->orderBy("id", "DESC")
             ->toSQL();
-        $this->assertEquals("SELECT * FROM users ORDER BY id DESC LIMIT 10", $q);
+        $this->assertEquals("SELECT * FROM users_b ORDER BY id DESC LIMIT 10", $q);
     }
 
     public function testOffset()
     {
         $q = $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->limit(10)
             ->offset(3)
             ->orderBy("id", "DESC")
             ->toSQL();
-        $this->assertEquals("SELECT * FROM users ORDER BY id DESC LIMIT 10 OFFSET 3", $q);
+        $this->assertEquals("SELECT * FROM users_b ORDER BY id DESC LIMIT 10 OFFSET 3", $q);
     }
 
     public function testOffsetWithoutLimit()
     {
         $this->expectException(\Exception::class);
         $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->limit(10)
             ->offset(3)
             ->orderBy("id", "DESC")
@@ -76,56 +76,56 @@ final class QueryBuilderTest extends TestCase
     public function testPage()
     {
         $q = $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->limit(10)
             ->page(3)
             ->orderBy("id", "DESC")
             ->toSQL();
-        $this->assertEquals("SELECT * FROM users ORDER BY id DESC LIMIT 10 OFFSET 20", $q);
+        $this->assertEquals("SELECT * FROM users_b ORDER BY id DESC LIMIT 10 OFFSET 20", $q);
         $q = $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->limit(10)
             ->page(1)
             ->orderBy("id", "DESC")
             ->toSQL();
-        $this->assertEquals("SELECT * FROM users ORDER BY id DESC LIMIT 10 OFFSET 0", $q);
+        $this->assertEquals("SELECT * FROM users_b ORDER BY id DESC LIMIT 10 OFFSET 0", $q);
     }
 
     public function testCondition()
     {
         $q = $this->getBuilder()
-            ->from("users")
+            ->from("users_b")
             ->where("id > :id")
             ->setParam("id", 3)
             ->limit(10)
             ->orderBy("id", "DESC")
             ->toSQL();
-        $this->assertEquals("SELECT * FROM users WHERE id > :id ORDER BY id DESC LIMIT 10", $q);
+        $this->assertEquals("SELECT * FROM users_b WHERE id > :id ORDER BY id DESC LIMIT 10", $q);
     }
 
     public function testSelect()
     {
         $q = $this->getBuilder()
             ->select("id", "name", "product")
-            ->from("users");
-        $this->assertEquals("SELECT id, name, product FROM users", $q->toSQL());
+            ->from("users_b");
+        $this->assertEquals("SELECT id, name, product FROM users_b", $q->toSQL());
     }
 
     public function testSelectMultiple()
     {
         $q = $this->getBuilder()
             ->select("id", "name")
-            ->from("users")
+            ->from("users_b")
             ->select('product');
-        $this->assertEquals("SELECT id, name, product FROM users", $q->toSQL());
+        $this->assertEquals("SELECT id, name, product FROM users_b", $q->toSQL());
     }
 
     public function testSelectAsArray()
     {
         $q = $this->getBuilder()
             ->select(["id", "name", "product"])
-            ->from("users");
-        $this->assertEquals("SELECT id, name, product FROM users", $q->toSQL());
+            ->from("users_b");
+        $this->assertEquals("SELECT id, name, product FROM users_b", $q->toSQL());
     }
 
     public function testFetch()

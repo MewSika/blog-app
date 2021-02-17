@@ -5,21 +5,22 @@
 {% endblock %}
 
 {% block content %}
+
     <h1>Nous contacter</h1>
     <hr>
     {% if success %}
-
     <div class="alert alert-success alert-dismissible fade show col-xs-12 col-md-6 m-auto mb-3" role="alert">
-        Votre message a bien été envoyé !
+        {{ success }}
         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
     </div>
-    
-
     {% endif %}
+
     <form method="post" action= "" class="col-md-6 col-xs-12 m-auto">
-        {{ form.input("username", "Pseudo")|raw}}
-        {{ form.input("email", "@mail")|raw}} 
-        {{ form.textarea("content", "Message", "Votre message")|raw}}  
-        <button class="btn btn-secondary ml-3">Envoyer</button>
+        {{ form.input("username", "Pseudo") | raw}}
+        {{ form.input("email", "@mail") | raw}} 
+        {{ form.textarea("content", "Message", "Votre message") | raw}}
+        {{ form.checkbox("checkNewsletter", "Recevoir la newsletter") | raw}}
+        <button class="btn btn-secondary ml-3 mb-3">Envoyer</button>
     </form>
+
 {% endblock %}

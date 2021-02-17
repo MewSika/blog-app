@@ -5,7 +5,7 @@ use App\Auth\User;
 
 final class UserTable extends Table{
 
-    protected $table = 'users';
+    protected $table = 'users_b';
     protected $class = User::class;
 
     public function findByUsername(string $username)

@@ -19,7 +19,7 @@ class Form {
         return <<<HTML
         <div class="input-group mb-3">
             <label class="input-group-text" for="field{$key}">{$label}</label>
-            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="" placeholder="{$placeholder}">
+            <input type="{$type}" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}" value="{$value}" placeholder="{$placeholder}">
             {$this->getErrorFeedback($key)}
         </div>
 HTML;
@@ -44,6 +44,18 @@ HTML;
         <div class="input-group mb-3">
             <label class="input-group-text" for="field{$key}">{$label}</label>
             <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="30" rows="10" placeholder="{$placeholder}" required>{$value}</textarea>
+            {$this->getErrorFeedback($key)}
+        </div>
+HTML;
+    }
+
+    public function checkbox(string $key, string $label):string
+    {
+        $value = $this->getValue($key);
+        return <<<HTML
+        <div class="checkbox mb-3">
+            <input class="form-check-input" type="checkbox" id="field{$key}" name="{$key}" value="{$value}">
+            <label class="form-check-label" for="field{$key}"> {$label} </label>
             {$this->getErrorFeedback($key)}
         </div>
 HTML;

@@ -29,7 +29,7 @@ class Auth {
         if($id === null) {
             return null;
         }
-        $query = $this->pdo->prepare("SELECT * FROM users WHERE id = ?");
+        $query = $this->pdo->prepare("SELECT * FROM users_b WHERE id = ?");
         $query->execute([$id]);
         $user = $query->fetchObject(User::class);
         return $user ?: null;
@@ -37,7 +37,7 @@ class Auth {
 
     public function login(string $username, string $password): ?User
     {   
-        $query = $this->pdo->prepare('SELECT * FROM users WHERE username = :username');
+        $query = $this->pdo->prepare('SELECT * FROM users_b WHERE username = :username');
         $query->execute(['username' => $username]);
         $user = $query->fetchObject(User::class);
         if ($user === false) {

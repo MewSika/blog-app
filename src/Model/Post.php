@@ -1,6 +1,6 @@
 <?php
 namespace App\Model;
-use App\Helpers\TextHelper;;
+use App\Helpers\TextHelper;
 class Post {
 
     private $id;

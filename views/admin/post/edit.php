@@ -25,6 +25,7 @@ $errors = [];
 if(!empty($_POST)) {
     $fields = ['name', 'slug', 'content', 'author', 'created_at', 'image'];
     $data = array_merge($_POST, $_FILES);
+   
     /** Gestion de la validation */
     $v = new PostValidator($data, $postTable, $post->getID(), $categories);
     ObjectHelper::hydrate($post, $data, $fields);

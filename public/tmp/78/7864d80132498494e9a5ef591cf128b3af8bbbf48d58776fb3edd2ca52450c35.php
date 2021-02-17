@@ -56,33 +56,31 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
         // line 17
         echo "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1\" crossorigin=\"anonymous\">
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- Favicons -->
     <meta name=\"theme-color\" content=\"#563d7c\">
-    <!-- Custom styles for this template -->
 </head>
 
 <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 d-flex\">
-  <a class=\"navbar-brand\" href=\"/\"><i class='fas fa-home'></i></a>
+  <a class=\"navbar-brand\" href=\"/\"><i class=\"fa fa-home\" aria-hidden=\"true\"></i></a>
   <ul class=\"navbar-nav mr-auto\">
     ";
-        // line 27
-        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 27)->unwrap();
-        // line 28
+        // line 25
+        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 25)->unwrap();
+        // line 26
         echo "      ";
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 28), "Accueil", "/"], 28, $context, $this->getSourceContext());
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 26), "Accueil", "/"], 26, $context, $this->getSourceContext());
         echo "
       ";
-        // line 29
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 29), "Blog", "/blog"], 29, $context, $this->getSourceContext());
+        // line 27
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 27), "Blog", "/blog"], 27, $context, $this->getSourceContext());
         echo "
       ";
-        // line 30
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 30), "Contact", "/contact"], 30, $context, $this->getSourceContext());
+        // line 28
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 28), "Contact", "/contact"], 28, $context, $this->getSourceContext());
         echo "
   </ul>
   <form class=\"form-inline form-navbar my-2 my-lg-0 ms-auto\" action=\"";
-        // line 32
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 32), "html", null, true);
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 30), "html", null, true);
         echo "\">
       <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
   </form>
@@ -95,9 +93,9 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 <body class=\"d-flex flex-column h-100 bg-light\">
     <div class=\"container\">
       ";
-        // line 43
+        // line 41
         $this->displayBlock('content', $context, $blocks);
-        // line 45
+        // line 43
         echo "    </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
@@ -133,11 +131,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     ";
     }
 
-    // line 43
+    // line 41
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 44
+        // line 42
         echo "      ";
     }
 
@@ -153,7 +151,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  141 => 44,  137 => 43,  132 => 15,  128 => 14,  122 => 10,  118 => 9,  101 => 45,  99 => 43,  85 => 32,  80 => 30,  76 => 29,  71 => 28,  69 => 27,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  139 => 42,  135 => 41,  130 => 15,  126 => 14,  120 => 10,  116 => 9,  99 => 43,  97 => 41,  83 => 30,  78 => 28,  74 => 27,  69 => 26,  67 => 25,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -176,13 +174,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     {% endblock %}
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1\" crossorigin=\"anonymous\">
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- Favicons -->
     <meta name=\"theme-color\" content=\"#563d7c\">
-    <!-- Custom styles for this template -->
 </head>
 
 <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 d-flex\">
-  <a class=\"navbar-brand\" href=\"/\"><i class='fas fa-home'></i></a>
+  <a class=\"navbar-brand\" href=\"/\"><i class=\"fa fa-home\" aria-hidden=\"true\"></i></a>
   <ul class=\"navbar-nav mr-auto\">
     {% import \"_navbar.twig\" as navbar %}
       {{ navbar.item(router.url('home'), 'Accueil', '/') }}
