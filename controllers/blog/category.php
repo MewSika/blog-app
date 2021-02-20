@@ -5,12 +5,13 @@ use App\Table\CategoryTable;
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
-
 $pdo = Database::getPDO();
 $category = (new CategoryTable($pdo))->find($id);
 
 $lastPosts = (new PostTable($pdo))->getLastPosts(6);
 $categories = (new CategoryTable($pdo))->all();
+
+$title = "Catégories ". $category->getName();
 
 /** Redirection */
 if($category->getSlug() !== $slug) {
@@ -30,5 +31,6 @@ return $twig->render('blog/category.twig', [
     'posts' => $posts,
     'pagination' => $pagination,
     'link' => $link,
+    'title' => $title,
     'router' => $router])
 ?>

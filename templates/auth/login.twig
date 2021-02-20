@@ -10,8 +10,8 @@
 {% endif %}
 
 <form action="{{ router.url('login') }}" method="post" class="m-auto col-xs-6 col-md-3 text-center">
-    {{ form.input('username', '<i class="fa fa-user m-auto" aria-hidden="true"></i>', 'Login')|raw }}
-    {{ form.input('password', '<i class="fa fa-lock m-auto" aria-hidden="true"></i>', 'Password')|raw }}
+    {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Login')|raw }}
+    {{ form.input('password', '<i class="bi bi-lock"></i>', 'Password')|raw }}
     <button class="btn btn-secondary ml-3"> Se connecter</button>
 </form>
 {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'admin/layout/layout.twig' %}
+
+{% block head %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+{% if errors %}
+    <div class="alert alert-danger">
+        L'article n'a pu être créé
+    </div>
+{% endif %}
+{% if success %}
+    <div class="alert alert-success">
+        L'article a bien été créé
+    </div>
+{% endif %}
+
+<h2>Création d'article</h2>
+<hr>
+
+{% include 'admin/post/_form.twig' %}
+
+{% endblock %}

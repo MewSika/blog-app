@@ -1,0 +1,14 @@
+<p class="fw-bold mb-3">
+    <a href="{{ router.url('categories_manage')}}" class="text-dark"><i class="bi bi-arrow-left"></i> Retour vers la gestion des catégories</a>
+</p>
+<form action="" method="post" class="mb-4">
+    {{ form.input('name', 'Titre')|raw }}
+    {{ form.input('slug', 'URL')|raw}}
+    <button name="" type="submit" class="btn btn-success">
+        {% if item.getID() is not null %}
+            Modifier
+        {% else %}
+            Créer
+        {% endif %}
+    </button>
+</form>

@@ -1,5 +1,5 @@
 {% macro item(link, title, name)%}
-    <li class="nav_item text-center">
+    <li class="nav_item text-center col-3 col-lg-5">
         <a class="nav-link navhover {{ activeClass(name) }}" href={{link}}>{{ title }}</a>
     </li>
 {% endmacro %}

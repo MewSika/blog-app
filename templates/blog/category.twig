@@ -1,4 +1,9 @@
 {% extends 'layout/layout.twig' %}
+
+{% block head %}
+<title> {{ title }} </title> 
+{% endblock %}
+
 {% block title %}
    <title> Catégorie -  {{ category.getName() }} </title>
 {% endblock %}

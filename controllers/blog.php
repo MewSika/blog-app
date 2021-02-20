@@ -19,4 +19,4 @@ return $twig->render('blog/blog.twig', [
     'link' => $link,
     'lastPosts' => $lastPosts,
     'categories' => $categories
-    ]);
+]);

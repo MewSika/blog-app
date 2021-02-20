@@ -70,17 +70,12 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
         echo "\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
     ";
         // line 13
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"fa fa-user m-auto\" aria-hidden=\"true\"></i>", 2 => "Login"], "method", false, false, false, 13);
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Login"], "method", false, false, false, 13);
         echo "
     ";
         // line 14
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"fa fa-lock m-auto\" aria-hidden=\"true\"></i>", 2 => "Password"], "method", false, false, false, 14);
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Password"], "method", false, false, false, 14);
         echo "
-    <div class=\"checkbox mb-3\">
-      <label>
-        <input type=\"checkbox\" value=\"remember-me\"> Rester connecté(e) 
-      </label>
-    </div>
     <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
 </form>
 ";
@@ -115,13 +110,8 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
 {% endif %}
 
 <form action=\"{{ router.url('login') }}\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
-    {{ form.input('username', '<i class=\"fa fa-user m-auto\" aria-hidden=\"true\"></i>', 'Login')|raw }}
-    {{ form.input('password', '<i class=\"fa fa-lock m-auto\" aria-hidden=\"true\"></i>', 'Password')|raw }}
-    <div class=\"checkbox mb-3\">
-      <label>
-        <input type=\"checkbox\" value=\"remember-me\"> Rester connecté(e) 
-      </label>
-    </div>
+    {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Login')|raw }}
+    {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Password')|raw }}
     <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
 </form>
 {% endblock %}", "auth/login.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\auth\\login.twig");

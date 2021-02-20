@@ -43,43 +43,59 @@ class __TwigTemplate_138d58cc4cb156a55bf1dfee222d0277a135c571c5db0dbf2147e3442a0
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 3
-        echo "    <title>Accueil administrator</title>
+        // line 4
+        echo "    <title>Accueil administrateur</title>
 ";
     }
 
-    // line 5
+    // line 7
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
-        echo "<h1>Dashboard</h1>
-  <hr>
-  <?php if(isset(\$_GET['login'])) : ?>
-      <div class=\"alert alert-success alert-dismissible fade show\">
-          Vous êtes bien identifié(e)
-          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-              <span aria-hidden=\"true\">&times;</span>
-          </button>
-      </div>
-  <?php endif; ?>
-
-  <?php if(\$user) : ?>
-      <p class=>Vous êtes connecté en tant que <span class=\"fw-bold\"><?= \$user->getUsername() ;?></span></p>
-  <?php endif; ?>
-  <?php if(isset(\$_GET['denied'])) : ?>
-      <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-        <strong>Accès à la page interdit</strong>
-        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-        <span aria-hidden=\"true\">&times;</span>
-    </button>
-  </div>
-  <?php endif; ?>
+        // line 8
+        echo "    <h1>Dashboard</h1>
+    <hr>
 ";
+        // line 10
+        if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "login", [], "any", true, true, false, 10)) {
+            // line 11
+            echo "    <div class=\"alert alert-success alert-dismissible fade show\">
+        Vous êtes bien identifié(e)
+        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+            <span aria-hidden=\"true\">&times;</span>
+        </button>
+    </div>
+";
+        }
+        // line 18
+        echo "
+";
+        // line 19
+        if (($context["user"] ?? null)) {
+            // line 20
+            echo "    <p class=>Vous êtes connecté(e) en tant que <span class=\"fw-bold\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getUsername", [], "method", false, false, false, 20), "html", null, true);
+            echo " </span></p>
+";
+        }
+        // line 22
+        echo "
+";
+        // line 23
+        if (twig_get_attribute($this->env, $this->source, ($context["data"] ?? null), "denied", [], "any", true, true, false, 23)) {
+            // line 24
+            echo "    <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+            <strong>Accès à la page interdit</strong>
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+            <span aria-hidden=\"true\">&times;</span>
+        </button>
+    </div>
+";
+        }
     }
 
     public function getTemplateName()
@@ -94,38 +110,41 @@ class __TwigTemplate_138d58cc4cb156a55bf1dfee222d0277a135c571c5db0dbf2147e3442a0
 
     public function getDebugInfo()
     {
-        return array (  60 => 6,  56 => 5,  51 => 3,  47 => 2,  36 => 1,);
+        return array (  91 => 24,  89 => 23,  86 => 22,  80 => 20,  78 => 19,  75 => 18,  66 => 11,  64 => 10,  60 => 8,  56 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'admin/layout/layout.twig' %}
-{% block head %}
-    <title>Accueil administrator</title>
-{% endblock %}
-{% block content %}
-<h1>Dashboard</h1>
-  <hr>
-  <?php if(isset(\$_GET['login'])) : ?>
-      <div class=\"alert alert-success alert-dismissible fade show\">
-          Vous êtes bien identifié(e)
-          <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-              <span aria-hidden=\"true\">&times;</span>
-          </button>
-      </div>
-  <?php endif; ?>
 
-  <?php if(\$user) : ?>
-      <p class=>Vous êtes connecté en tant que <span class=\"fw-bold\"><?= \$user->getUsername() ;?></span></p>
-  <?php endif; ?>
-  <?php if(isset(\$_GET['denied'])) : ?>
-      <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-        <strong>Accès à la page interdit</strong>
+{% block head %}
+    <title>Accueil administrateur</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <hr>
+{% if data.login is defined %}
+    <div class=\"alert alert-success alert-dismissible fade show\">
+        Vous êtes bien identifié(e)
         <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-        <span aria-hidden=\"true\">&times;</span>
-    </button>
-  </div>
-  <?php endif; ?>
+            <span aria-hidden=\"true\">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if user %}
+    <p class=>Vous êtes connecté(e) en tant que <span class=\"fw-bold\">{{ user.getUsername() }} </span></p>
+{% endif %}
+
+{% if data.denied is defined %}
+    <div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+            <strong>Accès à la page interdit</strong>
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+            <span aria-hidden=\"true\">&times;</span>
+        </button>
+    </div>
+{% endif %}
 {% endblock %}", "admin/dashboard.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\dashboard.twig");
     }
 }

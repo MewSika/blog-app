@@ -35,20 +35,11 @@ if(!empty($_POST)) {
     }
 }
 $form = new Form($item, $errors);
-// $form->input('slug', 'URL');
-?>
-<?php if(!empty($errors)) :?>
-    <div class="alert alert-danger">
-        La modification n'a pas pu être effectuée
-    </div>
-<?php endif; ?>
 
-<?php if($success) :?>
-    <div class="alert alert-success">
-        L'article a bien été modifié
-    </div>
-<?php endif; ?>
-
-<h2>Editer la catégorie : <?= e($item->getName())?></h2>
-<hr>
-<?php require '_form.php' ?>
+return $twig->render('admin/category/edit.twig', [
+    'router' => $router,
+    'form' => $form,
+    'errors' => $errors,
+    'item' => $item,
+    'success' => $success
+]);

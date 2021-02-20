@@ -17,7 +17,7 @@
 
     <form method="post" action= "" class="col-md-6 col-xs-12 m-auto">
         {{ form.input("username", "Pseudo") | raw}}
-        {{ form.input("email", "@mail") | raw}} 
+        {{ form.input("email", "@mail") | raw}}
         {{ form.textarea("content", "Message", "Votre message") | raw}}
         {{ form.checkbox("checkNewsletter", "Recevoir la newsletter") | raw}}
         <button class="btn btn-secondary ml-3 mb-3">Envoyer</button>

@@ -83,7 +83,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
         ";
         // line 20
         echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "email", 1 => "@mail"], "method", false, false, false, 20);
-        echo " 
+        echo "
         ";
         // line 21
         echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Message", 2 => "Votre message"], "method", false, false, false, 21);
@@ -134,7 +134,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
 
     <form method=\"post\" action= \"\" class=\"col-md-6 col-xs-12 m-auto\">
         {{ form.input(\"username\", \"Pseudo\") | raw}}
-        {{ form.input(\"email\", \"@mail\") | raw}} 
+        {{ form.input(\"email\", \"@mail\") | raw}}
         {{ form.textarea(\"content\", \"Message\", \"Votre message\") | raw}}
         {{ form.checkbox(\"checkNewsletter\", \"Recevoir la newsletter\") | raw}}
         <button class=\"btn btn-secondary ml-3 mb-3\">Envoyer</button>

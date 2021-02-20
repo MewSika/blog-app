@@ -2,7 +2,6 @@
 namespace App\Table;
 
 use PDO;
-use App\PaginatedQuery;
 use App\Table\Exception\NotFoundException;
 
 abstract class Table {
@@ -82,8 +81,8 @@ abstract class Table {
             $sqlFields[] = "$key = :$key";
         }
         $query = $this->pdo->prepare("UPDATE {$this->table} SET " . implode(', ', $sqlFields) . " WHERE id = :id");
-        $ok = $query->execute(array_merge($data, ['id' => $id]));
-        if ($ok === false) {
+        $update = $query->execute(array_merge($data, ['id' => $id]));
+        if ($update === false) {
             throw new \Exception("Impossible de modifier l'enregistrement dans la table {$this->table}");
         }
     }
@@ -102,9 +101,9 @@ abstract class Table {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
-    /* TODO */    
+       
     /**
-     * prepAndFetch
+     * TODO à corriger
      *
      * @param  string $sql requête envoyée à la méthode
      * @param  array $params 

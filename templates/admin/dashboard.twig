@@ -1,28 +1,31 @@
 {% extends 'admin/layout/layout.twig' %}
-{% block head %}
-    <title>Accueil administrator</title>
-{% endblock %}
-{% block content %}
-<h1>Dashboard</h1>
-  <hr>
-  <?php if(isset($_GET['login'])) : ?>
-      <div class="alert alert-success alert-dismissible fade show">
-          Vous êtes bien identifié(e)
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-  <?php endif; ?>
 
-  <?php if($user) : ?>
-      <p class=>Vous êtes connecté en tant que <span class="fw-bold"><?= $user->getUsername() ;?></span></p>
-  <?php endif; ?>
-  <?php if(isset($_GET['denied'])) : ?>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Accès à la page interdit</strong>
+{% block head %}
+    <title>Accueil administrateur</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Dashboard</h1>
+    <hr>
+{% if data.login is defined %}
+    <div class="alert alert-success alert-dismissible fade show">
+        Vous êtes bien identifié(e)
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <?php endif; ?>
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if user %}
+    <p class=>Vous êtes connecté(e) en tant que <span class="fw-bold">{{ user.getUsername() }} </span></p>
+{% endif %}
+
+{% if data.denied is defined %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Accès à la page interdit</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
 {% endblock %}

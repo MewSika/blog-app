@@ -1,0 +1,44 @@
+{% extends 'admin/layout/layout.twig' %}
+{% block head %}
+    <title> {{ title }} </title>
+{% endblock %}
+
+{% block content %}
+<h1>Gestion des articles</h1>
+
+{% if g.success %}
+    <div class="alert alert-success alert-dismissible fade show">
+        L'article a bien été créé
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if g.delete %}
+<div class="alert alert-danger alert-dismissible fade show">
+    L'article a bien été supprimé
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<table class="table rounded table-hover">
+    <thead>
+        <th class="align-middle">n°ID</th>
+        <th class="align-middle">Titre</th>
+        <th class="align-middle">Date de création</th>
+        <th class="text-end"><a href="{{ router.url('admin_post_new') }}" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+            {% include 'admin/post/_postTable.twig' %}
+        {% endfor %}
+    </tbody>
+</table>
+<aside class="text-center mb-5">
+    {{ pagination.previousLink(link)|raw }}
+    {{ pagination.nextLink(link)|raw }}
+</aside>
+{% endblock %}

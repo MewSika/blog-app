@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Auth\Auth;
 use App\Security\ForbiddenException;
 
 class Router {
@@ -52,10 +53,14 @@ class Router {
         $twig = $this->twig;
 
         $isAdmin = strpos($controller, "admin/") !== false;
+
+        /* Vérifie accès BO */
+        ($isAdmin !== true) ?: Auth::check($router);
+
         $layout = $isAdmin ? "admin/layout/layout" : "layout/layout";
-        if($controller === null) {
-            $controller = "e404";
-        }
+        
+        /* Page 404  */
+        ($controller !== null) ?: $controller = "e404";
         
         echo require $this->controllerPath . DIRECTORY_SEPARATOR . $controller   .'.php';
 

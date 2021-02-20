@@ -25,6 +25,7 @@ class __TwigTemplate_9732e7cc1e0ce864bd136c4b06a7be3290bf0dc7ab1bcd958ea51d47a08
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
+            'head' => [$this, 'block_head'],
             'title' => [$this, 'block_title'],
             'content' => [$this, 'block_content'],
         ];
@@ -43,38 +44,49 @@ class __TwigTemplate_9732e7cc1e0ce864bd136c4b06a7be3290bf0dc7ab1bcd958ea51d47a08
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
+    public function block_head($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        // line 4
+        echo "<title> ";
+        echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
+        echo " </title> 
+";
+    }
+
+    // line 7
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 3
+        // line 8
         echo "   <title> Catégorie -  ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getName", [], "method", false, false, false, 3), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getName", [], "method", false, false, false, 8), "html", null, true);
         echo " </title>
 ";
     }
 
-    // line 5
+    // line 10
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 6
+        // line 11
         echo "
 <div class=\"row\">
     <aside class=\"col-md-3\">
         ";
-        // line 9
-        $this->loadTemplate("_side.twig", "blog/category.twig", 9)->display($context);
-        // line 10
+        // line 14
+        $this->loadTemplate("_side.twig", "blog/category.twig", 14)->display($context);
+        // line 15
         echo "    </aside>
     <div class=\"col-md-9\">
         <h1> Articles de la catégorie -  ";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getName", [], "method", false, false, false, 12), "html", null, true);
+        // line 17
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["category"] ?? null), "getName", [], "method", false, false, false, 17), "html", null, true);
         echo " </h2>
         <hr>
         ";
-        // line 14
+        // line 19
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? null));
         $context['loop'] = [
@@ -91,10 +103,10 @@ class __TwigTemplate_9732e7cc1e0ce864bd136c4b06a7be3290bf0dc7ab1bcd958ea51d47a08
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-            // line 15
+            // line 20
             echo "            ";
-            $this->loadTemplate("blog/_card.twig", "blog/category.twig", 15)->display($context);
-            // line 16
+            $this->loadTemplate("blog/_card.twig", "blog/category.twig", 20)->display($context);
+            // line 21
             echo "        ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -108,15 +120,15 @@ class __TwigTemplate_9732e7cc1e0ce864bd136c4b06a7be3290bf0dc7ab1bcd958ea51d47a08
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 17
+        // line 22
         echo "        <aside class=\"text-center mb-5\">
             ";
-        // line 18
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 18);
+        // line 23
+        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 23);
         echo "
             ";
-        // line 19
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 19);
+        // line 24
+        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 24);
         echo "
         </aside>
     </div>
@@ -136,12 +148,17 @@ class __TwigTemplate_9732e7cc1e0ce864bd136c4b06a7be3290bf0dc7ab1bcd958ea51d47a08
 
     public function getDebugInfo()
     {
-        return array (  119 => 19,  115 => 18,  112 => 17,  98 => 16,  95 => 15,  78 => 14,  73 => 12,  69 => 10,  67 => 9,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
+        return array (  131 => 24,  127 => 23,  124 => 22,  110 => 21,  107 => 20,  90 => 19,  85 => 17,  81 => 15,  79 => 14,  74 => 11,  70 => 10,  63 => 8,  59 => 7,  52 => 4,  48 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'layout/layout.twig' %}
+
+{% block head %}
+<title> {{ title }} </title> 
+{% endblock %}
+
 {% block title %}
    <title> Catégorie -  {{ category.getName() }} </title>
 {% endblock %}

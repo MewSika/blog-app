@@ -1,0 +1,40 @@
+{% extends 'admin/layout/layout.twig' %}
+
+{% block head %}
+    <title> Gestion des catégories </title>
+{% endblock %}
+
+{% block content %}
+<h1>Gestion des catégories</h1>
+
+{% if g.success %}
+    <div class="alert alert-success alert-dismissible fade show">
+        La categorie a bien été créée
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if g.delete %}
+<div class="alert alert-danger alert-dismissible fade show">
+    La catégorie a bien été supprimée
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<table class="table rounded table-hover">
+    <thead>
+        <th class="align-middle">n°ID</th>
+        <th class="align-middle">Titre</th>
+        <th class="text-end"><a href="{{ router.url('admin_category_new') }}" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
+    </thead>
+    <tbody>
+        {% for item in items %}
+            {% include 'admin/category/_categoryTable.twig' %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

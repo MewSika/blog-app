@@ -1,0 +1,25 @@
+<p class="fw-bold mb-3">
+    <a href="{{router.url('posts_manage')}}" class="text-dark"><i class="bi bi-arrow-left"></i> Retour vers la gestion des articles</a>
+</p>
+<form action="" method="post" class="mb-4" enctype="multipart/form-data">
+    {% if post.getImage() %}
+        <p class="fw-bold">Image à la une :</p>
+        <img src="{{ post.getImageURL('medium') }}" alt="" class="rounded shadow-sm mb-4">
+    {% endif %}
+
+    {{ form.input('name', 'Titre')|raw }}
+    {{ form.input('slug', 'URL')|raw}}
+    {{ form.input('author', 'Auteur')|raw }}
+    {{ form.file('image', 'image')|raw}}
+    {{ form.input('created_at', 'Date')|raw}}
+    {{ form.select('categories_ids', 'Catég.', categories)|raw}}
+    {{ form.textarea('content', 'Contenu')|raw}}
+
+    <button name="" type="submit" class="btn btn-success">
+        {% if post.getID() is not null %}
+            Modifier
+        {% else %}
+            Créer
+        {% endif %}
+    </button>
+</form>

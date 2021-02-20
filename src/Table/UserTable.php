@@ -15,5 +15,4 @@ final class UserTable extends Table{
             'username' => $username
         ]);
     }
-
 }

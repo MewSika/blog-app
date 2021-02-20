@@ -29,15 +29,17 @@ HTML;
     {
         return <<<HTML
         <div class="input-group mb-3">
-            <label class="input-group-text" for="field{$key}">{$label}</label>
-            <input type="file" id="field{$key}" name="{$key}" class="{$this->getInputClass($key)}">
+            <div class="custom-file">
+                <label class="custom-file-label" for="field{$key}">{$label}</label>
+                <input type="file" id="field{$key}" name="{$key}" class="custom-file-input {$this->getInputClass($key)}">
+            </div>
             {$this->getErrorFeedback($key)}
         </div>
 HTML;
     }
 
 
-    public function textarea(string $key, string $label, ?string $placeholder): string
+    public function textarea(string $key, string $label, ?string $placeholder = null): string
     {
         $value = $this->getValue($key);
         return <<<HTML

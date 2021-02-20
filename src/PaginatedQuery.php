@@ -63,8 +63,8 @@ class PaginatedQuery {
         }
         $start = $link . "?" . URLHelper::withParam($params, 'p', $currentPage = 1);
         return  <<<HTML
-        <a href="{$start}" class="text-dark"><i class='fas fa-angle-double-left'></i></a>
-        <a href="{$previous}" class="text-dark"><i class='fas fa-angle-left'></i></a>
+        <a href="{$start}" class="btn btn-dark"><i class="bi bi-chevron-double-left"></i></a>
+        <a href="{$previous}" class="btn btn-dark"><i class="bi bi-chevron-left"></i></a>
 HTML;
     }
 
@@ -84,8 +84,8 @@ HTML;
         }
 
         return  <<<HTML
-        <a href="{$next}" class="text-dark"><i class='fas fa-angle-right'></i></a>
-        <a href="{$end}" class="text-dark"><i class='fas fa-angle-double-right'></i></a>
+        <a href="{$next}" class="btn btn-dark"><i class="bi bi-chevron-right"></i></a>
+        <a href="{$end}" class="btn btn-dark"><i class="bi bi-chevron-double-right"></i></a>
 HTML;
     }
 

@@ -6,7 +6,7 @@ class ObjectHelper {
 
     private $object; 
     private $data;
-    private $hydrate;
+    private $fields;
 
     public static function hydrate($object, array $data, array $fields)
     {

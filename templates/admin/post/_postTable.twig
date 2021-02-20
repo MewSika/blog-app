@@ -1,0 +1,15 @@
+<tr>
+    <td>#{{ post.getID() }}</td>
+    <td><a href="{{ router.url('admin_post', {'id' : post.getID()}) }}" class="text-dark fw-bold">{{ post.getName() }}</a></td>
+    <td class="fst-italic">{{ post.getCreatedAt()|date('d/m/Y') }}</td>
+    <td class="text-end">
+        <a href="{{ router.url('admin_post', {'id' : post.getID()}) }}" class="btn btn-sm btn-info">
+            Editer
+        </a>
+        <form action="{{ router.url('admin_post_delete', {'id' : post.getID()}) }}" method="post" class="d-inline" onsubmit="return confirm('Voulez-vous vraiment supprimer l\'article ?')">
+            <button type="submit" class="btn btn-sm btn-danger" >
+                Supprimer
+            </button>
+        </form>
+    </td>
+</tr>

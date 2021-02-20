@@ -40,19 +40,34 @@ class __TwigTemplate_35c293df8cd81e1b61acc6acdf267f37b2c5611d6deb54a31f2a556cdf6
     </h6>
     <ul class=\"nav flex-column mb-2\">
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('admin_post_new');?>\">Créer un article</a>
+            <a class=\"text-dark nav-link small\" href=\"";
+        // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_post_new"], "method", false, false, false, 7), "html", null, true);
+        echo "\">Créer un article</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('posts_manage');?>\">Gestion des articles</a>
+            <a class=\"text-dark nav-link small\" href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "posts_manage"], "method", false, false, false, 10), "html", null, true);
+        echo "\">Gestion des articles</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('admin_category_new');?>\">Créer une catégorie</a>
+            <a class=\"text-dark nav-link small\" href=\"";
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_category_new"], "method", false, false, false, 13), "html", null, true);
+        echo "\">Créer une catégorie</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('categories_manage');?>\">Gestion des catégories</a>
+            <a class=\"text-dark nav-link small\" href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "categories_manage"], "method", false, false, false, 16), "html", null, true);
+        echo "\">Gestion des catégories</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('user');?>\">Gestion utilisateurs</a>
+            <a class=\"text-dark nav-link small\" href=\"";
+        // line 19
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "user"], "method", false, false, false, 19), "html", null, true);
+        echo "\">Gestion utilisateurs</a>
         </li>
     </ul>
 </nav>";
@@ -63,9 +78,14 @@ class __TwigTemplate_35c293df8cd81e1b61acc6acdf267f37b2c5611d6deb54a31f2a556cdf6
         return "admin/_menu.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  37 => 1,);
+        return array (  69 => 19,  63 => 16,  57 => 13,  51 => 10,  45 => 7,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -76,19 +96,19 @@ class __TwigTemplate_35c293df8cd81e1b61acc6acdf267f37b2c5611d6deb54a31f2a556cdf6
     </h6>
     <ul class=\"nav flex-column mb-2\">
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('admin_post_new');?>\">Créer un article</a>
+            <a class=\"text-dark nav-link small\" href=\"{{ router.url('admin_post_new')}}\">Créer un article</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('posts_manage');?>\">Gestion des articles</a>
+            <a class=\"text-dark nav-link small\" href=\"{{ router.url('posts_manage')}}\">Gestion des articles</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('admin_category_new');?>\">Créer une catégorie</a>
+            <a class=\"text-dark nav-link small\" href=\"{{ router.url('admin_category_new')}}\">Créer une catégorie</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('categories_manage');?>\">Gestion des catégories</a>
+            <a class=\"text-dark nav-link small\" href=\"{{ router.url('categories_manage')}}\">Gestion des catégories</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"<?= \$router->url('user');?>\">Gestion utilisateurs</a>
+            <a class=\"text-dark nav-link small\" href=\"{{ router.url('user')}}\">Gestion utilisateurs</a>
         </li>
     </ul>
 </nav>", "admin/_menu.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\_menu.twig");
