@@ -59,17 +59,11 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
         $macros = $this->macros;
         // line 8
         echo "<div class=\"row\">
-    <aside class=\"col-md-3\">
-        ";
-        // line 10
-        $this->displayBlock('sidebar', $context, $blocks);
-        // line 13
-        echo "    </aside>
-    <div class=\"col-md-9\">
+    <article class=\"col-md-9\">
         <h1>Index des articles</h1>
         <hr>
         ";
-        // line 17
+        // line 12
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? null));
         $context['loop'] = [
@@ -86,10 +80,10 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-            // line 18
+            // line 13
             echo "            ";
-            $this->loadTemplate("blog/_card.twig", "blog/blog.twig", 18)->display($context);
-            // line 19
+            $this->loadTemplate("blog/_card.twig", "blog/blog.twig", 13)->display($context);
+            // line 14
             echo "        ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -103,30 +97,36 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 20
+        // line 15
         echo "        <aside class=\"text-center mb-5\">
             ";
-        // line 21
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 21);
+        // line 16
+        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 16);
         echo "
             ";
-        // line 22
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 22);
+        // line 17
+        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 17);
         echo "
         </aside>
-    </div>
+    </article>
+    <aside class=\"col-md-3\">
+        ";
+        // line 21
+        $this->displayBlock('sidebar', $context, $blocks);
+        // line 24
+        echo "    </aside>
 </div>
 ";
     }
 
-    // line 10
+    // line 21
     public function block_sidebar($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 11
+        // line 22
         echo "            ";
-        $this->loadTemplate("_side.twig", "blog/blog.twig", 11)->display($context);
-        // line 12
+        $this->loadTemplate("_side.twig", "blog/blog.twig", 22)->display($context);
+        // line 23
         echo "        ";
     }
 
@@ -142,7 +142,7 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
 
     public function getDebugInfo()
     {
-        return array (  130 => 12,  127 => 11,  123 => 10,  114 => 22,  110 => 21,  107 => 20,  93 => 19,  90 => 18,  73 => 17,  67 => 13,  65 => 10,  61 => 8,  57 => 7,  52 => 4,  48 => 3,  37 => 1,);
+        return array (  130 => 23,  127 => 22,  123 => 21,  117 => 24,  115 => 21,  108 => 17,  104 => 16,  101 => 15,  87 => 14,  84 => 13,  67 => 12,  61 => 8,  57 => 7,  52 => 4,  48 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -155,12 +155,7 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
 
 {% block content %}
 <div class=\"row\">
-    <aside class=\"col-md-3\">
-        {% block sidebar %}
-            {% include '_side.twig' %}
-        {% endblock %}
-    </aside>
-    <div class=\"col-md-9\">
+    <article class=\"col-md-9\">
         <h1>Index des articles</h1>
         <hr>
         {% for post in posts %}
@@ -170,7 +165,12 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
             {{ pagination.previousLink(link)|raw }}
             {{ pagination.nextLink(link)|raw }}
         </aside>
-    </div>
+    </article>
+    <aside class=\"col-md-3\">
+        {% block sidebar %}
+            {% include '_side.twig' %}
+        {% endblock %}
+    </aside>
 </div>
 {% endblock %}", "blog/blog.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\blog\\blog.twig");
     }

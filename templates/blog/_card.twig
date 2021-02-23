@@ -1,7 +1,7 @@
 <div class="card shadow p-2 mb-4 bg-white rounded">
     <div class="card-body">
         <div class="container p-0">
-            <h3 class="card-title text-center"><a href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}" class="text-decoration-none text-dark fw-bold">{{ post.getName() }}</a></h3>
+            <h3 class="card-title"><a href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}" class="text-decoration-none text-dark fw-bold">{{ post.getName() }}</a></h3>
         <hr>
             {% if post.getImage() %}
                 <a href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}"><img src="{{ post.getimageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top mb-3 rounded"></a>
@@ -9,7 +9,7 @@
         </div>
         {{ post.getContent()[:300] | nl2br }}
         <a class="text-secondary fst-italic text-decoration-none " href="
-            {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}">...lire la suite</a>
+            {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}">[...]</a>
         <footer class="blockquote-footer fst-italic text-end pt-3">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\hi') }}
         {% if post.getCategories() %}
             <hr>

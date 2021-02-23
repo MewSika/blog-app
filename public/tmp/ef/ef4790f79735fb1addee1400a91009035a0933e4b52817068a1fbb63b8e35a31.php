@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* admin/category/edit.twig */
-class __TwigTemplate_684b6615f26d9bfd0b0364161147859c2a7a1871f110fc726228a7202067c0e6 extends Template
+/* admin/fighters/importFighters.twig */
+class __TwigTemplate_a5de96f184da4eb5b6246311b1317994e84850e97382cea97b92efb4c2c4435b extends Template
 {
     private $source;
     private $macros = [];
@@ -39,56 +39,53 @@ class __TwigTemplate_684b6615f26d9bfd0b0364161147859c2a7a1871f110fc726228a720206
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("admin/layout/layout.twig", "admin/category/edit.twig", 1);
+        $this->parent = $this->loadTemplate("admin/layout/layout.twig", "admin/fighters/importFighters.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 2
     public function block_head($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 4
-        echo "    <title>Modification de : ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "getName", [], "method", false, false, false, 4), "html", null, true);
-        echo "</title>
+        // line 3
+        echo "  <title> ";
+        echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
+        echo " </title>
 ";
     }
 
-    // line 7
+    // line 5
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 8
+        // line 6
         if (($context["errors"] ?? null)) {
-            // line 9
+            // line 7
             echo "    <div class=\"alert alert-danger\">
-        La modification n'a pas pu être effectuée
+        La catégorie n'a pu être créée
     </div>
 ";
         }
-        // line 13
+        // line 11
         if (($context["success"] ?? null)) {
-            // line 14
+            // line 12
             echo "    <div class=\"alert alert-success\">
-        La catégorie a bien été modifiée
+        L'import a bien été effectué
     </div>
 ";
         }
-        // line 18
+        // line 16
         echo "
-<h2>Editer la catégorie : ";
-        // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["item"] ?? null), "getName", [], "method", false, false, false, 19), "html", null, true);
-        echo "</h2>
+<h2>Import données combattants</h2>
 <hr>
 ";
-        // line 21
-        $this->loadTemplate("admin/category/_form.twig", "admin/category/edit.twig", 21)->display($context);
+        // line 19
+        $this->loadTemplate("admin/fighters/_importForm.twig", "admin/fighters/importFighters.twig", 19)->display($context);
     }
 
     public function getTemplateName()
     {
-        return "admin/category/edit.twig";
+        return "admin/fighters/importFighters.twig";
     }
 
     public function isTraitable()
@@ -98,32 +95,30 @@ class __TwigTemplate_684b6615f26d9bfd0b0364161147859c2a7a1871f110fc726228a720206
 
     public function getDebugInfo()
     {
-        return array (  86 => 21,  81 => 19,  78 => 18,  72 => 14,  70 => 13,  64 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  83 => 19,  78 => 16,  72 => 12,  70 => 11,  64 => 7,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'admin/layout/layout.twig' %}
-
 {% block head %}
-    <title>Modification de : {{ item.getName() }}</title>
+  <title> {{ title }} </title>
 {% endblock %}
-
 {% block content %}
 {% if errors %}
     <div class=\"alert alert-danger\">
-        La modification n'a pas pu être effectuée
+        La catégorie n'a pu être créée
     </div>
 {% endif %}
 {% if success %}
     <div class=\"alert alert-success\">
-        La catégorie a bien été modifiée
+        L'import a bien été effectué
     </div>
 {% endif %}
 
-<h2>Editer la catégorie : {{ item.getName()}}</h2>
+<h2>Import données combattants</h2>
 <hr>
-{% include 'admin/category/_form.twig' %}
-{% endblock %}", "admin/category/edit.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\category\\edit.twig");
+{% include 'admin/fighters/_importForm.twig' %}
+{% endblock %}", "admin/fighters/importFighters.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\importFighters.twig");
     }
 }

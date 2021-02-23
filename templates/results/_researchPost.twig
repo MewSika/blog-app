@@ -13,7 +13,7 @@
                     <a class="text-decoration-none text-dark" href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}">
                         <h5 class="fw-bold"> {{ post.getName() }}</h5>
                     </a>
-                    <p class="small"> {{ post.getContent()[:200] }} <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-secondary fst-italic text-decoration-none">...lire la suite</a></p>
+                    <p class="small"> {{ post.getContent()[:200] }} <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-secondary fst-italic text-decoration-none">[...]</a></p>
                 </article>
             </div>
             <small class="text-muted">Publié le {{ post.getCreatedAt() | date('d/m/Y à H\\hi') }} </small>

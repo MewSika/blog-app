@@ -1,5 +1,5 @@
 <?php
-namespace App\Contact;
+namespace App\Model;
 
 use App\Validator;
 use Psr\Http\Message\ServerRequestInterface;

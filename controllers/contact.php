@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 use App\HTML\Form;
 use App\ObjectHelper;
 use App\Config\Database;
-use App\Contact\Contact;
+use App\Model\Contact;
 use App\Table\ContactTable;
 use App\Validators\ContactValidator;
 

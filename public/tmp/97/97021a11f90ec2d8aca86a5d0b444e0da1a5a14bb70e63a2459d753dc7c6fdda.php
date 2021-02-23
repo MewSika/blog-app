@@ -48,20 +48,14 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
     {
         $macros = $this->macros;
         // line 4
-        echo "<h1 class=\"display-3 fw-bold\">Bienvenue sur Pixel Blog !</h1>
+        echo "<h1 class=\"display-3 fw-bold\">Colyseum MMA</h1>
 <hr>
 <div class=\"row\">
-    <aside class=\"col-md-3\">
-        ";
-        // line 8
-        $this->displayBlock('sidebar', $context, $blocks);
-        // line 11
-        echo "    </aside>
     <div class=\"col-md-9\">
         <h2>Dernières actualités : </h2>
         <div class=\"row justify-content-center\">
                 ";
-        // line 15
+        // line 10
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["lastPosts"] ?? null));
         $context['loop'] = [
@@ -78,10 +72,10 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-            // line 16
+            // line 11
             echo "                    ";
-            $this->loadTemplate("blog/_homeTable.twig", "home.twig", 16)->display($context);
-            // line 17
+            $this->loadTemplate("blog/_homeTable.twig", "home.twig", 11)->display($context);
+            // line 12
             echo "                ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -95,21 +89,27 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 18
+        // line 13
         echo "        </div>
     </div>
+    <aside class=\"col-md-3\">
+        ";
+        // line 16
+        $this->displayBlock('sidebar', $context, $blocks);
+        // line 19
+        echo "    </aside>
 </div>
 ";
     }
 
-    // line 8
+    // line 16
     public function block_sidebar($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 9
+        // line 17
         echo "            ";
-        $this->loadTemplate("_side.twig", "home.twig", 9)->display($context);
-        // line 10
+        $this->loadTemplate("_side.twig", "home.twig", 17)->display($context);
+        // line 18
         echo "        ";
     }
 
@@ -125,7 +125,7 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
 
     public function getDebugInfo()
     {
-        return array (  113 => 10,  110 => 9,  106 => 8,  99 => 18,  85 => 17,  82 => 16,  65 => 15,  59 => 11,  57 => 8,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  113 => 18,  110 => 17,  106 => 16,  100 => 19,  98 => 16,  93 => 13,  79 => 12,  76 => 11,  59 => 10,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -133,14 +133,9 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
         return new Source("{% extends 'layout/layout.twig' %}
 
 {% block content %}
-<h1 class=\"display-3 fw-bold\">Bienvenue sur Pixel Blog !</h1>
+<h1 class=\"display-3 fw-bold\">Colyseum MMA</h1>
 <hr>
 <div class=\"row\">
-    <aside class=\"col-md-3\">
-        {% block sidebar %}
-            {% include '_side.twig' %}
-        {% endblock %}
-    </aside>
     <div class=\"col-md-9\">
         <h2>Dernières actualités : </h2>
         <div class=\"row justify-content-center\">
@@ -149,6 +144,11 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
                 {% endfor %}
         </div>
     </div>
+    <aside class=\"col-md-3\">
+        {% block sidebar %}
+            {% include '_side.twig' %}
+        {% endblock %}
+    </aside>
 </div>
 {% endblock %}", "home.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\home.twig");
     }

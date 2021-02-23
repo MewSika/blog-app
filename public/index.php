@@ -63,6 +63,9 @@ $router
     ->match('/lagestion/category/[i:id]', 'admin/category/edit', 'admin_category')
     ->match('/lagestion/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
 
+    /* Gestion des routes admin fighters */
+    ->match('/lagestion/fighters/import', 'admin/fighters/importFighters', 'import')
+
     ->match('/user', 'user', 'user')
     
     ->run();

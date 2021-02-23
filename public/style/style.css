@@ -1,6 +1,12 @@
 html * {
-  font-family: "Lato", "Helvetica Neue", "Arial";
+  font-family: "Roboto condensed", "Lato", "Arial";
 }
+
+.background {
+  background-image: url('/img/front/background_logo.png');
+  background-position: center;
+}
+
 
 /* Navbar */
 .navhover

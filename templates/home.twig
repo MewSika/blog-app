@@ -1,14 +1,9 @@
 {% extends 'layout/layout.twig' %}
 
 {% block content %}
-<h1 class="display-3 fw-bold">Bienvenue sur Pixel Blog !</h1>
+<h1 class="display-3 fw-bold">Colyseum MMA</h1>
 <hr>
 <div class="row">
-    <aside class="col-md-3">
-        {% block sidebar %}
-            {% include '_side.twig' %}
-        {% endblock %}
-    </aside>
     <div class="col-md-9">
         <h2>Dernières actualités : </h2>
         <div class="row justify-content-center">
@@ -17,5 +12,10 @@
                 {% endfor %}
         </div>
     </div>
+    <aside class="col-md-3">
+        {% block sidebar %}
+            {% include '_side.twig' %}
+        {% endblock %}
+    </aside>
 </div>
 {% endblock %}

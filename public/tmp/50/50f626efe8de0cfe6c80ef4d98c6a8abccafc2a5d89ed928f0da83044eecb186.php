@@ -61,22 +61,27 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
         }
         // line 14
         echo "        <div class=\"card-text p-2 mt-2\">
-            <h5 class=\"fw-bold\"> ";
+            <a href=\"";
         // line 15
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 15), "html", null, true);
-        echo "</h5>
-            <p class=\"small\"> ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 15), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 15)]], "method", false, false, false, 15), "html", null, true);
+        echo "\" class=\"text-decoration-none text-dark\">
+                <h5 class=\"fw-bold\"> ";
         // line 16
-        echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 16), 0, 100), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 16), "html", null, true);
+        echo "</h5>
+            </a>
+            <p class=\"small\"> ";
+        // line 18
+        echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 18), 0, 100), "html", null, true);
         echo " <a href=\"";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 16), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 16)]], "method", false, false, false, 16), "html", null, true);
-        echo "\" class=\"text-secondary fst-italic text-decoration-none\">...lire la suite</a></p>
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 18), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 18)]], "method", false, false, false, 18), "html", null, true);
+        echo "\" class=\"text-secondary text-decoration-none\">[...]</a></p>
         </div>
     </div>
     <div class=\"card-footer bg-light text-end\">
       <small class=\"text-muted\">Publié le ";
-        // line 20
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 20), "d/m/Y à H\\hi"), "html", null, true);
+        // line 22
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 22), "d/m/Y à H\\hi"), "html", null, true);
         echo " </small>
     </div>
 </div>";
@@ -94,7 +99,7 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
 
     public function getDebugInfo()
     {
-        return array (  79 => 20,  70 => 16,  66 => 15,  63 => 14,  57 => 11,  52 => 10,  50 => 9,  43 => 5,  37 => 1,);
+        return array (  84 => 22,  75 => 18,  70 => 16,  66 => 15,  63 => 14,  57 => 11,  52 => 10,  50 => 9,  43 => 5,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -113,8 +118,10 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
             </a>
         {% endif %}
         <div class=\"card-text p-2 mt-2\">
-            <h5 class=\"fw-bold\"> {{ post.getName() }}</h5>
-            <p class=\"small\"> {{ post.getContent()[:100] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary fst-italic text-decoration-none\">...lire la suite</a></p>
+            <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-decoration-none text-dark\">
+                <h5 class=\"fw-bold\"> {{ post.getName() }}</h5>
+            </a>
+            <p class=\"small\"> {{ post.getContent()[:100] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary text-decoration-none\">[...]</a></p>
         </div>
     </div>
     <div class=\"card-footer bg-light text-end\">

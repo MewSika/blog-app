@@ -6,12 +6,7 @@
 
 {% block content %}
 <div class="row">
-    <aside class="col-md-3">
-        {% block sidebar %}
-            {% include '_side.twig' %}
-        {% endblock %}
-    </aside>
-    <div class="col-md-9">
+    <article class="col-md-9">
         <h1>Index des articles</h1>
         <hr>
         {% for post in posts %}
@@ -21,6 +16,11 @@
             {{ pagination.previousLink(link)|raw }}
             {{ pagination.nextLink(link)|raw }}
         </aside>
-    </div>
+    </article>
+    <aside class="col-md-3">
+        {% block sidebar %}
+            {% include '_side.twig' %}
+        {% endblock %}
+    </aside>
 </div>
 {% endblock %}

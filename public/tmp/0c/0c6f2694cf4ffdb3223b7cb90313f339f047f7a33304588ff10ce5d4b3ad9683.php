@@ -37,7 +37,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         echo "<div class=\"card shadow p-2 mb-4 bg-white rounded\">
     <div class=\"card-body\">
         <div class=\"container p-0\">
-            <h3 class=\"card-title text-center\"><a href=\"";
+            <h3 class=\"card-title\"><a href=\"";
         // line 4
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getID", [], "method", false, false, false, 4), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 4)]], "method", false, false, false, 4), "html", null, true);
         echo "\" class=\"text-decoration-none text-dark fw-bold\">";
@@ -67,7 +67,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
             ";
         // line 12
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getID", [], "method", false, false, false, 12), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 12)]], "method", false, false, false, 12), "html", null, true);
-        echo "\">...lire la suite</a>
+        echo "\">[...]</a>
         <footer class=\"blockquote-footer fst-italic text-end pt-3\">";
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 13), "html", null, true);
@@ -155,7 +155,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         return new Source("<div class=\"card shadow p-2 mb-4 bg-white rounded\">
     <div class=\"card-body\">
         <div class=\"container p-0\">
-            <h3 class=\"card-title text-center\"><a href=\"{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\" class=\"text-decoration-none text-dark fw-bold\">{{ post.getName() }}</a></h3>
+            <h3 class=\"card-title\"><a href=\"{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\" class=\"text-decoration-none text-dark fw-bold\">{{ post.getName() }}</a></h3>
         <hr>
             {% if post.getImage() %}
                 <a href=\"{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\"><img src=\"{{ post.getimageURL('large') }}\" alt=\"{{ post.getName() }}\" class=\"card-img-top mb-3 rounded\"></a>
@@ -163,7 +163,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         </div>
         {{ post.getContent()[:300] | nl2br }}
         <a class=\"text-secondary fst-italic text-decoration-none \" href=\"
-            {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">...lire la suite</a>
+            {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">[...]</a>
         <footer class=\"blockquote-footer fst-italic text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\\\hi') }}
         {% if post.getCategories() %}
             <hr>

@@ -2,7 +2,7 @@
 
 namespace App\Table;
 use App\Auth\User;
-use App\Contact\Contact;
+use App\Model\Contact;
 
 final class ContactTable extends Table{
 

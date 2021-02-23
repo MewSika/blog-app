@@ -6,7 +6,7 @@
 
 {% block content %}
     <article class="container p-0">
-        <h1 class="text-center"> {{ post.getName() }}</h1><hr>
+        <h1 class="fw-bold"> {{ post.getName() }}</h1><hr>
         {% include 'blog/_breadcrumb.twig' %}
         {% if post.getImage() %}
             <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top">

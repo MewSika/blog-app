@@ -60,7 +60,7 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
         $macros = $this->macros;
         // line 8
         echo "    <article class=\"container p-0\">
-        <h1 class=\"text-center\"> ";
+        <h1 class=\"fw-bold\"> ";
         // line 9
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 9), "html", null, true);
         echo "</h1><hr>
@@ -170,7 +170,7 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
 
 {% block content %}
     <article class=\"container p-0\">
-        <h1 class=\"text-center\"> {{ post.getName() }}</h1><hr>
+        <h1 class=\"fw-bold\"> {{ post.getName() }}</h1><hr>
         {% include 'blog/_breadcrumb.twig' %}
         {% if post.getImage() %}
             <img src=\"{{ post.getImageURL('large') }}\" alt=\"{{ post.getName() }}\" class=\"card-img-top\">
