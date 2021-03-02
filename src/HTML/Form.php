@@ -89,7 +89,7 @@ HTML;
      * 
      * @param string $key représente la valeur du get
      */
-    public function getValue(string $key)
+    private function getValue(string $key)
     {
         if(is_array($this->data)) {
             return $this->data[$key] ?? null;

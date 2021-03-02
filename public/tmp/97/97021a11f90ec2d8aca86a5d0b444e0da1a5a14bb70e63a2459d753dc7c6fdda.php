@@ -48,7 +48,7 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
     {
         $macros = $this->macros;
         // line 4
-        echo "<h1 class=\"display-3 fw-bold\">Colyseum MMA</h1>
+        echo "<h1 class=\"display-3 fw-bold\">COLISEUM MMA</h1>
 <hr>
 <div class=\"row\">
     <div class=\"col-md-9\">
@@ -133,7 +133,7 @@ class __TwigTemplate_f0d3526b12cdde5c6068215931da69f0509cfd1b29ecfc27f46d56e167c
         return new Source("{% extends 'layout/layout.twig' %}
 
 {% block content %}
-<h1 class=\"display-3 fw-bold\">Colyseum MMA</h1>
+<h1 class=\"display-3 fw-bold\">COLISEUM MMA</h1>
 <hr>
 <div class=\"row\">
     <div class=\"col-md-9\">

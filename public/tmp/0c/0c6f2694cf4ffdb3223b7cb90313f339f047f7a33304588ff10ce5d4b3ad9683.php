@@ -63,12 +63,12 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         // line 10
         echo nl2br(twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 10), 0, 300), "html", null, true));
         echo "
-        <a class=\"text-secondary fst-italic text-decoration-none \" href=\"
+        <a class=\"text-secondary text-decoration-none \" href=\"
             ";
         // line 12
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getID", [], "method", false, false, false, 12), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 12)]], "method", false, false, false, 12), "html", null, true);
         echo "\">[...]</a>
-        <footer class=\"blockquote-footer fst-italic text-end pt-3\">";
+        <footer class=\"blockquote-footer text-end pt-3\">";
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 13), "html", null, true);
         echo ", le ";
@@ -162,9 +162,9 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
             {% endif %}
         </div>
         {{ post.getContent()[:300] | nl2br }}
-        <a class=\"text-secondary fst-italic text-decoration-none \" href=\"
+        <a class=\"text-secondary text-decoration-none \" href=\"
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">[...]</a>
-        <footer class=\"blockquote-footer fst-italic text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\\\hi') }}
+        <footer class=\"blockquote-footer text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\\\hi') }}
         {% if post.getCategories() %}
             <hr>
             Catégories associées :

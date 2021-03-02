@@ -14,14 +14,14 @@ class Fighter {
     private $reach;
     private $stance;
     private $dob;
-    private $SLpM;
-    private $Str_Acc;
-    private $SApM;
-    private $Str_Def;
+    private $sLpM;
+    private $str_Acc;
+    private $sApM;
+    private $str_Def;
     private $TD_Avg;
     private $TD_Acc;
     private $TD_Def;
-    private $Sub_Avg;
+    private $sub_Avg;
     private $last_updated;
 
 

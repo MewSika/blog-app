@@ -46,11 +46,6 @@ final class CategoryTable extends Table {
         return [$posts, $paginatedQuery];
     }
 
-    public function all(): array
-    {
-        return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY id DESC");
-    }
-
     public function list(): array
     {
         $categories = $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");

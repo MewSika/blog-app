@@ -1,0 +1,7 @@
+html * {
+  font-family: "Lato", "Arial";
+}
+
+a:hover {
+  font-weight: bold;
+}

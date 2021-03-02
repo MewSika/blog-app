@@ -4,13 +4,13 @@ namespace App\Manager;
 
 class FileManager {
 
-    public function explodeFileToArray($filePath)
+    public function explodeFileToArray(string $filePath) : string
     {
         $fileRow = explode("\r\n", $filePath);
         return $this->explodeFileColumnToArray($fileRow);
     }
 
-    public function explodeFileColumnToArray($fileRow)
+    public function explodeFileColumnToArray(string $fileRow) : array
     {
         $fileData = [];
         foreach($fileRow as $k =>$row) {

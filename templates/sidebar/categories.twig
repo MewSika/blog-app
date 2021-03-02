@@ -1,8 +1,21 @@
-<div class="card mb-3 shadow">
+<div class="card mb-3 shadow d-none d-sm-block">
     <h6 class="card-header fw-bold">
         Catégories
     </h6>
-    <ul class="nav flex-column ">
+    <ul class="nav flex-column">
+        {% for sideCategory in categories %}
+        <a href="{{ router.url('category',{'id': sideCategory.getId(), 'slug': sideCategory.getSlug()})}}" class="text-secondary text-decoration-none">
+            <li class="list-group-item list-group-item-action">{{ sideCategory.getName() }}</li>
+        </a>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card mb-3 shadow d-block d-sm-none">
+    <h6 class="card-header fw-bold" data-toggle="collapse" href="#categoryCollapse" role="button" aria-expanded="false" aria-controls="categoryCollapse">
+         Catégories
+    </h6>
+    <ul class="nav flex-column collapse" id="categoryCollapse">
         {% for sideCategory in categories %}
         <a href="{{ router.url('category',{'id': sideCategory.getId(), 'slug': sideCategory.getSlug()})}}" class="text-secondary text-decoration-none">
             <li class="list-group-item list-group-item-action">{{ sideCategory.getName() }}</li>

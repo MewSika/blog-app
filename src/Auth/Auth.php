@@ -10,7 +10,6 @@ class Auth {
     private $session;
     
     /**
-     * __construct
      *
      * @param  string route de redirection suite à la connexion
      * @param  array tableau de session

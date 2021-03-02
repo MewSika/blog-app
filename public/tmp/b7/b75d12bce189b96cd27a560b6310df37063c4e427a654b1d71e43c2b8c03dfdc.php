@@ -48,7 +48,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
         $this->displayBlock('head', $context, $blocks);
         // line 12
         echo "    <!-- Bootstrap core CSS -->
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"/style/bo_style.css\"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext&display=swap' rel='stylesheet' type='text/css'>
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">
     <!-- Bootstrap icons -->
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
@@ -56,8 +57,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
 <header class=\"navbar navbar-dark sticky-top bg-dark flex-md-nowrap py- shadow\">
   <a class=\"navbar-brand col-md-3 col-lg-2 me-0 px-3\" href=\"";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 20), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 21), "html", null, true);
         echo "\">Administration</a>
   <button class=\"navbar-toggler position-absolute d-md-none collapsed\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#sidebarMenu\" aria-controls=\"sidebarMenu\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
@@ -65,8 +66,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
   <ul class=\"navbar-nav px-3\">
     <li class=\"nav-item text-nowrap\">
       <form action=\"";
-        // line 26
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "logout"], "method", false, false, false, 26), "html", null, true);
+        // line 27
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "logout"], "method", false, false, false, 27), "html", null, true);
         echo "\" method=\"post\" class=\"m-0\">
         <button type=\"submit\" class=\"btn btn-dark\">Se déconnecter</button> 
       </form>
@@ -78,14 +79,14 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
   <div class=\"container-fluid h-100\">
     <div class=\"row h-100\">
         ";
-        // line 36
-        $this->loadTemplate("admin/_menu.twig", "admin/layout/layout.twig", 36)->display($context);
         // line 37
+        $this->loadTemplate("admin/_menu.twig", "admin/layout/layout.twig", 37)->display($context);
+        // line 38
         echo "        <main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3\">
           ";
-        // line 38
+        // line 39
         $this->displayBlock('content', $context, $blocks);
-        // line 40
+        // line 41
         echo "        </main>
     </div>
   </div>
@@ -108,11 +109,11 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
       ";
     }
 
-    // line 38
+    // line 39
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 39
+        // line 40
         echo "          ";
     }
 
@@ -128,7 +129,7 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
     public function getDebugInfo()
     {
-        return array (  116 => 39,  112 => 38,  106 => 9,  102 => 8,  89 => 40,  87 => 38,  84 => 37,  82 => 36,  69 => 26,  60 => 20,  50 => 12,  48 => 8,  39 => 1,);
+        return array (  117 => 40,  113 => 39,  107 => 9,  103 => 8,  90 => 41,  88 => 39,  85 => 38,  83 => 37,  70 => 27,  61 => 21,  50 => 12,  48 => 8,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -145,7 +146,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
         <meta name=\"description\" content=\"Accueil administration\">
       {% endblock %}
     <!-- Bootstrap core CSS -->
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"/style/bo_style.css\"/>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext&display=swap' rel='stylesheet' type='text/css'>
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">
     <!-- Bootstrap icons -->
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">

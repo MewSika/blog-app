@@ -56,7 +56,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
         }
         // line 11
         echo "                <article class=\"card-text mt-2 col-9\">
-                    <p class=\"text-muted fst-italic small mb-1\"> ";
+                    <p class=\"text-muted small mb-1\"> ";
         // line 12
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 12), "html", null, true);
         echo "</p>    
@@ -74,7 +74,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
         echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 16), 0, 200), "html", null, true);
         echo " <a href=\"";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 16), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 16)]], "method", false, false, false, 16), "html", null, true);
-        echo "\" class=\"text-secondary fst-italic text-decoration-none\">[...]</a></p>
+        echo "\" class=\"text-secondary text-decoration-none\">[...]</a></p>
                 </article>
             </div>
             <small class=\"text-muted\">Publié le ";
@@ -115,11 +115,11 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
             </aside>
             {% endif %}
                 <article class=\"card-text mt-2 col-9\">
-                    <p class=\"text-muted fst-italic small mb-1\"> {{ post.getAuthor() }}</p>    
+                    <p class=\"text-muted small mb-1\"> {{ post.getAuthor() }}</p>    
                     <a class=\"text-decoration-none text-dark\" href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\">
                         <h5 class=\"fw-bold\"> {{ post.getName() }}</h5>
                     </a>
-                    <p class=\"small\"> {{ post.getContent()[:200] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary fst-italic text-decoration-none\">[...]</a></p>
+                    <p class=\"small\"> {{ post.getContent()[:200] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary text-decoration-none\">[...]</a></p>
                 </article>
             </div>
             <small class=\"text-muted\">Publié le {{ post.getCreatedAt() | date('d/m/Y à H\\\\hi') }} </small>

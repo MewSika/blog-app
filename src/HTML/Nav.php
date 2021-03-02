@@ -10,7 +10,6 @@ class Nav {
 
     public static function nav_item(string $link, string $title, string $linkClass = ''): string
     {
-        // $router = new Router(dirname(__DIR__). '/views');
         $class = 'nav_item';
         if($_SERVER['SCRIPT_NAME'] === $link){
             $class .= ' active';
@@ -22,7 +21,7 @@ class Nav {
 HTML;
     }
 
-    public static function nav_menu(string $linkClass = '', $router): string
+    public static function nav_menu(string $linkClass = '', Router $router): string
     {
         return 
             static::nav_item($router->url('home'), 'Accueil', $linkClass).

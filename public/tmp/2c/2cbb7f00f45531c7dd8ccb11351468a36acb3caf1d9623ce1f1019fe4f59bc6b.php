@@ -116,7 +116,7 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
             echo "        <a href=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "category", 1 => ["id" => twig_get_attribute($this->env, $this->source, $context["category"], "getId", [], "method", false, false, false, 23), "slug" => twig_get_attribute($this->env, $this->source, $context["category"], "getSlug", [], "method", false, false, false, 23)]], "method", false, false, false, 23), "html", null, true);
             echo "\" class=\"text-secondary\">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 23), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "getName", [], "method", false, false, false, 23), "html", null, true);
             echo "</a>
     ";
             ++$context['loop']['index0'];
@@ -134,7 +134,7 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
         // line 25
         echo "    </p>
 <hr>
-<p class=\"text-justify lh-sm\"> ";
+<p class=\"text-justify\"> ";
         // line 27
         echo nl2br(twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 27), "html", null, true));
         echo "</p>
@@ -184,11 +184,11 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
         {% if loop.index > 1 %}
             <span class=\"fw-light\">|</span>
         {% endif %}
-        <a href=\"{{ router.url('category', {'id': category.getId(), 'slug': category.getSlug()}) }}\" class=\"text-secondary\">{{ post.getName() }}</a>
+        <a href=\"{{ router.url('category', {'id': category.getId(), 'slug': category.getSlug()}) }}\" class=\"text-secondary\">{{ category.getName() }}</a>
     {% endfor %}
     </p>
 <hr>
-<p class=\"text-justify lh-sm\"> {{ post.getContent()|nl2br }}</p>
+<p class=\"text-justify\"> {{ post.getContent()|nl2br }}</p>
 <p class=\"blockquote-footer text-end pt-3\"><em>{{ post.getAuthor() }}</em></p>
 {% endblock %}", "blog/article.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\blog\\article.twig");
     }

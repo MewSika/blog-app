@@ -56,8 +56,8 @@ abstract class Table {
 
     public function all(): array
     {
-        $sql = "SELECT * FROM {$this->table}";
-        return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
+        $query = "SELECT * FROM {$this->table}";
+        return $this->pdo->query($query, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
     public function create(array $data): int

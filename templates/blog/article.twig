@@ -20,10 +20,10 @@
         {% if loop.index > 1 %}
             <span class="fw-light">|</span>
         {% endif %}
-        <a href="{{ router.url('category', {'id': category.getId(), 'slug': category.getSlug()}) }}" class="text-secondary">{{ post.getName() }}</a>
+        <a href="{{ router.url('category', {'id': category.getId(), 'slug': category.getSlug()}) }}" class="text-secondary">{{ category.getName() }}</a>
     {% endfor %}
     </p>
 <hr>
-<p class="text-justify lh-sm"> {{ post.getContent()|nl2br }}</p>
+<p class="text-justify"> {{ post.getContent()|nl2br }}</p>
 <p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor() }}</em></p>
 {% endblock %}

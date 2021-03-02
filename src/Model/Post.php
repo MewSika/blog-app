@@ -43,11 +43,6 @@ class Post {
         return $this->content;
     }
 
-    public function getFormattedContent (): ?string 
-    {
-        return nl2br(e($this->content));
-    }
-
     public function getSlug(): ?string 
     {
         return $this->slug;
@@ -61,14 +56,6 @@ class Post {
     public function getCreatedAt(): \DateTime
     {
         return new \DateTime($this->created_at);
-    }
-
-    public function getExcerpt(int $limit = 300): ?string
-    {
-        if($this->content === null) {
-            return null;
-        }
-        return TextHelper::excerpt($this->content, $limit);
     }
 
     /** 
