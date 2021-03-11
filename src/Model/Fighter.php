@@ -3,7 +3,7 @@
 namespace App\Model;
 
 class Fighter {
-    private $fighterId;
+    private $id;
     private $name;
     private $win;
     private $lose;
@@ -14,23 +14,24 @@ class Fighter {
     private $reach;
     private $stance;
     private $dob;
-    private $sLpM;
-    private $str_Acc;
-    private $sApM;
-    private $str_Def;
+    private $SLpM;
+    private $Str_Acc;
+    private $SApM;
+    private $Str_Def;
     private $TD_Avg;
     private $TD_Acc;
     private $TD_Def;
-    private $sub_Avg;
+    private $Sub_Avg;
+    private $sex;
     private $last_updated;
 
 
     /**
      * Get the value of fighter_id
      */ 
-    public function getFighterID():int
+    public function getID():int
     {
-        return $this->fighter_id;
+        return $this->id;
     }
 
     /**
@@ -38,9 +39,9 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setFighterID(int $fighter_id):self
+    public function setID(int $id):self
     {
-        $this->fighter_id = $fighter_id;
+        $this->id = $id;
 
         return $this;
     }
@@ -422,6 +423,26 @@ class Fighter {
     public function setLastupdated($last_updated)
     {
         $this->last_updated = $last_updated;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of sex
+     */ 
+    public function getSex():int
+    {
+        return $this->sex;
+    }
+
+    /**
+     * Set the value of sex
+     *
+     * @return  self
+     */ 
+    public function setSex(int $sex):self
+    {
+        $this->sex = $sex;
 
         return $this;
     }

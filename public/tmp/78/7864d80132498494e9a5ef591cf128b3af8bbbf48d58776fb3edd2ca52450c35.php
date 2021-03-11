@@ -60,63 +60,77 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
     <meta name=\"theme-color\" content=\"#563d7c\">
 </head>
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark px-3 mb-4 container-fluid\">
-  <div class=\"col-9 m-auto\">
-  <button class=\"navbar-toggler mb-2\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarhome\" aria-controls=\"navbarhome\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-    <span class=\"navbar-toggler-icon\"></span>
-  </button>
-  <div class=\"collapse navbar-collapse\" id=\"navbarhome\">
-    <form class=\"input-group d-lg-none my-3 d-lg-none my-3\" action=\"";
-        // line 29
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 29), "html", null, true);
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark px-3 mb-4 container-fluid sticky-top\">
+    <div class=\"col-10 m-auto\">
+      <button class=\"navbar-toggler mb-2\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarhome\" aria-controls=\"navbarhome\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+      </button>
+      <div class=\"collapse navbar-collapse\" id=\"navbarhome\">
+        <div class=\"row g-2 col-10 m-auto\">
+          <form class=\"input-group my-3 d-lg-none my-3 col\" action=\"";
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 30), "html", null, true);
         echo "\">
-        <label class=\"input-group-text\" for=\"fieldSearch\"><i class=\"bi bi-search\"></i></label>
-        <input class=\"form-control\" id=\"fieldSearch\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
-    </form>
-    <a href=\"";
-        // line 33
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 33), "html", null, true);
-        echo "\"><img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\"></a>
-    <ul class=\"navbar-nav mr-auto\">
-      ";
-        // line 35
-        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 35)->unwrap();
-        // line 36
-        echo "        ";
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 36), "Accueil", "/"], 36, $context, $this->getSourceContext());
-        echo "
-        ";
-        // line 37
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 37), "Blog", "/blog"], 37, $context, $this->getSourceContext());
-        echo "
-        ";
-        // line 38
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 38), "Contact", "/contact"], 38, $context, $this->getSourceContext());
-        echo "
-    </ul>
-    <!-- Search-->
-    <form class=\"form-inline form-navbar ms-auto d-none d-lg-block\" action=\"";
+              <label class=\"input-group-text\" for=\"fieldSearch\"><i class=\"bi bi-search\"></i></label>
+              <input class=\"form-control\" id=\"fieldSearch\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+          </form>
+          <a href=\"";
+        // line 34
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 34), "html", null, true);
+        echo "\" class=\"text-decoration-none col-2\">
+            <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\">
+          </a>
+          <h1 class=\"text-light fw-bold fst-italic d-none d-lg-inline text-center col\">
+              <span class=\"red\">MMA</span> COLISEUM
+          </h1>
+          ";
         // line 41
+        echo "          <form class=\"form-inline form-navbar d-none d-lg-block col-3\" action=\"";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 41), "html", null, true);
         echo "\">
-        <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
-    </form>
-  </div>
-  </div>
+              <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+          </form>
+          ";
+        // line 45
+        echo "          <ul class=\"navbar-nav justify-content-around\">
+              ";
+        // line 46
+        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 46)->unwrap();
+        // line 47
+        echo "              ";
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 47), "Accueil", "/"], 47, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 48
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 48), "Actus", "/blog"], 48, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 49
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 49), "Combattants", "/fighters"], 49, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 50
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 50), "Contact", "/contact"], 50, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 51
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 51), "Inscription", "/signin"], 51, $context, $this->getSourceContext());
+        echo "
+          </ul>
+      </div>
+    </div>
 </nav>
 
 <body class=\"d-flex flex-column h-100 bg-light background\">
-    <div class=\"container col-9\">
+    <div class=\"container col-xs-12 col-sm-9\">
       ";
-        // line 50
+        // line 59
         $this->displayBlock('content', $context, $blocks);
-        // line 52
+        // line 61
         echo "    </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
-          <?php if(DEBUG_TIME) :?>
-            Générée en <?= round(1000* (microtime(true) - DEBUG_TIME)) ?>ms
-          <?php endif; ?>
+      Navigation + mentions légales
       </div>
     </footer>
 <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -146,11 +160,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     ";
     }
 
-    // line 50
+    // line 59
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 51
+        // line 60
         echo "      ";
     }
 
@@ -166,7 +180,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  154 => 51,  150 => 50,  145 => 15,  141 => 14,  135 => 10,  131 => 9,  114 => 52,  112 => 50,  100 => 41,  94 => 38,  90 => 37,  85 => 36,  83 => 35,  78 => 33,  71 => 29,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  168 => 60,  164 => 59,  159 => 15,  155 => 14,  149 => 10,  145 => 9,  130 => 61,  128 => 59,  117 => 51,  113 => 50,  109 => 49,  105 => 48,  100 => 47,  98 => 46,  95 => 45,  88 => 41,  79 => 34,  72 => 30,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -193,41 +207,48 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
     <meta name=\"theme-color\" content=\"#563d7c\">
 </head>
-<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark px-3 mb-4 container-fluid\">
-  <div class=\"col-9 m-auto\">
-  <button class=\"navbar-toggler mb-2\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarhome\" aria-controls=\"navbarhome\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-    <span class=\"navbar-toggler-icon\"></span>
-  </button>
-  <div class=\"collapse navbar-collapse\" id=\"navbarhome\">
-    <form class=\"input-group d-lg-none my-3 d-lg-none my-3\" action=\"{{router.url('results')}}\">
-        <label class=\"input-group-text\" for=\"fieldSearch\"><i class=\"bi bi-search\"></i></label>
-        <input class=\"form-control\" id=\"fieldSearch\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
-    </form>
-    <a href=\"{{ router.url('home') }}\"><img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\"></a>
-    <ul class=\"navbar-nav mr-auto\">
-      {% import \"_navbar.twig\" as navbar %}
-        {{ navbar.item(router.url('home'), 'Accueil', '/') }}
-        {{ navbar.item(router.url('blog'), 'Blog', '/blog') }}
-        {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
-    </ul>
-    <!-- Search-->
-    <form class=\"form-inline form-navbar ms-auto d-none d-lg-block\" action=\"{{router.url('results')}}\">
-        <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
-    </form>
-  </div>
-  </div>
+<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark px-3 mb-4 container-fluid sticky-top\">
+    <div class=\"col-10 m-auto\">
+      <button class=\"navbar-toggler mb-2\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarhome\" aria-controls=\"navbarhome\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+        <span class=\"navbar-toggler-icon\"></span>
+      </button>
+      <div class=\"collapse navbar-collapse\" id=\"navbarhome\">
+        <div class=\"row g-2 col-10 m-auto\">
+          <form class=\"input-group my-3 d-lg-none my-3 col\" action=\"{{router.url('results')}}\">
+              <label class=\"input-group-text\" for=\"fieldSearch\"><i class=\"bi bi-search\"></i></label>
+              <input class=\"form-control\" id=\"fieldSearch\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+          </form>
+          <a href=\"{{ router.url('home') }}\" class=\"text-decoration-none col-2\">
+            <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\">
+          </a>
+          <h1 class=\"text-light fw-bold fst-italic d-none d-lg-inline text-center col\">
+              <span class=\"red\">MMA</span> COLISEUM
+          </h1>
+          {# Search #}
+          <form class=\"form-inline form-navbar d-none d-lg-block col-3\" action=\"{{router.url('results')}}\">
+              <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher\">
+          </form>
+          {# Navbar list #}
+          <ul class=\"navbar-nav justify-content-around\">
+              {% import \"_navbar.twig\" as navbar %}
+              {{ navbar.item(router.url('home'), 'Accueil', '/') }}
+              {{ navbar.item(router.url('blog'), 'Actus', '/blog') }}
+              {{ navbar.item(router.url('home'), 'Combattants', '/fighters') }}
+              {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
+              {{ navbar.item(router.url('home'), 'Inscription', '/signin') }}
+          </ul>
+      </div>
+    </div>
 </nav>
 
 <body class=\"d-flex flex-column h-100 bg-light background\">
-    <div class=\"container col-9\">
+    <div class=\"container col-xs-12 col-sm-9\">
       {% block content %}
       {% endblock %}
     </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
-          <?php if(DEBUG_TIME) :?>
-            Générée en <?= round(1000* (microtime(true) - DEBUG_TIME)) ?>ms
-          <?php endif; ?>
+      Navigation + mentions légales
       </div>
     </footer>
 <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>

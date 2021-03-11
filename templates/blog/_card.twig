@@ -16,7 +16,7 @@
             Catégories associées :
                 {% for assocCat in post.getCategories() %}
                     {% if loop.index > 1 %}
-                        <span class="fw-light">|</span>
+                        <span class="fw-light">|</span> 
                     {% endif %}
                    <a href="{{router.url("category", {"id": assocCat.getId(), "slug": assocCat.getSlug()}) }}" class="text-dark text-muted text-decoration-none {{ (assocCat.getName() == category.getName()) ? 'fw-bold' : 'fw-light' }}">{{ assocCat.getName()}}</a>
                 {% endfor %}

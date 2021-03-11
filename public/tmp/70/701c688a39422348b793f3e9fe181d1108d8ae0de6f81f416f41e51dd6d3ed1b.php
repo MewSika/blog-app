@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* admin/fighters/_importForm.twig */
-class __TwigTemplate_f70080e6606d630142d8663421752211bb8d20c86728117ffe5a9715bb6c670d extends Template
+/* admin/fighters/import/_importForm.twig */
+class __TwigTemplate_585fa735059ff4c23b8a38aaaae9064efc4446acbca8a54840a06756cf142db1 extends Template
 {
     private $source;
     private $macros = [];
@@ -53,7 +53,7 @@ class __TwigTemplate_f70080e6606d630142d8663421752211bb8d20c86728117ffe5a9715bb6
 
     public function getTemplateName()
     {
-        return "admin/fighters/_importForm.twig";
+        return "admin/fighters/import/_importForm.twig";
     }
 
     public function isTraitable()
@@ -76,6 +76,6 @@ class __TwigTemplate_f70080e6606d630142d8663421752211bb8d20c86728117ffe5a9715bb6
     <button name=\"\" type=\"submit\" class=\"btn btn-success\">
         Créer
     </button>
-</form>", "admin/fighters/_importForm.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\_importForm.twig");
+</form>", "admin/fighters/import/_importForm.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\import\\_importForm.twig");
     }
 }

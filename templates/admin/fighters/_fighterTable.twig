@@ -1,0 +1,8 @@
+<tr>
+    <td><a href="{{ router.url('fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}" class="text-dark fw-bold">{{ fighter.getName }}</a></td>
+    <td class="text-end">{{fighter.getWeight}}</td>
+    <td class="text-end">{{fighter.getWin}}</td>
+    <td class="text-end">{{fighter.getLose}}</td>
+    <td class="text-end">{{fighter.getDraw}}</td>
+    <td class="text-end">{{fighter.getNc}}</td>
+</tr>

@@ -5,7 +5,7 @@ use App\Table\PostTable;
 $pdo = Database::getPDO();
 $table = new PostTable($pdo);
 
-$get = e($_GET['q']);
+$get = $_GET['q'];
 $data = [];
 $data = $_GET;
 

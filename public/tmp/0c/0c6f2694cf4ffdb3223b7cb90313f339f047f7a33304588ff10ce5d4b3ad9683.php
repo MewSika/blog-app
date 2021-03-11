@@ -102,7 +102,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
                 echo "                    ";
                 if ((1 === twig_compare(twig_get_attribute($this->env, $this->source, $context["loop"], "index", [], "any", false, false, false, 18), 1))) {
                     // line 19
-                    echo "                        <span class=\"fw-light\">|</span>
+                    echo "                        <span class=\"fw-light\">|</span> 
                     ";
                 }
                 // line 21
@@ -170,7 +170,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
             Catégories associées :
                 {% for assocCat in post.getCategories() %}
                     {% if loop.index > 1 %}
-                        <span class=\"fw-light\">|</span>
+                        <span class=\"fw-light\">|</span> 
                     {% endif %}
                    <a href=\"{{router.url(\"category\", {\"id\": assocCat.getId(), \"slug\": assocCat.getSlug()}) }}\" class=\"text-dark text-muted text-decoration-none {{ (assocCat.getName() == category.getName()) ? 'fw-bold' : 'fw-light' }}\">{{ assocCat.getName()}}</a>
                 {% endfor %}

@@ -41,7 +41,6 @@ if(!empty($_POST)) {
     }
 }
 $form = new Form($post, $errors);
-$form->input('slug', 'URL');
 
 return $twig->render('admin/post/edit.twig', [
     'title' => $title,

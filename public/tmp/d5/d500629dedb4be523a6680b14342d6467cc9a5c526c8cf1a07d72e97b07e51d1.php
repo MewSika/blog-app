@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* admin/fighters/importFighters.twig */
-class __TwigTemplate_a5de96f184da4eb5b6246311b1317994e84850e97382cea97b92efb4c2c4435b extends Template
+/* admin/fighters/import/importFighters.twig */
+class __TwigTemplate_8f03f44469ff73d2af3bdc8fdb7a5a030a938797a87d31898cbcd4978134df07 extends Template
 {
     private $source;
     private $macros = [];
@@ -39,7 +39,7 @@ class __TwigTemplate_a5de96f184da4eb5b6246311b1317994e84850e97382cea97b92efb4c2c
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("admin/layout/layout.twig", "admin/fighters/importFighters.twig", 1);
+        $this->parent = $this->loadTemplate("admin/layout/layout.twig", "admin/fighters/import/importFighters.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -80,12 +80,12 @@ class __TwigTemplate_a5de96f184da4eb5b6246311b1317994e84850e97382cea97b92efb4c2c
 <hr>
 ";
         // line 19
-        $this->loadTemplate("admin/fighters/_importForm.twig", "admin/fighters/importFighters.twig", 19)->display($context);
+        $this->loadTemplate("admin/fighters/import/_importForm.twig", "admin/fighters/import/importFighters.twig", 19)->display($context);
     }
 
     public function getTemplateName()
     {
-        return "admin/fighters/importFighters.twig";
+        return "admin/fighters/import/importFighters.twig";
     }
 
     public function isTraitable()
@@ -118,7 +118,7 @@ class __TwigTemplate_a5de96f184da4eb5b6246311b1317994e84850e97382cea97b92efb4c2c
 
 <h2>Import données combattants</h2>
 <hr>
-{% include 'admin/fighters/_importForm.twig' %}
-{% endblock %}", "admin/fighters/importFighters.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\importFighters.twig");
+{% include 'admin/fighters/import/_importForm.twig' %}
+{% endblock %}", "admin/fighters/import/importFighters.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\import\\importFighters.twig");
     }
 }

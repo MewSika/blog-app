@@ -9,6 +9,12 @@ html * {
 
 
 /* Navbar */
+
+.navbar
+{
+  z-index: 1;
+}
+
 .navhover
 {
   border:0px;
@@ -61,4 +67,8 @@ img {
 a img:hover {
   opacity: 0.8;
   transform: scale(1.03);
+}
+
+.red {
+  color:#921414;
 }

@@ -2,7 +2,7 @@
     <a href="{{ router.url('dashboard')}}" class="text-dark"><i class="bi bi-arrow-left"></i> Retour vers la gestion des catégories</a>
 </p>
 <form action="" method="post" class="mb-4" enctype="multipart/form-data">
-    {{ form.file('csv', 'csv')|raw }}
+    {{ form.file('file', 'Fichier')|raw }}
     <button name="" type="submit" class="btn btn-success">
         Créer
     </button>

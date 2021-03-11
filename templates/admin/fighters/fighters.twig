@@ -1,0 +1,35 @@
+{% extends 'admin/layout/layout.twig' %}
+{% block head %}
+  <title> {{ title }} </title>
+{% endblock %}
+{% block content %}
+
+<h2>Gestion des combattants UFC </h2>
+<hr>
+<form action="" class="mb-4">
+    <div class="form-group">
+        <input type="text" class="form-control" name="q" placeholder="Recherche de combattant" value="{{ q.q ? q.q }}">
+    </div>
+    <button class="btn btn-secondary">Rechercher</button>
+</form>
+<table class="table rounded table-hover">
+    <thead>
+        <th class="align-middle">Nom</th>
+        <th class="align-middle">Catégorie poids (livres)</th>
+        <th class="align-middle">VICTOIRE</th>
+        <th class="align-middle">DEFAITE</th>
+        <th class="align-middle">NUL</th>
+        <th class="align-middle">ANNULE</th>
+    </thead>
+    <tbody>
+      {% for fighter in fighters %}
+          {% include 'admin/fighters/_fighterTable.twig' %}
+      {% endfor %}
+    </tbody>
+</table>
+<aside class="text-center mb-5">
+    {{ pagination.previousLink(link)|raw }}
+    {{ pagination.nextLink(link)|raw }}
+</aside>
+
+{% endblock %}

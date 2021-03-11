@@ -5,16 +5,16 @@
 {% block content %}
 {% if errors %}
     <div class="alert alert-danger">
-        La catégorie n'a pu être créée
+        Le fichier ne doit pas excéder 500ko et doit être en .csv
     </div>
 {% endif %}
 {% if success %}
     <div class="alert alert-success">
-        L'import a bien été effectué
+        Le fichier a bien été importé en base de données
     </div>
 {% endif %}
 
 <h2>Import données combattants</h2>
 <hr>
-{% include 'admin/fighters/_importForm.twig' %}
+{% include 'admin/fighters/import/_importForm.twig' %}
 {% endblock %}
