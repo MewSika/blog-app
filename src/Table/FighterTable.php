@@ -17,14 +17,53 @@ class FighterTable extends Table{
 
     }
 
-    public function updateFighter()
+    public function updateFighter(Fighter $fighter): void
     {
-
+        $this->update([
+            'champ' => $fighter->getChamp(),
+            'name' => $fighter->getName(),
+            'win' => $fighter->getWin(),
+            'lose' => $fighter->getLose(),
+            'draw' => $fighter->getDraw(),
+            'nc' => $fighter->getNc(),
+            'height' => $fighter->getHeight(),
+            'weight' => $fighter->getWeight(),
+            'weight_cat_id' => $fighter->getWeightCatId(),
+            'reach' => $fighter->getReach(),
+            'stance' => $fighter->getStance(),
+            'dob' => $fighter->getDob(),
+            'SLpM' => $fighter->getSLpM(),
+            'Str_Acc' => $fighter->getStrAcc(),
+            'SApM' => $fighter->getSApM(),
+            'Str_Def' => $fighter->getStrDef(),
+            'TD_Avg' => $fighter->getTDAvg(),
+            'TD_Acc' => $fighter->getTDAcc(),
+            'TD_Def' => $fighter->getTDDef(),
+            'Sub_Avg' => $fighter->getSubAvg(),
+            'sex' => $fighter->getSex(),
+            'last_updated' => $fighter->getLastupdated()->format('Y-m-d h:i:s'),
+            'image' => $fighter->getImage()
+        ], $fighter->getID());
     }
 
     public function deleteFighter()
     {
 
+    }
+
+    /**
+     * @param  int $id id de l'article
+     * @param App\Model\Category[] $categories
+     * @return void
+     */
+    public function attachWeightCategories(int $id, array $weightCategories)
+    {
+        $this->pdo->exec('UPDATE FROM post_category WHERE post_id = ' . $id);
+        $query = $this->pdo
+                ->prepare('INSERT INTO post_category SET post_id = :post_id, category_id = :category_id');
+        foreach($categories as $category) {
+            $query->execute(['post_id' => $id, 'category_id' => $category]);
+        }
     }
 
     /**

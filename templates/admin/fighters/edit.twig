@@ -1,0 +1,23 @@
+{% extends 'admin/layout/layout.twig' %}
+
+{% block head %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+{% if errors %}
+    <div class="alert alert-danger">
+        La modification n'a pas pu être effectuée
+    </div>
+{% endif %}
+
+{% if success %}
+    <div class="alert alert-success">
+        Les informations ont bien été modifiées
+    </div>
+{% endif %}
+
+<h2>Modifier les informations combattant : {{ fighter.getName()}}</h2>
+<hr>
+{% include 'admin/fighters/_form.twig' %}
+{% endblock %}

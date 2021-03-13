@@ -33,7 +33,6 @@ if(!empty($_POST)) {
         $postTable->updatePost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         $pdo->commit();
-
         $categoryTable->hydratePost([$post]);
         $success = true;
     } else {

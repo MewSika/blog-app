@@ -18,5 +18,15 @@ final class WeightCategoryTable extends Table{
         $weightCategory->setID($id);
     }
 
+    public function list(): array
+    {
+        $weightCategories = $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY id ASC");
+        $results = [];
+        foreach($weightCategories as $weightCategory) {
+            $results[$weightCategory->getID()] = $weightCategory->getName();
+        }
+        return $results;
+    }
+
 
 }

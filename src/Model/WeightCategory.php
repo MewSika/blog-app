@@ -13,7 +13,7 @@ class Weightcategory {
     /**
      * Get the value of id
      */ 
-    public function getId() : int
+    public function getID() : int
     {
         return $this->id;
     }

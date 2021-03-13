@@ -4,6 +4,7 @@ namespace App\Model;
 
 class Fighter {
     private $id;
+    private $champ;
     private $name;
     private $win;
     private $lose;
@@ -11,6 +12,7 @@ class Fighter {
     private $nc;
     private $height;
     private $weight;
+    private $weight_cat_id;
     private $reach;
     private $stance;
     private $dob;
@@ -23,6 +25,9 @@ class Fighter {
     private $TD_Def;
     private $Sub_Avg;
     private $sex;
+    private $image;
+    private $oldImage;
+    private $pendingUpload = false;
     private $last_updated;
 
 
@@ -46,6 +51,16 @@ class Fighter {
         return $this;
     }
 
+    public function getChamp(): int
+    {
+        return $this->champ;
+    }
+
+    public function setChamp(int $champ) :self
+    {
+        $this->champ = $champ;
+        return $this;
+    }
     /**
      * Get the value of name
      */ 
@@ -187,6 +202,28 @@ class Fighter {
     }
 
     /**
+     * @return WeightCategory ID
+     */ 
+    public function getWeightCatId():int
+    {
+        return $this->weight_cat_id;
+    }
+
+
+    public function setWeightCatId(int $weight_cat_id):self 
+    {
+        $this->weight_cat_id = $weight_cat_id;
+
+        return $this;
+    }
+
+    public function addWeightCategory(WeightCategory $weight_category): void
+    {
+        $this->weight_categories[] = $weight_category;
+        $weight_category->setFighter($this);
+    }
+
+    /**
      * Get the value of reach
      */ 
     public function getReach():int
@@ -231,6 +268,8 @@ class Fighter {
      */ 
     public function getDob():string
     {
+        $date = strtotime($this->dob);
+        $this->dob = date('Y-m-d', $date);
         return $this->dob;
     }
 
@@ -241,8 +280,8 @@ class Fighter {
      */ 
     public function setDob(string $dob) :self
     {
-        $this->dob = $dob;
-
+        $date = strtotime($dob);
+        $this->dob = date('Y-m-d', $date);
         return $this;
     }
 
@@ -420,9 +459,9 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setLastupdated($last_updated)
+    public function setLastupdated(string $last_updated)
     {
-        $this->last_updated = $last_updated;
+        $this->last_updated = new \DateTime;
 
         return $this;
     }
@@ -445,5 +484,48 @@ class Fighter {
         $this->sex = $sex;
 
         return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function getOldImage () : ?string
+    {
+        return $this->oldImage;
+    }
+
+    /**
+     * Set the value of image
+     * @return  self
+     */ 
+    public function setImage($image)
+    {
+        if(is_array($image) && !empty($image['tmp_name'])){
+            if(!empty($this->image)) {
+                $this->oldImage = $this->image;
+            }
+            $this->pendingUpload = true;
+            $this->image = $image['tmp_name'];
+        } 
+        if(is_string($image) && !empty($image)) {
+            $this->image = $image;
+        }
+
+        return $this;
+    }
+
+    public function shouldUpload(): bool
+    {
+        return $this->pendingUpload;
+    }
+
+    public function getImageURL(string $format): ?string
+    {
+        if(empty($this->image)) {
+            return null;
+        }
+        return '/img/fighters/' . $this->image . '_' . $format . '.jpg';
     }
 }

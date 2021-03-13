@@ -1,0 +1,56 @@
+<p class="fw-bold mb-3">
+    <a href="{{router.url('fighters')}}" class="text-dark"><i class="bi bi-arrow-left"></i> Retour vers la gestion des combattants</a>
+</p>
+<form action="" method="post" class="mb-4" enctype="multipart/form-data">
+    {% if fighter.getImage() %}
+        <p class="fw-bold">Image à la une :</p>
+        <img src="{{ fighter.getImageURL('medium') }}" alt="" class="rounded shadow-sm mb-4">
+    {% endif %}
+    {{ form.checkbox('champ', 'Champion', 'pl-4')|raw}}
+    <div class="row">
+        {{ form.input('name', 'Nom', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('dob', 'Date de naissance', null, 'col-12 col-lg-4')|raw}}
+        {% for value, key in sexes %}
+            {{ form.radio('sex', key, value, 'col-12 col-lg-1')|raw}}
+        {% endfor %}
+    </div>
+    <div class="row">
+        {{ form.input('win', 'Victoire', null, 'col-12 col-lg-3')|raw }}
+        {{ form.input('lose', 'Défaite', null, 'col-12 col-lg-3')|raw }}
+        {{ form.input('draw', 'Egalité', null, 'col-12 col-lg-3' )|raw }}
+        {{ form.input('nc', 'No contest', null, 'col-12 col-lg-3')|raw }}
+    </div>
+
+    <h5 class="p-0"> Catégorie de Poids </h5><hr class="mt-0">
+    <div class="row">
+
+        {{ form.select('weight_cat_id', 'Catégories de poids', categories, true, 'col-12 col-lg-8 m-0')|raw}}
+    </div>
+    <div class="row">
+        {{ form.input('stance', 'Garde', null, 'col-12 col-lg-3')|raw }}
+        {{ form.input('weight', 'Poids (kg)', null, 'col-12 col-lg-3')|raw }}
+        {{ form.input('height', 'Taille (cm)', null, 'col-12 col-lg-3')|raw }}
+        {{ form.input('reach', 'Portée (cm)', null, 'col-12 col-lg-3')|raw }}
+    </div>
+    <h5> Statistiques de combat</h5><hr class="mt-0">
+    <div class="row">
+        {{ form.input('SLpM', 'Frappes portées /mn', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('Str_Acc', 'Précision frappes %', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('SApM', 'Frappes encaissées/mn', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('Str_Def', 'Précision défense %', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('TD_Avg', 'Takedown/15mn', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('TD_Acc', 'Précision TD %', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('TD_Def', 'Déf. TD %', null, 'col-12 col-lg-4')|raw }}
+        {{ form.input('Sub_Avg', 'Tent. soumission /15mn', null, 'col-12 col-lg-4')|raw }}
+    </div>
+    {{ form.input('last_updated', 'Dernière modification')|raw}}
+    {{ form.file('image', 'Img')|raw}}
+
+    <button name="" type="submit" class="btn btn-success">
+        {% if fighter.getID is not null %}
+            Modifier
+        {% else %}
+            Créer
+        {% endif %}
+    </button>
+</form>

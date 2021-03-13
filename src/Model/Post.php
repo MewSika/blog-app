@@ -62,7 +62,7 @@ class Post {
      * @return Category[]
     */
     public function getCategories(): array
-    {
+    {   
         return $this->categories;
     }
 
