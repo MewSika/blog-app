@@ -13,8 +13,34 @@ class FighterTable extends Table{
     protected $table = "fighter";
     protected $class = Fighter::class;
 
-    public function createFighter(array $data){
-
+    public function createFighter(Fighter $fighter)
+    {
+        $id = $this->create([
+            'champ' => $fighter->getChamp(),
+            'name' => $fighter->getName(),
+            'win' => $fighter->getWin(),
+            'lose' => $fighter->getLose(),
+            'draw' => $fighter->getDraw(),
+            'nc' => $fighter->getNc(),
+            'height' => $fighter->getHeight(),
+            'weight' => $fighter->getWeight(),
+            'weight_cat_id' => $fighter->getWeightCatId(),
+            'reach' => $fighter->getReach(),
+            'stance' => $fighter->getStance(),
+            'dob' => $fighter->getDob(),
+            'SLpM' => $fighter->getSLpM(),
+            'Str_Acc' => $fighter->getStrAcc(),
+            'SApM' => $fighter->getSApM(),
+            'Str_Def' => $fighter->getStrDef(),
+            'TD_Avg' => $fighter->getTDAvg(),
+            'TD_Acc' => $fighter->getTDAcc(),
+            'TD_Def' => $fighter->getTDDef(),
+            'Sub_Avg' => $fighter->getSubAvg(),
+            'sex' => $fighter->getSex(),
+            'last_updated' => $fighter->getLastupdated()->format('Y-m-d h:i:s'),
+            'image' => $fighter->getImage()
+        ]);
+        $fighter->setID($id);
     }
 
     public function updateFighter(Fighter $fighter): void
@@ -75,7 +101,7 @@ class FighterTable extends Table{
         $paginatedQuery = new PaginatedQuery(
             "SELECT * FROM {$this->table} ".
             (!is_null($key) ? ' WHERE '.$key.' LIKE :'.$key : '').
-            " ORDER BY name DESC ",
+            " ORDER BY name ASC ",
             "SELECT COUNT(id) FROM {$this->table} " .
             (!is_null($key) ? ' WHERE '.$key.' LIKE :'.$key : ''),
             $this->pdo,

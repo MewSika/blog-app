@@ -94,7 +94,7 @@ class __TwigTemplate_a7e11bea60935c8b84ba5a8d11bb9aac18422ab32d51b45b8339dcb566d
         <th class=\"align-middle\">n°ID</th>
         <th class=\"align-middle\">Titre</th>
         <th class=\"align-middle\">Date de création</th>
-        <th class=\"text-end\"><a href=\"";
+        <th><a href=\"";
         // line 32
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_post_new"], "method", false, false, false, 32), "html", null, true);
         echo "\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
@@ -199,7 +199,7 @@ class __TwigTemplate_a7e11bea60935c8b84ba5a8d11bb9aac18422ab32d51b45b8339dcb566d
         <th class=\"align-middle\">n°ID</th>
         <th class=\"align-middle\">Titre</th>
         <th class=\"align-middle\">Date de création</th>
-        <th class=\"text-end\"><a href=\"{{ router.url('admin_post_new') }}\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
+        <th><a href=\"{{ router.url('admin_post_new') }}\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
     </thead>
     <tbody>
         {% for post in posts %}

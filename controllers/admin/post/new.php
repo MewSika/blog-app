@@ -46,6 +46,7 @@ if(!empty($_POST)) {
 $form = new Form($post, $errors);
 
 return $twig->render('admin/post/new.twig', [
+    'title' => $title,
     'router' => $router,
     'success' => $success,
     'errors' => $errors,

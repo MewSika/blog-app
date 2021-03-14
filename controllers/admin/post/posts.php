@@ -10,6 +10,7 @@ $table = new PostTable($pdo);
 $link = $router->url('posts_manage');
 $get = $_GET;
 return $twig->render('admin/post/posts.twig', [
+    'title' => $title,
     'router' => $router,
     'posts' => $posts,
     'pagination' => $pagination,

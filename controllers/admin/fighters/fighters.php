@@ -18,11 +18,10 @@ if(!empty($_GET['q'])) {
     [$fighters, $pagination] = $fighter->findPaginated();
 }
 
-
-
 $link = $router->url('fighters');
 
 return $twig->render('admin/fighters/fighters.twig', [
+    'title' => $title,
     'router' => $router,
     'fighters' => $fighters,
     'pagination' => $pagination,

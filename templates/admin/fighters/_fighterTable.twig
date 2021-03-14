@@ -5,4 +5,14 @@
     <td class="text-end">{{fighter.getLose}}</td>
     <td class="text-end">{{fighter.getDraw}}</td>
     <td class="text-end">{{fighter.getNc}}</td>
+    <td class="text-end">
+        <a href="{{ router.url('fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}" class="btn btn-sm btn-info">
+            Editer
+        </a>
+        <form action="{{ router.url('fighter_delete', {'id' : fighter.getID()}) }}" method="post" class="d-inline" onsubmit="return confirm('Voulez-vous vraiment supprimer ce combattant ?')">
+            <button type="submit" class="btn btn-sm btn-danger" >
+                Supprimer
+            </button>
+        </form>
+    </td>
 </tr>

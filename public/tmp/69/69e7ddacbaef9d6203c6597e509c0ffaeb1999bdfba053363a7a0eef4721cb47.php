@@ -48,9 +48,9 @@ class __TwigTemplate_bfc2ea59a3c069d2d10ccb1566167e05dc684b0c007b3f8fb714b48a005
     {
         $macros = $this->macros;
         // line 4
-        echo "    ";
+        echo "    <title>";
         echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
-        echo "
+        echo "</title>
 ";
     }
 
@@ -107,7 +107,7 @@ class __TwigTemplate_bfc2ea59a3c069d2d10ccb1566167e05dc684b0c007b3f8fb714b48a005
         return new Source("{% extends 'admin/layout/layout.twig' %}
 
 {% block head %}
-    {{title}}
+    <title>{{title}}</title>
 {% endblock %}
 
 {% block content %}

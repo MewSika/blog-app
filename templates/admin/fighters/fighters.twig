@@ -1,9 +1,25 @@
 {% extends 'admin/layout/layout.twig' %}
-{% block head %}
-  <title> {{ title }} </title>
-{% endblock %}
+    {% block head %}
+    <title> {{ title }} </title>
+    {% endblock %}
 {% block content %}
+{% if q.success %}
+    <div class="alert alert-success alert-dismissible fade show">
+        Le combattant a bien été créé
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
 
+{% if q.delete %}
+<div class="alert alert-danger alert-dismissible fade show">
+    Le combattant a bien été supprimé
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
 <h2>Gestion des combattants UFC </h2>
 <hr>
 <form action="" class="mb-4">
@@ -20,6 +36,7 @@
         <th class="align-middle">DEFAITE</th>
         <th class="align-middle">NUL</th>
         <th class="align-middle">ANNULE</th>
+        <th><a href="{{ router.url('fighter_new') }}" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
     </thead>
     <tbody>
       {% for fighter in fighters %}

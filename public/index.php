@@ -66,7 +66,9 @@ $router
     /* Gestion des routes admin fighters */
     ->match('/lagestion/fighters', 'admin/fighters/fighters', 'fighters')
     ->match('/lagestion/fighters/import', 'admin/fighters/import/importFighters', 'import')
+    ->match('/lagestion/fighters/new', 'admin/fighters/new', 'fighter_new')
     ->match('/lagestion/fighters/[*:name]-[i:id]', 'admin/fighters/edit', 'fighter')
+    ->match('/lagestion/fighters/[i:id]/delete', 'admin/fighters/delete', 'fighter_delete')
 
     ->match('/user', 'user', 'user')
     

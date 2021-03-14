@@ -61,6 +61,22 @@ class __TwigTemplate_bc9edc221bb1f2b7a964026eae71aad2f1ee3e5cf9c7c2e653304414d6d
         // line 7
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getNc", [], "any", false, false, false, 7), "html", null, true);
         echo "</td>
+    <td class=\"text-end\">
+        <a href=\"";
+        // line 9
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighter", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getID", [], "method", false, false, false, 9), "name" => twig_lower_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "any", false, false, false, 9), [" " => "-"]))]], "method", false, false, false, 9), "html", null, true);
+        echo "\" class=\"btn btn-sm btn-info\">
+            Editer
+        </a>
+        <form action=\"";
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighter_delete", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getID", [], "method", false, false, false, 12)]], "method", false, false, false, 12), "html", null, true);
+        echo "\" method=\"post\" class=\"d-inline\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer ce combattant ?')\">
+            <button type=\"submit\" class=\"btn btn-sm btn-danger\" >
+                Supprimer
+            </button>
+        </form>
+    </td>
 </tr>";
     }
 
@@ -76,7 +92,7 @@ class __TwigTemplate_bc9edc221bb1f2b7a964026eae71aad2f1ee3e5cf9c7c2e653304414d6d
 
     public function getDebugInfo()
     {
-        return array (  62 => 7,  58 => 6,  54 => 5,  50 => 4,  46 => 3,  40 => 2,  37 => 1,);
+        return array (  73 => 12,  67 => 9,  62 => 7,  58 => 6,  54 => 5,  50 => 4,  46 => 3,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -88,6 +104,16 @@ class __TwigTemplate_bc9edc221bb1f2b7a964026eae71aad2f1ee3e5cf9c7c2e653304414d6d
     <td class=\"text-end\">{{fighter.getLose}}</td>
     <td class=\"text-end\">{{fighter.getDraw}}</td>
     <td class=\"text-end\">{{fighter.getNc}}</td>
+    <td class=\"text-end\">
+        <a href=\"{{ router.url('fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}\" class=\"btn btn-sm btn-info\">
+            Editer
+        </a>
+        <form action=\"{{ router.url('fighter_delete', {'id' : fighter.getID()}) }}\" method=\"post\" class=\"d-inline\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer ce combattant ?')\">
+            <button type=\"submit\" class=\"btn btn-sm btn-danger\" >
+                Supprimer
+            </button>
+        </form>
+    </td>
 </tr>", "admin/fighters/_fighterTable.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\_fighterTable.twig");
     }
 }

@@ -34,7 +34,7 @@ class Fighter {
     /**
      * Get the value of fighter_id
      */ 
-    public function getID():int
+    public function getID(): ?int
     {
         return $this->id;
     }
@@ -51,7 +51,7 @@ class Fighter {
         return $this;
     }
 
-    public function getChamp(): int
+    public function getChamp(): ?int
     {
         return $this->champ;
     }
@@ -64,7 +64,7 @@ class Fighter {
     /**
      * Get the value of name
      */ 
-    public function getName():string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -84,7 +84,7 @@ class Fighter {
     /**
      * Get the value of win
      */ 
-    public function getWin():int
+    public function getWin(): ?int
     {
         return $this->win;
     }
@@ -104,7 +104,7 @@ class Fighter {
     /**
      * Get the value of lose
      */ 
-    public function getLose():int
+    public function getLose(): ?int
     {
         return $this->lose;
     }
@@ -124,7 +124,7 @@ class Fighter {
     /**
      * Get the value of draw
      */ 
-    public function getDraw():int
+    public function getDraw(): ?int
     {
         return $this->draw;
     }
@@ -144,7 +144,7 @@ class Fighter {
     /**
      * Get the value of nc
      */ 
-    public function getNc():int
+    public function getNc(): ?int
     {
         return $this->nc;
     }
@@ -154,7 +154,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setNc(int $nc):self
+    public function setNc(int $nc): ?self
     {
         $this->nc = $nc;
 
@@ -164,7 +164,7 @@ class Fighter {
     /**
      * Get the value of height
      */ 
-    public function getHeight():int
+    public function getHeight(): ?int
     {
         return $this->height;
     }
@@ -184,7 +184,7 @@ class Fighter {
     /**
      * Get the value of weight
      */ 
-    public function getWeight():int
+    public function getWeight(): ?int
     {
         return $this->weight;
     }
@@ -204,7 +204,7 @@ class Fighter {
     /**
      * @return WeightCategory ID
      */ 
-    public function getWeightCatId():int
+    public function getWeightCatId(): ?int
     {
         return $this->weight_cat_id;
     }
@@ -226,7 +226,7 @@ class Fighter {
     /**
      * Get the value of reach
      */ 
-    public function getReach():int
+    public function getReach(): ?int
     {
         return $this->reach;
     }
@@ -246,7 +246,7 @@ class Fighter {
     /**
      * Get the value of stance
      */ 
-    public function getStance():string
+    public function getStance(): ?string
     {
         return $this->stance;
     }
@@ -266,7 +266,7 @@ class Fighter {
     /**
      * Get the value of date of birth
      */ 
-    public function getDob():string
+    public function getDob(): ?string
     {
         $date = strtotime($this->dob);
         $this->dob = date('Y-m-d', $date);
@@ -288,7 +288,7 @@ class Fighter {
     /**
      * Get the value of Significant Strikes Landed per Minute
      */ 
-    public function getSLpM():int
+    public function getSLpM(): ?int
     {
         return $this->SLpM;
     }
@@ -308,7 +308,7 @@ class Fighter {
     /**
      * Get the value of Significant strike accuracy
      */ 
-    public function getStrAcc():int
+    public function getStrAcc(): ?int
     {
         return $this->Str_Acc;
     }
@@ -328,7 +328,7 @@ class Fighter {
     /**
      * Get the value of Significant Strikes Absorbed per Minute
      */ 
-    public function getSApM():int
+    public function getSApM(): ?int
     {
         return $this->SApM;
     }
@@ -348,7 +348,7 @@ class Fighter {
     /**
      * Get the value of Significant Strike Defence (the % of opponents strikes that did not land)
      */ 
-    public function getStrDef():int 
+    public function getStrDef(): ?int 
     {
         return $this->Str_Def;
     }
@@ -368,7 +368,7 @@ class Fighter {
     /**
      * Get the value of Average Takedowns Landed per 15 minutes
      */ 
-    public function getTDAvg():int
+    public function getTDAvg(): ?int
     {
         return $this->TD_Avg;
     }
@@ -388,7 +388,7 @@ class Fighter {
     /**
      * Get the value of Takedown Accuracy
      */ 
-    public function getTDAcc():int
+    public function getTDAcc(): ?int
     {
         return $this->TD_Acc;
     }
@@ -409,7 +409,7 @@ class Fighter {
     /**
      * Get the value of  Takedown Defense
      */ 
-    public function getTDDef():int
+    public function getTDDef(): ?int
     {
         return $this->TD_Def;
     }
@@ -429,7 +429,7 @@ class Fighter {
     /**
      * Get the value of Submissions Attempted per 15 minutesAvg
      */ 
-    public function getSubAvg():int
+    public function getSubAvg(): ?int
     {
         return $this->Sub_Avg;
     }
@@ -469,7 +469,7 @@ class Fighter {
     /**
      * Get the value of sex
      */ 
-    public function getSex():int
+    public function getSex(): ?int
     {
         return $this->sex;
     }
