@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Table;
+use App\Model\Fighter;
 use App\Model\WeightCategory;
 
 final class WeightCategoryTable extends Table{
@@ -28,5 +29,23 @@ final class WeightCategoryTable extends Table{
         return $results;
     }
 
-
+    /**
+     * Hydrate la table Weightcategory
+     *
+     * @param  array $fighters
+     * @return WeightCategory 
+     */
+    public function hydrateWeightCategory(array $fighters): array
+    {
+        $fighterCatID = [];
+        foreach($fighters as $fighter) {
+            $fighterCatID[$fighter->getWeightCatId()] = $fighter;
+        }
+        $categories = $this->pdo->query(
+                'SELECT wc.* 
+                FROM weightcategory wc
+                WHERE wc.id IN ('. implode(',', array_keys($fighterCatID)).')'
+            )->fetchAll(\PDO::FETCH_CLASS, WeightCategory::class);
+        return $categories;
+    }
 }

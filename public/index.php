@@ -37,18 +37,29 @@ if (isset($_GET['p']) && $_GET['p'] === '1') {
 $router = new App\Router($twig, dirname(__DIR__). '/controllers');
 $router
     ->match('/', 'home', 'home')
-    ->match('/realestate', 'table', 'table')
     ->match('/contact', 'contact', 'contact')
     ->match('/results', 'results', 'results')
 
-    ->match('/blog', 'blog', 'blog')
-    ->match('/blog/category/[*:slug]-[i:id]', 'blog/category', 'category')
-    ->match('/blog/[*:slug]-[i:id]', 'blog/article', 'article')
+    /** Articles */ 
+    ->match('/news', 'blog', 'blog')
+    ->match('/news/category/[*:slug]-[i:id]', 'blog/category', 'category')
+    ->match('/news/[*:slug]-[i:id]', 'blog/article', 'article')
+
+    /** Combattants  */
+    ->match('/fighters', 'fighters', 'fighters')
+    ->match('/fighters/category/[*:name]-[i:id]-[i:sex]', 'fighters/category', 'category_fighter')
+    ->match('/fighters/[*:name]-[i:id]', 'fighters/fighter', 'fighter')
+
+    /** Login front */
+    ->match('/login', 'auth/login', 'f_login')
+    ->match('/logout', 'auth/logout', 'f_logout')
+    ->match('/signin', 'auth/signin', 'signin')
+
+    ->match('/account', 'account/account', 'account')
 
     /** Backoffice */
-    ->match('/lagestion/login', 'auth/login', 'login')
-    ->match('/lagestion/logout', 'auth/logout', 'logout')
-
+    ->match('/lagestion/login', 'auth/bo/login', 'login')
+    ->match('/lagestion/logout', 'auth/bo/logout', 'logout')
     ->match('/lagestion/dashboard', 'admin/dashboard', 'dashboard')
 
     /* Gestion des routes admin post */
@@ -64,10 +75,10 @@ $router
     ->match('/lagestion/category/[i:id]/delete', 'admin/category/delete', 'admin_category_delete')
 
     /* Gestion des routes admin fighters */
-    ->match('/lagestion/fighters', 'admin/fighters/fighters', 'fighters')
+    ->match('/lagestion/fighters', 'admin/fighters/fighters', 'fighters_manage')
     ->match('/lagestion/fighters/import', 'admin/fighters/import/importFighters', 'import')
     ->match('/lagestion/fighters/new', 'admin/fighters/new', 'fighter_new')
-    ->match('/lagestion/fighters/[*:name]-[i:id]', 'admin/fighters/edit', 'fighter')
+    ->match('/lagestion/fighters/[*:name]-[i:id]', 'admin/fighters/edit', 'admin_fighter')
     ->match('/lagestion/fighters/[i:id]/delete', 'admin/fighters/delete', 'fighter_delete')
 
     ->match('/user', 'user', 'user')

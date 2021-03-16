@@ -63,8 +63,8 @@ class PaginatedQuery {
         }
         $start = $link . "?" . URLHelper::withParam($params, 'p', $currentPage = 1);
         return  <<<HTML
-        <a href="{$start}" class="btn btn-dark"><i class="bi bi-chevron-double-left"></i></a>
-        <a href="{$previous}" class="btn btn-dark"><i class="bi bi-chevron-left"></i></a>
+        <a href="{$start}" class="btn btn-dark bg-gradient"><i class="bi bi-chevron-double-left"></i></a>
+        <a href="{$previous}" class="btn btn-dark bg-gradient"><i class="bi bi-chevron-left"></i></a>
 HTML;
     }
 
@@ -82,10 +82,11 @@ HTML;
         } else {
             $end = $link . "?p=" . $pages;
         }
-
         return  <<<HTML
-        <a href="{$next}" class="btn btn-dark"><i class="bi bi-chevron-right"></i></a>
-        <a href="{$end}" class="btn btn-dark"><i class="bi bi-chevron-double-right"></i></a>
+        <a href="{$next}" class="btn btn-dark bg-gradient"><i class="bi bi-chevron-right"></i></a>
+        <a href="{$end}" class="btn btn-dark bg-gradient"><i class="bi bi-chevron-double-right"></i></a>
+        <p class="fw-bold mt-2">{$currentPage} / {$pages} </p>
+
 HTML;
     }
 

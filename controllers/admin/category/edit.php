@@ -1,6 +1,6 @@
 <?php
 
-use App\Auth\App;
+use App\App;
 use App\HTML\Form;
 use App\Validator;
 use App\ObjectHelper;

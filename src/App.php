@@ -1,6 +1,7 @@
 <?php
-namespace App\Auth;
+namespace App;
 use App\Config\Database;
+use App\Table\UserTable;
 use App\Security\ForbiddenException;
 
 class App {
@@ -8,16 +9,16 @@ class App {
     public static $auth;
         
     /**
-     * Démarre la session, si l'utilisateur est bien connecté, il est renvoyé sur la page d'admnistration
-     * @return Auth
+     * Démarre la session, si l'utilisateur est bien connecté
+     * @return UserTable
      */
-    public static function getAuth(): Auth 
+    public static function getAuth(): UserTable 
     {
         if(!self::$auth) {
             if(session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-            self::$auth = new Auth(Database::getPDO(), 'dashboard', $_SESSION);
+            self::$auth = new UserTable(Database::getPDO(), $_SESSION);
         }
         return self::$auth;
     }

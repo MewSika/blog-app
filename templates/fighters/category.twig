@@ -1,0 +1,26 @@
+{% extends "layout/layout.twig" %}
+{% block head %}
+    <title> {{ title|capitalize }} </title>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <article class="col-12">
+        <h1 class="fw-bold">CHAMPIONS <span class="red">UFC</span></h1>
+        <hr>
+        <form class="form-inline form-navbar mb-2 col-3" action="">
+              <input class="form-control" name="q" type="text" placeholder="Rechercher un combattant..">
+        </form>
+        {% include 'fighters/_breadcrumb.twig' %}
+        {% for fighter in fighters %}
+            {% for weight in weights %}
+                    {% include 'fighters/_card.twig' %}
+            {% endfor %}
+        {% endfor %}
+    </article>
+    <aside class="text-center mb-5">
+        {{ pagination.previousLink(link)|raw }}
+        {{ pagination.nextLink(link)|raw }}
+    </aside>
+</div>
+{% endblock %}

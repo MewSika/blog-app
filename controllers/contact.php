@@ -1,7 +1,5 @@
 <?php
 
-require '../vendor/autoload.php';
-
 use App\HTML\Form;
 use App\ObjectHelper;
 use App\Config\Database;

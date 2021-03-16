@@ -100,28 +100,4 @@ abstract class Table {
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
-
-       
-    /**
-     * TODO à corriger
-     *
-     * @param  string $sql requête envoyée à la méthode
-     * @param  array $params 
-     * @return array
-     */
-    public function prepAndFetch(string $sql, array $params): array
-    {
-        $query = $this->pdo->prepare($sql);
-
-        $params = array_map(function ($v) {
-            return is_array($v) ? implode(',', $v) : $v;
-        }, $params);
-
-        $query->setfetchMode(\PDO::FETCH_CLASS, $this->class);
-        $result = $query->fetch();
-        if($result === false) { 
-            throw new NotFoundException($this->table, $params);
-        }
-        return $result;
-    }
 }

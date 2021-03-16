@@ -1,7 +1,8 @@
 <?php
 namespace App;
 
-use App\Auth\Auth;
+use App\App;
+use App\Table\UserTable;
 use App\Security\ForbiddenException;
 
 class Router {
@@ -42,6 +43,7 @@ class Router {
 
     public function run(): self
     {
+        $auth = App::getAuth();
         $match = $this->router->match();
         if($match === false) {
             $controller = "e404";
@@ -52,11 +54,9 @@ class Router {
         $router = $this;
         $twig = $this->twig;
 
-        $isAdmin = strpos($controller, "admin/") !== false;
-
         /* Vérifie accès BO */
-        ($isAdmin !== true) ?: Auth::check($router);
-
+        $isAdmin = strpos($controller, "admin/") !== false;
+        ($isAdmin !== true) ?: UserTable::check($router);
         $layout = $isAdmin ? "admin/layout/layout" : "layout/layout";
         
         /* Page 404  */

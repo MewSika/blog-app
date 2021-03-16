@@ -37,7 +37,7 @@ class __TwigTemplate_fe8ef490a0ccc7f9fdd534dcedffc3678147afe70b8f0d03f2922f20b51
         echo "<p class=\"fw-bold mb-3\">
     <a href=\"";
         // line 2
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 2), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters_manage"], "method", false, false, false, 2), "html", null, true);
         echo "\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des combattants</a>
 </p>
 <form action=\"\" method=\"post\" class=\"mb-4\" enctype=\"multipart/form-data\">
@@ -205,7 +205,7 @@ class __TwigTemplate_fe8ef490a0ccc7f9fdd534dcedffc3678147afe70b8f0d03f2922f20b51
     public function getSourceContext()
     {
         return new Source("<p class=\"fw-bold mb-3\">
-    <a href=\"{{router.url('fighters')}}\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des combattants</a>
+    <a href=\"{{router.url('fighters_manage')}}\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des combattants</a>
 </p>
 <form action=\"\" method=\"post\" class=\"mb-4\" enctype=\"multipart/form-data\">
     {% if fighter.getImage() %}

@@ -1,7 +1,6 @@
 {% extends 'layout/layout.twig' %}
 {% block content %}
-<h2 class="text-center">Connexion</h2><hr>
-{{ layout.request.query.get("page") }}
+<h2 class="text-center">S'authentifier</h2><hr>
 
 {% if forbidden %}
     <div class="alert alert-danger">
@@ -9,9 +8,22 @@
     </div>
 {% endif %}
 
-<form action="{{ router.url('login') }}" method="post" class="m-auto col-xs-6 col-md-3 text-center">
-    {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Login')|raw }}
-    {{ form.input('password', '<i class="bi bi-lock"></i>', 'Password')|raw }}
-    <button class="btn btn-secondary ml-3"> Se connecter</button>
-</form>
+<div class="row">
+    <div class="col-lg-5 m-auto">
+        <h3 class="fw-bold text-center"><a href="{{router.url('signin')}}" class="text-dark">Créer un compte</a></h3>
+    </div>
+    <div class="col-lg-2 sep">
+        <span class="sepText">
+            Authentification
+        </span>
+    </div>
+    <div class="col-lg-5">
+        <h3 class="fw-bold text-center">Connexion</h3>
+        <form action="" method="post" class="m-auto col-md-8 text-center">
+            {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Identifiant')|raw }}
+            {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+            <button class="btn btn-secondary ml-3"> Se connecter</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

@@ -11,14 +11,13 @@ $fighter = new FighterTable($pdo);
 $q = $_GET;
 
 // Recherche par combattant
-$query = (new QueryBuilder($pdo))->from('fighter');
 if(!empty($_GET['q'])) {
     [$fighters, $pagination] = $fighter->findPaginated($q, 'name');
 } else {
     [$fighters, $pagination] = $fighter->findPaginated();
 }
 
-$link = $router->url('fighters');
+$link = $router->url('fighters_manage');
 
 return $twig->render('admin/fighters/fighters.twig', [
     'title' => $title,

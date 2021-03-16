@@ -2,7 +2,7 @@
         <div class="card-body pb-2">
             <div class="row">
             {% if post.getImage() %}
-            <aside class="col-md-3 col-xs-12">
+            <aside class="col-md-3">
                 <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}">
                     <div class="card-img-top d-flex justify-content-start align-items-center my-2"><img class="rounded shadow img-fluid" src="{{ post.getimageURL('small') }}" alt=""></div>
                 </a>

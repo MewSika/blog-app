@@ -1,22 +1,17 @@
 <?php 
-require '../vendor/autoload.php';
 
-use App\Auth\App;
-use App\Auth\Auth;
-use App\Auth\User;
+use App\App;
+use App\Model\User;
 use App\HTML\Form;
 use App\Config\Database;
 use App\Table\UserTable;
 use App\Table\Exception\NotFoundException;
 
-session_start();
-
 $errors = [];
-$auth = App::getAuth();
 $user = new User();
 
 if($auth->user() !== null) {
-    header('Location:' . $router->url('dashboard'));
+    header('Location:' . $router->url('account'));
 }
 
 $forbidden = $_GET['forbidden'] ?? '';
@@ -24,19 +19,17 @@ $forbidden = $_GET['forbidden'] ?? '';
 if(!empty($_POST)) {
     $user->setUsername($_POST['username']);
     $errors['password'] = 'Identifiant ou mot de passe incorrect';
-
     if(!empty($_POST['password']) && !empty($_POST['username'])) {
-          $table = new UserTable(Database::getPDO());
         try{
-              $user = $auth->login($_POST['username'], $_POST['password']);
-              if($user) {
-                  header('Location:'.$router->url('dashboard').'?login=1');
-                  exit();
-              }
+            $user = $auth->login($_POST['username'], $_POST['password']);
+            if($user) {
+                header('Location:'.$router->url('f_login').'?login=1');
+                exit();
+            }
         } catch (NotFoundException $e){  
-          //
+            //
         }
-    }
+    } 
 }
 
 $form = new Form($user, $errors);

@@ -72,3 +72,40 @@ a img:hover {
 .red {
   color:#921414;
 }
+
+/* Image combattant */
+
+.height_crop {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.height_crop img {
+  max-width:200px;
+}
+
+.sep {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sepText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.sepText::before,
+.sepText::after {
+  content: '';
+  flex: 1;
+  width: 0.3px;
+  background: currentColor;
+  /* matches font color */
+  margin: .25em;
+  height: 100%;
+}
+

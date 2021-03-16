@@ -37,7 +37,7 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
         echo "<div class=\"col-md-5 col-s-12 card rounded border-0 p-0 m-2\">
     <div class=\"card-header bg-light px-0 border-0\">
         <div class=\"d-flex justify-content-start align-items-center\">
-            <img width=\"24\" height=\"24\" class=\"rounded-circle mx-2\" data-src=\"https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0\" src=\"https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0\" lazy=\"loaded\">
+            <img width=\"24\" height=\"24\" class=\"rounded-circle mx-2\" src=\"/img/authors/fl.png\" lazy=\"loaded\">
             <p class=\"text-muted small m-0\"> ";
         // line 5
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 5), "html", null, true);
@@ -107,7 +107,7 @@ class __TwigTemplate_f839924345494049633ff499aec9eed3320d1099ec76672ddf0f88c8f33
         return new Source("<div class=\"col-md-5 col-s-12 card rounded border-0 p-0 m-2\">
     <div class=\"card-header bg-light px-0 border-0\">
         <div class=\"d-flex justify-content-start align-items-center\">
-            <img width=\"24\" height=\"24\" class=\"rounded-circle mx-2\" data-src=\"https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0\" src=\"https://i.picsum.photos/id/237/536/354.jpg?hmac=i0yVXW1ORpyCZpQ-CknuyV-jbtU7_x9EBQVhvT5aRr0\" lazy=\"loaded\">
+            <img width=\"24\" height=\"24\" class=\"rounded-circle mx-2\" src=\"/img/authors/fl.png\" lazy=\"loaded\">
             <p class=\"text-muted small m-0\"> {{ post.getAuthor() }}</p>    
         </div>
     </div>

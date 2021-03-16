@@ -64,7 +64,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
         // line 11
         if (($context["success"] ?? null)) {
             // line 12
-            echo "    <div class=\"alert alert-success alert-dismissible fade show col-xs-12 col-md-6 m-auto mb-3\" role=\"alert\">
+            echo "    <div class=\"alert alert-success alert-dismissible fade show col-md-6 m-auto mb-3\" role=\"alert\">
         ";
             // line 13
             echo twig_escape_filter($this->env, ($context["success"] ?? null), "html", null, true);
@@ -75,7 +75,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
         }
         // line 17
         echo "
-    <form method=\"post\" action= \"\" class=\"col-md-6 col-xs-12 m-auto\">
+    <form method=\"post\" action= \"\" class=\"col-md-6 m-auto\">
         ";
         // line 19
         echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "Pseudo"], "method", false, false, false, 19);
@@ -126,13 +126,13 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
     <h1>Nous contacter</h1>
     <hr>
     {% if success %}
-    <div class=\"alert alert-success alert-dismissible fade show col-xs-12 col-md-6 m-auto mb-3\" role=\"alert\">
+    <div class=\"alert alert-success alert-dismissible fade show col-md-6 m-auto mb-3\" role=\"alert\">
         {{ success }}
         <button type=\"button\" class=\"btn-close\" data-dismiss=\"alert\" aria-label=\"Close\"></button>
     </div>
     {% endif %}
 
-    <form method=\"post\" action= \"\" class=\"col-md-6 col-xs-12 m-auto\">
+    <form method=\"post\" action= \"\" class=\"col-md-6 m-auto\">
         {{ form.input(\"username\", \"Pseudo\") | raw}}
         {{ form.input(\"email\", \"@mail\") | raw}}
         {{ form.textarea(\"content\", \"Message\", \"Votre message\") | raw}}

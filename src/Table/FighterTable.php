@@ -111,9 +111,31 @@ class FighterTable extends Table{
         return [$fighters, $paginatedQuery];
     }
 
+       /**
+     * @param  int $weightCategoryID
+     * @return void
+     */
+    public function findPaginatedByCategory(int $categoryID, int $sex)
+    {
+        $paginatedQuery = new PaginatedQuery(
+            " SELECT f.* 
+            FROM {$this->table} f
+            WHERE f.weight_cat_id = {$categoryID} AND sex = {$sex}
+            ORDER BY name ASC",
+            "SELECT COUNT(id) FROM {$this->table} WHERE weight_cat_id = {$categoryID} AND sex = {$sex}",
+        );
+        $fighters = $paginatedQuery->getItems(Fighter::class);
+        return [$fighters, $paginatedQuery];
+    }
+
     public function getAllFighters()
     {
         return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
+    }
+
+    public function getChampFighters()
+    {
+        return $this->queryAndFetchAll("SELECT * FROM {$this->table} WHERE champ = 1 ORDER BY sex, weight_cat_id ASC");
     }
 
     public function importData($filePath)

@@ -37,7 +37,7 @@ class __TwigTemplate_bc9edc221bb1f2b7a964026eae71aad2f1ee3e5cf9c7c2e653304414d6d
         echo "<tr>
     <td><a href=\"";
         // line 2
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighter", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getID", [], "method", false, false, false, 2), "name" => twig_lower_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "any", false, false, false, 2), [" " => "-"]))]], "method", false, false, false, 2), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_fighter", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getID", [], "method", false, false, false, 2), "name" => twig_lower_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "any", false, false, false, 2), [" " => "-"]))]], "method", false, false, false, 2), "html", null, true);
         echo "\" class=\"text-dark fw-bold\">";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "any", false, false, false, 2), "html", null, true);
         echo "</a></td>
@@ -64,7 +64,7 @@ class __TwigTemplate_bc9edc221bb1f2b7a964026eae71aad2f1ee3e5cf9c7c2e653304414d6d
     <td class=\"text-end\">
         <a href=\"";
         // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighter", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getID", [], "method", false, false, false, 9), "name" => twig_lower_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "any", false, false, false, 9), [" " => "-"]))]], "method", false, false, false, 9), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_fighter", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getID", [], "method", false, false, false, 9), "name" => twig_lower_filter($this->env, twig_replace_filter(twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "any", false, false, false, 9), [" " => "-"]))]], "method", false, false, false, 9), "html", null, true);
         echo "\" class=\"btn btn-sm btn-info\">
             Editer
         </a>
@@ -98,14 +98,14 @@ class __TwigTemplate_bc9edc221bb1f2b7a964026eae71aad2f1ee3e5cf9c7c2e653304414d6d
     public function getSourceContext()
     {
         return new Source("<tr>
-    <td><a href=\"{{ router.url('fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}\" class=\"text-dark fw-bold\">{{ fighter.getName }}</a></td>
+    <td><a href=\"{{ router.url('admin_fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}\" class=\"text-dark fw-bold\">{{ fighter.getName }}</a></td>
     <td class=\"text-end\">{{fighter.getWeight}}</td>
     <td class=\"text-end\">{{fighter.getWin}}</td>
     <td class=\"text-end\">{{fighter.getLose}}</td>
     <td class=\"text-end\">{{fighter.getDraw}}</td>
     <td class=\"text-end\">{{fighter.getNc}}</td>
     <td class=\"text-end\">
-        <a href=\"{{ router.url('fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}\" class=\"btn btn-sm btn-info\">
+        <a href=\"{{ router.url('admin_fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}\" class=\"btn btn-sm btn-info\">
             Editer
         </a>
         <form action=\"{{ router.url('fighter_delete', {'id' : fighter.getID()}) }}\" method=\"post\" class=\"d-inline\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer ce combattant ?')\">

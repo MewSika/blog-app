@@ -1,6 +1,5 @@
 <?php
 namespace App\Config;
-use App\Auth\Auth;
 class Database {
 
     const DB_DNS = "mysql:host=localhost;dbname=blog;charset=utf8";

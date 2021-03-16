@@ -54,7 +54,7 @@ class __TwigTemplate_35c293df8cd81e1b61acc6acdf267f37b2c5611d6deb54a31f2a556cdf6
         <li class=\"nav-item\">
             <a class=\"text-dark nav-link small\" href=\"";
         // line 13
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 13), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters_manage"], "method", false, false, false, 13), "html", null, true);
         echo "\">Gestion des combattants</a>
         </li>
         <li class=\"nav-item\">
@@ -102,7 +102,7 @@ class __TwigTemplate_35c293df8cd81e1b61acc6acdf267f37b2c5611d6deb54a31f2a556cdf6
             <a class=\"text-dark nav-link small\" href=\"{{ router.url('categories_manage')}}\">Gestion des catégories</a>
         </li>
         <li class=\"nav-item\">
-            <a class=\"text-dark nav-link small\" href=\"{{ router.url('fighters')}}\">Gestion des combattants</a>
+            <a class=\"text-dark nav-link small\" href=\"{{ router.url('fighters_manage')}}\">Gestion des combattants</a>
         </li>
         <li class=\"nav-item\">
             <a class=\"text-dark nav-link small\" href=\"{{ router.url('categories_manage')}}\">Gestion des utilisateurs</a>

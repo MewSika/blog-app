@@ -9,13 +9,13 @@
     <h1>Nous contacter</h1>
     <hr>
     {% if success %}
-    <div class="alert alert-success alert-dismissible fade show col-xs-12 col-md-6 m-auto mb-3" role="alert">
+    <div class="alert alert-success alert-dismissible fade show col-md-6 m-auto mb-3" role="alert">
         {{ success }}
         <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
     </div>
     {% endif %}
 
-    <form method="post" action= "" class="col-md-6 col-xs-12 m-auto">
+    <form method="post" action= "" class="col-md-6 m-auto">
         {{ form.input("username", "Pseudo") | raw}}
         {{ form.input("email", "@mail") | raw}}
         {{ form.textarea("content", "Message", "Votre message") | raw}}

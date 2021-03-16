@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Table;
-use App\Auth\User;
+use App\Model\User;
 use App\Model\Contact;
 
 final class ContactTable extends Table{

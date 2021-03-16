@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Auth;
+namespace App\Model;
 
 class User {
     
@@ -23,6 +23,11 @@ class User {
      * @var string
      */
     private $role;
+    
+    /**
+     * @var string
+     */
+    private $mail;
 
     /**
      * Get the value of id
@@ -92,6 +97,30 @@ class User {
     public function setRole(string $role)
     {
         $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of mail
+     *
+     * @return  string
+     */ 
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set the value of mail
+     *
+     * @param  string  $mail
+     *
+     * @return  self
+     */ 
+    public function setMail(string $mail):self
+    {
+        $this->mail = $mail;
 
         return $this;
     }

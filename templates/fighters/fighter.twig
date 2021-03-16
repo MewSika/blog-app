@@ -1,0 +1,74 @@
+{% extends 'layout/layout.twig' %}
+
+{% block head %}
+    <title> {{ fighter.getName }}</title>
+{% endblock %}
+
+{% block content %}
+    {% include 'fighters/_breadcrumb.twig' %}
+    <div class="card mb-3">
+        <div class="row">
+            {% if fighter.getImage() %}
+                <section class="col-lg-4 text-center pt-2">
+                    <img src="{{ fighter.getImageURL('medium') }}" alt="{{ fighter.getName() }}">
+                </section>
+            {% else %}
+                <section class="col-lg-4 m-auto text-center d-none d-lg-block">
+                    <img src="/img/authors/UFC.png" alt="No picture" class="w-50">
+                </section>
+            {% endif %}
+            <article class="col-lg-8">
+                <div class="row g-0">
+                    <h1 class="fw-bold border-bottom my-2 p-2"> 
+                        {% if fighter.getChamp == 1 %}
+                            <img src="/img/authors/ufc-belt-small.png" alt="ufc belt">
+                        {% endif %}
+                        {{ fighter.getName }}
+                    </h1>
+                    <h3 class="fw-bold mx-3 mb-0"> Record : {{ fighter.getWin }}-{{ fighter.getLose }}-{{ fighter.getDraw }} {% if fighter.getNC > 0 %}({{fighter.getNC}} NC) {% endif %}</h3>
+
+                    <section class="card-body col-lg-5">
+                        <h4 class="card-title">Informations générales</h3>
+                        <p class="card-text"><b>Taille :</b> {{ fighter.getHeight }} cm</p>
+                        <p class="card-text"><b>Poids :</b> {{ fighter.getWeight }} kg</p>
+                        <p class="card-text"><b>Allonge :</b> {{ fighter.getReach }} cm</p>
+                        <p class="card-text"><b>Garde :</b> {{ fighter.getStance }} </p>
+                        <p class="card-text"><b>Date de naissance :</b> {{fighter.getDob|format_date(locale='fr') }}</p>
+                    </section>
+
+                    <section class="card-body col-lg-7">
+                        <div class="row">
+                            <h4 class="card-title">Statistiques de carrière</h3>
+                            <div class="col-5 border-end">
+                                <p class="card-text mb-0"><b>FpM :</b> {{fighter.getSLpM}}</p>
+                                <p class="card-text mb-0"><b>FEpM :</b> {{ fighter.getSApM}}</p>
+                                <p class="card-text mb-0"><b>Préc. F:</b> {{fighter.getStrAcc}}%</p>
+                                <p class="card-text"><b>Préc. D :</b> {{fighter.getStrDef}}%</p>
+
+                                <p class="card-text mb-0"><b>Moy. TD :</b> {{fighter.getTDAvg}}</p>
+                                <p class="card-text mb-0"><b>Préc. TD :</b> {{fighter.getTDAcc}}%</p>
+                                <p class="card-text mb-0"><b>Def. TD :</b> {{fighter.getTDDef}}%</p>
+                                <p class="card-text mb-0"><b>Moy. Soum. :</b> {{fighter.getSubAVG}}</p>
+                            </div>
+                            <div class="col-7">
+                                <p class="card-text mb-0 small"><b>FpM :</b> Frappes significatives portées/mn</p>
+                                <p class="card-text mb-0 small"><b>FEpM :</b> Frappe encaissées par minute</b></p>
+                                <p class="card-text mb-0 small"><b>Préc F :</b> Précision des frappes significatives</b></p>
+                                <p class="card-text small"><b>Préc. D :</b> Précision défensive (% des frappes adverses défendues)</p>
+                                
+                                <p class="card-text mb-0 small"><b>Moy. TD :</b> Moyenne des amenées au sol/15mn</p>
+                                <p class="card-text mb-0 small"><b>Préc. TD :</b> Précision des amenées au sol</p>
+                                <p class="card-text mb-0 small"><b>Def. TD :</b> Défense des amenées au sol (% des amenées au sol défendues)</p>
+                                <p class="card-text small"><b>Moy. Soum. :</b> Moyenne des tentatives de soumission/15mn</p>
+                            </div>
+                        </row>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </div>
+
+<hr>
+<p class="text-justify"> {{ post.getContent()|nl2br }}</p>
+<p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor() }}</em></p>
+{% endblock %}

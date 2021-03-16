@@ -1,5 +1,5 @@
 <?php
-use App\Auth\Auth;
+use App\Table\UserTable;
 use PHPUnit\Framework\TestCase;
 
 final class AuthTest extends TestCase {  
@@ -29,7 +29,7 @@ final class AuthTest extends TestCase {
             $password = password_hash("user$i", PASSWORD_BCRYPT);
             $pdo->query("INSERT INTO users_b (id, username, password, role) VALUES($i, 'user$i', '$password', 'user$i')");
         }
-        $this->auth = new Auth($pdo, "login", $this->session);
+        $this->auth = new Auth($pdo, $this->session);
     }
 
     public function testLoginWithBadUsername()
@@ -64,7 +64,7 @@ final class AuthTest extends TestCase {
         $this->session['auth'] = 4;
         $user = $this->auth->user();
         $this->assertIsObject($user);
-        $this->assertEquals('user4', $user->username);
+        $this->assertEquals('user4', $user->getUsername());
     }
 
     public function testRequireRole()

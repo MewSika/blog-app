@@ -47,37 +47,46 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
     {
         $macros = $this->macros;
         // line 3
-        echo "<h2 class=\"text-center\">Connexion</h2><hr>
-";
-        // line 4
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["layout"] ?? null), "request", [], "any", false, false, false, 4), "query", [], "any", false, false, false, 4), "get", [0 => "page"], "method", false, false, false, 4), "html", null, true);
-        echo "
+        echo "<h2 class=\"text-center\">S'authentifier</h2><hr>
 
 ";
-        // line 6
+        // line 5
         if (($context["forbidden"] ?? null)) {
-            // line 7
+            // line 6
             echo "    <div class=\"alert alert-danger\">
         Vous n'avez pas accès à cette page
     </div>
 ";
         }
-        // line 11
+        // line 10
         echo "
-<form action=\"";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "login"], "method", false, false, false, 12), "html", null, true);
-        echo "\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
-    ";
+<div class=\"row\">
+    <div class=\"col-lg-5 m-auto\">
+        <h3 class=\"fw-bold text-center\"><a href=\"";
         // line 13
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Login"], "method", false, false, false, 13);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "signin"], "method", false, false, false, 13), "html", null, true);
+        echo "\" class=\"text-dark\">Créer un compte</a></h3>
+    </div>
+    <div class=\"col-lg-2 sep\">
+        <span class=\"sepText\">
+            Authentification
+        </span>
+    </div>
+    <div class=\"col-lg-5\">
+        <h3 class=\"fw-bold text-center\">Connexion</h3>
+        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\">
+            ";
+        // line 23
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 23);
         echo "
-    ";
-        // line 14
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Password"], "method", false, false, false, 14);
+            ";
+        // line 24
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 24);
         echo "
-    <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
-</form>
+            <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
+        </form>
+    </div>
+</div>
 ";
     }
 
@@ -93,15 +102,14 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
 
     public function getDebugInfo()
     {
-        return array (  77 => 14,  73 => 13,  69 => 12,  66 => 11,  60 => 7,  58 => 6,  53 => 4,  50 => 3,  46 => 2,  35 => 1,);
+        return array (  84 => 24,  80 => 23,  67 => 13,  62 => 10,  56 => 6,  54 => 5,  50 => 3,  46 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'layout/layout.twig' %}
 {% block content %}
-<h2 class=\"text-center\">Connexion</h2><hr>
-{{ layout.request.query.get(\"page\") }}
+<h2 class=\"text-center\">S'authentifier</h2><hr>
 
 {% if forbidden %}
     <div class=\"alert alert-danger\">
@@ -109,11 +117,24 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
     </div>
 {% endif %}
 
-<form action=\"{{ router.url('login') }}\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
-    {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Login')|raw }}
-    {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Password')|raw }}
-    <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
-</form>
+<div class=\"row\">
+    <div class=\"col-lg-5 m-auto\">
+        <h3 class=\"fw-bold text-center\"><a href=\"{{router.url('signin')}}\" class=\"text-dark\">Créer un compte</a></h3>
+    </div>
+    <div class=\"col-lg-2 sep\">
+        <span class=\"sepText\">
+            Authentification
+        </span>
+    </div>
+    <div class=\"col-lg-5\">
+        <h3 class=\"fw-bold text-center\">Connexion</h3>
+        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\">
+            {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Identifiant')|raw }}
+            {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
+            <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
+        </form>
+    </div>
+</div>
 {% endblock %}", "auth/login.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\auth\\login.twig");
     }
 }

@@ -1,0 +1,17 @@
+{% extends 'layout/layout.twig' %}
+{% block content %}
+<h2 class="text-center">S'inscrire</h2><hr>
+
+{% if forbidden %}
+    <div class="alert alert-danger">
+        Vous n'avez pas accès à cette page
+    </div>
+{% endif %}
+
+    <form action="" method="post" class="m-auto col-md-4 text-center">
+        {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Identifiant')|raw }}
+        {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+        <button class="btn btn-secondary ml-3"> S'inscrire</button>
+    </form>
+
+{% endblock %}
