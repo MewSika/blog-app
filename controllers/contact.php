@@ -11,6 +11,7 @@ $pdo = Database::getPDO();
 $contact = new Contact();
 $errors = [];
 $success = null;
+$user = $auth->user();
 
 if(!empty($_POST)){
     $data = array_merge($_POST);  
@@ -40,5 +41,6 @@ return $twig->render('contact.twig', [
     'form' => $form,
     'router' => $router,
     'errors' => $errors,
-    'success' => $success
+    'success' => $success,
+    'user' => $user
 ]);

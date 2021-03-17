@@ -27,7 +27,7 @@
         </div>
         <div class="col-12 col-md-3 m-auto text-center">
             <a class="text-secondary text-decoration-none fw-bold" href="
-                {{ router.url('category_fighter', {'name': weight.getName|lower, 'id': weight.getID, 'sex': fighter.getSex}) }}">Voir les combattants de la catégorie {{ weight.getName }}</a>
+                {{ router.url('category_fighter', {'name': weight.getName|lower, 'id': weight.getID, 'sex': fighter.getSex}) }}">Voir les {{ fighter.getSex == 1 ? 'combattants' : 'combattantes'}} de la catégorie {{ weight.getName }}</a>
         </div>
     </div>
 </div>

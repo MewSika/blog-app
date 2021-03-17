@@ -5,7 +5,7 @@ use App\Table\CategoryTable;
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
-
+$user = $auth->user();
 $pdo = Database::getPDO();
 $post = (new PostTable($pdo))->find($id);
 (new CategoryTable($pdo))->hydratePost([$post]);
@@ -17,4 +17,4 @@ if($post->getSlug() !== $slug) {
     header('Location: '.$url);
 } 
 
-return $twig->render('blog/article.twig', ['id' => $id, 'slug' => $slug, 'post' => $post, 'router' => $router]);
+return $twig->render('blog/article.twig', ['id' => $id, 'slug' => $slug, 'post' => $post, 'router' => $router, 'user' => $user]);

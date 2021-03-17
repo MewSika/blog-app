@@ -10,7 +10,9 @@
 
     <form action="" method="post" class="m-auto col-md-4 text-center">
         {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Identifiant')|raw }}
+        {{ form.input('mail', '<i class="bi bi-envelope"></i>', 'Email')|raw }}
         {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+        {{ form.checkbox("newsletter", "Recevoir la newsletter") | raw}}
         <button class="btn btn-secondary ml-3"> S'inscrire</button>
     </form>
 

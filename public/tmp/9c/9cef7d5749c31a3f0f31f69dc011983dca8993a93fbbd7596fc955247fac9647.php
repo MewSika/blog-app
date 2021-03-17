@@ -98,7 +98,9 @@ class __TwigTemplate_2a1166a0a214f504f91966a83623f74cdd21491536c7cce2fae06131099
                 ";
         // line 30
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "category_fighter", 1 => ["name" => twig_lower_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["weight"] ?? null), "getName", [], "any", false, false, false, 30)), "id" => twig_get_attribute($this->env, $this->source, ($context["weight"] ?? null), "getID", [], "any", false, false, false, 30), "sex" => twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getSex", [], "any", false, false, false, 30)]], "method", false, false, false, 30), "html", null, true);
-        echo "\">Voir les combattants de la catégorie ";
+        echo "\">Voir les ";
+        echo (((0 === twig_compare(twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getSex", [], "any", false, false, false, 30), 1))) ? ("combattants") : ("combattantes"));
+        echo " de la catégorie ";
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["weight"] ?? null), "getName", [], "any", false, false, false, 30), "html", null, true);
         echo "</a>
         </div>
@@ -154,7 +156,7 @@ class __TwigTemplate_2a1166a0a214f504f91966a83623f74cdd21491536c7cce2fae06131099
         </div>
         <div class=\"col-12 col-md-3 m-auto text-center\">
             <a class=\"text-secondary text-decoration-none fw-bold\" href=\"
-                {{ router.url('category_fighter', {'name': weight.getName|lower, 'id': weight.getID, 'sex': fighter.getSex}) }}\">Voir les combattants de la catégorie {{ weight.getName }}</a>
+                {{ router.url('category_fighter', {'name': weight.getName|lower, 'id': weight.getID, 'sex': fighter.getSex}) }}\">Voir les {{ fighter.getSex == 1 ? 'combattants' : 'combattantes'}} de la catégorie {{ weight.getName }}</a>
         </div>
     </div>
 </div>

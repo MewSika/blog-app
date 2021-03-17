@@ -50,13 +50,15 @@
               {{ navbar.item(router.url('blog'), 'Actus', '/news') }}
               {{ navbar.item(router.url('fighters'), 'Combattants', '/fighters') }}
               {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
-              {{ dump(user)}}
-              {{ navbar.item(router.url('f_login'), 'Inscription', '/login') }}
+              {% if user is not null %}
+                {{ navbar.item(router.url('account'), 'Mon compte', '/account') }}
+              {% else %}
+                {{ navbar.item(router.url('f_login'), 'Connexion', '/login') }}
+              {% endif %}
           </ul>
       </div>
     </div>
 </nav>
-
 <body class="d-flex flex-column h-100 bg-light background">
     <div class="container col-sm-9">
       {% block content %}

@@ -7,7 +7,7 @@ $id = (int)$params['id'];
 $slug = $params['slug'];
 $pdo = Database::getPDO();
 $category = (new CategoryTable($pdo))->find($id);
-
+$user = $auth->user();
 $lastPosts = (new PostTable($pdo))->getLastPosts(6);
 $categories = (new CategoryTable($pdo))->all();
 
@@ -32,5 +32,6 @@ return $twig->render('blog/category.twig', [
     'pagination' => $pagination,
     'link' => $link,
     'title' => $title,
-    'router' => $router])
+    'router' => $router,
+    'user' => $user])
 ?>

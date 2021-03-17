@@ -2,9 +2,9 @@
 {% block content %}
 <h2 class="text-center">S'authentifier</h2><hr>
 
-{% if forbidden %}
-    <div class="alert alert-danger">
-        Vous n'avez pas accès à cette page
+{% if g.login is defined %}
+    <div class="alert alert-success">
+        Votre compte a bien été créé
     </div>
 {% endif %}
 

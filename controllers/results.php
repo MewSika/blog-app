@@ -4,6 +4,7 @@ use App\Table\PostTable;
 
 $pdo = Database::getPDO();
 $table = new PostTable($pdo);
+$user = $auth->user();
 
 $get = $_GET['q'];
 $data = [];
@@ -18,5 +19,6 @@ return $twig->render('results.twig', [
     'posts' => $posts,
     'pagination' => $pagination,
     'g' => $get,
-    'data' => $data
-    ]);
+    'data' => $data,
+    'user' => $user
+]);

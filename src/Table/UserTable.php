@@ -35,15 +35,19 @@ final class UserTable extends Table{
         if($id === null) {
             return null;
         }
-        $query = $this->pdo->prepare("SELECT * FROM users_b WHERE id = ?");
+        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE id = ?");
         $query->execute([$id]);
         $user = $query->fetchObject(User::class);
         return $user ?: null;
     }
-
+    
+    /**
+     * Connecte un utilisateur
+     * @return User
+     */
     public function login(string $username, string $password): ?User
     {   
-        $query = $this->pdo->prepare('SELECT * FROM users_b WHERE username = :username');
+        $query = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE username = :username");
         $query->execute(['username' => $username]);
         $user = $query->fetchObject(User::class);
         if ($user === false) {
@@ -56,7 +60,36 @@ final class UserTable extends Table{
         return null;
     }
 
+    public function createUser(User $user):void
+    {
+        $id = $this->create([
+            'userName' => $user->getUsername(),
+            'password' => $user->getPassword(),
+            'mail' => $user->getMail(),
+            'created_at' => $user->getCreatedAt()->format('Y-m-d h:i:s'),
+            'newsletter' => $user->getNewsletter(),
+            'role' => $user->getRole(),
+        ]);
+        $user->setID($id);
+    }
 
+    public function updateUser(User $user): void
+    {
+        $test = $this->update([
+            'userName' => $user->getUsername(),
+            'password' => $user->getPassword(),
+            'mail' => $user->getMail(),
+            'newsletter' => $user->getNewsletter()
+        ], $user->getID());
+    }
+
+    
+    /**
+     * Vérifie les rôles nécessaires pour accéder à une page
+     *
+     * @param  string $roles
+     * @return void
+     */
     public function requireRole(string ...$roles): void
     {
         $user = $this->user();
@@ -71,7 +104,10 @@ final class UserTable extends Table{
             throw new ForbiddenException("Vous n'avez pas le role suffisant \"{$user->getRole()}\" (attendu : $roles)");
         }
     }
-
+    
+    /**
+     * Vérifie le rôle pour accès BO
+     */
     public static function check($router){
         try{
             $user = App::getAuth()->requireRole('admin');
@@ -79,12 +115,15 @@ final class UserTable extends Table{
             header('Location:'.$router->url('login').'?forbidden=1');
         }
     }
-
+    
+    /**
+     * Vérifie le rôle pour fonctionnalités utilisateur
+     */
     public static function userCheck($router){
         try{
             $user = App::getAuth()->requireRole('user');
         } catch(ForbiddenException $e) {
-            header('Location:'.$router->url('f_login').'?forbidden=1');
+            header('Location:'.$router->url('f_login'));
         }
     }
 

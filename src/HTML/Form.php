@@ -16,6 +16,9 @@ class Form {
     {
         $value = $this->getValue($key);
         $type = $key === 'password' ? 'password' : 'text';
+        /* Aucune value pour l'input password */
+        $value = $type === 'password' ? '' : $value;
+
         return <<<HTML
         <div class="input-group mb-3 {$class}">
             <label class="input-group-text" for="field{$key}">{$label}</label>

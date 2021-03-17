@@ -1,0 +1,24 @@
+{% extends 'layout/layout.twig' %}
+{% block content %}
+<h2 class="text-center">Mon espace</h2><hr>
+
+<div class="row">
+    <div class="col-lg-6 m-auto">
+        <h3 class="fw-bold text-center"><a href="{{router.url('signin')}}" class="text-dark"></a></h3>
+        <form action="" method="post" class="m-auto col-md-8 text-center mb-4" onsubmit="return confirm('Mettre à jour l\'adresse e-mail ?')">
+            {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Identifiant')|raw }}
+            {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+            {{ form.input('mail', '<i class="bi bi-envelope"></i>', 'Email')|raw }}
+            {{ form.checkbox("newsletter", "Recevoir la newsletter") | raw}}
+            <button class="btn btn-sm btn-secondary" type="submit" name="update">Modifier</button>
+        </form>
+        <hr>
+        <form action="" method="post" class="m-auto col-md-8 text-center" onsubmit="return confirm('Voulez-vous vraiment supprimer votre compte utilisateur ? Toute suppression est définitive, vos informations utilisateurs seront effacés des données du site. ')">
+            <button class="btn btn-sm btn-danger ml-3" type="submit" name="delete">Supprimer son compte</button>
+        </form>
+    </div>
+    <div class="col-lg-6 text-center">
+        <a href="{{ router.url('f_logout')}}" class="btn btn-sm btn-secondary">Se déconnecter</a>
+    </div>
+</div>
+{% endblock %}

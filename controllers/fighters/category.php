@@ -14,6 +14,7 @@ $weightCategory = (new WeightCategoryTable($pdo))->find($id);
 $title = $weightCategory->getName();
 $data = $_GET;
 
+$user = $auth->user();
 
 // Recherche par combattant
 if(!empty($_GET['q'])) {
@@ -34,5 +35,6 @@ return $twig->render('/fighters/category.twig', [
     'weights' => $weightFighter,
     'pagination' => $pagination,
     'q' => $data,
-    'link' => $link
+    'link' => $link,
+    'user' => $user
 ]);

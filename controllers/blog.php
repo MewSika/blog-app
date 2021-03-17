@@ -11,6 +11,8 @@ $table = new PostTable($pdo);
 $associatedCategories = [];
 $lastPosts = (new PostTable($pdo))->getLastPosts(6);
 $categories = (new CategoryTable($pdo))->all();
+$user = $auth->user();
+
 
 return $twig->render('blog/blog.twig', [
     'router' => $router,
@@ -18,5 +20,6 @@ return $twig->render('blog/blog.twig', [
     'pagination' => $pagination,
     'link' => $link,
     'lastPosts' => $lastPosts,
-    'categories' => $categories
+    'categories' => $categories,
+    'user' => $user
 ]);

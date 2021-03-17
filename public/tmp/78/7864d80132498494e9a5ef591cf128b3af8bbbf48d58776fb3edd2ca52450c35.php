@@ -119,23 +119,30 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
         echo "
               ";
         // line 53
-        echo twig_var_dump($this->env, $context, ...[0 => ($context["user"] ?? null)]);
-        echo "
+        if ( !(null === ($context["user"] ?? null))) {
+            // line 54
+            echo "                ";
+            echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "account"], "method", false, false, false, 54), "Mon compte", "/account"], 54, $context, $this->getSourceContext());
+            echo "
               ";
-        // line 54
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_login"], "method", false, false, false, 54), "Inscription", "/login"], 54, $context, $this->getSourceContext());
-        echo "
-          </ul>
+        } else {
+            // line 56
+            echo "                ";
+            echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_login"], "method", false, false, false, 56), "Connexion", "/login"], 56, $context, $this->getSourceContext());
+            echo "
+              ";
+        }
+        // line 58
+        echo "          </ul>
       </div>
     </div>
 </nav>
-
 <body class=\"d-flex flex-column h-100 bg-light background\">
     <div class=\"container col-sm-9\">
       ";
-        // line 62
-        $this->displayBlock('content', $context, $blocks);
         // line 64
+        $this->displayBlock('content', $context, $blocks);
+        // line 66
         echo "    </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
@@ -169,11 +176,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     ";
     }
 
-    // line 62
+    // line 64
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 63
+        // line 65
         echo "      ";
     }
 
@@ -189,7 +196,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  177 => 63,  173 => 62,  168 => 15,  164 => 14,  158 => 10,  154 => 9,  139 => 64,  137 => 62,  126 => 54,  122 => 53,  118 => 52,  114 => 51,  110 => 50,  105 => 49,  103 => 48,  100 => 47,  93 => 43,  86 => 38,  79 => 34,  72 => 30,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  184 => 65,  180 => 64,  175 => 15,  171 => 14,  165 => 10,  161 => 9,  146 => 66,  144 => 64,  136 => 58,  130 => 56,  124 => 54,  122 => 53,  118 => 52,  114 => 51,  110 => 50,  105 => 49,  103 => 48,  100 => 47,  93 => 43,  86 => 38,  79 => 34,  72 => 30,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -246,13 +253,15 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
               {{ navbar.item(router.url('blog'), 'Actus', '/news') }}
               {{ navbar.item(router.url('fighters'), 'Combattants', '/fighters') }}
               {{ navbar.item(router.url('contact'), 'Contact', '/contact') }}
-              {{ dump(user)}}
-              {{ navbar.item(router.url('f_login'), 'Inscription', '/login') }}
+              {% if user is not null %}
+                {{ navbar.item(router.url('account'), 'Mon compte', '/account') }}
+              {% else %}
+                {{ navbar.item(router.url('f_login'), 'Connexion', '/login') }}
+              {% endif %}
           </ul>
       </div>
     </div>
 </nav>
-
 <body class=\"d-flex flex-column h-100 bg-light background\">
     <div class=\"container col-sm-9\">
       {% block content %}

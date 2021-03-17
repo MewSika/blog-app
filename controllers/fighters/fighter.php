@@ -11,6 +11,8 @@ $fighter = (new FighterTable($pdo))->find($id);
 
 $fighterName = strtolower(str_replace(' ', '-', $fighter->getName()));
 
+$user = $auth->user();
+
 /* Redirection */
 if($fighterName !== $slug) {
     $url = $router->url('fighter', ['name' => $fighterName, 'id' => $fighter->getId()]);
@@ -21,5 +23,6 @@ if($fighterName !== $slug) {
 return $twig->render('fighters\fighter.twig', [
     'id' => $id,
     'fighter' => $fighter,
-    'router' => $router
+    'router' => $router,
+    'user' => $user
 ]);

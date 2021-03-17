@@ -51,10 +51,10 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
 
 ";
         // line 5
-        if (($context["forbidden"] ?? null)) {
+        if (twig_get_attribute($this->env, $this->source, ($context["g"] ?? null), "login", [], "any", true, true, false, 5)) {
             // line 6
-            echo "    <div class=\"alert alert-danger\">
-        Vous n'avez pas accès à cette page
+            echo "    <div class=\"alert alert-success\">
+        Votre compte a bien été créé
     </div>
 ";
         }
@@ -111,9 +111,9 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
 {% block content %}
 <h2 class=\"text-center\">S'authentifier</h2><hr>
 
-{% if forbidden %}
-    <div class=\"alert alert-danger\">
-        Vous n'avez pas accès à cette page
+{% if g.login is defined %}
+    <div class=\"alert alert-success\">
+        Votre compte a bien été créé
     </div>
 {% endif %}
 

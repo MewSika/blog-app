@@ -4,6 +4,7 @@ use App\Table\FighterTable;
 use App\Table\WeightCategoryTable;
 
 $title = "UFC - Champions";
+$user = $auth->user();
 
 $pdo = Database::getPDO();
 $fighter = new FighterTable($pdo);
@@ -25,5 +26,6 @@ return $twig->render('/fighters/fighters.twig', [
     'fighters' => $fighters,
     'weights' => $weights,
     'pagination' => $pagination,
-    'q' => $q
+    'q' => $q,
+    'user' => $user
 ]);

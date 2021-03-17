@@ -22,12 +22,23 @@ class User {
     /**
      * @var string
      */
-    private $role;
+    private $role = "user";
     
     /**
      * @var string
      */
     private $mail;
+    
+    /**
+     * @var string 
+     */
+    private $created_at;
+
+    
+    /**
+     * @var int
+     */
+    private $newsletter;
 
     /**
      * Get the value of id
@@ -60,8 +71,7 @@ class User {
      */ 
     public function setUsername(string $username):self
     {
-        $this->username = $username;
-
+        $this->username = e($username);
         return $this;
     }
 
@@ -78,8 +88,8 @@ class User {
      */ 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
-
+        $password_hash = password_hash(e($password), PASSWORD_DEFAULT, ['cost' => 12]);
+        $this->password = $password_hash;
         return $this;
     }
 
@@ -96,8 +106,7 @@ class User {
      */ 
     public function setRole(string $role)
     {
-        $this->role = $role;
-
+        $this->role = e($role);
         return $this;
     }
 
@@ -112,15 +121,55 @@ class User {
     }
 
     /**
-     * Set the value of mail
-     *
      * @param  string  $mail
-     *
-     * @return  self
      */ 
     public function setMail(string $mail):self
     {
-        $this->mail = $mail;
+        $this->mail = e($mail);
+        return $this;
+    }
+
+    /**
+     * @return  string
+     */ 
+    public function getCreatedAt() : \DateTime
+    {
+        return new \DateTime($this->created_at);
+
+    }
+
+    /**
+     *
+     * @param  string  $created_at
+     *
+     * @return  self
+     */ 
+    public function setCreatedAt(string $created_at)
+    {
+        $this->created_at = $created_at;
+        return $this;
+    }
+
+    /**
+     * Get the value of newsletter
+     *
+     * @return  int
+     */ 
+    public function getNewsletter() : ?int
+    {
+        return $this->newsletter;
+    }
+
+    /**
+     * Set the value of newsletter
+     *
+     * @param  int  $newsletter
+     *
+     * @return  self
+     */ 
+    public function setNewsletter(int $newsletter):self
+    {
+        $this->newsletter = $newsletter;
 
         return $this;
     }

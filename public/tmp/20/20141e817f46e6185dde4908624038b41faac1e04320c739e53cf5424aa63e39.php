@@ -67,7 +67,15 @@ class __TwigTemplate_d6406b6018b2f30d004bd1c9d24c88ff9156fd97b325329f04777b15289
         echo "
         ";
         // line 13
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 13);
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "Email"], "method", false, false, false, 13);
+        echo "
+        ";
+        // line 14
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 14);
+        echo "
+        ";
+        // line 15
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "checkbox", [0 => "newsletter", 1 => "Recevoir la newsletter"], "method", false, false, false, 15);
         echo "
         <button class=\"btn btn-secondary ml-3\"> S'inscrire</button>
     </form>
@@ -87,7 +95,7 @@ class __TwigTemplate_d6406b6018b2f30d004bd1c9d24c88ff9156fd97b325329f04777b15289
 
     public function getDebugInfo()
     {
-        return array (  70 => 13,  66 => 12,  62 => 10,  56 => 6,  54 => 5,  50 => 3,  46 => 2,  35 => 1,);
+        return array (  78 => 15,  74 => 14,  70 => 13,  66 => 12,  62 => 10,  56 => 6,  54 => 5,  50 => 3,  46 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -104,7 +112,9 @@ class __TwigTemplate_d6406b6018b2f30d004bd1c9d24c88ff9156fd97b325329f04777b15289
 
     <form action=\"\" method=\"post\" class=\"m-auto col-md-4 text-center\">
         {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Identifiant')|raw }}
+        {{ form.input('mail', '<i class=\"bi bi-envelope\"></i>', 'Email')|raw }}
         {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
+        {{ form.checkbox(\"newsletter\", \"Recevoir la newsletter\") | raw}}
         <button class=\"btn btn-secondary ml-3\"> S'inscrire</button>
     </form>
 
