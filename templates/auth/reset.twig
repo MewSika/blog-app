@@ -1,0 +1,21 @@
+{% extends 'layout/layout.twig' %}
+
+{% block head %}
+    <title> {{ title }} </title>
+{% endblock %}
+
+{% block content %}
+{% if deadlink is not null %}
+<div class="alert alert-danger">
+    Le lien n'est plus valide
+</div>
+{% else %}
+<h2 class="text-center">Réinitialisation du mot de passe</h2><hr>
+<form action="" method="post" class="m-auto col-xs-6 col-md-3 text-center">
+    <input type="hidden" name="token" value="{{g.token}}"  />
+    {{ form.input('password', '<i class="bi bi-lock"></i>', 'Entrez votre password')|raw }}
+    {{ form.input('confirmPassword', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+    <button class="btn btn-secondary ml-3">Envoyer</button>
+</form>
+{% endif %}
+{% endblock %}

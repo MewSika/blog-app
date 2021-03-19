@@ -7,6 +7,7 @@ use App\Config\Database;
 use App\Table\UserTable;
 use App\Table\Exception\NotFoundException;
 
+$title = "Connexion";
 $errors = [];
 $user = null;
 $data = $_GET;
@@ -14,8 +15,6 @@ $data = $_GET;
 if($auth->user() !== null) {
     header('Location:' . $router->url('account'));
 }
-
-$forbidden = $_GET['forbidden'] ?? '';
 
 if(!empty($_POST)) {
     $user = new User();
@@ -30,7 +29,7 @@ if(!empty($_POST)) {
                 exit();
             }
         } catch (NotFoundException $e){  
-            //
+            $e->getMessage('Aucun utilisateur trouvé');
         }
     } 
 }
@@ -38,9 +37,9 @@ if(!empty($_POST)) {
 $form = new Form($user, $errors);
 
 return $twig->render('auth/login.twig', [
+    'title' => $title,
     'user' => $user,
     'form' => $form,
     'router' => $router,
-    'forbidden' => $forbidden,
     'g' => $data
 ]);

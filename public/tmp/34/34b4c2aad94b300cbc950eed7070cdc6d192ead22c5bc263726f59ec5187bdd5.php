@@ -75,7 +75,7 @@ class __TwigTemplate_6b88e539dab5a96b918c939f0dd4241aedc7fbd84513c559837ce85b60f
             <button class=\"btn btn-sm btn-secondary\" type=\"submit\" name=\"update\">Modifier</button>
         </form>
         <hr>
-        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer votre compte utilisateur ?')\">
+        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer votre compte utilisateur ? Toute suppression est définitive, vos informations utilisateurs seront effacés des données du site. ')\">
             <button class=\"btn btn-sm btn-danger ml-3\" type=\"submit\" name=\"delete\">Supprimer son compte</button>
         </form>
     </div>
@@ -121,7 +121,7 @@ class __TwigTemplate_6b88e539dab5a96b918c939f0dd4241aedc7fbd84513c559837ce85b60f
             <button class=\"btn btn-sm btn-secondary\" type=\"submit\" name=\"update\">Modifier</button>
         </form>
         <hr>
-        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer votre compte utilisateur ?')\">
+        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\" onsubmit=\"return confirm('Voulez-vous vraiment supprimer votre compte utilisateur ? Toute suppression est définitive, vos informations utilisateurs seront effacés des données du site. ')\">
             <button class=\"btn btn-sm btn-danger ml-3\" type=\"submit\" name=\"delete\">Supprimer son compte</button>
         </form>
     </div>

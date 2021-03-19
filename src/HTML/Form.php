@@ -15,7 +15,7 @@ class Form {
     public function input(string $key, string $label, ?string $placeholder = null, ?string $class = null): string
     {
         $value = $this->getValue($key);
-        $type = $key === 'password' ? 'password' : 'text';
+        $type = $key === 'password' || $key === 'confirmPassword' ? 'password' : 'text';
         /* Aucune value pour l'input password */
         $value = $type === 'password' ? '' : $value;
 

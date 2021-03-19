@@ -12,7 +12,7 @@ use App\Table\Exception\NotFoundException;
 $pdo = Database::getPDO();
 $errors = [];
 $user = new User();
-
+$title = "Inscription";
 $forbidden = $_GET['forbidden'] ?? '';
 
 if(!empty($_POST)) {
@@ -35,8 +35,8 @@ if(!empty($_POST)) {
 $form = new Form($user, $errors);
 
 return $twig->render('auth/signin.twig', [
+    'title' => $title,
     'user' => $user,
     'form' => $form,
-    'router' => $router,
-    'forbidden' => $forbidden
+    'router' => $router
 ]);

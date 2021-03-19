@@ -140,4 +140,28 @@ final class UserTable extends Table{
         }
         return $result;
     }
+    
+    /**
+     * Renvoie un token en $_GET
+     *
+     * @param  string $email
+     * @return string
+     */
+    public function passwordReset(string $email) : ?string
+    {
+        $check = $this->pdo->prepare("SELECT * FROM {$this->table} WHERE mail = ?");
+        $check->execute([$email]);
+        $data = $check->fetchAll();
+        $row = $check->rowCount();   
+        if($row){
+            $token = bin2hex(openssl_random_pseudo_bytes(24));
+            $update = $this->pdo->prepare("UPDATE {$this->table} SET token = ? WHERE mail = '{$email}'");
+            $result = $update->execute([$token]);
+            if ($result === false) {
+                throw new \Exception("Impossible de modifier l'enregistrement dans la table {$this->table}");
+            }
+            return '?token='.base64_encode($token);
+        }
+        return null;
+    }
 }

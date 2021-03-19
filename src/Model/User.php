@@ -22,6 +22,11 @@ class User {
     /**
      * @var string
      */
+    private $token;
+    
+    /**
+     * @var string
+     */
     private $role = "user";
     
     /**
@@ -170,6 +175,30 @@ class User {
     public function setNewsletter(int $newsletter):self
     {
         $this->newsletter = $newsletter;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of token
+     *
+     * @return  string
+     */ 
+    public function getToken():string
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set the value of token
+     *
+     * @param  string  $token
+     *
+     * @return  self
+     */ 
+    public function setToken(string $token):self
+    {
+        $this->token = $token;
 
         return $this;
     }

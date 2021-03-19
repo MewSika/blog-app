@@ -56,6 +56,8 @@ $router
     ->match('/signin', 'auth/signin', 'signin')
 
     ->match('/account', 'account/account', 'account')
+    ->match('/forgot-password', 'account/forgot', 'forgot')
+    ->match('/reset-password', 'account/reset', 'reset')
 
     /** Backoffice */
     ->match('/lagestion/login', 'auth/bo/login', 'login')

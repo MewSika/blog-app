@@ -1,4 +1,7 @@
 {% extends 'layout/layout.twig' %}
+{% block head %}
+    <title> {{ title }} </title>
+{% endblock %}
 {% block content %}
 <h2 class="text-center">S'authentifier</h2><hr>
 
@@ -22,6 +25,7 @@
         <form action="" method="post" class="m-auto col-md-8 text-center">
             {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Identifiant')|raw }}
             {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+            <a class="d-block mb-2 text-dark" href="{{router.url('forgot')}}">Récupérer mon mot de passe</a>
             <button class="btn btn-secondary ml-3"> Se connecter</button>
         </form>
     </div>

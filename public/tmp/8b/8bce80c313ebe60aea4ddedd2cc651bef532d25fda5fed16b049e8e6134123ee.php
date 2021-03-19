@@ -41,7 +41,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
         // line 4
         if (twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getImage", [], "method", false, false, false, 4)) {
             // line 5
-            echo "            <aside class=\"col-md-3 col-xs-12\">
+            echo "            <aside class=\"col-md-3\">
                 <a href=\"";
             // line 6
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 6), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 6)]], "method", false, false, false, 6), "html", null, true);
@@ -108,7 +108,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
         <div class=\"card-body pb-2\">
             <div class=\"row\">
             {% if post.getImage() %}
-            <aside class=\"col-md-3 col-xs-12\">
+            <aside class=\"col-md-3\">
                 <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\">
                     <div class=\"card-img-top d-flex justify-content-start align-items-center my-2\"><img class=\"rounded shadow img-fluid\" src=\"{{ post.getimageURL('small') }}\" alt=\"\"></div>
                 </a>

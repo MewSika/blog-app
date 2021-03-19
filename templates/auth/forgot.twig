@@ -1,0 +1,25 @@
+{% extends 'layout/layout.twig' %}
+
+{% block head %}
+    <title> {{ title }} </title>
+{% endblock %}
+
+{% block content %}
+
+{% if g.err %}
+<div class="alert alert-danger">
+    Aucun compte n'a été trouvé
+</div>
+{% endif %}
+    <h2 class="text-center">Récupération du mot de passe</h2><hr>
+    {% if token is not null %}
+        <div class="text-center">
+            <a href='{{router.url('reset')}}{{token}}' class="text-dark">Cliquez ici pour réinitialiser votre mot de passe </a>
+        </div>
+    {% else %}
+        <form action="" method="post" class="m-auto col-xs-6 col-md-3 text-center">
+            {{ form.input('mail', '<i class="bi bi-envelope"></i>', 'e-mail')|raw }}
+            <button class="btn btn-secondary ml-3">Envoyer</button>
+        </form>
+    {% endif %}
+{% endblock %}
