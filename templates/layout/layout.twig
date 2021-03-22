@@ -7,8 +7,8 @@
     <meta name="generator" content="Jekyll v4.1.1">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
       {% block head %}
-        <title>Mon Site</title>
-        <meta name="description" content="Accueil de Colyseum MMA">
+        <title>MMA Coliseum</title>
+        <meta name="description" content="Accueil de MMA Coliseum">
       {% endblock %}
     <!-- Bootstrap core CSS -->
     {% block stylesheets %}
@@ -19,6 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <meta name="theme-color" content="#563d7c">
+    {# FB API #}
+    <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="MMA Coliseum" />
+    <meta property="og:description"   content="Accueil de MMA Coliseum" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient px-3 mb-4 container-fluid sticky-top">
     <div class="col-10 m-auto">
@@ -60,6 +66,9 @@
     </div>
 </nav>
 <body class="d-flex flex-column h-100 bg-light background">
+    {# API FACEBOOK SHARE #}
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="iGEZyMRh"></script>
     <div class="container col-sm-9">
       {% block content %}
       {% endblock %}

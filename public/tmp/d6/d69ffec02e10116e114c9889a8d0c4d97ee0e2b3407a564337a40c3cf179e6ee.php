@@ -88,7 +88,11 @@ class __TwigTemplate_2ebf56bcb409e5a295de105f9ce97b457b46bc6e34c5544c6da62be3009
             echo "        <form action=\"\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
             ";
             // line 21
-            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "e-mail"], "method", false, false, false, 21);
+            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Login"], "method", false, false, false, 21);
+            echo "
+            ";
+            // line 22
+            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "e-mail"], "method", false, false, false, 22);
             echo "
             <button class=\"btn btn-secondary ml-3\">Envoyer</button>
         </form>
@@ -108,7 +112,7 @@ class __TwigTemplate_2ebf56bcb409e5a295de105f9ce97b457b46bc6e34c5544c6da62be3009
 
     public function getDebugInfo()
     {
-        return array (  91 => 21,  88 => 20,  81 => 17,  78 => 16,  76 => 15,  73 => 14,  67 => 10,  65 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  95 => 22,  91 => 21,  88 => 20,  81 => 17,  78 => 16,  76 => 15,  73 => 14,  67 => 10,  65 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -133,6 +137,7 @@ class __TwigTemplate_2ebf56bcb409e5a295de105f9ce97b457b46bc6e34c5544c6da62be3009
         </div>
     {% else %}
         <form action=\"\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
+            {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Login')|raw }}
             {{ form.input('mail', '<i class=\"bi bi-envelope\"></i>', 'e-mail')|raw }}
             <button class=\"btn btn-secondary ml-3\">Envoyer</button>
         </form>

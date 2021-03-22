@@ -44,6 +44,7 @@ $router
     ->match('/news', 'blog', 'blog')
     ->match('/news/category/[*:slug]-[i:id]', 'blog/category', 'category')
     ->match('/news/[*:slug]-[i:id]', 'blog/article', 'article')
+    ->match('/report-[i:id]', 'blog/report', 'report')
 
     /** Combattants  */
     ->match('/fighters', 'fighters', 'fighters')
@@ -82,6 +83,17 @@ $router
     ->match('/lagestion/fighters/new', 'admin/fighters/new', 'fighter_new')
     ->match('/lagestion/fighters/[*:name]-[i:id]', 'admin/fighters/edit', 'admin_fighter')
     ->match('/lagestion/fighters/[i:id]/delete', 'admin/fighters/delete', 'fighter_delete')
+
+    /* Gestion des routes users */
+    ->match('/lagestion/users', 'admin/users/users', 'users_manage')
+    ->match('/lagestion/user/new', 'admin/users/new', 'admin_user_new')
+    ->match('/lagestion/user/[i:id]', 'admin/users/edit', 'admin_user')
+    ->match('/lagestion/user/[i:id]/delete', 'admin/users/delete', 'admin_user_delete')
+
+    /* Gestion des routes comments */
+    ->match('/lagestion/comments', 'admin/comments/comments', 'comments_manage')
+    ->match('/lagestion/authorize/[i:id]', 'admin/comments/authorize', 'admin_message_authorize')
+    ->match('/lagestion/moderate/[i:id]', 'admin/comments/moderate', 'admin_message_moderate')
 
     ->match('/user', 'user', 'user')
     

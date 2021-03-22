@@ -74,7 +74,7 @@ class FighterTable extends Table{
 
     public function deleteFighter()
     {
-
+        /* Todo */
     }
 
     /**

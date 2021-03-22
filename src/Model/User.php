@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use App\Model\Message;
+
 class User {
     
     /**
@@ -93,7 +95,7 @@ class User {
      */ 
     public function setPassword(string $password): self
     {
-        $password_hash = password_hash(e($password), PASSWORD_DEFAULT, ['cost' => 12]);
+        $password_hash = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
         $this->password = $password_hash;
         return $this;
     }

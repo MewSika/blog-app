@@ -9,6 +9,14 @@
     <div class="alert alert-success">
         Votre compte a bien été créé
     </div>
+{% elseif g.modify is defined %}
+    <div class="alert alert-success">
+        Votre mot de passe a été mis à jour
+    </div>
+{% elseif g.err is defined %}
+    <div class="alert alert-success">
+        Une erreur s'est produite
+    </div>
 {% endif %}
 
 <div class="row">

@@ -10,6 +10,3 @@ $fighter = $table->find($params['id']);
 FighterAttachment::detach($fighter);
 $table->delete($params['id']);
 header('Location:' . $router->url('fighters') . '?delete=1');
-?>
-
-<h1>Suppression de <?= $params['id'] ?></h1>

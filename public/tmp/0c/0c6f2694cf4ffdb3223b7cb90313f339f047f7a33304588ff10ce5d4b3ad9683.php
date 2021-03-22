@@ -72,7 +72,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         // line 13
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 13), "html", null, true);
         echo ", le ";
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 13), "j F Y à H\\hi"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Twig\Extra\Intl\IntlExtension']->formatDate($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 13), "medium", "", null, "gregorian", "fr"), "html", null, true);
         echo "
         ";
         // line 14
@@ -164,7 +164,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         {{ post.getContent()[:300] | nl2br }}
         <a class=\"text-secondary text-decoration-none \" href=\"
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">[...]</a>
-        <footer class=\"blockquote-footer text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | date('j F Y à H\\\\hi') }}
+        <footer class=\"blockquote-footer text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | format_date('medium', locale='fr') }}
         {% if post.getCategories() %}
             <hr>
             Catégories associées :

@@ -14,8 +14,9 @@ $token = null;
 
 if(!empty($_POST)) {
     $email = htmlspecialchars($_POST['mail']);
+    $username = htmlspecialchars($_POST['username']);
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $token = $auth->passwordReset($email);
+        $token = $auth->passwordToken($username, $email);
         if(is_null($token)) {
             $errors = ["mail" => "Aucun compte correspondant"];
         }

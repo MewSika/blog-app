@@ -15,7 +15,6 @@ final class ContactTable extends Table{
             'username' => $contact->getUsername(),
             'email' => $contact->getEmail(),
             'content' => $contact->getContent(),
-            'checkNewsletter' => $contact->getCheckNewsletter()
         ]);
         $contact->setID($id);
     }
@@ -44,7 +43,6 @@ final class ContactTable extends Table{
         ->setTo([$to => $to])
         ->setBody($content)
         ;
-
         $result = $mailer->send($message);
     }
 

@@ -48,7 +48,8 @@ final class CategoryTable extends Table {
 
     public function list(): array
     {
-        $categories = $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
+        $categories = $this->queryAndFetchAll("
+            SELECT * FROM {$this->table} ORDER BY name ASC");
         $results = [];
         foreach($categories as $category) {
             $results[$category->getID()] = $category->getName();

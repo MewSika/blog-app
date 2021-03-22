@@ -1,0 +1,40 @@
+{% extends 'admin/layout/layout.twig' %}
+
+{% block head %}
+    <title> Commentaires </title>
+{% endblock %}
+
+{% block content %}
+<h1>Gestion des commentaire</h1>
+
+{% if g.valid %}
+    <div class="alert alert-success alert-dismissible fade show">
+        Le commentaire est autorisé
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if g.delete %}
+<div class="alert alert-danger alert-dismissible fade show">
+    Le commentaire a été restreint 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<table class="table rounded table-hover">
+    <thead>
+        <th class="align-middle">Utilisateur</th>
+        <th class="align-middle">Commentaire</th>
+        <th class="align-middle"></th>
+    </thead>
+    <tbody>
+        {% for message in items %}
+            {% include 'admin/comments/_commentTable.twig' %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -5,7 +5,7 @@
     <ul class="nav flex-column p-2">
         {% for post in lastPosts %}
         <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()})}}" class="text-secondary text-decoration-none">
-            <li class="nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}">{{ post.getCreatedAt() | date('d.m.y') }} : {{ post.getName() }}</li>
+            <li class="nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}"><span class="fw-bold">{{ post.getCreatedAt() | date('d.m.y') }}</span>: {{ post.getName() }}</li>
         </a>
         {% endfor %}
     </ul>
@@ -18,7 +18,7 @@
     <ul class="nav flex-column p-2 collapse" id="lastPostCollapse">
         {% for post in lastPosts %}
         <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()})}}" class="text-secondary text-decoration-none">
-            <li class="nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}">{{ post.getCreatedAt() | date('d.m.y') }} : {{ post.getName() }}</li>
+            <li class="nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}"><span class="fw-bold">{{ post.getCreatedAt() | date('d.m.y')}}</span> : {{ post.getName() }}</li>
         </a>
         {% endfor %}
     </ul>

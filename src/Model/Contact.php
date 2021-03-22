@@ -1,7 +1,6 @@
 <?php
 namespace App\Model;
 
-use App\Validator;
 use Psr\Http\Message\ServerRequestInterface;
 
 class Contact
@@ -26,10 +25,6 @@ class Contact
      */
     private $content;
 
-    /**
-     * @var int
-     */
-    private $checkNewsletter;
 
     /**
      * @return  int
@@ -111,23 +106,4 @@ class Contact
         return $this;
     }
 
-    /**
-     * @return  int
-     */ 
-    public function getCheckNewsletter() : ?int
-    {
-        return $this->checkNewsletter;
-    }
-
-    /**
-     * @param  int  $checkNewsletter
-     *
-     * @return  self
-     */ 
-    public function setCheckNewsletter(int $checkNewsletter) :self
-    {
-        $this->checkNewsletter = $checkNewsletter;
-
-        return $this;
-    }
 }

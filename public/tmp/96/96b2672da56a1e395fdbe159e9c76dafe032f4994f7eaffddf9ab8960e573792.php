@@ -57,40 +57,38 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
     {
         $macros = $this->macros;
         // line 8
-        echo "
-    <h1>Nous contacter</h1>
+        if ( !(null === ($context["logged"] ?? null))) {
+            // line 9
+            echo "    <div class=\"alert alert-secondary\">
+        ";
+            // line 10
+            echo twig_escape_filter($this->env, ($context["logged"] ?? null), "html", null, true);
+            echo "
+    </div>
+";
+        }
+        // line 13
+        echo "    <h1>Nous contacter</h1>
     <hr>
     ";
-        // line 11
+        // line 15
         if (($context["success"] ?? null)) {
-            // line 12
+            // line 16
             echo "    <div class=\"alert alert-success alert-dismissible fade show col-md-6 m-auto mb-3\" role=\"alert\">
         ";
-            // line 13
+            // line 17
             echo twig_escape_filter($this->env, ($context["success"] ?? null), "html", null, true);
             echo "
         <button type=\"button\" class=\"btn-close\" data-dismiss=\"alert\" aria-label=\"Close\"></button>
     </div>
     ";
         }
-        // line 17
+        // line 21
         echo "
     <form method=\"post\" action= \"\" class=\"col-md-6 m-auto\">
         ";
-        // line 19
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "Pseudo"], "method", false, false, false, 19);
-        echo "
-        ";
-        // line 20
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "email", 1 => "@mail"], "method", false, false, false, 20);
-        echo "
-        ";
-        // line 21
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Message", 2 => "Votre message"], "method", false, false, false, 21);
-        echo "
-        ";
-        // line 22
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "checkbox", [0 => "checkNewsletter", 1 => "Recevoir la newsletter"], "method", false, false, false, 22);
+        // line 23
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Message", 2 => "Votre message"], "method", false, false, false, 23);
         echo "
         <button class=\"btn btn-secondary ml-3 mb-3\">Envoyer</button>
     </form>
@@ -110,7 +108,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
 
     public function getDebugInfo()
     {
-        return array (  93 => 22,  89 => 21,  85 => 20,  81 => 19,  77 => 17,  70 => 13,  67 => 12,  65 => 11,  60 => 8,  56 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  91 => 23,  87 => 21,  80 => 17,  77 => 16,  75 => 15,  71 => 13,  65 => 10,  62 => 9,  60 => 8,  56 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -122,7 +120,11 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
 {% endblock %}
 
 {% block content %}
-
+{% if logged is not null %}
+    <div class=\"alert alert-secondary\">
+        {{ logged }}
+    </div>
+{% endif %}
     <h1>Nous contacter</h1>
     <hr>
     {% if success %}
@@ -133,10 +135,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
     {% endif %}
 
     <form method=\"post\" action= \"\" class=\"col-md-6 m-auto\">
-        {{ form.input(\"username\", \"Pseudo\") | raw}}
-        {{ form.input(\"email\", \"@mail\") | raw}}
         {{ form.textarea(\"content\", \"Message\", \"Votre message\") | raw}}
-        {{ form.checkbox(\"checkNewsletter\", \"Recevoir la newsletter\") | raw}}
         <button class=\"btn btn-secondary ml-3 mb-3\">Envoyer</button>
     </form>
 

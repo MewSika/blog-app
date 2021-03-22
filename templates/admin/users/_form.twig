@@ -1,0 +1,21 @@
+<p class="fw-bold mb-3">
+    <a href="{{ router.url('users_manage')}}" class="text-dark"><i class="bi bi-arrow-left"></i> Retour vers la gestion utilisateurs</a>
+</p>
+<form action="" method="post" class="mb-4">
+    <div class="row">
+    {{ form.input('username', 'Nom', 'nom', 'col-12 col-lg-5')|raw }}
+    {{ form.input('password', 'password', 'Mot de passe...', 'col-12 col-lg-5')|raw }}
+    {{ form.input('mail', 'Email', 'mail', 'col-12 col-lg-5')|raw }}
+    {{ form.input('role', 'Role', 'role', 'col-12 col-lg-5')|raw }}
+    </div>
+    <div class="ml-4">
+    {{ form.checkbox("newsletter", "Newsletter") | raw}}
+    </div>
+    <button name="" type="submit" class="btn btn-success">
+        {% if item.getID() is not null %}
+            Modifier
+        {% else %}
+            Créer
+        {% endif %}
+    </button>
+</form>

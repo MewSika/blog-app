@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block content %}
-
+{% if logged is not null %}
+    <div class="alert alert-secondary">
+        {{ logged }}
+    </div>
+{% endif %}
     <h1>Nous contacter</h1>
     <hr>
     {% if success %}
@@ -16,10 +20,7 @@
     {% endif %}
 
     <form method="post" action= "" class="col-md-6 m-auto">
-        {{ form.input("username", "Pseudo") | raw}}
-        {{ form.input("email", "@mail") | raw}}
         {{ form.textarea("content", "Message", "Votre message") | raw}}
-        {{ form.checkbox("checkNewsletter", "Recevoir la newsletter") | raw}}
         <button class="btn btn-secondary ml-3 mb-3">Envoyer</button>
     </form>
 

@@ -61,36 +61,25 @@ class __TwigTemplate_d6406b6018b2f30d004bd1c9d24c88ff9156fd97b325329f04777b15289
         // line 6
         echo "<h2 class=\"text-center\">S'inscrire</h2><hr>
 
-";
-        // line 8
-        if (($context["forbidden"] ?? null)) {
-            // line 9
-            echo "    <div class=\"alert alert-danger\">
-        Vous n'avez pas accès à cette page
-    </div>
-";
-        }
-        // line 13
+<form action=\"\" method=\"post\" class=\"m-auto col-md-4 text-center\">
+    ";
+        // line 9
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 9);
         echo "
-    <form action=\"\" method=\"post\" class=\"m-auto col-md-4 text-center\">
-        ";
-        // line 15
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 15);
+    ";
+        // line 10
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "Email"], "method", false, false, false, 10);
         echo "
-        ";
-        // line 16
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "Email"], "method", false, false, false, 16);
+    ";
+        // line 11
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 11);
         echo "
-        ";
-        // line 17
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 17);
+    ";
+        // line 12
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "checkbox", [0 => "newsletter", 1 => "Recevoir la newsletter"], "method", false, false, false, 12);
         echo "
-        ";
-        // line 18
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "checkbox", [0 => "newsletter", 1 => "Recevoir la newsletter"], "method", false, false, false, 18);
-        echo "
-        <button class=\"btn btn-secondary ml-3\"> S'inscrire</button>
-    </form>
+    <button class=\"btn btn-secondary ml-3\"> S'inscrire</button>
+</form>
 
 ";
     }
@@ -107,7 +96,7 @@ class __TwigTemplate_d6406b6018b2f30d004bd1c9d24c88ff9156fd97b325329f04777b15289
 
     public function getDebugInfo()
     {
-        return array (  90 => 18,  86 => 17,  82 => 16,  78 => 15,  74 => 13,  68 => 9,  66 => 8,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
+        return array (  79 => 12,  75 => 11,  71 => 10,  67 => 9,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -119,19 +108,13 @@ class __TwigTemplate_d6406b6018b2f30d004bd1c9d24c88ff9156fd97b325329f04777b15289
 {% block content %}
 <h2 class=\"text-center\">S'inscrire</h2><hr>
 
-{% if forbidden %}
-    <div class=\"alert alert-danger\">
-        Vous n'avez pas accès à cette page
-    </div>
-{% endif %}
-
-    <form action=\"\" method=\"post\" class=\"m-auto col-md-4 text-center\">
-        {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Identifiant')|raw }}
-        {{ form.input('mail', '<i class=\"bi bi-envelope\"></i>', 'Email')|raw }}
-        {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
-        {{ form.checkbox(\"newsletter\", \"Recevoir la newsletter\") | raw}}
-        <button class=\"btn btn-secondary ml-3\"> S'inscrire</button>
-    </form>
+<form action=\"\" method=\"post\" class=\"m-auto col-md-4 text-center\">
+    {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Identifiant')|raw }}
+    {{ form.input('mail', '<i class=\"bi bi-envelope\"></i>', 'Email')|raw }}
+    {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
+    {{ form.checkbox(\"newsletter\", \"Recevoir la newsletter\") | raw}}
+    <button class=\"btn btn-secondary ml-3\"> S'inscrire</button>
+</form>
 
 {% endblock %}", "auth/signin.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\auth\\signin.twig");
     }

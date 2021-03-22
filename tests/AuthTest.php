@@ -29,7 +29,7 @@ final class AuthTest extends TestCase {
             $password = password_hash("user$i", PASSWORD_BCRYPT);
             $pdo->query("INSERT INTO users_b (id, username, password, role) VALUES($i, 'user$i', '$password', 'user$i')");
         }
-        $this->auth = new Auth($pdo, $this->session);
+        $this->auth = new UserTable($pdo, $this->session);
     }
 
     public function testLoginWithBadUsername()

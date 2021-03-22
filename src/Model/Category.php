@@ -54,7 +54,8 @@ class Category {
         return $this->post_id;
     }
 
-    public function setPost (Post $post) {
+    public function setPost (Post $post)
+    {
         $this->post = $post;
     }
 }

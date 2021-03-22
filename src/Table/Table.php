@@ -49,7 +49,7 @@ abstract class Table {
         $query->setfetchMode(\PDO::FETCH_CLASS, $this->class);
         $result = $query->fetch();
         if($result === false) {
-            throw new NotFoundException($this->table, $id);
+            return null;
         }
         return $result;
     }
@@ -99,5 +99,15 @@ abstract class Table {
     public function queryAndFetchAll (string $sql): array
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
+    }
+
+    public function queryAndFetch (string $sql): ?Object
+    {
+
+        $result = $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetch();
+        if($result === false) {
+            return null;
+        }
+        return $result;
     }
 }

@@ -69,14 +69,28 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
         Votre compte a bien été créé
     </div>
 ";
+        } elseif (twig_get_attribute($this->env, $this->source,         // line 12
+($context["g"] ?? null), "modify", [], "any", true, true, false, 12)) {
+            // line 13
+            echo "    <div class=\"alert alert-success\">
+        Votre mot de passe a été mis à jour
+    </div>
+";
+        } elseif (twig_get_attribute($this->env, $this->source,         // line 16
+($context["g"] ?? null), "err", [], "any", true, true, false, 16)) {
+            // line 17
+            echo "    <div class=\"alert alert-success\">
+        Une erreur s'est produite
+    </div>
+";
         }
-        // line 13
+        // line 21
         echo "
 <div class=\"row\">
     <div class=\"col-lg-5 m-auto\">
         <h3 class=\"fw-bold text-center\"><a href=\"";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "signin"], "method", false, false, false, 16), "html", null, true);
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "signin"], "method", false, false, false, 24), "html", null, true);
         echo "\" class=\"text-dark\">Créer un compte</a></h3>
     </div>
     <div class=\"col-lg-2 sep\">
@@ -88,16 +102,16 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
         <h3 class=\"fw-bold text-center\">Connexion</h3>
         <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center\">
             ";
-        // line 26
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 26);
+        // line 34
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 34);
         echo "
             ";
-        // line 27
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 27);
+        // line 35
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 35);
         echo "
             <a class=\"d-block mb-2 text-dark\" href=\"";
-        // line 28
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "forgot"], "method", false, false, false, 28), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "forgot"], "method", false, false, false, 36), "html", null, true);
         echo "\">Récupérer mon mot de passe</a>
             <button class=\"btn btn-secondary ml-3\"> Se connecter</button>
         </form>
@@ -118,7 +132,7 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
 
     public function getDebugInfo()
     {
-        return array (  100 => 28,  96 => 27,  92 => 26,  79 => 16,  74 => 13,  68 => 9,  66 => 8,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
+        return array (  114 => 36,  110 => 35,  106 => 34,  93 => 24,  88 => 21,  82 => 17,  80 => 16,  75 => 13,  73 => 12,  68 => 9,  66 => 8,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -133,6 +147,14 @@ class __TwigTemplate_b4a11ca6519dae70c723c78b1e74cd5a0cbd2a3d62d0c3663ade1a0f7c8
 {% if g.login is defined %}
     <div class=\"alert alert-success\">
         Votre compte a bien été créé
+    </div>
+{% elseif g.modify is defined %}
+    <div class=\"alert alert-success\">
+        Votre mot de passe a été mis à jour
+    </div>
+{% elseif g.err is defined %}
+    <div class=\"alert alert-success\">
+        Une erreur s'est produite
     </div>
 {% endif %}
 

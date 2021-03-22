@@ -17,13 +17,25 @@ if(!empty($_GET['token'])){
     $row = $check->rowCount();
     $deadlink = $row === 0  ? "Le lien n'est plus valide" : null;
 } else {
+    /* Si pas de token : redirection */
     header('Location:'.$router->url('f_login'));
     exit();
 }
 
 if(!empty($_POST)) {
+    if(!empty($_POST['password']) && !empty($_POST['confirmPassword']) && !empty($_POST['token'])){
+        $password = htmlspecialchars($_POST['password']);
+        $password_repeat = htmlspecialchars($_POST['confirmPassword']);
+        $token = htmlspecialchars(base64_decode($_POST['token']));
+        $auth->passwordReset($password, $password_repeat, $token, $router);
 
+
+
+    }else{
+        $errors['password'] = "Veuillez indiquer un mot de passe";
+    }
 }
+
 
 $form = new Form($user, $errors);
 

@@ -64,9 +64,9 @@ class __TwigTemplate_d034f5009102d780e6be29399b1a72497d98cbeeb0972c1a6223fb02ccf
             <li class=\"nav-link fw-light py-1 list-group-item-action ";
             // line 8
             echo ((twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 8)) ? ("") : ("border-bottom"));
-            echo "\">";
+            echo "\"><span class=\"fw-bold\">";
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["post"], "getCreatedAt", [], "method", false, false, false, 8), "d.m.y"), "html", null, true);
-            echo " : ";
+            echo "</span>: ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["post"], "getName", [], "method", false, false, false, 8), "html", null, true);
             echo "</li>
         </a>
@@ -117,9 +117,9 @@ class __TwigTemplate_d034f5009102d780e6be29399b1a72497d98cbeeb0972c1a6223fb02ccf
             <li class=\"nav-link fw-light py-1 list-group-item-action ";
             // line 21
             echo ((twig_get_attribute($this->env, $this->source, $context["loop"], "last", [], "any", false, false, false, 21)) ? ("") : ("border-bottom"));
-            echo "\">";
+            echo "\"><span class=\"fw-bold\">";
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["post"], "getCreatedAt", [], "method", false, false, false, 21), "d.m.y"), "html", null, true);
-            echo " : ";
+            echo "</span> : ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["post"], "getName", [], "method", false, false, false, 21), "html", null, true);
             echo "</li>
         </a>
@@ -166,7 +166,7 @@ class __TwigTemplate_d034f5009102d780e6be29399b1a72497d98cbeeb0972c1a6223fb02ccf
     <ul class=\"nav flex-column p-2\">
         {% for post in lastPosts %}
         <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()})}}\" class=\"text-secondary text-decoration-none\">
-            <li class=\"nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}\">{{ post.getCreatedAt() | date('d.m.y') }} : {{ post.getName() }}</li>
+            <li class=\"nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}\"><span class=\"fw-bold\">{{ post.getCreatedAt() | date('d.m.y') }}</span>: {{ post.getName() }}</li>
         </a>
         {% endfor %}
     </ul>
@@ -179,7 +179,7 @@ class __TwigTemplate_d034f5009102d780e6be29399b1a72497d98cbeeb0972c1a6223fb02ccf
     <ul class=\"nav flex-column p-2 collapse\" id=\"lastPostCollapse\">
         {% for post in lastPosts %}
         <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()})}}\" class=\"text-secondary text-decoration-none\">
-            <li class=\"nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}\">{{ post.getCreatedAt() | date('d.m.y') }} : {{ post.getName() }}</li>
+            <li class=\"nav-link fw-light py-1 list-group-item-action {{ (loop.last) ? '' : 'border-bottom' }}\"><span class=\"fw-bold\">{{ post.getCreatedAt() | date('d.m.y')}}</span> : {{ post.getName() }}</li>
         </a>
         {% endfor %}
     </ul>

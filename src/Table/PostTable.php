@@ -102,4 +102,14 @@ final class PostTable extends Table {
     {
         return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY created_at DESC LIMIT {$limit}");
     }
+
+    public function getNextPost(int $id): ?Post
+    {
+        return $this->queryAndFetch("SELECT * FROM {$this->table} WHERE id > $id ORDER BY created_at ASC LIMIT 1");
+    }
+
+    public function getPrevioustPost(int $id): ?Post
+    {
+        return $this->queryAndFetch("SELECT * FROM {$this->table} WHERE id < $id ORDER BY created_at DESC LIMIT 1");
+    }
 }

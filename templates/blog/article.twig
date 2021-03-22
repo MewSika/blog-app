@@ -1,29 +1,79 @@
 {% extends 'layout/layout.twig' %}
 
+{% import 'blog/_form.twig' as form %}
+
 {% block head %}
-    <title> Article - {{ slug|capitalize}}</title>
+    <title> {{ post.getName }}</title>
 {% endblock %}
 
 {% block content %}
-    <article class="container p-0">
-        <h1 class="fw-bold"> {{ post.getName() }}</h1><hr>
-        {% include 'blog/_breadcrumb.twig' %}
+<article class="">
+    <h1 class="fw-bold text-start"> {{ post.getName() }}</h1><hr>
+    {% include 'blog/_breadcrumb.twig' %}
+    <aside class="text-center">
         {% if post.getImage() %}
-            <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top">
+          <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top">
         {% endif %}
-    </article>
+        <p class="text-muted text-end">Publié le {{ post.getCreatedAt()|format_date('full', locale='fr') }}</p>
+        <p class="text-end fw-light fst-italic">
+        {% for category in post.getCategories() %}
+            {% if loop.index > 1 %}
+                <span class="fw-light">|</span>
+            {% endif %}
+            <a href="{{ router.url('category', {'id': category.getId, 'slug': category.getSlug}) }}" class="text-secondary">{{ category.getName }}</a>
+        {% endfor %}
+        </p>
+    </aside>
+</article>
+{# Nav arrow #}
+<div class="d-flex">
+    {% if nextPost is not null %}
+        <a href="{{ router.url('article', {'id': nextPost.getID(), 'slug' : nextPost.getSlug()})}}" class="text-decoration-none text-dark me-auto"><i class="bi bi-arrow-bar-left h3 fw-bold m-0"></i></a>
+    {% endif %}
 
-
-    <p class="text-muted text-end">Publié le {{ post.getCreatedAt()|format_date('full', locale='fr') }}</p>
-    <p class="text-end fw-light fst-italic">
-    {% for category in post.getCategories() %}
-        {% if loop.index > 1 %}
-            <span class="fw-light">|</span>
-        {% endif %}
-        <a href="{{ router.url('category', {'id': category.getId(), 'slug': category.getSlug()}) }}" class="text-secondary">{{ category.getName() }}</a>
-    {% endfor %}
-    </p>
+    {% if previousPost is not null %}
+        <a href="{{ router.url('article', {'id': previousPost.getID(), 'slug' : previousPost.getSlug()})}}" class="text-decoration-none text-dark ms-auto"><i class="bi bi-arrow-bar-right h3 fw-bold m-0"></i></a>
+    {% endif %}
+</div>
 <hr>
-<p class="text-justify"> {{ post.getContent()|nl2br }}</p>
-<p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor() }}</em></p>
+<div class="row">
+    <div class="col-md-9">
+        <p class="text-justify"> {{ post.getContent()|nl2br }}</p>
+        <p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor() }}</em></p>
+        <div class="fb-share-button p-0" data-href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}" data-layout="button" data-size="large">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }};src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                Share
+            </a>
+        </div>
+        <hr>
+
+        {% if list|length == 0 %}
+            {# No count messages title #}
+        {% else %}
+            <h3 class="fw-bold text-secondary">{{ list|length }} commentaire{{ (list|length > 1) ? 's' : '' }} </h3>
+        {% endif %}
+
+        {# Form messages #}
+        {% if user is not null %}
+            <form action="" method="post">
+                {{ form.textarea("content", "Message", null, "Ajouter un commentaire public...", {class : 'col-lg-8 mb-2'}, 4)}}
+                <button class="btn btn-secondary btn-sm me-3" type="submit">Envoyer</button>
+            </form>
+        <hr>
+        {% else %}
+            <div class="alert alert-secondary text-secondary">
+                Vous devez êtes connecté pour rédiger un commentaire
+            </div>
+        {% endif %}
+        {% for message in list %}
+            {% include 'blog/_message.twig' %}
+        {% endfor %}
+
+    </div>
+    <aside class="col-md-3">
+        {% block sidebar %}
+            {% include '/sidebar/posts.twig' %}
+        {% endblock %}
+    </aside>
+</div>
 {% endblock %}

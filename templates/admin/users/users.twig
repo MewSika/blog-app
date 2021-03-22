@@ -1,0 +1,42 @@
+{% extends 'admin/layout/layout.twig' %}
+
+{% block head %}
+    <title> Gestion des utilisateurs </title>
+{% endblock %}
+
+{% block content %}
+<h1>Gestion des utilisateurs</h1>
+
+{% if g.success %}
+    <div class="alert alert-success alert-dismissible fade show">
+        L'utilisateur a bien été créé
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if g.delete %}
+<div class="alert alert-danger alert-dismissible fade show">
+    L'utilisateur a bien été supprimé
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<table class="table rounded table-hover">
+    <thead>
+        <th class="align-middle">n°ID</th>
+        <th class="align-middle">Nom</th>
+        <th class="align-middle">Mail</th>
+        <th class="align-middle">Rôle</th>
+        <th class="text-end"><a href="{{ router.url('admin_user_new') }}" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
+    </thead>
+    <tbody>
+        {% for user in items %}
+            {% include 'admin/users/_userTable.twig' %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

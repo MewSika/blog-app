@@ -60,7 +60,7 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
         // line 8
         echo "<div class=\"row\">
     <article class=\"col-md-9\">
-        <h1>Index des articles</h1>
+        <h1>Actualités UFC</h1>
         <hr>
         ";
         // line 12
@@ -156,7 +156,7 @@ class __TwigTemplate_46ef8337b2494558e6c6a2d920e3d32d994bb36bfed1974e89f66833598
 {% block content %}
 <div class=\"row\">
     <article class=\"col-md-9\">
-        <h1>Index des articles</h1>
+        <h1>Actualités UFC</h1>
         <hr>
         {% for post in posts %}
             {% include 'blog/_card.twig' %}
