@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* admin/fighters/edit.twig */
-class __TwigTemplate_49cb39c53fd2666a1d9fec4e3b595c9f7c4c0390ebf646f3d0a9c648a81bb1e0 extends Template
+/* admin/fighters/new.twig */
+class __TwigTemplate_32f20df71270851e17612f7936db64aa1949e90f6a25d594898d227cb06429e3 extends Template
 {
     private $source;
     private $macros = [];
@@ -39,7 +39,7 @@ class __TwigTemplate_49cb39c53fd2666a1d9fec4e3b595c9f7c4c0390ebf646f3d0a9c648a81
     protected function doDisplay(array $context, array $blocks = [])
     {
         $macros = $this->macros;
-        $this->parent = $this->loadTemplate("admin/layout/layout.twig", "admin/fighters/edit.twig", 1);
+        $this->parent = $this->loadTemplate("admin/layout/layout.twig", "admin/fighters/new.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -62,7 +62,7 @@ class __TwigTemplate_49cb39c53fd2666a1d9fec4e3b595c9f7c4c0390ebf646f3d0a9c648a81
         if (($context["errors"] ?? null)) {
             // line 9
             echo "    <div class=\"alert alert-danger\">
-        La modification n'a pas pu être effectuée
+        La création n'a pas pu être effectuée
     </div>
 ";
         }
@@ -73,23 +73,21 @@ class __TwigTemplate_49cb39c53fd2666a1d9fec4e3b595c9f7c4c0390ebf646f3d0a9c648a81
         if (($context["success"] ?? null)) {
             // line 15
             echo "    <div class=\"alert alert-success\">
-        Les informations ont bien été modifiées
+        La création a bien été effectuée
     </div>
 ";
         }
         // line 19
-        echo "<h2>Modifier les informations combattant : ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["fighter"] ?? null), "getName", [], "method", false, false, false, 19), "html", null, true);
-        echo "</h2>
+        echo "<h2>Créer un combattant</h2>
 <hr>
 ";
         // line 21
-        $this->loadTemplate("admin/fighters/_form.twig", "admin/fighters/edit.twig", 21)->display($context);
+        $this->loadTemplate("admin/fighters/_form.twig", "admin/fighters/new.twig", 21)->display($context);
     }
 
     public function getTemplateName()
     {
-        return "admin/fighters/edit.twig";
+        return "admin/fighters/new.twig";
     }
 
     public function isTraitable()
@@ -99,7 +97,7 @@ class __TwigTemplate_49cb39c53fd2666a1d9fec4e3b595c9f7c4c0390ebf646f3d0a9c648a81
 
     public function getDebugInfo()
     {
-        return array (  87 => 21,  81 => 19,  75 => 15,  73 => 14,  70 => 13,  64 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  85 => 21,  81 => 19,  75 => 15,  73 => 14,  70 => 13,  64 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -113,18 +111,18 @@ class __TwigTemplate_49cb39c53fd2666a1d9fec4e3b595c9f7c4c0390ebf646f3d0a9c648a81
 {% block content %}
 {% if errors %}
     <div class=\"alert alert-danger\">
-        La modification n'a pas pu être effectuée
+        La création n'a pas pu être effectuée
     </div>
 {% endif %}
 
 {% if success %}
     <div class=\"alert alert-success\">
-        Les informations ont bien été modifiées
+        La création a bien été effectuée
     </div>
 {% endif %}
-<h2>Modifier les informations combattant : {{ fighter.getName()}}</h2>
+<h2>Créer un combattant</h2>
 <hr>
 {% include 'admin/fighters/_form.twig' %}
-{% endblock %}", "admin/fighters/edit.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\edit.twig");
+{% endblock %}", "admin/fighters/new.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\new.twig");
     }
 }

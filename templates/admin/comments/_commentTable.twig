@@ -2,7 +2,6 @@
     <td>#{{ message.getIDUser }}</td>
     <a href="{{ router.url('comments_manage', {'id' : message.getId}) }}"}>
     <td>{{ message.getContent }}</td>
-    <td>{{ message.getRole }}</td>
     <td class="text-end">
         <form action="{{ router.url('admin_message_authorize', {'id' : message.getId()}) }}" method="post" class="d-inline">
             <button type="submit" name="authorize" class="btn btn-sm btn-success" >

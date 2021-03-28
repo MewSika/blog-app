@@ -34,7 +34,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
     {
         $macros = $this->macros;
         // line 1
-        echo "<div class=\"col-12 card rounded border-0 bg-light\">
+        echo "<div class=\"col-12 card rounded border-0 bg-transparent \">
         <div class=\"card-body pb-2\">
             <div class=\"row\">
             ";
@@ -82,7 +82,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 19), "d/m/Y à H\\hi"), "html", null, true);
         echo " </small>
         </div>
-    <div class=\"card-footer bg-light\">
+    <div class=\"card-footer bg-transparent\">
     </div>
 </div>";
     }
@@ -104,7 +104,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
 
     public function getSourceContext()
     {
-        return new Source("<div class=\"col-12 card rounded border-0 bg-light\">
+        return new Source("<div class=\"col-12 card rounded border-0 bg-transparent \">
         <div class=\"card-body pb-2\">
             <div class=\"row\">
             {% if post.getImage() %}
@@ -124,7 +124,7 @@ class __TwigTemplate_9633553817ec5cbd718ffb5fd2dd412cf2d1370cc27ec71b6d45eb4e815
             </div>
             <small class=\"text-muted\">Publié le {{ post.getCreatedAt() | date('d/m/Y à H\\\\hi') }} </small>
         </div>
-    <div class=\"card-footer bg-light\">
+    <div class=\"card-footer bg-transparent\">
     </div>
 </div>", "results/_researchPost.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\results\\_researchPost.twig");
     }

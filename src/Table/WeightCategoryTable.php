@@ -35,11 +35,15 @@ final class WeightCategoryTable extends Table{
      * @param  array $fighters
      * @return WeightCategory 
      */
-    public function hydrateWeightCategory(array $fighters): array
+    public function hydrateWeightCategory(array $fighters): ?array
     {
         $fighterCatID = [];
         foreach($fighters as $fighter) {
             $fighterCatID[$fighter->getWeightCatId()] = $fighter;
+        }
+        if(empty($fighters)) 
+        {
+            return null;
         }
         $categories = $this->pdo->query(
                 'SELECT wc.* 

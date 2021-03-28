@@ -67,9 +67,9 @@ class __TwigTemplate_83823864e13f12a87672588bd1044b5a63ec9610e3e978f7cbb6285fa27
                         <form method=\"post\" action=\"";
                 // line 16
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "report", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getId", [], "any", false, false, false, 16)]], "method", false, false, false, 16), "html", null, true);
-                echo "\" class=\"dropdown-menu\" aria-labelledby=\"reportButton\">
+                echo "\" class=\"dropdown-menu\" aria-labelledby=\"reportButton\" onsubmit=\"return confirm('Signaler ce commentaire ?')\">
                             <input name=\"report\" type=\"hidden\" value=\"1\">
-                            <input type=\"submit\" class=\"dropdown-item\" value=\"Signaler\">
+                            <input type=\"submit\" class=\"dropdown-item\" value=\"Signaler\" >
                         </form>
                     </div>
                 ";
@@ -87,8 +87,7 @@ class __TwigTemplate_83823864e13f12a87672588bd1044b5a63ec9610e3e978f7cbb6285fa27
             ";
         }
         // line 27
-        echo "            
-        </div>
+        echo "        </div>
     </div>
 </div>";
     }
@@ -125,9 +124,9 @@ class __TwigTemplate_83823864e13f12a87672588bd1044b5a63ec9610e3e978f7cbb6285fa27
                         <button class=\"btn btn-sm btn-outline-secondary border-0 {{ message.getReport == 0 ?: 'disabled' }}\" type=\"button\" id=\"reportButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                             <i class=\"bi bi-flag\"></i>
                         </button>
-                        <form method=\"post\" action=\"{{router.url('report', { 'id' : message.getId})}}\" class=\"dropdown-menu\" aria-labelledby=\"reportButton\">
+                        <form method=\"post\" action=\"{{router.url('report', { 'id' : message.getId})}}\" class=\"dropdown-menu\" aria-labelledby=\"reportButton\" onsubmit=\"return confirm('Signaler ce commentaire ?')\">
                             <input name=\"report\" type=\"hidden\" value=\"1\">
-                            <input type=\"submit\" class=\"dropdown-item\" value=\"Signaler\">
+                            <input type=\"submit\" class=\"dropdown-item\" value=\"Signaler\" >
                         </form>
                     </div>
                 {% endif %}
@@ -136,7 +135,6 @@ class __TwigTemplate_83823864e13f12a87672588bd1044b5a63ec9610e3e978f7cbb6285fa27
             {% else %}
             <p class=\"m-0 small fst-italic text-secondary\">Le message a été supprimé</p>
             {% endif %}
-            
         </div>
     </div>
 </div>", "blog/_message.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\blog\\_message.twig");

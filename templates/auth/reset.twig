@@ -13,8 +13,8 @@
 <h2 class="text-center">Réinitialisation du mot de passe</h2><hr>
 <form action="" method="post" class="m-auto col-xs-6 col-md-3 text-center">
     <input type="hidden" name="token" value="{{g.token}}"  />
-    {{ form.input('password', '<i class="bi bi-lock"></i>', 'Entrez votre password')|raw }}
-    {{ form.input('confirmPassword', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+    {{ form.input('password', '<i class="bi bi-lock"></i>', 'Entrez votre mot de passe')|raw }}
+    {{ form.input('confirmPassword', '<i class="bi bi-lock"></i>', 'Confirmez votre mot de passe')|raw }}
     <button class="btn btn-secondary ml-3">Envoyer</button>
 </form>
 {% endif %}

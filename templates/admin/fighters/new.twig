@@ -7,16 +7,16 @@
 {% block content %}
 {% if errors %}
     <div class="alert alert-danger">
-        La modification n'a pas pu être effectuée
+        La création n'a pas pu être effectuée
     </div>
 {% endif %}
 
 {% if success %}
     <div class="alert alert-success">
-        Les informations ont bien été modifiées
+        La création a bien été effectuée
     </div>
 {% endif %}
-<h2>Modifier les informations combattant : {{ fighter.getName()}}</h2>
+<h2>Créer un combattant</h2>
 <hr>
 {% include 'admin/fighters/_form.twig' %}
 {% endblock %}

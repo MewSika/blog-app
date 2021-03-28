@@ -15,5 +15,6 @@ class UserValidator extends AbstractValidator {
             return !$table->exists($field, $value, $id);
         }, ['username', 'mail'], 'Cette valeur est déjà utilisé');
         $this->validator->rule('lengthBetween', ['username'], 3, 15);
+        $this->validator->rule('alpha', ['username']);
     }
 }

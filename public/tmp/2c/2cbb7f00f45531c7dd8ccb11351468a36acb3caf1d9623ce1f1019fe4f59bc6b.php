@@ -203,29 +203,37 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
         ";
         }
         // line 55
-        echo "
-        ";
-        // line 57
+        echo "        ";
+        // line 56
         echo "        ";
         if ( !(null === ($context["user"] ?? null))) {
-            // line 58
+            // line 57
             echo "            <form action=\"\" method=\"post\">
                 ";
-            // line 59
-            echo twig_call_macro($macros["form"], "macro_textarea", ["content", "Message", null, "Ajouter un commentaire public...", ["class" => "col-lg-8 mb-2"], 4], 59, $context, $this->getSourceContext());
+            // line 58
+            if ( !twig_test_empty(($context["errors"] ?? null))) {
+                // line 59
+                echo "                    <div class=\"alert alert-danger col-lg-8\">";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["errors"] ?? null), "content", [], "any", false, false, false, 59), "html", null, true);
+                echo "</div>
+                ";
+            }
+            // line 61
+            echo "                ";
+            echo twig_call_macro($macros["form"], "macro_textarea", ["content", "Message", null, "Ajouter un commentaire public...", ["class" => "col-lg-8 mb-2"], 4], 61, $context, $this->getSourceContext());
             echo "
                 <button class=\"btn btn-secondary btn-sm me-3\" type=\"submit\">Envoyer</button>
             </form>
         <hr>
         ";
         } else {
-            // line 64
+            // line 66
             echo "            <div class=\"alert alert-secondary text-secondary\">
                 Vous devez êtes connecté pour rédiger un commentaire
             </div>
         ";
         }
-        // line 68
+        // line 70
         echo "        ";
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["list"] ?? null));
@@ -243,10 +251,10 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 69
+            // line 71
             echo "            ";
-            $this->loadTemplate("blog/_message.twig", "blog/article.twig", 69)->display($context);
-            // line 70
+            $this->loadTemplate("blog/_message.twig", "blog/article.twig", 71)->display($context);
+            // line 72
             echo "        ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -260,27 +268,27 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 71
+        // line 73
         echo "
     </div>
     <aside class=\"col-md-3\">
         ";
-        // line 74
+        // line 76
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 77
+        // line 79
         echo "    </aside>
 </div>
 ";
     }
 
-    // line 74
+    // line 76
     public function block_sidebar($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 75
+        // line 77
         echo "            ";
-        $this->loadTemplate("/sidebar/posts.twig", "blog/article.twig", 75)->display($context);
-        // line 76
+        $this->loadTemplate("/sidebar/posts.twig", "blog/article.twig", 77)->display($context);
+        // line 78
         echo "        ";
     }
 
@@ -296,7 +304,7 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
 
     public function getDebugInfo()
     {
-        return array (  284 => 76,  281 => 75,  277 => 74,  271 => 77,  269 => 74,  264 => 71,  250 => 70,  247 => 69,  229 => 68,  223 => 64,  215 => 59,  212 => 58,  209 => 57,  206 => 55,  198 => 53,  195 => 52,  193 => 51,  191 => 50,  182 => 44,  178 => 43,  174 => 42,  170 => 41,  164 => 37,  158 => 35,  156 => 34,  153 => 33,  147 => 31,  145 => 30,  142 => 29,  137 => 25,  118 => 23,  114 => 21,  111 => 20,  94 => 19,  88 => 17,  80 => 15,  78 => 14,  75 => 13,  73 => 12,  69 => 11,  66 => 10,  62 => 9,  55 => 6,  51 => 5,  46 => 1,  44 => 3,  37 => 1,);
+        return array (  292 => 78,  289 => 77,  285 => 76,  279 => 79,  277 => 76,  272 => 73,  258 => 72,  255 => 71,  237 => 70,  231 => 66,  222 => 61,  216 => 59,  214 => 58,  211 => 57,  208 => 56,  206 => 55,  198 => 53,  195 => 52,  193 => 51,  191 => 50,  182 => 44,  178 => 43,  174 => 42,  170 => 41,  164 => 37,  158 => 35,  156 => 34,  153 => 33,  147 => 31,  145 => 30,  142 => 29,  137 => 25,  118 => 23,  114 => 21,  111 => 20,  94 => 19,  88 => 17,  80 => 15,  78 => 14,  75 => 13,  73 => 12,  69 => 11,  66 => 10,  62 => 9,  55 => 6,  51 => 5,  46 => 1,  44 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -355,10 +363,12 @@ class __TwigTemplate_e5b7ef4db3e68a9566918e7c2cdc3a9616361b263741c52d8b5ec60b2f0
         {% else %}
             <h3 class=\"fw-bold text-secondary\">{{ list|length }} commentaire{{ (list|length > 1) ? 's' : '' }} </h3>
         {% endif %}
-
         {# Form messages #}
         {% if user is not null %}
             <form action=\"\" method=\"post\">
+                {% if errors is not empty %}
+                    <div class=\"alert alert-danger col-lg-8\">{{ errors.content }}</div>
+                {% endif %}
                 {{ form.textarea(\"content\", \"Message\", null, \"Ajouter un commentaire public...\", {class : 'col-lg-8 mb-2'}, 4)}}
                 <button class=\"btn btn-secondary btn-sm me-3\" type=\"submit\">Envoyer</button>
             </form>

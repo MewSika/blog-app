@@ -12,7 +12,7 @@
     </div>
 {% endif %}
 
-{% if q.delete %}
+{% if get.delete %}
 <div class="alert alert-danger alert-dismissible fade show">
     Le combattant a bien été supprimé
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -28,25 +28,32 @@
     </div>
     <button class="btn btn-secondary">Rechercher</button>
 </form>
-<table class="table rounded table-hover">
-    <thead>
-        <th class="align-middle">Nom</th>
-        <th class="align-middle">Catégorie poids (livres)</th>
-        <th class="align-middle">VICTOIRE</th>
-        <th class="align-middle">DEFAITE</th>
-        <th class="align-middle">NUL</th>
-        <th class="align-middle">ANNULE</th>
-        <th><a href="{{ router.url('fighter_new') }}" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
-    </thead>
-    <tbody>
-      {% for fighter in fighters %}
-          {% include 'admin/fighters/_fighterTable.twig' %}
-      {% endfor %}
-    </tbody>
-</table>
-<aside class="text-center mb-5">
-    {{ pagination.previousLink(link)|raw }}
-    {{ pagination.nextLink(link)|raw }}
-</aside>
+{% if fighters is empty %}
+    <h5 class="font-weight-bold text-center"> Aucun combattant ne correspond à votre recherche : {{ get.q | upper}} <h5>
+{% elseif get.q is not empty and get.q|length < 3 %}
+    <h5 class="font-weight-bold text-center">Votre recherche doit contenir au moins 3 caractères</h5>
+{% else %}
+    <table class="table rounded table-hover">
+        <thead>
+            <th class="align-middle">Nom</th>
+            <th class="align-middle">Poids (kg)</th>
+            <th class="align-middle">VICTOIRE</th>
+            <th class="align-middle">DEFAITE</th>
+            <th class="align-middle">NUL</th>
+            <th class="align-middle">ANNULE</th>
+            <th><a href="{{ router.url('fighter_new') }}" class="btn btn-sm btn-outline-dark">Nouveau</a></th>
+        </thead>
+        <tbody>
+            {% for fighter in fighters %}
+                {% include 'admin/fighters/_fighterTable.twig' %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <aside class="text-center mb-5">
+        {{ pagination.previousLink(link)|raw }}
+        {{ pagination.nextLink(link)|raw }}
+    </aside>
+{% endif %}
+
 
 {% endblock %}

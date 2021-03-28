@@ -47,30 +47,43 @@ class __TwigTemplate_6b88e539dab5a96b918c939f0dd4241aedc7fbd84513c559837ce85b60f
     {
         $macros = $this->macros;
         // line 3
-        echo "<h2 class=\"text-center\">Mon espace</h2><hr>
+        echo "
+";
+        // line 4
+        if (twig_get_attribute($this->env, $this->source, ($context["g"] ?? null), "updated", [], "any", false, false, false, 4)) {
+            // line 5
+            echo "<div class=\"alert alert-success\">
+    Vos informations ont bien été mises à jour
+</div>
+";
+        }
+        // line 9
+        echo "
+<h2 class=\"text-center\">Mon espace</h2><hr>
 
 <div class=\"row\">
     <div class=\"col-lg-6 m-auto\">
         <h3 class=\"fw-bold text-center\"><a href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "signin"], "method", false, false, false, 7), "html", null, true);
+        // line 14
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "signin"], "method", false, false, false, 14), "html", null, true);
         echo "\" class=\"text-dark\"></a></h3>
-        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center mb-4\" onsubmit=\"return confirm('Mettre à jour l\\'adresse e-mail ?')\">
+        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center mb-4\" onsubmit=\"return confirm('Mettre à jour les informations ?')\">
             ";
-        // line 9
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 9);
+        // line 16
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "username", 1 => "<i class=\"bi bi-person-circle\"></i>", 2 => "Identifiant"], "method", false, false, false, 16);
         echo "
             ";
-        // line 10
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 10);
+        // line 17
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "Email"], "method", false, false, false, 17);
         echo "
             ";
-        // line 11
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "mail", 1 => "<i class=\"bi bi-envelope\"></i>", 2 => "Email"], "method", false, false, false, 11);
+        // line 18
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 18);
         echo "
+
             ";
-        // line 12
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "checkbox", [0 => "newsletter", 1 => "Recevoir la newsletter"], "method", false, false, false, 12);
+        // line 20
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "checkbox", [0 => "newsletter", 1 => "Recevoir la newsletter"], "method", false, false, false, 20);
         echo "
             <button class=\"btn btn-sm btn-secondary\" type=\"submit\" name=\"update\">Modifier</button>
         </form>
@@ -81,8 +94,8 @@ class __TwigTemplate_6b88e539dab5a96b918c939f0dd4241aedc7fbd84513c559837ce85b60f
     </div>
     <div class=\"col-lg-6 text-center\">
         <a href=\"";
-        // line 21
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_logout"], "method", false, false, false, 21), "html", null, true);
+        // line 29
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_logout"], "method", false, false, false, 29), "html", null, true);
         echo "\" class=\"btn btn-sm btn-secondary\">Se déconnecter</a>
     </div>
 </div>
@@ -101,22 +114,30 @@ class __TwigTemplate_6b88e539dab5a96b918c939f0dd4241aedc7fbd84513c559837ce85b60f
 
     public function getDebugInfo()
     {
-        return array (  85 => 21,  73 => 12,  69 => 11,  65 => 10,  61 => 9,  56 => 7,  50 => 3,  46 => 2,  35 => 1,);
+        return array (  98 => 29,  86 => 20,  81 => 18,  77 => 17,  73 => 16,  68 => 14,  61 => 9,  55 => 5,  53 => 4,  50 => 3,  46 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'layout/layout.twig' %}
 {% block content %}
+
+{% if g.updated %}
+<div class=\"alert alert-success\">
+    Vos informations ont bien été mises à jour
+</div>
+{% endif %}
+
 <h2 class=\"text-center\">Mon espace</h2><hr>
 
 <div class=\"row\">
     <div class=\"col-lg-6 m-auto\">
         <h3 class=\"fw-bold text-center\"><a href=\"{{router.url('signin')}}\" class=\"text-dark\"></a></h3>
-        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center mb-4\" onsubmit=\"return confirm('Mettre à jour l\\'adresse e-mail ?')\">
+        <form action=\"\" method=\"post\" class=\"m-auto col-md-8 text-center mb-4\" onsubmit=\"return confirm('Mettre à jour les informations ?')\">
             {{ form.input('username', '<i class=\"bi bi-person-circle\"></i>', 'Identifiant')|raw }}
-            {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
             {{ form.input('mail', '<i class=\"bi bi-envelope\"></i>', 'Email')|raw }}
+            {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
+
             {{ form.checkbox(\"newsletter\", \"Recevoir la newsletter\") | raw}}
             <button class=\"btn btn-sm btn-secondary\" type=\"submit\" name=\"update\">Modifier</button>
         </form>

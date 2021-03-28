@@ -20,29 +20,31 @@ if($user === null) {
 }
 
 if(!empty($_POST)){
-    $data = array_merge($_POST);  
-    $content = $_POST['content'];
-
-    $contactTable = new ContactTable($pdo);
-    $v = new ContactValidator($data, $contactTable, $contact->getID());
-    $data['username'] = $user->getUsername();
-    $data['email'] = $user->getMail();
-    
-    $fields = ['username', 'email', 'content'];
-    ObjectHelper::hydrate($contact, $data, $fields);
-    if($v->validate()) {
-      $pdo->beginTransaction();
-      $contactTable->createContact($contact);
-      $pdo->commit();
-      $contactTable->sendMessage($data['username'], $data['email'], 'contact@mma-coliseum.fr', $data['content']);
-      $contact = [];
-      $success = "Votre message message a bien été envoyé !";
+    if($user === null) {
+      $errors['content'] = ['Vous devez être connecté pour envoyer un message'];
     } else {
-          $errors = $v->errors();
+      $data = array_merge($_POST);  
+      $content = $_POST['content'];
+
+      $contactTable = new ContactTable($pdo);
+      $v = new ContactValidator($data, $contactTable, $contact->getID());
+      $data['username'] = $user->getUsername();
+      $data['email'] = $user->getMail();
+      
+      $fields = ['username', 'email', 'content'];
+      ObjectHelper::hydrate($contact, $data, $fields);
+      if($v->validate()) {
+        $pdo->beginTransaction();
+        $contactTable->createContact($contact);
+        $pdo->commit();
+        $contactTable->sendMessage($data['username'], $data['email'], 'contact@mma-coliseum.fr', $data['content']);
+        $contact = [];
+        $success = "Votre message message a bien été envoyé !";
+      } else {
+            $errors = $v->errors();
+      }
     }
 }
-
-
 
 $form = new Form($contact, $errors);
 

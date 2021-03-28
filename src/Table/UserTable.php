@@ -90,7 +90,7 @@ final class UserTable extends Table{
 
     public function updateUser(User $user): void
     {
-        $test = $this->update([
+        $this->update([
             'userName' => $user->getUsername(),
             'password' => $user->getPassword(),
             'mail' => $user->getMail(),
@@ -144,7 +144,7 @@ final class UserTable extends Table{
         try{
             $user = App::getAuth()->requireRole('admin');
         } catch(ForbiddenException $e) {
-            header('Location:'.$router->url('login').'?forbidden=1');
+            header('Location:'.$router->url('f_login'));
         }
     }
     
@@ -153,7 +153,7 @@ final class UserTable extends Table{
      */
     public static function userCheck($router){
         try{
-            $user = App::getAuth()->requireRole('user');
+            $user = App::getAuth()->requireRole('user', 'admin');
         } catch(ForbiddenException $e) {
             header('Location:'.$router->url('f_login'));
         }

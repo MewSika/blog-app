@@ -26,6 +26,7 @@ if(!empty($_POST)) {
     $fighterTable = new FighterTable($pdo);
     $data = array_merge($_POST, $_FILES);
     $data['champ'] = isset($_POST['champ']) ? 1 : 0;
+    $data['sex'] = $_POST['sex'] ?? 1;
     $fields = [ 'champ',
                 'name',
                 'sex',
@@ -50,7 +51,6 @@ if(!empty($_POST)) {
                 'image',
                 'last_updated'
             ];
-
     // /** Gestion de la validation */
     $v = new FighterValidator($data, $fighterTable, $fighter->getID());
     ObjectHelper::hydrate($fighter, $data, $fields);
@@ -67,7 +67,7 @@ if(!empty($_POST)) {
 }
 $form = new Form($fighter, $errors);
 
-return $twig->render('admin/fighters/edit.twig', [
+return $twig->render('admin/fighters/new.twig', [
     'title' => $title,
     'form' => $form,
     'router' => $router,

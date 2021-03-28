@@ -12,6 +12,7 @@ class FighterValidator extends AbstractValidator {
                                             'weight_cat_id', 'weight', 'stance', 'reach', 'height',
                                             'SLpM', 'Str_Acc', 'SApM', 'Str_Def', 'TD_Avg', 'TD_Acc', 'TD_Def', 'Sub_Avg'
                                             ]);
+        $this->validator->rule('alpha', ['name', 'stance']);
         $this->validator->rule('integer', [ 'sex', 'win', 'lose', 'draw', 'nc',
                                             'weight', 'reach', 'height',
                                             'SLpM', 'Str_Acc', 'SApM', 'Str_Def', 'TD_Avg', 'TD_Acc', 'TD_Def', 'Sub_Avg'

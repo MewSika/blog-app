@@ -88,7 +88,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
     <form method=\"post\" action= \"\" class=\"col-md-6 m-auto\">
         ";
         // line 23
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Message", 2 => "Votre message"], "method", false, false, false, 23);
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Message", 2 => "Votre message..."], "method", false, false, false, 23);
         echo "
         <button class=\"btn btn-secondary ml-3 mb-3\">Envoyer</button>
     </form>
@@ -135,7 +135,7 @@ class __TwigTemplate_02256f5c6b9aeb939ca4b760257a07fe48ddfcb868b3a5cfddbe54c6bc6
     {% endif %}
 
     <form method=\"post\" action= \"\" class=\"col-md-6 m-auto\">
-        {{ form.textarea(\"content\", \"Message\", \"Votre message\") | raw}}
+        {{ form.textarea(\"content\", \"Message\", \"Votre message...\") | raw}}
         <button class=\"btn btn-secondary ml-3 mb-3\">Envoyer</button>
     </form>
 

@@ -54,7 +54,7 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
         ob_start();
         try {
             // line 2
-            echo "    <li class=\"nav_item text-center col-6 col-md-4 col-lg-2\">
+            echo "    <li class=\"text-center col-6 col-md-4 col-lg-2\">
         <a class=\"nav-link navhover ";
             // line 3
             echo twig_escape_filter($this->env, $this->extensions['App\Twig\CustomExtensions']->activeClass($context, ($context["name"] ?? null)), "html", null, true);
@@ -90,7 +90,7 @@ class __TwigTemplate_a0b173f576b4cdd61296a3bd1d36778794406b778458e28d262181e3038
     public function getSourceContext()
     {
         return new Source("{% macro item(link, title, name)%}
-    <li class=\"nav_item text-center col-6 col-md-4 col-lg-2\">
+    <li class=\"text-center col-6 col-md-4 col-lg-2\">
         <a class=\"nav-link navhover {{ activeClass(name) }}\" href={{link}}>{{ title }}</a>
     </li>
 {% endmacro %}

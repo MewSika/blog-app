@@ -73,7 +73,7 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
         echo "
 ";
         // line 15
-        if (twig_get_attribute($this->env, $this->source, ($context["q"] ?? null), "delete", [], "any", false, false, false, 15)) {
+        if (twig_get_attribute($this->env, $this->source, ($context["get"] ?? null), "delete", [], "any", false, false, false, 15)) {
             // line 16
             echo "<div class=\"alert alert-danger alert-dismissible fade show\">
     Le combattant a bien été supprimé
@@ -95,68 +95,87 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
     </div>
     <button class=\"btn btn-secondary\">Rechercher</button>
 </form>
-<table class=\"table rounded table-hover\">
-    <thead>
-        <th class=\"align-middle\">Nom</th>
-        <th class=\"align-middle\">Catégorie poids (livres)</th>
-        <th class=\"align-middle\">VICTOIRE</th>
-        <th class=\"align-middle\">DEFAITE</th>
-        <th class=\"align-middle\">NUL</th>
-        <th class=\"align-middle\">ANNULE</th>
-        <th><a href=\"";
-        // line 39
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighter_new"], "method", false, false, false, 39), "html", null, true);
-        echo "\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
-    </thead>
-    <tbody>
-      ";
-        // line 42
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["fighters"] ?? null));
-        $context['loop'] = [
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        ];
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["fighter"]) {
-            // line 43
-            echo "          ";
-            $this->loadTemplate("admin/fighters/_fighterTable.twig", "admin/fighters/fighters.twig", 43)->display($context);
+";
+        // line 31
+        if (twig_test_empty(($context["fighters"] ?? null))) {
+            // line 32
+            echo "    <h5 class=\"font-weight-bold text-center\"> Aucun combattant ne correspond à votre recherche : ";
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["get"] ?? null), "q", [], "any", false, false, false, 32)), "html", null, true);
+            echo " <h5>
+";
+        } elseif (( !twig_test_empty(twig_get_attribute($this->env, $this->source,         // line 33
+($context["get"] ?? null), "q", [], "any", false, false, false, 33)) && (-1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["get"] ?? null), "q", [], "any", false, false, false, 33)), 3)))) {
+            // line 34
+            echo "    <h5 class=\"font-weight-bold text-center\">Votre recherche doit contenir au moins 3 caractères</h5>
+";
+        } else {
+            // line 36
+            echo "    <table class=\"table rounded table-hover\">
+        <thead>
+            <th class=\"align-middle\">Nom</th>
+            <th class=\"align-middle\">Poids (kg)</th>
+            <th class=\"align-middle\">VICTOIRE</th>
+            <th class=\"align-middle\">DEFAITE</th>
+            <th class=\"align-middle\">NUL</th>
+            <th class=\"align-middle\">ANNULE</th>
+            <th><a href=\"";
             // line 44
-            echo "      ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighter_new"], "method", false, false, false, 44), "html", null, true);
+            echo "\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
+        </thead>
+        <tbody>
+            ";
+            // line 47
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(($context["fighters"] ?? null));
+            $context['loop'] = [
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            ];
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
             }
+            foreach ($context['_seq'] as $context["_key"] => $context["fighter"]) {
+                // line 48
+                echo "                ";
+                $this->loadTemplate("admin/fighters/_fighterTable.twig", "admin/fighters/fighters.twig", 48)->display($context);
+                // line 49
+                echo "            ";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fighter'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 50
+            echo "        </tbody>
+    </table>
+    <aside class=\"text-center mb-5\">
+        ";
+            // line 53
+            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 53);
+            echo "
+        ";
+            // line 54
+            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 54);
+            echo "
+    </aside>
+";
         }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fighter'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
-        echo "    </tbody>
-</table>
-<aside class=\"text-center mb-5\">
-    ";
-        // line 48
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 48);
+        // line 57
         echo "
-    ";
-        // line 49
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => ($context["link"] ?? null)], "method", false, false, false, 49);
-        echo "
-</aside>
 
 ";
     }
@@ -173,7 +192,7 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
 
     public function getDebugInfo()
     {
-        return array (  157 => 49,  153 => 48,  148 => 45,  134 => 44,  131 => 43,  114 => 42,  108 => 39,  93 => 27,  87 => 23,  78 => 16,  76 => 15,  73 => 14,  64 => 7,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
+        return array (  178 => 57,  172 => 54,  168 => 53,  163 => 50,  149 => 49,  146 => 48,  129 => 47,  123 => 44,  113 => 36,  109 => 34,  107 => 33,  102 => 32,  100 => 31,  93 => 27,  87 => 23,  78 => 16,  76 => 15,  73 => 14,  64 => 7,  62 => 6,  58 => 5,  51 => 3,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -192,7 +211,7 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
     </div>
 {% endif %}
 
-{% if q.delete %}
+{% if get.delete %}
 <div class=\"alert alert-danger alert-dismissible fade show\">
     Le combattant a bien été supprimé
     <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
@@ -208,26 +227,33 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
     </div>
     <button class=\"btn btn-secondary\">Rechercher</button>
 </form>
-<table class=\"table rounded table-hover\">
-    <thead>
-        <th class=\"align-middle\">Nom</th>
-        <th class=\"align-middle\">Catégorie poids (livres)</th>
-        <th class=\"align-middle\">VICTOIRE</th>
-        <th class=\"align-middle\">DEFAITE</th>
-        <th class=\"align-middle\">NUL</th>
-        <th class=\"align-middle\">ANNULE</th>
-        <th><a href=\"{{ router.url('fighter_new') }}\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
-    </thead>
-    <tbody>
-      {% for fighter in fighters %}
-          {% include 'admin/fighters/_fighterTable.twig' %}
-      {% endfor %}
-    </tbody>
-</table>
-<aside class=\"text-center mb-5\">
-    {{ pagination.previousLink(link)|raw }}
-    {{ pagination.nextLink(link)|raw }}
-</aside>
+{% if fighters is empty %}
+    <h5 class=\"font-weight-bold text-center\"> Aucun combattant ne correspond à votre recherche : {{ get.q | upper}} <h5>
+{% elseif get.q is not empty and get.q|length < 3 %}
+    <h5 class=\"font-weight-bold text-center\">Votre recherche doit contenir au moins 3 caractères</h5>
+{% else %}
+    <table class=\"table rounded table-hover\">
+        <thead>
+            <th class=\"align-middle\">Nom</th>
+            <th class=\"align-middle\">Poids (kg)</th>
+            <th class=\"align-middle\">VICTOIRE</th>
+            <th class=\"align-middle\">DEFAITE</th>
+            <th class=\"align-middle\">NUL</th>
+            <th class=\"align-middle\">ANNULE</th>
+            <th><a href=\"{{ router.url('fighter_new') }}\" class=\"btn btn-sm btn-outline-dark\">Nouveau</a></th>
+        </thead>
+        <tbody>
+            {% for fighter in fighters %}
+                {% include 'admin/fighters/_fighterTable.twig' %}
+            {% endfor %}
+        </tbody>
+    </table>
+    <aside class=\"text-center mb-5\">
+        {{ pagination.previousLink(link)|raw }}
+        {{ pagination.nextLink(link)|raw }}
+    </aside>
+{% endif %}
+
 
 {% endblock %}
 ", "admin/fighters/fighters.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\fighters\\fighters.twig");

@@ -16,6 +16,7 @@ $lastPosts = (new PostTable($pdo))->getLastPosts(6);
 $nextPost = (new PostTable($pdo))->getNextPost($id);
 $previousPost = (new PostTable($pdo))->getPrevioustPost($id);
 $url = $router->url('article', ['slug' => $post->getSlug(), 'id' => $post->getId()]);
+$errors = [];
 
 /* Redirection */
 if($post->getSlug() !== $slug) {
@@ -34,13 +35,19 @@ if(!empty($_POST)){
     $data["id_user"] = $user->getID();
     $data["id_post"] = $post->getID();
     $data["created_at"] = date("Y-m-d H:i:s");
+
     /** Gestion de la validation */
     ObjectHelper::hydrate($message, $data, $fields);
-    $pdo->beginTransaction();
-    $messageTable->createMessage($message);
-    $pdo->commit();
-    /* Redirige pour clear Post */
-    header('Location:'. $url);
+
+    if (ctype_space($message->getContent()) || empty($message->getContent())){
+        $errors['content'] = "Votre message est vide"; 
+    } else {
+        $pdo->beginTransaction();
+        $messageTable->createMessage($message);
+        $pdo->commit();
+        /* Redirige pour clear Post */
+        header('Location:'. $url);
+    }
 }
 
 return $twig->render('blog/article.twig', [
@@ -53,5 +60,6 @@ return $twig->render('blog/article.twig', [
     'list' => $list,
     'lastPosts' => $lastPosts,
     'nextPost' => $nextPost,
-    'previousPost' => $previousPost
+    'previousPost' => $previousPost,
+    'errors' => $errors
     ]);

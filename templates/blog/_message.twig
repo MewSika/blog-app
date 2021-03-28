@@ -13,9 +13,9 @@
                         <button class="btn btn-sm btn-outline-secondary border-0 {{ message.getReport == 0 ?: 'disabled' }}" type="button" id="reportButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-flag"></i>
                         </button>
-                        <form method="post" action="{{router.url('report', { 'id' : message.getId})}}" class="dropdown-menu" aria-labelledby="reportButton">
+                        <form method="post" action="{{router.url('report', { 'id' : message.getId})}}" class="dropdown-menu" aria-labelledby="reportButton" onsubmit="return confirm('Signaler ce commentaire ?')">
                             <input name="report" type="hidden" value="1">
-                            <input type="submit" class="dropdown-item" value="Signaler">
+                            <input type="submit" class="dropdown-item" value="Signaler" >
                         </form>
                     </div>
                 {% endif %}
@@ -24,7 +24,6 @@
             {% else %}
             <p class="m-0 small fst-italic text-secondary">Le message a été supprimé</p>
             {% endif %}
-            
         </div>
     </div>
 </div>

@@ -14,8 +14,8 @@
             <h4 class="fw-bold text-center mb-2"> Désolé ! Aucun article ne correspond à votre recherche : {{ g | upper}} <h4>
             <h4 class="fw-bold text-center">Retourner à <a href="{{ router.url('home')}}" class="text-dark">l'accueil</a> du site</h4>
         </div>
-        {% elseif g|length < 2 %}
-            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir au moins 2 caractères<h4>
+        {% elseif q|length < 3 %}
+            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir plus de 2 caractères<h4>
             <h4 class="fw-bold text-center">Retourner à <a href="{{ router.url('home')}}" class="text-dark">l'accueil</a> du site</h4>
         </div>
         {% else %}

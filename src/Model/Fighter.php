@@ -84,7 +84,7 @@ class Fighter {
     /**
      * Get the value of win
      */ 
-    public function getWin(): ?int
+    public function getWin()
     {
         return $this->win;
     }
@@ -94,7 +94,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setWin(int $win):self
+    public function setWin($win):self
     {
         $this->win = $win;
 
@@ -104,7 +104,7 @@ class Fighter {
     /**
      * Get the value of lose
      */ 
-    public function getLose(): ?int
+    public function getLose()
     {
         return $this->lose;
     }
@@ -114,7 +114,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setLose(int $lose):self
+    public function setLose($lose):self
     {
         $this->lose = $lose;
 
@@ -124,7 +124,7 @@ class Fighter {
     /**
      * Get the value of draw
      */ 
-    public function getDraw(): ?int
+    public function getDraw()
     {
         return $this->draw;
     }
@@ -134,7 +134,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setDraw(int $draw):self
+    public function setDraw($draw):self
     {
         $this->draw = $draw;
 
@@ -144,7 +144,7 @@ class Fighter {
     /**
      * Get the value of nc
      */ 
-    public function getNc(): ?int
+    public function getNc()
     {
         return $this->nc;
     }
@@ -154,7 +154,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setNc(int $nc): ?self
+    public function setNc($nc): ?self
     {
         $this->nc = $nc;
 
@@ -164,7 +164,7 @@ class Fighter {
     /**
      * Get the value of height
      */ 
-    public function getHeight(): ?int
+    public function getHeight()
     {
         return $this->height;
     }
@@ -174,7 +174,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setHeight(int $height):self
+    public function setHeight($height):self
     {
         $this->height = $height;
 
@@ -184,7 +184,7 @@ class Fighter {
     /**
      * Get the value of weight
      */ 
-    public function getWeight(): ?int
+    public function getWeight()
     {
         return $this->weight;
     }
@@ -194,7 +194,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setWeight(int $weight):self
+    public function setWeight($weight):self
     {
         $this->weight = $weight;
 
@@ -210,7 +210,7 @@ class Fighter {
     }
 
 
-    public function setWeightCatId(int $weight_cat_id):self 
+    public function setWeightCatId($weight_cat_id):self 
     {
         $this->weight_cat_id = $weight_cat_id;
 
@@ -226,7 +226,7 @@ class Fighter {
     /**
      * Get the value of reach
      */ 
-    public function getReach(): ?int
+    public function getReach() 
     {
         return $this->reach;
     }
@@ -236,7 +236,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setReach(int $reach):self
+    public function setReach($reach):self
     {
         $this->reach = $reach;
 
@@ -288,7 +288,7 @@ class Fighter {
     /**
      * Get the value of Significant Strikes Landed per Minute
      */ 
-    public function getSLpM(): ?int
+    public function getSLpM()
     {
         return $this->SLpM;
     }
@@ -298,7 +298,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setSLpM(int $SLpM):self
+    public function setSLpM($SLpM):self
     {
         $this->SLpM = $SLpM;
 
@@ -308,7 +308,7 @@ class Fighter {
     /**
      * Get the value of Significant strike accuracy
      */ 
-    public function getStrAcc(): ?int
+    public function getStrAcc() 
     {
         return $this->Str_Acc;
     }
@@ -318,7 +318,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setStrAcc(int $Str_Acc):self
+    public function setStrAcc($Str_Acc):self
     {
         $this->Str_Acc = $Str_Acc;
 
@@ -328,7 +328,7 @@ class Fighter {
     /**
      * Get the value of Significant Strikes Absorbed per Minute
      */ 
-    public function getSApM(): ?int
+    public function getSApM()
     {
         return $this->SApM;
     }
@@ -338,7 +338,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setSApM(int $SApM):self
+    public function setSApM($SApM):self
     {
         $this->SApM = $SApM;
 
@@ -348,7 +348,7 @@ class Fighter {
     /**
      * Get the value of Significant Strike Defence (the % of opponents strikes that did not land)
      */ 
-    public function getStrDef(): ?int 
+    public function getStrDef() 
     {
         return $this->Str_Def;
     }
@@ -358,7 +358,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setStrDef(int $Str_Def):self
+    public function setStrDef($Str_Def):self
     {
         $this->Str_Def = $Str_Def;
 
@@ -368,7 +368,7 @@ class Fighter {
     /**
      * Get the value of Average Takedowns Landed per 15 minutes
      */ 
-    public function getTDAvg(): ?int
+    public function getTDAvg()
     {
         return $this->TD_Avg;
     }
@@ -378,7 +378,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setTDAvg(int $TD_Avg):self
+    public function setTDAvg($TD_Avg):self
     {
         $this->TD_Avg = $TD_Avg;
 
@@ -388,7 +388,7 @@ class Fighter {
     /**
      * Get the value of Takedown Accuracy
      */ 
-    public function getTDAcc(): ?int
+    public function getTDAcc()
     {
         return $this->TD_Acc;
     }
@@ -398,7 +398,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setTDAcc(int $TD_Acc):self
+    public function setTDAcc($TD_Acc):self
     {
         $this->TD_Acc = $TD_Acc;
 
@@ -409,7 +409,7 @@ class Fighter {
     /**
      * Get the value of  Takedown Defense
      */ 
-    public function getTDDef(): ?int
+    public function getTDDef()
     {
         return $this->TD_Def;
     }
@@ -419,7 +419,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setTDDef(int $TD_Def):self
+    public function setTDDef($TD_Def):self
     {
         $this->TD_Def = $TD_Def;
 
@@ -429,7 +429,7 @@ class Fighter {
     /**
      * Get the value of Submissions Attempted per 15 minutesAvg
      */ 
-    public function getSubAvg(): ?int
+    public function getSubAvg()
     {
         return $this->Sub_Avg;
     }
@@ -439,7 +439,7 @@ class Fighter {
      *
      * @return  self
      */ 
-    public function setSubAvg(int $Sub_Avg):self
+    public function setSubAvg($Sub_Avg):self
     {
         $this->Sub_Avg = $Sub_Avg;
 

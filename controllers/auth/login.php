@@ -25,7 +25,7 @@ if(!empty($_POST)) {
         try{
             $user = $auth->login($_POST['username'], $_POST['password']);
             if($user) {
-                header('Location:'.$router->url('home').'?login=1');
+                header('Location:'.$router->url('home'));
                 exit();
             }
         } catch (NotFoundException $e){  

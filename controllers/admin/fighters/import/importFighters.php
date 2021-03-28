@@ -25,9 +25,9 @@ if(!empty($_FILES)) {
     Validator::lang('fr');
     $v = new ImportFighterValidator($_FILES['file'], $fighterTable);
     if($v->validate()) {
-        $pdo->beginTransaction();
+        /* $pdo->beginTransaction();
         $fighterTable->importData($content);
-        $pdo->commit();
+        $pdo->commit(); */
         $success = true;
     } else {
         $errors = $v->errors();

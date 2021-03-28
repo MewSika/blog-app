@@ -75,11 +75,11 @@ class __TwigTemplate_ace9b741b1b62b3cc837ae4ad41ef057c93e91874e5f9808236cf6d342b
             echo "\"  />
     ";
             // line 16
-            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Entrez votre password"], "method", false, false, false, 16);
+            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "password", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Entrez votre mot de passe"], "method", false, false, false, 16);
             echo "
     ";
             // line 17
-            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "confirmPassword", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Mot de passe"], "method", false, false, false, 17);
+            echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "confirmPassword", 1 => "<i class=\"bi bi-lock\"></i>", 2 => "Confirmez votre mot de passe"], "method", false, false, false, 17);
             echo "
     <button class=\"btn btn-secondary ml-3\">Envoyer</button>
 </form>
@@ -119,8 +119,8 @@ class __TwigTemplate_ace9b741b1b62b3cc837ae4ad41ef057c93e91874e5f9808236cf6d342b
 <h2 class=\"text-center\">Réinitialisation du mot de passe</h2><hr>
 <form action=\"\" method=\"post\" class=\"m-auto col-xs-6 col-md-3 text-center\">
     <input type=\"hidden\" name=\"token\" value=\"{{g.token}}\"  />
-    {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Entrez votre password')|raw }}
-    {{ form.input('confirmPassword', '<i class=\"bi bi-lock\"></i>', 'Mot de passe')|raw }}
+    {{ form.input('password', '<i class=\"bi bi-lock\"></i>', 'Entrez votre mot de passe')|raw }}
+    {{ form.input('confirmPassword', '<i class=\"bi bi-lock\"></i>', 'Confirmez votre mot de passe')|raw }}
     <button class=\"btn btn-secondary ml-3\">Envoyer</button>
 </form>
 {% endif %}

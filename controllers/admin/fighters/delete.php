@@ -9,4 +9,4 @@ $table = new FighterTable($pdo);
 $fighter = $table->find($params['id']);
 FighterAttachment::detach($fighter);
 $table->delete($params['id']);
-header('Location:' . $router->url('fighters') . '?delete=1');
+header('Location:' . $router->url('fighters_manage') . '?delete=1');

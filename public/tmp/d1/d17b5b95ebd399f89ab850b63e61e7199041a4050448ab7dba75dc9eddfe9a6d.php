@@ -47,22 +47,18 @@ class __TwigTemplate_433e8adeffee1a7a240061df76a19c45c613a3533529938548393768b71
         // line 4
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getContent", [], "any", false, false, false, 4), "html", null, true);
         echo "</td>
-    <td>";
-        // line 5
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getRole", [], "any", false, false, false, 5), "html", null, true);
-        echo "</td>
     <td class=\"text-end\">
         <form action=\"";
-        // line 7
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_message_authorize", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getId", [], "method", false, false, false, 7)]], "method", false, false, false, 7), "html", null, true);
+        // line 6
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_message_authorize", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getId", [], "method", false, false, false, 6)]], "method", false, false, false, 6), "html", null, true);
         echo "\" method=\"post\" class=\"d-inline\">
             <button type=\"submit\" name=\"authorize\" class=\"btn btn-sm btn-success\" >
                 Autoriser
             </button>
         </form>
         <form action=\"";
-        // line 12
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_message_moderate", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getId", [], "method", false, false, false, 12)]], "method", false, false, false, 12), "html", null, true);
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "admin_message_moderate", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["message"] ?? null), "getId", [], "method", false, false, false, 11)]], "method", false, false, false, 11), "html", null, true);
         echo "\" method=\"post\" class=\"d-inline\">
             <button type=\"submit\" name=\"moderate\" class=\"btn btn-sm btn-warning\" >
                 Supprimer
@@ -84,7 +80,7 @@ class __TwigTemplate_433e8adeffee1a7a240061df76a19c45c613a3533529938548393768b71
 
     public function getDebugInfo()
     {
-        return array (  65 => 12,  57 => 7,  52 => 5,  48 => 4,  44 => 3,  40 => 2,  37 => 1,);
+        return array (  61 => 11,  53 => 6,  48 => 4,  44 => 3,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -93,7 +89,6 @@ class __TwigTemplate_433e8adeffee1a7a240061df76a19c45c613a3533529938548393768b71
     <td>#{{ message.getIDUser }}</td>
     <a href=\"{{ router.url('comments_manage', {'id' : message.getId}) }}\"}>
     <td>{{ message.getContent }}</td>
-    <td>{{ message.getRole }}</td>
     <td class=\"text-end\">
         <form action=\"{{ router.url('admin_message_authorize', {'id' : message.getId()}) }}\" method=\"post\" class=\"d-inline\">
             <button type=\"submit\" name=\"authorize\" class=\"btn btn-sm btn-success\" >

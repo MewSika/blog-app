@@ -9,7 +9,6 @@ $pdo = Database::getPDO();
 $fighter = new FighterTable($pdo);
 
 $q = $_GET;
-
 // Recherche par combattant
 if(!empty($_GET['q'])) {
     [$fighters, $pagination] = $fighter->findPaginated($q, 'name');
@@ -25,5 +24,5 @@ return $twig->render('admin/fighters/fighters.twig', [
     'fighters' => $fighters,
     'pagination' => $pagination,
     'link' => $link,
-    'q' => $q
+    'get' => $q
 ]);

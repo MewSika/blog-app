@@ -61,7 +61,7 @@ class Contact
      */ 
     public function setUsername(string $username) : self
     {
-        $this->username = $username;
+        $this->username = e($username);
 
         return $this;
     }
@@ -81,7 +81,7 @@ class Contact
      */ 
     public function setEmail(string $email) : self
     {
-        $this->email = $email;
+        $this->email = e($email);
 
         return $this;
     }
@@ -101,7 +101,7 @@ class Contact
      */ 
     public function setContent(string $content) : self
     {
-        $this->content = $content;
+        $this->content = e($content);
 
         return $this;
     }

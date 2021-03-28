@@ -52,10 +52,12 @@
         {% else %}
             <h3 class="fw-bold text-secondary">{{ list|length }} commentaire{{ (list|length > 1) ? 's' : '' }} </h3>
         {% endif %}
-
         {# Form messages #}
         {% if user is not null %}
             <form action="" method="post">
+                {% if errors is not empty %}
+                    <div class="alert alert-danger col-lg-8">{{ errors.content }}</div>
+                {% endif %}
                 {{ form.textarea("content", "Message", null, "Ajouter un commentaire public...", {class : 'col-lg-8 mb-2'}, 4)}}
                 <button class="btn btn-secondary btn-sm me-3" type="submit">Envoyer</button>
             </form>

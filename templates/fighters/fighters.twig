@@ -12,17 +12,23 @@
         <form class="form-inline form-navbar mb-2 col-3" action="">
               <input class="form-control" name="q" type="text" placeholder="Rechercher un combattant..">
         </form>
-        {% for fighter in fighters %}
-            {% for weight in weights %}
-                {% if weight.id is same as fighter.getWeightCatID %}
-                    {% include 'fighters/_card.twig' %}
-                {% endif %}
+        {% if fighters is empty %}
+            <h4 class="fw-bold text-center mb-2"> Aucun combattant ne correspond à votre recherche : {{ q.q | upper}} <h4>
+        {% elseif q.q|length < 3 %}  
+            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir plus de 2 caractères <h4>
+        {% else %}
+            {% for fighter in fighters %}
+                {% for weight in weights %}
+                    {% if weight.id is same as fighter.getWeightCatID %}
+                        {% include 'fighters/_card.twig' %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
     </article>
     <aside class="text-center mb-5">
         {{ pagination.previousLink(router.url('fighters'), q)|raw }}
         {{ pagination.nextLink(router.url('fighters'), q)|raw }}
     </aside>
+    {% endif %}
 </div>
 {% endblock %}

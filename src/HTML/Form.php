@@ -32,10 +32,8 @@ HTML;
     {
         return <<<HTML
         <div class="input-group mb-3 {$class}">
-            <div class="custom-file">
-                <label class="custom-file-label" for="field{$key}">{$label}</label>
-                <input type="file" id="field{$key}" name="{$key}" class="custom-file-input {$this->getInputClass($key)}">
-            </div>
+            <label class="custom-file-label" for="field{$key}">{$label}</label>
+            <input type="file" id="field{$key}" name="{$key}" class="custom-file-input {$this->getInputClass($key)}">
             {$this->getErrorFeedback($key)}
         </div>
 HTML;

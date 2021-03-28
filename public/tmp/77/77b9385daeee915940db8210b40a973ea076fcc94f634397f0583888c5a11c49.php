@@ -68,26 +68,22 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
         </form>
         ";
         // line 15
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["fighters"] ?? null));
-        $context['loop'] = [
-          'parent' => $context['_parent'],
-          'index0' => 0,
-          'index'  => 1,
-          'first'  => true,
-        ];
-        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
-            $length = count($context['_seq']);
-            $context['loop']['revindex0'] = $length - 1;
-            $context['loop']['revindex'] = $length;
-            $context['loop']['length'] = $length;
-            $context['loop']['last'] = 1 === $length;
-        }
-        foreach ($context['_seq'] as $context["_key"] => $context["fighter"]) {
+        if (twig_test_empty(($context["fighters"] ?? null))) {
             // line 16
+            echo "            <h4 class=\"fw-bold text-center mb-2\"> Aucun combattant ne correspond à votre recherche : ";
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["q"] ?? null), "q", [], "any", false, false, false, 16)), "html", null, true);
+            echo " <h4>
+        ";
+        } elseif ((-1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source,         // line 17
+($context["q"] ?? null), "q", [], "any", false, false, false, 17)), 3))) {
+            echo "  
+            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 2 caractères <h4>
+        ";
+        } else {
+            // line 20
             echo "            ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(($context["weights"] ?? null));
+            $context['_seq'] = twig_ensure_traversable(($context["fighters"] ?? null));
             $context['loop'] = [
               'parent' => $context['_parent'],
               'index0' => 0,
@@ -101,17 +97,49 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
                 $context['loop']['length'] = $length;
                 $context['loop']['last'] = 1 === $length;
             }
-            foreach ($context['_seq'] as $context["_key"] => $context["weight"]) {
-                // line 17
+            foreach ($context['_seq'] as $context["_key"] => $context["fighter"]) {
+                // line 21
                 echo "                ";
-                if ((twig_get_attribute($this->env, $this->source, $context["weight"], "id", [], "any", false, false, false, 17) === twig_get_attribute($this->env, $this->source, $context["fighter"], "getWeightCatID", [], "any", false, false, false, 17))) {
-                    // line 18
-                    echo "                    ";
-                    $this->loadTemplate("fighters/_card.twig", "/fighters/fighters.twig", 18)->display($context);
-                    // line 19
-                    echo "                ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(($context["weights"] ?? null));
+                $context['loop'] = [
+                  'parent' => $context['_parent'],
+                  'index0' => 0,
+                  'index'  => 1,
+                  'first'  => true,
+                ];
+                if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+                    $length = count($context['_seq']);
+                    $context['loop']['revindex0'] = $length - 1;
+                    $context['loop']['revindex'] = $length;
+                    $context['loop']['length'] = $length;
+                    $context['loop']['last'] = 1 === $length;
                 }
-                // line 20
+                foreach ($context['_seq'] as $context["_key"] => $context["weight"]) {
+                    // line 22
+                    echo "                    ";
+                    if ((twig_get_attribute($this->env, $this->source, $context["weight"], "id", [], "any", false, false, false, 22) === twig_get_attribute($this->env, $this->source, $context["fighter"], "getWeightCatID", [], "any", false, false, false, 22))) {
+                        // line 23
+                        echo "                        ";
+                        $this->loadTemplate("fighters/_card.twig", "/fighters/fighters.twig", 23)->display($context);
+                        // line 24
+                        echo "                    ";
+                    }
+                    // line 25
+                    echo "                ";
+                    ++$context['loop']['index0'];
+                    ++$context['loop']['index'];
+                    $context['loop']['first'] = false;
+                    if (isset($context['loop']['length'])) {
+                        --$context['loop']['revindex0'];
+                        --$context['loop']['revindex'];
+                        $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                    }
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['weight'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 26
                 echo "            ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -123,35 +151,24 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
                 }
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['weight'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fighter'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 21
-            echo "        ";
-            ++$context['loop']['index0'];
-            ++$context['loop']['index'];
-            $context['loop']['first'] = false;
-            if (isset($context['loop']['length'])) {
-                --$context['loop']['revindex0'];
-                --$context['loop']['revindex'];
-                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
-            }
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fighter'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 22
-        echo "    </article>
+            // line 27
+            echo "    </article>
     <aside class=\"text-center mb-5\">
         ";
-        // line 24
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 24), 1 => ($context["q"] ?? null)], "method", false, false, false, 24);
-        echo "
+            // line 29
+            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 29), 1 => ($context["q"] ?? null)], "method", false, false, false, 29);
+            echo "
         ";
-        // line 25
-        echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 25), 1 => ($context["q"] ?? null)], "method", false, false, false, 25);
-        echo "
+            // line 30
+            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 30), 1 => ($context["q"] ?? null)], "method", false, false, false, 30);
+            echo "
     </aside>
-</div>
+    ";
+        }
+        // line 33
+        echo "</div>
 ";
     }
 
@@ -167,7 +184,7 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
 
     public function getDebugInfo()
     {
-        return array (  151 => 25,  147 => 24,  143 => 22,  129 => 21,  115 => 20,  112 => 19,  109 => 18,  106 => 17,  88 => 16,  71 => 15,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  171 => 33,  165 => 30,  161 => 29,  157 => 27,  143 => 26,  129 => 25,  126 => 24,  123 => 23,  120 => 22,  102 => 21,  84 => 20,  78 => 17,  73 => 16,  71 => 15,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -186,18 +203,24 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
         <form class=\"form-inline form-navbar mb-2 col-3\" action=\"\">
               <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher un combattant..\">
         </form>
-        {% for fighter in fighters %}
-            {% for weight in weights %}
-                {% if weight.id is same as fighter.getWeightCatID %}
-                    {% include 'fighters/_card.twig' %}
-                {% endif %}
+        {% if fighters is empty %}
+            <h4 class=\"fw-bold text-center mb-2\"> Aucun combattant ne correspond à votre recherche : {{ q.q | upper}} <h4>
+        {% elseif q.q|length < 3 %}  
+            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 2 caractères <h4>
+        {% else %}
+            {% for fighter in fighters %}
+                {% for weight in weights %}
+                    {% if weight.id is same as fighter.getWeightCatID %}
+                        {% include 'fighters/_card.twig' %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
     </article>
     <aside class=\"text-center mb-5\">
         {{ pagination.previousLink(router.url('fighters'), q)|raw }}
         {{ pagination.nextLink(router.url('fighters'), q)|raw }}
     </aside>
+    {% endif %}
 </div>
 {% endblock %}", "/fighters/fighters.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\fighters\\fighters.twig");
     }

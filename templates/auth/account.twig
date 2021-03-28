@@ -1,14 +1,22 @@
 {% extends 'layout/layout.twig' %}
 {% block content %}
+
+{% if g.updated %}
+<div class="alert alert-success">
+    Vos informations ont bien été mises à jour
+</div>
+{% endif %}
+
 <h2 class="text-center">Mon espace</h2><hr>
 
 <div class="row">
     <div class="col-lg-6 m-auto">
         <h3 class="fw-bold text-center"><a href="{{router.url('signin')}}" class="text-dark"></a></h3>
-        <form action="" method="post" class="m-auto col-md-8 text-center mb-4" onsubmit="return confirm('Mettre à jour l\'adresse e-mail ?')">
+        <form action="" method="post" class="m-auto col-md-8 text-center mb-4" onsubmit="return confirm('Mettre à jour les informations ?')">
             {{ form.input('username', '<i class="bi bi-person-circle"></i>', 'Identifiant')|raw }}
-            {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
             {{ form.input('mail', '<i class="bi bi-envelope"></i>', 'Email')|raw }}
+            {{ form.input('password', '<i class="bi bi-lock"></i>', 'Mot de passe')|raw }}
+
             {{ form.checkbox("newsletter", "Recevoir la newsletter") | raw}}
             <button class="btn btn-sm btn-secondary" type="submit" name="update">Modifier</button>
         </form>

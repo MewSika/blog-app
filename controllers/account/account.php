@@ -11,27 +11,33 @@ use App\Table\Exception\NotFoundException;
 
 $pdo = Database::getPDO();
 $errors = [];
+
 $user = $auth->user();
 $auth->userCheck($router);
 
 if(isset($_POST['update'])) {
     unset($_POST['update']);
     $data = array_merge($_POST);
+    $password = htmlentities($data['password']);
     $data['newsletter'] = isset($_POST['newsletter']) ? 1 : 0;
     $fields = ['username', 'mail', 'newsletter'];
 
     $userTable = new UserTable($pdo, $_SESSION);
     $v = new UserValidator($data, $userTable, $user->getID());
     ObjectHelper::hydrate($user, $data, $fields);
-    if($v->validate()) {
-        $pdo->beginTransaction();
-        $userTable->updateUser($user);
-        $pdo->commit();
-        header('Location:'.$router->url('f_login').'?login=1');
-        exit();
+    if(password_verify($password, $user->getPassword())) {
+        if($v->validate()) {
+            $pdo->beginTransaction();
+            $userTable->updateUser($user);
+            $pdo->commit();
+            header('Location:'.$router->url('account').'?updated=1');
+        } else {
+            $errors = $v->errors();
+        } 
     } else {
-        $errors = $v->errors();
-    } 
+        $errors['password'] = ["Le mot de passe indiqué est erroné "];
+    }
+    
 }
 
 if(isset($_POST['delete'])) {
@@ -52,5 +58,6 @@ $form = new Form($user, $errors);
 return $twig->render('auth/account.twig', [
     'user' => $user,
     'router' => $router,
-    'form' => $form
+    'form' => $form,
+    'g' => $_GET
 ]);

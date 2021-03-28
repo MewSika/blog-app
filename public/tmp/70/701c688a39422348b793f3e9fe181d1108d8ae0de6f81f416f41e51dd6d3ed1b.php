@@ -37,8 +37,8 @@ class __TwigTemplate_585fa735059ff4c23b8a38aaaae9064efc4446acbca8a54840a06756cf1
         echo "<p class=\"fw-bold mb-3\">
     <a href=\"";
         // line 2
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 2), "html", null, true);
-        echo "\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des catégories</a>
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters_manage"], "method", false, false, false, 2), "html", null, true);
+        echo "\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des combattants</a>
 </p>
 <form action=\"\" method=\"post\" class=\"mb-4\" enctype=\"multipart/form-data\">
     ";
@@ -69,7 +69,7 @@ class __TwigTemplate_585fa735059ff4c23b8a38aaaae9064efc4446acbca8a54840a06756cf1
     public function getSourceContext()
     {
         return new Source("<p class=\"fw-bold mb-3\">
-    <a href=\"{{ router.url('dashboard')}}\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des catégories</a>
+    <a href=\"{{ router.url('fighters_manage')}}\" class=\"text-dark\"><i class=\"bi bi-arrow-left\"></i> Retour vers la gestion des combattants</a>
 </p>
 <form action=\"\" method=\"post\" class=\"mb-4\" enctype=\"multipart/form-data\">
     {{ form.file('file', 'Fichier')|raw }}

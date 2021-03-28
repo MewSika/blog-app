@@ -50,6 +50,7 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
         echo "    <!-- Bootstrap core CSS -->
     <link rel=\"stylesheet\" type=\"text/css\" href=\"/style/bo_style.css\"/>
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext&display=swap' rel='stylesheet' type='text/css'>
+    
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">
     <!-- Bootstrap icons -->
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
@@ -57,8 +58,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
 <header class=\"navbar navbar-dark sticky-top bg-dark flex-md-nowrap py- shadow\">
   <a class=\"navbar-brand col-md-3 col-lg-2 me-0 px-3\" href=\"";
-        // line 21
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 21), "html", null, true);
+        // line 22
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 22), "html", null, true);
         echo "\">Administration</a>
   <button class=\"navbar-toggler position-absolute d-md-none collapsed\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#sidebarMenu\" aria-controls=\"sidebarMenu\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
@@ -66,8 +67,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
   <ul class=\"navbar-nav px-3\">
     <li class=\"nav-item text-nowrap\">
       <form action=\"";
-        // line 27
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "logout"], "method", false, false, false, 27), "html", null, true);
+        // line 28
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "logout"], "method", false, false, false, 28), "html", null, true);
         echo "\" method=\"post\" class=\"m-0\">
         <button type=\"submit\" class=\"btn btn-dark\">Se déconnecter</button> 
       </form>
@@ -78,16 +79,56 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 <body class=\"d-flex flex-column h-100\">
   <div class=\"container-fluid h-100\">
     <div class=\"row h-100\">
+      <nav id=\"sidebarMenu\" class=\"col-md-3 col-lg-2 d-md-block sidebar collapse navbar-nav navbar-expand-lg navbar-light\">
+        <h6 class=\"sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted\">
+            Menu
+        </h6>
+          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+          </button>
+          <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">
+            <ul class=\"navbar-nav flex-column ml-2\">
+            ";
+        // line 47
+        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("admin/_menu.twig", "admin/layout/layout.twig", 47)->unwrap();
+        // line 48
+        echo "              ";
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "posts_manage"], "method", false, false, false, 48), "Gestion des articles", "/lagestion/posts"], 48, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 49
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "comments_manage"], "method", false, false, false, 49), "Modération des commentaires", "/lagestion/comments"], 49, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 50
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "categories_manage"], "method", false, false, false, 50), "Gestion des categories", "/lagestion/categories"], 50, $context, $this->getSourceContext());
+        echo "
+              <hr class=\"p-0 m-0 border-top\">
+              ";
+        // line 52
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters_manage"], "method", false, false, false, 52), "Gestion des combattants", "/lagestion/fighters"], 52, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 53
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "import"], "method", false, false, false, 53), "Import données combattants", "/lagestion/fighters/import"], 53, $context, $this->getSourceContext());
+        echo "
+              <hr class=\"p-0 m-0 border-top\">
+              ";
+        // line 55
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "import"], "method", false, false, false, 55), "Newsletter", "/lagestion/newsletter"], 55, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 56
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "users_manage"], "method", false, false, false, 56), "Gestion des utilisateurs", "/lagestion/users"], 56, $context, $this->getSourceContext());
+        echo "
+          </div>
+      </nav>
+      <main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3\">
         ";
-        // line 37
-        $this->loadTemplate("admin/_menu.twig", "admin/layout/layout.twig", 37)->display($context);
-        // line 38
-        echo "        <main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3\">
-          ";
-        // line 39
+        // line 60
         $this->displayBlock('content', $context, $blocks);
-        // line 41
-        echo "        </main>
+        // line 62
+        echo "      </main>
     </div>
   </div>
   <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -109,12 +150,12 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
       ";
     }
 
-    // line 39
+    // line 60
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 40
-        echo "          ";
+        // line 61
+        echo "        ";
     }
 
     public function getTemplateName()
@@ -129,7 +170,7 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
     public function getDebugInfo()
     {
-        return array (  117 => 40,  113 => 39,  107 => 9,  103 => 8,  90 => 41,  88 => 39,  85 => 38,  83 => 37,  70 => 27,  61 => 21,  50 => 12,  48 => 8,  39 => 1,);
+        return array (  158 => 61,  154 => 60,  148 => 9,  144 => 8,  131 => 62,  129 => 60,  122 => 56,  118 => 55,  113 => 53,  109 => 52,  104 => 50,  100 => 49,  95 => 48,  93 => 47,  71 => 28,  62 => 22,  50 => 12,  48 => 8,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -148,6 +189,7 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
     <!-- Bootstrap core CSS -->
     <link rel=\"stylesheet\" type=\"text/css\" href=\"/style/bo_style.css\"/>
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext&display=swap' rel='stylesheet' type='text/css'>
+    
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css\" integrity=\"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2\" crossorigin=\"anonymous\">
     <!-- Bootstrap icons -->
     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css\">
@@ -170,11 +212,31 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 <body class=\"d-flex flex-column h-100\">
   <div class=\"container-fluid h-100\">
     <div class=\"row h-100\">
-        {% include 'admin/_menu.twig' %}
-        <main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3\">
-          {% block content %}
-          {% endblock %}
-        </main>
+      <nav id=\"sidebarMenu\" class=\"col-md-3 col-lg-2 d-md-block sidebar collapse navbar-nav navbar-expand-lg navbar-light\">
+        <h6 class=\"sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted\">
+            Menu
+        </h6>
+          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarNavDropdown\" aria-controls=\"navbarNavDropdown\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+            <span class=\"navbar-toggler-icon\"></span>
+          </button>
+          <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">
+            <ul class=\"navbar-nav flex-column ml-2\">
+            {% import 'admin/_menu.twig' as navbar %}
+              {{ navbar.item(router.url('posts_manage'), 'Gestion des articles', '/lagestion/posts') }}
+              {{ navbar.item(router.url('comments_manage'), 'Modération des commentaires', '/lagestion/comments') }}
+              {{ navbar.item(router.url('categories_manage'), 'Gestion des categories', '/lagestion/categories') }}
+              <hr class=\"p-0 m-0 border-top\">
+              {{ navbar.item(router.url('fighters_manage'), 'Gestion des combattants', '/lagestion/fighters') }}
+              {{ navbar.item(router.url('import'), 'Import données combattants', '/lagestion/fighters/import') }}
+              <hr class=\"p-0 m-0 border-top\">
+              {{ navbar.item(router.url('import'), 'Newsletter', '/lagestion/newsletter') }}
+              {{ navbar.item(router.url('users_manage'), 'Gestion des utilisateurs', '/lagestion/users') }}
+          </div>
+      </nav>
+      <main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3\">
+        {% block content %}
+        {% endblock %}
+      </main>
     </div>
   </div>
   <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>

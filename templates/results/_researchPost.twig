@@ -1,4 +1,4 @@
-<div class="col-12 card rounded border-0 bg-light">
+<div class="col-12 card rounded border-0 bg-transparent ">
         <div class="card-body pb-2">
             <div class="row">
             {% if post.getImage() %}
@@ -18,6 +18,6 @@
             </div>
             <small class="text-muted">Publié le {{ post.getCreatedAt() | date('d/m/Y à H\\hi') }} </small>
         </div>
-    <div class="card-footer bg-light">
+    <div class="card-footer bg-transparent">
     </div>
 </div>
