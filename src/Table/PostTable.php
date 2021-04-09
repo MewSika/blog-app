@@ -50,7 +50,7 @@ final class PostTable extends Table {
             $query->execute(['post_id' => $id, 'category_id' => $category]);
         }
     }
-        
+
     /**
      * Affiche les articles avec la pagination
      *

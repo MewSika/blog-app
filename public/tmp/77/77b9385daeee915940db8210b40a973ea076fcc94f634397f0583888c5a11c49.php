@@ -74,10 +74,10 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
             echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["q"] ?? null), "q", [], "any", false, false, false, 16)), "html", null, true);
             echo " <h4>
         ";
-        } elseif ((-1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source,         // line 17
-($context["q"] ?? null), "q", [], "any", false, false, false, 17)), 3))) {
+        } elseif (( !twig_test_empty(twig_get_attribute($this->env, $this->source,         // line 17
+($context["q"] ?? null), "q", [], "any", false, false, false, 17)) && (-1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["q"] ?? null), "q", [], "any", false, false, false, 17)), 3)))) {
             echo "  
-            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 2 caractères <h4>
+            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 3 caractères <h4>
         ";
         } else {
             // line 20
@@ -205,8 +205,8 @@ class __TwigTemplate_7d55fd3fe6df4f3b7ec77df74e426030c1be320cf7e69f0cdeed44ecbfb
         </form>
         {% if fighters is empty %}
             <h4 class=\"fw-bold text-center mb-2\"> Aucun combattant ne correspond à votre recherche : {{ q.q | upper}} <h4>
-        {% elseif q.q|length < 3 %}  
-            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 2 caractères <h4>
+        {% elseif q.q is not empty and q.q|length < 3 %}  
+            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 3 caractères <h4>
         {% else %}
             {% for fighter in fighters %}
                 {% for weight in weights %}

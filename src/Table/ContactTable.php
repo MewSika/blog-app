@@ -9,12 +9,12 @@ final class ContactTable extends Table{
     protected $table = 'contact';
     protected $class = Contact::class;
 
-    public function createContact(Contact $contact): void
+    public function createContact(int $id, Contact $contact): void
     {
         $id = $this->create([
-            'username' => $contact->getUsername(),
-            'email' => $contact->getEmail(),
+            'id_user' => $id,
             'content' => $contact->getContent(),
+            'created_at' => $contact->getCreatedAt()->format('Y-m-d h:i:s'),
         ]);
         $contact->setID($id);
     }
@@ -34,7 +34,7 @@ final class ContactTable extends Table{
      */
     public function sendMessage(string $username, string $from, string $to, string $content)
     {
-        $transport = (new \Swift_SmtpTransport('bloglocal', 1025))
+        $transport = (new \Swift_SmtpTransport('mma-coliseum', 1025))
             ->setUsername('')
             ->setPassword('');
         $mailer = new \Swift_Mailer($transport);

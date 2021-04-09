@@ -18,7 +18,7 @@ return $twig->render('results.twig', [
     'router' => $router,
     'posts' => $posts,
     'pagination' => $pagination,
-    'g' => $get,
+    'q' => $get,
     'data' => $data,
     'user' => $user
 ]);

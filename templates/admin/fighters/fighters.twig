@@ -31,7 +31,7 @@
 {% if fighters is empty %}
     <h5 class="font-weight-bold text-center"> Aucun combattant ne correspond à votre recherche : {{ get.q | upper}} <h5>
 {% elseif get.q is not empty and get.q|length < 3 %}
-    <h5 class="font-weight-bold text-center">Votre recherche doit contenir au moins 3 caractères</h5>
+    <h5 class="font-weight-bold text-center">Votre recherche doit contenir plus de 3 caractères</h5>
 {% else %}
     <table class="table rounded table-hover">
         <thead>

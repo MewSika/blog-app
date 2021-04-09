@@ -15,7 +15,8 @@
             <h4 class="fw-bold text-center">Retourner à <a href="{{ router.url('home')}}" class="text-dark">l'accueil</a> du site</h4>
         </div>
         {% elseif q|length < 3 %}
-            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir plus de 2 caractères<h4>
+        {{dump(q)}}
+            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir plus de 3 caractères<h4>
             <h4 class="fw-bold text-center">Retourner à <a href="{{ router.url('home')}}" class="text-dark">l'accueil</a> du site</h4>
         </div>
         {% else %}

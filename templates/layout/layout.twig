@@ -14,11 +14,14 @@
     {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="/style/style.css"/>
     {% endblock %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"   rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext&display=swap' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"          rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <meta name="theme-color" content="#563d7c">
+
+
+
     {# FB API #}
     <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
     <meta property="og:type"          content="website" />
@@ -75,7 +78,17 @@
     </div>
     <footer class="bg-dark py-4 footer mt-auto">
       <div class="container text-light">
-      Navigation + mentions légales
+          <ul class="nav flex-column">
+              {{ navbar.footeritem(router.url('home'), 'Accueil') }}
+              {{ navbar.footeritem(router.url('blog'), 'Actus', '/news') }}
+              {{ navbar.footeritem(router.url('fighters'), 'Combattants') }}
+              {{ navbar.footeritem(router.url('contact'), 'Contact') }}
+              {% if user is not null %}
+                {{ navbar.footeritem(router.url('account'), 'Mon compte') }}
+              {% else %}
+                {{ navbar.footeritem(router.url('f_login'), 'Connexion') }}
+              {% endif %}
+          </ul>
       </div>
     </footer>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

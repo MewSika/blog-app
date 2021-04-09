@@ -1,0 +1,26 @@
+<tr>
+    <td><a href="{{ router.url('admin_newsletters_edit', {'id' : newsletter.getId()}) }}" class="text-dark fw-bold">{{ newsletter.getTitle }}</a></td>
+    <td>{{ newsletter.getAuthor }}</td>
+    <td><a href="{{ router.url('admin_newsletters_edit', {'id' : newsletter.getId()}) }}" class="text-dark fw-bold">{{ newsletter.getCreatedAt|date('d-m-Y') }}</a></td>
+    <td class="text-end">
+        {% if newsletter.getSent == 0 %}
+        <form action="{{ router.url('admin_newsletters_send', {'id' : newsletter.getId()}) }}" method="post" class="d-inline" onsubmit="return confirm('Envoyer la newsletter ?')">
+            <button type="submit" class="btn btn-sm btn-success" >
+                Envoyer
+            </button>
+        </form>
+        {% else %}
+        <span class="font-italic">Envoyée</span>
+        {% endif %}
+    </td>
+    <td class="text-end">
+        <a href="{{ router.url('admin_newsletters_edit', {'id' : newsletter.getId()}) }}" class="btn btn-sm btn-info">
+            Editer
+        </a>
+        <form action="{{ router.url('admin_newsletters_delete', {'id' : newsletter.getId()}) }}" method="post" class="d-inline" onsubmit="return confirm('Voulez-vous vraiment supprimer l\'article ?')">
+            <button type="submit" class="btn btn-sm btn-danger" >
+                Supprimer
+            </button>
+        </form>
+    </td>
+</tr>

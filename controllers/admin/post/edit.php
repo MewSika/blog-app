@@ -20,7 +20,6 @@ $categoryTable->hydratePost([$post]);
 
 $success = false;
 $errors = [];
-
 if(!empty($_POST)) {
     $fields = ['name', 'slug', 'content', 'author', 'created_at', 'image'];
     $data = array_merge($_POST, $_FILES);

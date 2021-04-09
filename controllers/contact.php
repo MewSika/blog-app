@@ -31,13 +31,13 @@ if(!empty($_POST)){
       $data['username'] = $user->getUsername();
       $data['email'] = $user->getMail();
       
-      $fields = ['username', 'email', 'content'];
+      $fields = ['content'];
       ObjectHelper::hydrate($contact, $data, $fields);
       if($v->validate()) {
         $pdo->beginTransaction();
-        $contactTable->createContact($contact);
+        $contactTable->createContact($user->getID(), $contact);
         $pdo->commit();
-        $contactTable->sendMessage($data['username'], $data['email'], 'contact@mma-coliseum.fr', $data['content']);
+        $contactTable->sendMessage($user->getUsername(), $user->getMail(), 'contact@mma-coliseum.fr', $data['content']);
         $contact = [];
         $success = "Votre message message a bien été envoyé !";
       } else {

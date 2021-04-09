@@ -11,20 +11,19 @@ class Contact
     private $id;
     
     /**
-     * @var string
+     * @var int
      */
-    private $username;
-
-    /**
-     * @var string
-     */
-    private $email;
+    private $id_user;
 
     /**
      * @var string
      */
     private $content;
-
+    
+    /**
+     * @var string
+     */
+    private $created_at;
 
     /**
      * @return  int
@@ -46,45 +45,6 @@ class Contact
         return $this;
     }
 
-    /**
-     * @return  string
-     */ 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * @param  string  $username
-     *
-     * @return  self
-     */ 
-    public function setUsername(string $username) : self
-    {
-        $this->username = e($username);
-
-        return $this;
-    }
-
-    /**
-     * @return  string
-     */ 
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param  string  $email
-     *
-     * @return  self
-     */ 
-    public function setEmail(string $email) : self
-    {
-        $this->email = e($email);
-
-        return $this;
-    }
 
     /**
      * @return  string
@@ -106,4 +66,44 @@ class Contact
         return $this;
     }
 
+    public function getCreatedAt(): \DateTime
+    {
+        return new \DateTime($this->created_at);
+    }
+
+    /**
+     * Set the value of created_at
+     * @return  self
+     */ 
+    public function setCreatedAt(string $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of id_user
+     *
+     * @return  int
+     */ 
+    public function getIdUser() :?int
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * Set the value of id_user
+     *
+     * @param  int  $id_user
+     *
+     * @return  self
+     */ 
+    public function setIdUser(int $id_user): self
+    {
+        $this->id_user = $id_user;
+
+        return $this;
+    }
 }

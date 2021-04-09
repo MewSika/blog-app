@@ -95,6 +95,15 @@ $router
     ->match('/lagestion/authorize/[i:id]', 'admin/comments/authorize', 'admin_message_authorize')
     ->match('/lagestion/moderate/[i:id]', 'admin/comments/moderate', 'admin_message_moderate')
 
+    /* Gestion des routes newsletters */
+    ->match('/lagestion/newsletters', 'admin/newsletters/newsletters', 'newsletters_manage')
+    ->match('/lagestion/newsletters/new', 'admin/newsletters/new', 'admin_newsletters_new')
+    ->match('/lagestion/newsletters/[i:id]', 'admin/newsletters/edit', 'admin_newsletters_edit')
+    ->match('/lagestion/newsletters/[i:id]/delete', 'admin/newsletters/delete', 'admin_newsletters_delete')
+    ->match('/lagestion/newsletters/[i:id]/send', 'admin/newsletters/send', 'admin_newsletters_send')
+    
+
+    /* Gestion des routes users */
     ->match('/user', 'user', 'user')
     
     ->run();

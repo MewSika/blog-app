@@ -26,6 +26,7 @@ abstract class Table {
      * 
      * @param string $field champs à rechercher
      * @param string $value valeur à associer au champs
+     * @param int $except valeur de l'id a ignorer
      */
     public function exists(string $field, $value, ?int $except = null): bool
     {
@@ -96,7 +97,7 @@ abstract class Table {
         }
     }
 
-    public function queryAndFetchAll (string $sql): array
+    public function queryAndFetchAll(string $sql): array
     {
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }

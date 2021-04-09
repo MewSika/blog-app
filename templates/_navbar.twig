@@ -4,3 +4,9 @@
     </li>
 {% endmacro %}
 
+{% macro footeritem(link, title)%}
+    <li>
+        <a class="nav-link text-white p-1 d-inline-block" href={{link}}>{{ title }}</a>
+    </li>
+{% endmacro %}
+

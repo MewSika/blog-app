@@ -14,8 +14,8 @@
         </form>
         {% if fighters is empty %}
             <h4 class="fw-bold text-center mb-2"> Aucun combattant ne correspond à votre recherche : {{ q.q | upper}} <h4>
-        {% elseif q.q|length < 3 %}  
-            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir plus de 2 caractères <h4>
+        {% elseif q.q is not empty and q.q|length < 3 %}  
+            <h4 class="fw-bold text-center mb-2"> Votre recherche doit contenir plus de 3 caractères <h4>
         {% else %}
             {% for fighter in fighters %}
                 {% for weight in weights %}

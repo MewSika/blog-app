@@ -78,17 +78,20 @@ class __TwigTemplate_c1dbc44a8fb120e77e3ea64f80c9366c23f35f83d75b5f0f205b4efe221
         </div>
         ";
         } elseif ((-1 === twig_compare(twig_length_filter($this->env,         // line 17
-($context["g"] ?? null)), 2))) {
+($context["q"] ?? null)), 3))) {
             // line 18
-            echo "            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir au moins 2 caractères<h4>
+            echo "        ";
+            echo twig_var_dump($this->env, $context, ...[0 => ($context["q"] ?? null)]);
+            echo "
+            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 3 caractères<h4>
             <h4 class=\"fw-bold text-center\">Retourner à <a href=\"";
-            // line 19
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 19), "html", null, true);
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 20), "html", null, true);
             echo "\" class=\"text-dark\">l'accueil</a> du site</h4>
         </div>
         ";
         } else {
-            // line 22
+            // line 23
             echo "            ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? null));
@@ -106,10 +109,10 @@ class __TwigTemplate_c1dbc44a8fb120e77e3ea64f80c9366c23f35f83d75b5f0f205b4efe221
                 $context['loop']['last'] = 1 === $length;
             }
             foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
-                // line 23
-                echo "                ";
-                $this->loadTemplate("results/_researchPost.twig", "results.twig", 23)->display($context);
                 // line 24
+                echo "                ";
+                $this->loadTemplate("results/_researchPost.twig", "results.twig", 24)->display($context);
+                // line 25
                 echo "            ";
                 ++$context['loop']['index0'];
                 ++$context['loop']['index'];
@@ -123,21 +126,21 @@ class __TwigTemplate_c1dbc44a8fb120e77e3ea64f80c9366c23f35f83d75b5f0f205b4efe221
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 25
+            // line 26
             echo "        </div>
         <aside class=\"text-center mb-5\">
             ";
-            // line 27
-            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 27), 1 => ($context["data"] ?? null)], "method", false, false, false, 27);
+            // line 28
+            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "previousLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 28), 1 => ($context["data"] ?? null)], "method", false, false, false, 28);
             echo "
             ";
-            // line 28
-            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 28), 1 => ($context["data"] ?? null)], "method", false, false, false, 28);
+            // line 29
+            echo twig_get_attribute($this->env, $this->source, ($context["pagination"] ?? null), "nextLink", [0 => twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 29), 1 => ($context["data"] ?? null)], "method", false, false, false, 29);
             echo "
         </aside>
         ";
         }
-        // line 31
+        // line 32
         echo "    </div>
 </div>
 ";
@@ -155,7 +158,7 @@ class __TwigTemplate_c1dbc44a8fb120e77e3ea64f80c9366c23f35f83d75b5f0f205b4efe221
 
     public function getDebugInfo()
     {
-        return array (  141 => 31,  135 => 28,  131 => 27,  127 => 25,  113 => 24,  110 => 23,  92 => 22,  86 => 19,  83 => 18,  81 => 17,  76 => 15,  71 => 14,  69 => 13,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  144 => 32,  138 => 29,  134 => 28,  130 => 26,  116 => 25,  113 => 24,  95 => 23,  89 => 20,  83 => 18,  81 => 17,  76 => 15,  71 => 14,  69 => 13,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -176,8 +179,9 @@ class __TwigTemplate_c1dbc44a8fb120e77e3ea64f80c9366c23f35f83d75b5f0f205b4efe221
             <h4 class=\"fw-bold text-center mb-2\"> Désolé ! Aucun article ne correspond à votre recherche : {{ g | upper}} <h4>
             <h4 class=\"fw-bold text-center\">Retourner à <a href=\"{{ router.url('home')}}\" class=\"text-dark\">l'accueil</a> du site</h4>
         </div>
-        {% elseif g|length < 2 %}
-            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir au moins 2 caractères<h4>
+        {% elseif q|length < 3 %}
+        {{dump(q)}}
+            <h4 class=\"fw-bold text-center mb-2\"> Votre recherche doit contenir plus de 3 caractères<h4>
             <h4 class=\"fw-bold text-center\">Retourner à <a href=\"{{ router.url('home')}}\" class=\"text-dark\">l'accueil</a> du site</h4>
         </div>
         {% else %}

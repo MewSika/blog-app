@@ -21,7 +21,7 @@ final class UserTable extends Table{
      * @param  array tableau de session
      * @return void
      */
-    public function __construct(PDO $pdo, array &$session) 
+    public function __construct(PDO $pdo, array &$session = []) 
     {
         $this->pdo = $pdo;
         $this->session = &$session;
@@ -133,7 +133,7 @@ final class UserTable extends Table{
         if(!in_array($user->getRole(), $roles)) {
             $roles = implode(',', $roles);
             $role = $user->role;
-            throw new ForbiddenException("Vous n'avez pas le role suffisant \"{$user->getRole()}\" (attendu : $roles)");
+            throw new ForbiddenException("Vous n'avez pas la persmission suffisante");
         }
     }
     
@@ -244,5 +244,13 @@ final class UserTable extends Table{
     public function list(): array
     {
         return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY username ASC");
+    }
+
+    /**
+     * @return array
+     */
+    public function listNewsletter(): array
+    {
+        return $this->queryAndFetchAll("SELECT * FROM {$this->table} WHERE newsletter = 1");
     }
 }

@@ -89,8 +89,9 @@ HTML;
         foreach($options as $k => $v) {
             if(is_array($value)) {
                 $selected = in_array($k, $value) ? "selected" : "";
+            } else {
+                $selected = $k === $value ? 'selected' : '';
             }
-            $selected = $k === $value ? 'selected' : '';
             $optionsHTML[] = "<option value=\"{$k}\" {$selected}>{$v}</option>";
         }
         $optionsHTML = implode('', $optionsHTML);

@@ -1,6 +1,6 @@
 
 {% macro item(link, title, name)%}
     <li class="nav-item {{ activeClass(name) }}">
-        <a class="nav-link small " href={{link}}>{{ title }}</a>
+        <a class="nav-link" href={{link}}>{{ title }}</a>
     </li>
 {% endmacro %}

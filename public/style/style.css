@@ -34,6 +34,7 @@ html * {
   position: absolute;
   width: 12px;
 }
+
 .navhover:before {
   border-left-width: 2px;
   border-top-width: 2px;

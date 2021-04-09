@@ -8,7 +8,7 @@ use App\Model\Fighter;
 use App\PaginatedQuery;
 use App\Manager\FileManager;
 
-class FighterTable extends Table{
+final class FighterTable extends Table{
 
     protected $table = "fighter";
     protected $class = Fighter::class;

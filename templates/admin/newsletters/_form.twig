@@ -1,0 +1,17 @@
+<p class="fw-bold mb-3">
+    <a href="{{router.url('newsletters_manage')}}" class="text-dark"><i class="bi bi-arrow-left"></i> Retour vers la gestion des newsletters</a>
+</p>
+<form action="" method="post" class="mb-4" enctype="multipart/form-data">
+    {{ form.input('title', 'Titre')|raw }}
+    {{ form.input('author', 'Auteur')|raw }}
+    {{ form.input('created_at', 'Date')|raw}}
+    {{ form.textarea('content', 'Contenu')|raw}}
+
+    <button name="" type="submit" class="btn btn-success">
+        {% if newsletter.getID() is not null %}
+            Modifier
+        {% else %}
+            Créer
+        {% endif %}
+    </button>
+</form>

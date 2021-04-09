@@ -24,7 +24,15 @@ class PaginatedQuery {
         $this->pdo = $pdo ?: Database::getPDO();
         $this->perPage = $perPage;
     }
-
+    
+    /**
+     * Récupère les objets pour la pagination
+     *
+     * @param  string $classMapping
+     * @param  array $data
+     * @param  string $key
+     * @return array
+     */
     public function getItems(string $classMapping, ?array $data = [], ?string $key = null):array
     {
         if($this->items === null) {
@@ -34,11 +42,12 @@ class PaginatedQuery {
                 throw new \Exception('Cette page n\'existe pas');
             }
             $offset = $this->perPage*($currentPage - 1);
+            
             if(null !== $key) {
                 $sql = $this->pdo->prepare(
                     $this->query .
                     " LIMIT {$this->perPage} OFFSET $offset");
-                $sql->bindValue($key, '%'.$_GET['q'].'%', PDO::PARAM_STR);
+                $sql->bindValue($key, '%'.$data['q'].'%', PDO::PARAM_STR);
                 $sql->execute();
                 return $this->items = $sql->fetchAll(PDO::FETCH_CLASS, $classMapping);
             }
