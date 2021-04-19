@@ -46,7 +46,7 @@ class __TwigTemplate_b2961ad1d104ea5d5462f57f4489a70f648081c945073d17b4431ef512f
         echo "\" class=\"text-muted\">Articles</a></li>
         <li class=\"breadcrumb-item fst-italic\" aria-current=\"page\">";
         // line 5
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 5), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "any", false, false, false, 5), "html", null, true);
         echo "</li>
     </ol>
 </nav>";
@@ -73,7 +73,7 @@ class __TwigTemplate_b2961ad1d104ea5d5462f57f4489a70f648081c945073d17b4431ef512f
     <ol class=\"breadcrumb\">
         <li class=\"breadcrumb-item fst-italic\"><a href=\"{{ router.url('home') }}\" class=\"text-muted\">Accueil</a></li>
         <li class=\"breadcrumb-item fst-italic\"><a href=\"{{ router.url('blog') }}\" class=\"text-muted\">Articles</a></li>
-        <li class=\"breadcrumb-item fst-italic\" aria-current=\"page\">{{ post.getName() }}</li>
+        <li class=\"breadcrumb-item fst-italic\" aria-current=\"page\">{{ post.getName }}</li>
     </ol>
 </nav>", "blog/_breadcrumb.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\blog\\_breadcrumb.twig");
     }

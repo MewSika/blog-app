@@ -21,7 +21,7 @@ $categoryTable->hydratePost([$post]);
 $success = false;
 $errors = [];
 if(!empty($_POST)) {
-    $fields = ['name', 'slug', 'content', 'author', 'created_at', 'image'];
+    $fields = ['name', 'slug', 'content', 'author', 'image'];
     $data = array_merge($_POST, $_FILES);
     /** Gestion de la validation */
     $v = new PostValidator($data, $postTable, $post->getID(), $categories);

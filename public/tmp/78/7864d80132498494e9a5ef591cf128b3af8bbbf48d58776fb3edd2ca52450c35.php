@@ -61,9 +61,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     <meta name=\"theme-color\" content=\"#563d7c\">
 
 
+    <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/img/front/logo_red_24x24.png\" />
+    <link rel=\"icon\" type=\"image/ico\" href=\"/img/front/logo_red_24x24.png\" />
 
     ";
-        // line 26
+        // line 28
         echo "    <meta property=\"og:url\"           content=\"https://www.your-domain.com/your-page.html\" />
     <meta property=\"og:type\"          content=\"website\" />
     <meta property=\"og:title\"         content=\"MMA Coliseum\" />
@@ -78,121 +80,121 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
       <div class=\"collapse navbar-collapse\" id=\"navbarhome\">
         <div class=\"row g-2 col-10 m-auto\">
           <form class=\"input-group my-3 d-lg-none my-3 col\" action=\"";
-        // line 39
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 39), "html", null, true);
+        // line 41
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 41), "html", null, true);
         echo "\">
               <label class=\"input-group-text\" for=\"fieldSearch\"><i class=\"bi bi-search\"></i></label>
               <input class=\"form-control\" id=\"fieldSearch\" name=\"q\" type=\"text\" placeholder=\"Rechercher un article...\">
           </form>
           <a href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 43), "html", null, true);
+        // line 45
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 45), "html", null, true);
         echo "\" class=\"text-decoration-none col-2\">
             <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\">
           </a>
           <h1 class=\"text-light fw-bold fst-italic d-none d-lg-inline text-center col\">
             <a href=\"";
-        // line 47
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 47), "html", null, true);
+        // line 49
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 49), "html", null, true);
         echo "\" class=\"text-decoration-none text-light\">
               <span class=\"red\">MMA</span>COLISEUM
             </a>
           </h1>
           ";
-        // line 52
+        // line 54
         echo "          <form class=\"form-inline form-navbar d-none d-lg-block col-3\" action=\"";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 52), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "results"], "method", false, false, false, 54), "html", null, true);
         echo "\">
               <input class=\"form-control\" name=\"q\" type=\"text\" placeholder=\"Rechercher un article...\">
           </form>
           ";
-        // line 56
+        // line 58
         echo "          <ul class=\"navbar-nav justify-content-around\">
               ";
-        // line 57
-        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 57)->unwrap();
-        // line 58
-        echo "              ";
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 58), "Accueil", "/"], 58, $context, $this->getSourceContext());
-        echo "
-              ";
         // line 59
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 59), "Actus", "/news"], 59, $context, $this->getSourceContext());
-        echo "
-              ";
+        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("_navbar.twig", "layout/layout.twig", 59)->unwrap();
         // line 60
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 60), "Combattants", "/fighters"], 60, $context, $this->getSourceContext());
+        echo "              ";
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 60), "Accueil", "/"], 60, $context, $this->getSourceContext());
         echo "
               ";
         // line 61
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 61), "Contact", "/contact"], 61, $context, $this->getSourceContext());
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 61), "Actus", "/news"], 61, $context, $this->getSourceContext());
         echo "
               ";
         // line 62
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 62), "Combattants", "/fighters"], 62, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 63
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 63), "Contact", "/contact"], 63, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 64
         if ( !(null === ($context["user"] ?? null))) {
-            // line 63
+            // line 65
             echo "                ";
-            echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "account"], "method", false, false, false, 63), "Mon compte", "/account"], 63, $context, $this->getSourceContext());
+            echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "account"], "method", false, false, false, 65), "Mon compte", "/account"], 65, $context, $this->getSourceContext());
             echo "
               ";
         } else {
-            // line 65
+            // line 67
             echo "                ";
-            echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_login"], "method", false, false, false, 65), "Connexion", "/login"], 65, $context, $this->getSourceContext());
+            echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_login"], "method", false, false, false, 67), "Connexion", "/login"], 67, $context, $this->getSourceContext());
             echo "
               ";
         }
-        // line 67
+        // line 69
         echo "          </ul>
       </div>
     </div>
 </nav>
 <body class=\"d-flex flex-column h-100 bg-light background\">
     ";
-        // line 73
+        // line 75
         echo "    <div id=\"fb-root\"></div>
     <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0\" nonce=\"iGEZyMRh\"></script>
     <div class=\"container col-sm-9\">
       ";
-        // line 76
-        $this->displayBlock('content', $context, $blocks);
         // line 78
+        $this->displayBlock('content', $context, $blocks);
+        // line 80
         echo "    </div>
     <footer class=\"bg-dark py-4 footer mt-auto\">
       <div class=\"container text-light\">
           <ul class=\"nav flex-column\">
               ";
-        // line 82
-        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 82), "Accueil"], 82, $context, $this->getSourceContext());
-        echo "
-              ";
-        // line 83
-        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 83), "Actus", "/news"], 83, $context, $this->getSourceContext());
-        echo "
-              ";
         // line 84
-        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 84), "Combattants"], 84, $context, $this->getSourceContext());
+        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 84), "Accueil"], 84, $context, $this->getSourceContext());
         echo "
               ";
         // line 85
-        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 85), "Contact"], 85, $context, $this->getSourceContext());
+        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "blog"], "method", false, false, false, 85), "Actus", "/news"], 85, $context, $this->getSourceContext());
         echo "
               ";
         // line 86
+        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters"], "method", false, false, false, 86), "Combattants"], 86, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 87
+        echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "contact"], "method", false, false, false, 87), "Contact"], 87, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 88
         if ( !(null === ($context["user"] ?? null))) {
-            // line 87
+            // line 89
             echo "                ";
-            echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "account"], "method", false, false, false, 87), "Mon compte"], 87, $context, $this->getSourceContext());
+            echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "account"], "method", false, false, false, 89), "Mon compte"], 89, $context, $this->getSourceContext());
             echo "
               ";
         } else {
-            // line 89
+            // line 91
             echo "                ";
-            echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_login"], "method", false, false, false, 89), "Connexion"], 89, $context, $this->getSourceContext());
+            echo twig_call_macro($macros["navbar"], "macro_footeritem", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "f_login"], "method", false, false, false, 91), "Connexion"], 91, $context, $this->getSourceContext());
             echo "
               ";
         }
-        // line 91
+        // line 93
         echo "          </ul>
       </div>
     </footer>
@@ -223,11 +225,11 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     ";
     }
 
-    // line 76
+    // line 78
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 77
+        // line 79
         echo "      ";
     }
 
@@ -243,7 +245,7 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
 
     public function getDebugInfo()
     {
-        return array (  231 => 77,  227 => 76,  222 => 15,  218 => 14,  212 => 10,  208 => 9,  196 => 91,  190 => 89,  184 => 87,  182 => 86,  178 => 85,  174 => 84,  170 => 83,  166 => 82,  160 => 78,  158 => 76,  153 => 73,  146 => 67,  140 => 65,  134 => 63,  132 => 62,  128 => 61,  124 => 60,  120 => 59,  115 => 58,  113 => 57,  110 => 56,  103 => 52,  96 => 47,  89 => 43,  82 => 39,  67 => 26,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
+        return array (  233 => 79,  229 => 78,  224 => 15,  220 => 14,  214 => 10,  210 => 9,  198 => 93,  192 => 91,  186 => 89,  184 => 88,  180 => 87,  176 => 86,  172 => 85,  168 => 84,  162 => 80,  160 => 78,  155 => 75,  148 => 69,  142 => 67,  136 => 65,  134 => 64,  130 => 63,  126 => 62,  122 => 61,  117 => 60,  115 => 59,  112 => 58,  105 => 54,  98 => 49,  91 => 45,  84 => 41,  69 => 28,  57 => 17,  55 => 14,  52 => 13,  50 => 9,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -271,6 +273,8 @@ class __TwigTemplate_fa95102433346699e323a413baf0ebcb6b02145a1a573d08a93b04c62b7
     <meta name=\"theme-color\" content=\"#563d7c\">
 
 
+    <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/img/front/logo_red_24x24.png\" />
+    <link rel=\"icon\" type=\"image/ico\" href=\"/img/front/logo_red_24x24.png\" />
 
     {# FB API #}
     <meta property=\"og:url\"           content=\"https://www.your-domain.com/your-page.html\" />

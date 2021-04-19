@@ -11,7 +11,6 @@
     {{ form.input('slug', 'URL')|raw}}
     {{ form.input('author', 'Auteur')|raw }}
     {{ form.file('image', 'image')|raw}}
-    {{ form.input('created_at', 'Date')|raw}}
     {{ form.select('categories_ids', 'Catég.', categories)|raw}}
     {{ form.textarea('content', 'Contenu')|raw}}
 
@@ -23,3 +22,7 @@
         {% endif %}
     </button>
 </form>
+
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("content") });
+</script>

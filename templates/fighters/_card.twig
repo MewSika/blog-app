@@ -8,7 +8,7 @@
         <div class="col-12 col-md-3 height_crop text-center">
             {% if fighter.getImage() %}
             <a href="{{ router.url('fighter', {'id' : fighter.getID, 'name' : fighter.getName|replace({' ': '-'})|lower}) }}">
-                <img src="{{ fighter.getimageURL('medium') }}" alt="{{ fighter.getName() }}">
+                <img src="{{ fighter.getimageURL('medium') }}" alt="{{ fighter.getName }}">
             </a>
             {% endif %}
         </div>
@@ -18,7 +18,7 @@
                     <img src="/img/authors/ufc-belt-small.png" alt="ufc belt">
                 {% endif %}
                 <a class="text-dark text-decoration-none text-center fw-bold" href="{{ router.url('fighter', {'id' : fighter.getID(), 'name' : fighter.getName |replace({' ': '-'})|lower}) }}">
-                    {{ fighter.getName}}
+                    {{ fighter.getName }}
                 </a>
             </h4>
             <p class="text-dark text-center fw-bold mb-0">

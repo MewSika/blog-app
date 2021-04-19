@@ -19,7 +19,16 @@ $twig = new Twig\Environment($loader, [
 $twig->addExtension(new Twig\Extension\DebugExtension());
 $twig->addExtension(new App\Twig\CustomExtensions());
 $twig->addExtension(new Twig\Extra\Intl\IntlExtension());
+$twig->addExtension(new Twig\Extra\Markdown\MarkdownExtension());
 $twig->addGlobal('current_page', $_SERVER['REQUEST_URI']);
+/* Extension pour Markdown */
+$twig->addRuntimeLoader(new class implements Twig\RuntimeLoader\RuntimeLoaderInterface {
+    public function load($class) {
+        if (Twig\Extra\Markdown\MarkdownRuntime::class === $class) {
+            return new Twig\Extra\Markdown\MarkdownRuntime(new Twig\Extra\Markdown\DefaultMarkdown());
+        }
+    }
+});
 
 /** Redirect pagination */
 if (isset($_GET['p']) && $_GET['p'] === '1') {
@@ -39,7 +48,6 @@ $router
     ->match('/', 'home', 'home')
     ->match('/contact', 'contact', 'contact')
     ->match('/results', 'results', 'results')
-
     /** Articles */ 
     ->match('/news', 'blog', 'blog')
     ->match('/news/category/[*:slug]-[i:id]', 'blog/category', 'category')

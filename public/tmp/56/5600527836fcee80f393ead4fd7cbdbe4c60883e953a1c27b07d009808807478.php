@@ -72,32 +72,32 @@ class __TwigTemplate_7b1be57664a9b342062a1cedab6dc7d565a9ddc87e755a2f0bc29862f2b
         echo "
     ";
         // line 14
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "input", [0 => "created_at", 1 => "Date"], "method", false, false, false, 14);
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "select", [0 => "categories_ids", 1 => "Catég.", 2 => ($context["categories"] ?? null)], "method", false, false, false, 14);
         echo "
     ";
         // line 15
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "select", [0 => "categories_ids", 1 => "Catég.", 2 => ($context["categories"] ?? null)], "method", false, false, false, 15);
-        echo "
-    ";
-        // line 16
-        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Contenu"], "method", false, false, false, 16);
+        echo twig_get_attribute($this->env, $this->source, ($context["form"] ?? null), "textarea", [0 => "content", 1 => "Contenu"], "method", false, false, false, 15);
         echo "
 
     <button name=\"\" type=\"submit\" class=\"btn btn-success\">
         ";
-        // line 19
-        if ( !(null === twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getID", [], "method", false, false, false, 19))) {
-            // line 20
+        // line 18
+        if ( !(null === twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getID", [], "method", false, false, false, 18))) {
+            // line 19
             echo "            Modifier
         ";
         } else {
-            // line 22
+            // line 21
             echo "            Créer
         ";
         }
-        // line 24
+        // line 23
         echo "    </button>
-</form>";
+</form>
+
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById(\"content\") });
+</script>";
     }
 
     public function getTemplateName()
@@ -112,7 +112,7 @@ class __TwigTemplate_7b1be57664a9b342062a1cedab6dc7d565a9ddc87e755a2f0bc29862f2b
 
     public function getDebugInfo()
     {
-        return array (  99 => 24,  95 => 22,  91 => 20,  89 => 19,  83 => 16,  79 => 15,  75 => 14,  71 => 13,  67 => 12,  63 => 11,  59 => 10,  56 => 9,  51 => 7,  48 => 6,  46 => 5,  40 => 2,  37 => 1,);
+        return array (  95 => 23,  91 => 21,  87 => 19,  85 => 18,  79 => 15,  75 => 14,  71 => 13,  67 => 12,  63 => 11,  59 => 10,  56 => 9,  51 => 7,  48 => 6,  46 => 5,  40 => 2,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -130,7 +130,6 @@ class __TwigTemplate_7b1be57664a9b342062a1cedab6dc7d565a9ddc87e755a2f0bc29862f2b
     {{ form.input('slug', 'URL')|raw}}
     {{ form.input('author', 'Auteur')|raw }}
     {{ form.file('image', 'image')|raw}}
-    {{ form.input('created_at', 'Date')|raw}}
     {{ form.select('categories_ids', 'Catég.', categories)|raw}}
     {{ form.textarea('content', 'Contenu')|raw}}
 
@@ -141,6 +140,10 @@ class __TwigTemplate_7b1be57664a9b342062a1cedab6dc7d565a9ddc87e755a2f0bc29862f2b
             Créer
         {% endif %}
     </button>
-</form>", "admin/post/_form.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\post\\_form.twig");
+</form>
+
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById(\"content\") });
+</script>", "admin/post/_form.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\post\\_form.twig");
     }
 }

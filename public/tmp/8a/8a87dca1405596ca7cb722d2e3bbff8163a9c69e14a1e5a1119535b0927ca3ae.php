@@ -194,16 +194,6 @@ class __TwigTemplate_52224b299b4347654d2266ca004723a283a0fc9005afe08f3efbb74394d
             </article>
         </div>
     </div>
-
-<hr>
-<p class=\"text-justify\"> ";
-        // line 72
-        echo nl2br(twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 72), "html", null, true));
-        echo "</p>
-<p class=\"blockquote-footer text-end pt-3\"><em>";
-        // line 73
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getAuthor", [], "method", false, false, false, 73), "html", null, true);
-        echo "</em></p>
 ";
     }
 
@@ -219,7 +209,7 @@ class __TwigTemplate_52224b299b4347654d2266ca004723a283a0fc9005afe08f3efbb74394d
 
     public function getDebugInfo()
     {
-        return array (  205 => 73,  201 => 72,  177 => 51,  173 => 50,  169 => 49,  165 => 48,  160 => 46,  156 => 45,  152 => 44,  148 => 43,  138 => 36,  134 => 35,  130 => 34,  126 => 33,  122 => 32,  105 => 28,  99 => 26,  95 => 24,  93 => 23,  88 => 20,  82 => 16,  74 => 13,  71 => 12,  69 => 11,  65 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  177 => 51,  173 => 50,  169 => 49,  165 => 48,  160 => 46,  156 => 45,  152 => 44,  148 => 43,  138 => 36,  134 => 35,  130 => 34,  126 => 33,  122 => 32,  105 => 28,  99 => 26,  95 => 24,  93 => 23,  88 => 20,  82 => 16,  74 => 13,  71 => 12,  69 => 11,  65 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -293,10 +283,6 @@ class __TwigTemplate_52224b299b4347654d2266ca004723a283a0fc9005afe08f3efbb74394d
             </article>
         </div>
     </div>
-
-<hr>
-<p class=\"text-justify\"> {{ post.getContent()|nl2br }}</p>
-<p class=\"blockquote-footer text-end pt-3\"><em>{{ post.getAuthor() }}</em></p>
 {% endblock %}", "fighters\\fighter.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\fighters\\fighter.twig");
     }
 }

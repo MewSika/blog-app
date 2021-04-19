@@ -12,12 +12,13 @@ class FighterValidator extends AbstractValidator {
                                             'weight_cat_id', 'weight', 'stance', 'reach', 'height',
                                             'SLpM', 'Str_Acc', 'SApM', 'Str_Def', 'TD_Avg', 'TD_Acc', 'TD_Def', 'Sub_Avg'
                                             ]);
-        $this->validator->rule('alpha', ['name', 'stance']);
+        $this->validator->rule('alpha', ['stance']);
         $this->validator->rule('integer', [ 'sex', 'win', 'lose', 'draw', 'nc',
                                             'weight', 'reach', 'height',
                                             'SLpM', 'Str_Acc', 'SApM', 'Str_Def', 'TD_Avg', 'TD_Acc', 'TD_Def', 'Sub_Avg'
                                             ]);
-        $this->validator->rule('image', 'image');
+        $this->validator->rule('image', 'image')->message('Le fichier doit être au format .jpeg .png ou .webp');
+        $this->validator->rule('imageSize', 'image')->message('Le fichier doit peser moins de 800ko');
         $this->validator->rule(function($field, $value) use ($table, $fighterID){
             return !$table->exists($field, $value, $fighterID);
         }, ['name'], 'Cette valeur est déjà utilisé');

@@ -451,7 +451,10 @@ class Fighter {
      */ 
     public function getLastupdated()
     {
-        return $this->last_updated;
+        if(isset($this->last_updated)) {
+            return $this->last_updated;
+        }
+        return $this->last_update = new \DateTime;
     }
 
     /**

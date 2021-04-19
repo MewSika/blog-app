@@ -142,7 +142,7 @@ final class UserTable extends Table{
      */
     public static function check($router){
         try{
-            $user = App::getAuth()->requireRole('admin');
+            $user = App::getAuth()->requireRole('admin', 'writer');
         } catch(ForbiddenException $e) {
             header('Location:'.$router->url('f_login'));
         }
@@ -153,7 +153,7 @@ final class UserTable extends Table{
      */
     public static function userCheck($router){
         try{
-            $user = App::getAuth()->requireRole('user', 'admin');
+            $user = App::getAuth()->requireRole('user', 'writer', 'admin');
         } catch(ForbiddenException $e) {
             header('Location:'.$router->url('f_login'));
         }

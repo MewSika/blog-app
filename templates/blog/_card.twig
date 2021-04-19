@@ -11,7 +11,7 @@
         <a class="text-secondary text-decoration-none " href="
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}">[...]</a>
         <footer class="blockquote-footer text-end pt-3">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | format_date('medium', locale='fr') }}
-        {% if post.getCategories() %}
+        {% if post.getCategories %}
             <hr>
             Catégories associées :
                 {% for assocCat in post.getCategories() %}

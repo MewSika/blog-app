@@ -5,6 +5,8 @@ use App\Config\Database;
 use App\Table\PostTable;
 use App\Table\MessageTable;
 use App\Table\CategoryTable;
+use Twig\Extra\Markdown\MarkdownExtension;
+
 
 $id = (int)$params['id'];
 $slug = $params['slug'];

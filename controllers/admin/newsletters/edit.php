@@ -21,7 +21,7 @@ if(!empty($_POST))
 {
     $newsletterTable = new NewsletterTable($pdo);
     $data = array_merge($_POST);
-    $fields = ['title', 'author', 'content', 'created_at'];
+    $fields = ['title', 'author', 'content'];
 
     /* Gestion de la validation */
     Validator::lang('fr');

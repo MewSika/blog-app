@@ -44,10 +44,10 @@ HTML;
     {
         $value = $this->getValue($key);
         return <<<HTML
-        <div class="input-group mb-3 {$class}">
-            <label class="input-group-text" for="field{$key}">{$label}</label>
-            <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="30" rows="10" placeholder="{$placeholder}" required>{$value}</textarea>
+        <label class="font-weight-bold small mb-0" for="field{$key}">{$label}</label>
+        <div class="{$class}">
             {$this->getErrorFeedback($key)}
+            <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="10" rows="10" placeholder="{$placeholder}" required>{$value}</textarea>
         </div>
 HTML;
     }
@@ -81,7 +81,17 @@ HTML;
         </div>
 HTML;
     }
-
+    
+    /**
+     * select
+     *
+     * @param  mixed $key
+     * @param  mixed $label
+     * @param  array $options valeur déjà indiquée
+     * @param  bool $single choix multiple pour le select
+     * @param  string $class Classe css bootstrap
+     * @return string
+     */
     public function select(string $key, string $label, array $options = [], ?bool $single = false, ?string $class = null): string
     {
         $value = $this->getValue($key);

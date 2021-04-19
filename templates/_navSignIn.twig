@@ -1,0 +1,16 @@
+<div class="btn-group btn-sm m-0 col-1">
+    <button class="btn btn-outline-secondary border-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="bi bi-person"></i>
+    </button>
+    <div class="dropdown-menu">
+        {% if user is not null %}
+            <a class="dropdown-item fw-bold" href="{{router.url('account')}}"> {{ user.getUsername }}</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ router.url('f_logout')}}">Se déconnecter</a>
+        {% else %}
+        <a class="dropdown-item" href="{{ router.url('f_login')}}">Se connecter</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ router.url('signin')}}">S'inscrire</a>
+        {% endif %}
+    </div>
+</div>

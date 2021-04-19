@@ -53,8 +53,11 @@ class Post {
         return $this->author;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt()
     {
+        if(isset($this->createdAt)){
+            return $this->create_at;
+        }
         return new \DateTime($this->created_at);
     }
 

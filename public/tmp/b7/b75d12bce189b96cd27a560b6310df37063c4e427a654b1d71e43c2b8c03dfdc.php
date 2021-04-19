@@ -57,12 +57,18 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
     <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/img/front/logo_24x24.png\" />
     <link rel=\"icon\" type=\"image/ico\" href=\"/img/front/logo_24x24.png\" />
+
+  ";
+        // line 24
+        echo "    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css\">
+    <script src=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js\"></script>
+    
 </head>
 
 <header class=\"navbar navbar-dark sticky-top bg-dark flex-md-nowrap py- shadow\">
   <a class=\"navbar-brand col-md-3 col-lg-2 me-0 px-3\" href=\"";
-        // line 25
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 25), "html", null, true);
+        // line 30
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "dashboard"], "method", false, false, false, 30), "html", null, true);
         echo "\">Administration</a>
   <button class=\"navbar-toggler position-absolute d-md-none collapsed\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#sidebarMenu\" aria-controls=\"sidebarMenu\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
     <span class=\"navbar-toggler-icon\"></span>
@@ -70,8 +76,8 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
   <ul class=\"navbar-nav px-3\">
     <li class=\"nav-item text-nowrap\">
       <form action=\"";
-        // line 31
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "logout"], "method", false, false, false, 31), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "logout"], "method", false, false, false, 36), "html", null, true);
         echo "\" method=\"post\" class=\"m-0\">
         <button type=\"submit\" class=\"btn btn-dark\">Se déconnecter</button> 
       </form>
@@ -92,45 +98,45 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
           <div class=\"collapse navbar-collapse\" id=\"navbarNavDropdown\">
             <ul class=\"navbar-nav flex-column ml-2\">
             ";
-        // line 50
-        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("admin/_menu.twig", "admin/layout/layout.twig", 50)->unwrap();
-        // line 51
-        echo "              ";
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "posts_manage"], "method", false, false, false, 51), "Gestion des articles", "/lagestion/posts"], 51, $context, $this->getSourceContext());
-        echo "
-              ";
-        // line 52
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "comments_manage"], "method", false, false, false, 52), "Modération des commentaires", "/lagestion/comments"], 52, $context, $this->getSourceContext());
-        echo "
-              ";
-        // line 53
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "categories_manage"], "method", false, false, false, 53), "Gestion des categories", "/lagestion/categories"], 53, $context, $this->getSourceContext());
-        echo "
-              <hr class=\"p-0 m-0 border-top\">
-              ";
         // line 55
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters_manage"], "method", false, false, false, 55), "Gestion des combattants", "/lagestion/fighters"], 55, $context, $this->getSourceContext());
+        $macros["navbar"] = $this->macros["navbar"] = $this->loadTemplate("admin/_menu.twig", "admin/layout/layout.twig", 55)->unwrap();
+        // line 56
+        echo "              ";
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "posts_manage"], "method", false, false, false, 56), "Gestion des articles", "/lagestion/posts"], 56, $context, $this->getSourceContext());
         echo "
               ";
-        // line 56
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "import"], "method", false, false, false, 56), "Import données combattants", "/lagestion/fighters/import"], 56, $context, $this->getSourceContext());
+        // line 57
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "comments_manage"], "method", false, false, false, 57), "Modération des commentaires", "/lagestion/comments"], 57, $context, $this->getSourceContext());
         echo "
-              <hr class=\"p-0 m-0 border-top\">
               ";
         // line 58
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "newsletters_manage"], "method", false, false, false, 58), "Newsletters", "/lagestion/newsletters"], 58, $context, $this->getSourceContext());
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "categories_manage"], "method", false, false, false, 58), "Gestion des categories", "/lagestion/categories"], 58, $context, $this->getSourceContext());
+        echo "
+              <hr class=\"p-0 m-0 border-top\">
+              ";
+        // line 60
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "fighters_manage"], "method", false, false, false, 60), "Gestion des combattants", "/lagestion/fighters"], 60, $context, $this->getSourceContext());
         echo "
               ";
-        // line 59
-        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "users_manage"], "method", false, false, false, 59), "Gestion des utilisateurs", "/lagestion/users"], 59, $context, $this->getSourceContext());
+        // line 61
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "import"], "method", false, false, false, 61), "Import données combattants", "/lagestion/fighters/import"], 61, $context, $this->getSourceContext());
+        echo "
+              <hr class=\"p-0 m-0 border-top\">
+              ";
+        // line 63
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "newsletters_manage"], "method", false, false, false, 63), "Newsletters", "/lagestion/newsletters"], 63, $context, $this->getSourceContext());
+        echo "
+              ";
+        // line 64
+        echo twig_call_macro($macros["navbar"], "macro_item", [twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "users_manage"], "method", false, false, false, 64), "Gestion des utilisateurs", "/lagestion/users"], 64, $context, $this->getSourceContext());
         echo "
           </div>
       </nav>
       <main class=\"col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3\">
         ";
-        // line 63
+        // line 68
         $this->displayBlock('content', $context, $blocks);
-        // line 65
+        // line 70
         echo "      </main>
     </div>
   </div>
@@ -153,11 +159,11 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
       ";
     }
 
-    // line 63
+    // line 68
     public function block_content($context, array $blocks = [])
     {
         $macros = $this->macros;
-        // line 64
+        // line 69
         echo "        ";
     }
 
@@ -173,7 +179,7 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
     public function getDebugInfo()
     {
-        return array (  161 => 64,  157 => 63,  151 => 9,  147 => 8,  134 => 65,  132 => 63,  125 => 59,  121 => 58,  116 => 56,  112 => 55,  107 => 53,  103 => 52,  98 => 51,  96 => 50,  74 => 31,  65 => 25,  50 => 12,  48 => 8,  39 => 1,);
+        return array (  167 => 69,  163 => 68,  157 => 9,  153 => 8,  140 => 70,  138 => 68,  131 => 64,  127 => 63,  122 => 61,  118 => 60,  113 => 58,  109 => 57,  104 => 56,  102 => 55,  80 => 36,  71 => 30,  63 => 24,  50 => 12,  48 => 8,  39 => 1,);
     }
 
     public function getSourceContext()
@@ -199,6 +205,11 @@ class __TwigTemplate_d59a2b7bf8278cb287b627fd50bd19e3c2638a319582e1f5d40db3ac34d
 
     <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/img/front/logo_24x24.png\" />
     <link rel=\"icon\" type=\"image/ico\" href=\"/img/front/logo_24x24.png\" />
+
+  {# Rédaction markdown #}
+    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css\">
+    <script src=\"https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js\"></script>
+    
 </head>
 
 <header class=\"navbar navbar-dark sticky-top bg-dark flex-md-nowrap py- shadow\">

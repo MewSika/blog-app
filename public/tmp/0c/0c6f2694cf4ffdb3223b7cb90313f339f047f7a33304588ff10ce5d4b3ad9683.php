@@ -76,7 +76,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         echo "
         ";
         // line 14
-        if (twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCategories", [], "method", false, false, false, 14)) {
+        if (twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCategories", [], "any", false, false, false, 14)) {
             // line 15
             echo "            <hr>
             Catégories associées :
@@ -165,7 +165,7 @@ class __TwigTemplate_99f80b3ca32ec9003157bc2aed60151fe5ffbecd1878169cfd6856b3cf7
         <a class=\"text-secondary text-decoration-none \" href=\"
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">[...]</a>
         <footer class=\"blockquote-footer text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | format_date('medium', locale='fr') }}
-        {% if post.getCategories() %}
+        {% if post.getCategories %}
             <hr>
             Catégories associées :
                 {% for assocCat in post.getCategories() %}

@@ -5,3 +5,7 @@ html * {
 a:hover {
   font-weight: bold;
 }
+
+.CodeMirror {
+	height: 400px !important;
+}

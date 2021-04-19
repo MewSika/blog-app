@@ -34,6 +34,14 @@ if(!empty($_POST)) {
 }
 $form = new Form($user, $errors);
 
+$admin = $auth->user();
+if($admin->getRole() !== 'admin') {
+    return $twig->render('admin/forbidden.twig',[
+        'link' => $link,
+        'router' => $router
+    ]);
+}
+
 return $twig->render('admin/users/edit.twig', [
     'router' => $router,
     'form' => $form,

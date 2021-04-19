@@ -20,12 +20,11 @@ class Validator extends ValitronValidator {
             $info = $finfo->file($value['tmp_name'], FILEINFO_MIME_TYPE);
             return in_array($info, $mimes);
         }, 'Le fichier n\'est pas une image valide');
-
         self::addRule('imageSize', function($field, $value, array $params, array $fields) {
-            if($value['size'] < 5000000) {
+            if($value['size'] < 800000) {
                 return true;
             }
-        }, 'Le fichier doit peser moins de 8Mo');
+        }, 'Le fichier doit peser moins de 800ko');
     }
     
      /**
@@ -36,6 +35,6 @@ class Validator extends ValitronValidator {
      */
     protected function checkAndSetLabel($field, $message, $params)
     {
-        return str_replace('{field}', '', $message);
+        return str_replace('{field}', 'Ce champ', $message);
     }
 }

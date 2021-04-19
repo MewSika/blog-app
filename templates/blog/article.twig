@@ -12,9 +12,9 @@
     {% include 'blog/_breadcrumb.twig' %}
     <aside class="text-center">
         {% if post.getImage() %}
-          <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top">
+          <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName }}" class="card-img-top">
         {% endif %}
-        <p class="text-muted text-end">Publié le {{ post.getCreatedAt()|format_date('full', locale='fr') }}</p>
+        <p class="text-muted text-end">Publié le {{ post.getCreatedAt|format_date('full', locale='fr') }}</p>
         <p class="text-end fw-light fst-italic">
         {% for category in post.getCategories() %}
             {% if loop.index > 1 %}
@@ -38,8 +38,8 @@
 <hr>
 <div class="row">
     <div class="col-md-9">
-        <p class="text-justify"> {{ post.getContent()|nl2br }}</p>
-        <p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor() }}</em></p>
+        <p class="text-justify"> {{ post.getContent|nl2br|markdown_to_html}}</p>
+        <p class="blockquote-footer text-end pt-3"><em>{{ post.getAuthor }}</em></p>
         <div class="fb-share-button p-0" data-href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}" data-layout="button" data-size="large">
             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }};src=sdkpreparse" class="fb-xfbml-parse-ignore">
                 Share

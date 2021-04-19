@@ -21,6 +21,8 @@
     <meta name="theme-color" content="#563d7c">
 
 
+    <link rel="shortcut icon" type="image/ico" href="/img/front/logo_red_24x24.png" />
+    <link rel="icon" type="image/ico" href="/img/front/logo_red_24x24.png" />
 
     {# FB API #}
     <meta property="og:url"           content="https://www.your-domain.com/your-page.html" />
@@ -43,13 +45,14 @@
           <a href="{{ router.url('home') }}" class="text-decoration-none col-2">
             <img src="/img/front/logo_red_36x36.png" alt="Logo colyseum" class="d-none d-lg-inline">
           </a>
-          <h1 class="text-light fw-bold fst-italic d-none d-lg-inline text-center col">
+          <h4 class="fw-bold fst-italic text-center d-none d-lg-inline col">
             <a href="{{ router.url('home') }}" class="text-decoration-none text-light">
               <span class="red">MMA</span>COLISEUM
             </a>
-          </h1>
+          </h4>
+          {% include "_navSignin.twig" %}
           {# Search #}
-          <form class="form-inline form-navbar d-none d-lg-block col-3" action="{{router.url('results')}}">
+          <form class="form-inline form-navbar input-group-sm d-none d-lg-block col-2" action="{{router.url('results')}}">
               <input class="form-control" name="q" type="text" placeholder="Rechercher un article...">
           </form>
           {# Navbar list #}
@@ -76,7 +79,7 @@
       {% block content %}
       {% endblock %}
     </div>
-    <footer class="bg-dark py-4 footer mt-auto">
+    <footer class="bg-dark py-2 footer mt-auto">
       <div class="container text-light">
           <ul class="nav flex-column">
               {{ navbar.footeritem(router.url('home'), 'Accueil') }}

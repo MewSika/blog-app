@@ -106,7 +106,7 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
         } elseif (( !twig_test_empty(twig_get_attribute($this->env, $this->source,         // line 33
 ($context["get"] ?? null), "q", [], "any", false, false, false, 33)) && (-1 === twig_compare(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["get"] ?? null), "q", [], "any", false, false, false, 33)), 3)))) {
             // line 34
-            echo "    <h5 class=\"font-weight-bold text-center\">Votre recherche doit contenir au moins 3 caractères</h5>
+            echo "    <h5 class=\"font-weight-bold text-center\">Votre recherche doit contenir plus de 3 caractères</h5>
 ";
         } else {
             // line 36
@@ -230,7 +230,7 @@ class __TwigTemplate_990cfd233760eea4647ec875efdaa9cf1d7f53bfe78bbbb4aa14b9e0099
 {% if fighters is empty %}
     <h5 class=\"font-weight-bold text-center\"> Aucun combattant ne correspond à votre recherche : {{ get.q | upper}} <h5>
 {% elseif get.q is not empty and get.q|length < 3 %}
-    <h5 class=\"font-weight-bold text-center\">Votre recherche doit contenir au moins 3 caractères</h5>
+    <h5 class=\"font-weight-bold text-center\">Votre recherche doit contenir plus de 3 caractères</h5>
 {% else %}
     <table class=\"table rounded table-hover\">
         <thead>

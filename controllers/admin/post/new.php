@@ -26,8 +26,7 @@ $categories = $categoryTable->list();
 if(!empty($_POST)) {
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);
-    $fields = ['name', 'slug', 'content', 'author', 'created_at', 'image'];
-
+    $fields = ['name', 'slug', 'content', 'author', 'image'];
     /** Gestion de la validation */
     Validator::lang('fr');
     $v = new PostValidator($data, $postTable, $post->getID(), $categories);

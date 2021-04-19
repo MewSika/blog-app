@@ -1,7 +1,7 @@
 {% extends 'admin/layout/layout.twig' %}
 
 {% block head %}
-    <title>Modification de : {{ item.getName() }}</title>
+    <title>Modification de : {{ user.getName }}</title>
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
     </div>
 {% endif %}
 
-<h2>Modification : {{ item.getName()}}</h2>
+<h2>Modification : {{ user.getName}}</h2>
 <hr>
 {% include 'admin/users/_form.twig' %}
 {% endblock %}
