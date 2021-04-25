@@ -49,7 +49,7 @@ class __TwigTemplate_09ed73f8235c615e5fde8ecb96670da4df0a0e557dbd67a1bf5f5e480d4
         $macros = $this->macros;
         // line 4
         echo "    <title>Modification de : ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getName", [], "any", false, false, false, 4), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getuserName", [], "any", false, false, false, 4), "html", null, true);
         echo "</title>
 ";
     }
@@ -67,18 +67,19 @@ class __TwigTemplate_09ed73f8235c615e5fde8ecb96670da4df0a0e557dbd67a1bf5f5e480d4
 ";
         }
         // line 13
+        echo "
+";
+        // line 14
         if (($context["success"] ?? null)) {
-            // line 14
+            // line 15
             echo "    <div class=\"alert alert-success\">
         La modification a bien été effectuée
     </div>
 ";
         }
-        // line 18
-        echo "
-<h2>Modification : ";
         // line 19
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getName", [], "any", false, false, false, 19), "html", null, true);
+        echo "<h2>Modification : ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getuserName", [], "any", false, false, false, 19), "html", null, true);
         echo "</h2>
 <hr>
 ";
@@ -98,7 +99,7 @@ class __TwigTemplate_09ed73f8235c615e5fde8ecb96670da4df0a0e557dbd67a1bf5f5e480d4
 
     public function getDebugInfo()
     {
-        return array (  86 => 21,  81 => 19,  78 => 18,  72 => 14,  70 => 13,  64 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
+        return array (  87 => 21,  81 => 19,  75 => 15,  73 => 14,  70 => 13,  64 => 9,  62 => 8,  58 => 7,  51 => 4,  47 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -106,7 +107,7 @@ class __TwigTemplate_09ed73f8235c615e5fde8ecb96670da4df0a0e557dbd67a1bf5f5e480d4
         return new Source("{% extends 'admin/layout/layout.twig' %}
 
 {% block head %}
-    <title>Modification de : {{ user.getName }}</title>
+    <title>Modification de : {{ user.getuserName }}</title>
 {% endblock %}
 
 {% block content %}
@@ -115,13 +116,13 @@ class __TwigTemplate_09ed73f8235c615e5fde8ecb96670da4df0a0e557dbd67a1bf5f5e480d4
         La modification n'a pas pu être effectuée
     </div>
 {% endif %}
+
 {% if success %}
     <div class=\"alert alert-success\">
         La modification a bien été effectuée
     </div>
 {% endif %}
-
-<h2>Modification : {{ user.getName}}</h2>
+<h2>Modification : {{ user.getuserName }}</h2>
 <hr>
 {% include 'admin/users/_form.twig' %}
 {% endblock %}", "admin/users/edit.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\admin\\users\\edit.twig");

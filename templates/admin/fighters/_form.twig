@@ -4,7 +4,7 @@
 <form action="" method="post" class="mb-4" enctype="multipart/form-data">
     {% if fighter.getImage() %}
         <p class="fw-bold">Image à la une :</p>
-        <img src="{{ fighter.getImageURL('medium') }}" alt="" class="rounded shadow-sm mb-4">
+        <img src="{{ fighter.getImageURL('medium') }}" alt="" class="rounded shadow-sm mb-4" loading="lazy">
     {% endif %}
     {{ form.checkbox('champ', 'Champion', 'pl-4')|raw}}
     <div class="row">

@@ -90,7 +90,7 @@ class __TwigTemplate_4541e7b9e65f9444b985f1e67325fc972b44253e68fc9aa5182fa8681ba
         // line 45
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "home"], "method", false, false, false, 45), "html", null, true);
         echo "\" class=\"text-decoration-none col-2\">
-            <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\">
+            <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\" loading=\"lazy\">
           </a>
           <h4 class=\"fw-bold fst-italic text-center d-none d-lg-inline col\">
             <a href=\"";
@@ -299,7 +299,7 @@ class __TwigTemplate_4541e7b9e65f9444b985f1e67325fc972b44253e68fc9aa5182fa8681ba
               <input class=\"form-control\" id=\"fieldSearch\" name=\"q\" type=\"text\" placeholder=\"Rechercher un article...\">
           </form>
           <a href=\"{{ router.url('home') }}\" class=\"text-decoration-none col-2\">
-            <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\">
+            <img src=\"/img/front/logo_red_36x36.png\" alt=\"Logo colyseum\" class=\"d-none d-lg-inline\" loading=\"lazy\">
           </a>
           <h4 class=\"fw-bold fst-italic text-center d-none d-lg-inline col\">
             <a href=\"{{ router.url('home') }}\" class=\"text-decoration-none text-light\">

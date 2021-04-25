@@ -1,7 +1,7 @@
 {% extends 'admin/layout/layout.twig' %}
 
 {% block head %}
-    <title>Modification de : {{ user.getName }}</title>
+    <title>Modification de : {{ user.getuserName }}</title>
 {% endblock %}
 
 {% block content %}
@@ -10,13 +10,13 @@
         La modification n'a pas pu être effectuée
     </div>
 {% endif %}
+
 {% if success %}
     <div class="alert alert-success">
         La modification a bien été effectuée
     </div>
 {% endif %}
-
-<h2>Modification : {{ user.getName}}</h2>
+<h2>Modification : {{ user.getuserName }}</h2>
 <hr>
 {% include 'admin/users/_form.twig' %}
 {% endblock %}

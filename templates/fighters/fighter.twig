@@ -10,18 +10,18 @@
         <div class="row">
             {% if fighter.getImage() %}
                 <section class="col-lg-4 text-center pt-2">
-                    <img src="{{ fighter.getImageURL('medium') }}" alt="{{ fighter.getName() }}">
+                    <img src="{{ fighter.getImageURL('medium') }}" alt="{{ fighter.getName() }}" loading="lazy">
                 </section>
             {% else %}
                 <section class="col-lg-4 m-auto text-center d-none d-lg-block">
-                    <img src="/img/authors/UFC.png" alt="No picture" class="w-50">
+                    <img src="/img/authors/UFC.png" alt="No picture" class="w-50" loading="lazy">
                 </section>
             {% endif %}
             <article class="col-lg-8">
                 <div class="row g-0">
                     <h1 class="fw-bold border-bottom my-2 p-2"> 
                         {% if fighter.getChamp == 1 %}
-                            <img src="/img/authors/ufc-belt-small.png" alt="ufc belt">
+                            <img src="/img/authors/ufc-belt-small.png" alt="ufc belt" loading="lazy">
                         {% endif %}
                         {{ fighter.getName }}
                     </h1>

@@ -118,9 +118,9 @@ class __TwigTemplate_82d972dfc8d5f8b453a8db3f74bcba23b2042e8ab7a3c34725d2cb875a3
             echo twig_escape_filter($this->env, ((twig_get_attribute($this->env, $this->source, ($context["options"] ?? null), "type", [], "any", true, true, false, 11)) ? (_twig_default_filter(twig_get_attribute($this->env, $this->source, ($context["options"] ?? null), "type", [], "any", false, false, false, 11), "text")) : ("text")), "html", null, true);
             echo "\" name=\"content\" id=\"";
             echo twig_escape_filter($this->env, ($context["name"] ?? null), "html", null, true);
-            echo "\" class=\"form-control\">";
+            echo "\" class=\"form-control\" value=";
             echo twig_escape_filter($this->env, ($context["value"] ?? null), "html", null, true);
-            echo "</textarea>
+            echo ">
     </div>
 ";
 
@@ -157,7 +157,7 @@ class __TwigTemplate_82d972dfc8d5f8b453a8db3f74bcba23b2042e8ab7a3c34725d2cb875a3
 {% macro input(name, label, value = null, options = []) %}
     <div class=\"form-group {{ options.class }}\">
         <label for=\"{{name}}\" class=\"text-secondary small\">{{label}}</label>
-        <input type =\"{{ options.type | default('text') }}\" name=\"content\" id=\"{{name}}\" class=\"form-control\">{{ value }}</textarea>
+        <input type =\"{{ options.type | default('text') }}\" name=\"content\" id=\"{{name}}\" class=\"form-control\" value={{value}}>
     </div>
 {% endmacro %}", "blog/_form.twig", "C:\\wamp64\\www\\ProjetGA\\templates\\blog\\_form.twig");
     }

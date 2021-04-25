@@ -70,18 +70,12 @@ class __TwigTemplate_c2698334483b8807c810d9cd2d1944f5df365370c4ffe91f2afee1ada31
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 16), "html", null, true);
         echo "</h5>
             </a>
-            <p class=\"small\"> ";
-        // line 18
-        echo twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 18), 0, 100), "html", null, true);
-        echo " <a href=\"";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["router"] ?? null), "url", [0 => "article", 1 => ["id" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getId", [], "method", false, false, false, 18), "slug" => twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getSlug", [], "method", false, false, false, 18)]], "method", false, false, false, 18), "html", null, true);
-        echo "\" class=\"text-secondary text-decoration-none\">[...]</a></p>
         </div>
     </div>
     <div class=\"card-footer bg-light text-end\">
       <small class=\"text-muted\">Publié le ";
-        // line 22
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 22), "d/m/Y à H\\hi"), "html", null, true);
+        // line 21
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getCreatedAt", [], "method", false, false, false, 21), "d/m/Y à H\\hi"), "html", null, true);
         echo " </small>
     </div>
 </div>";
@@ -99,7 +93,7 @@ class __TwigTemplate_c2698334483b8807c810d9cd2d1944f5df365370c4ffe91f2afee1ada31
 
     public function getDebugInfo()
     {
-        return array (  84 => 22,  75 => 18,  70 => 16,  66 => 15,  63 => 14,  57 => 11,  52 => 10,  50 => 9,  43 => 5,  37 => 1,);
+        return array (  78 => 21,  70 => 16,  66 => 15,  63 => 14,  57 => 11,  52 => 10,  50 => 9,  43 => 5,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -121,7 +115,6 @@ class __TwigTemplate_c2698334483b8807c810d9cd2d1944f5df365370c4ffe91f2afee1ada31
             <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-decoration-none text-dark\">
                 <h5 class=\"fw-bold\"> {{ post.getName() }}</h5>
             </a>
-            <p class=\"small\"> {{ post.getContent()[:100] }} <a href=\"{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}\" class=\"text-secondary text-decoration-none\">[...]</a></p>
         </div>
     </div>
     <div class=\"card-footer bg-light text-end\">

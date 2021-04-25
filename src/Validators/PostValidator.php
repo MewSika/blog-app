@@ -22,6 +22,6 @@ class PostValidator extends AbstractValidator {
         $this->validator->rule('lengthMin', ['author'], 5);
         $this->validator->rule('lengthMax', ['author'], 30);
         $this->validator->rule('lengthMin', ['content'], 250)->message('Votre article doit contenir au moins 250 caractères');
-        $this->validator->rule('regex', ['name', 'author'], '/^[\w\séèêàçù\'"€]*$/');
+        $this->validator->rule('regex', ['name', 'author'], '/^[\w\séèêàçùô:?!\'"€]*$/');
     }
 }

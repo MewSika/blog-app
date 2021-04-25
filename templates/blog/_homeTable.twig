@@ -15,7 +15,6 @@
             <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-decoration-none text-dark">
                 <h5 class="fw-bold"> {{ post.getName() }}</h5>
             </a>
-            <p class="small"> {{ post.getContent()[:100] }} <a href="{{ router.url('article', {'id': post.getId(), 'slug': post.getSlug()}) }}" class="text-secondary text-decoration-none">[...]</a></p>
         </div>
     </div>
     <div class="card-footer bg-light text-end">

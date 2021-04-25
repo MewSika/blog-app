@@ -4,10 +4,10 @@
             <h3 class="card-title"><a href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}" class="text-decoration-none text-dark fw-bold">{{ post.getName() }}</a></h3>
         <hr>
             {% if post.getImage() %}
-                <a href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}"><img src="{{ post.getimageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top mb-3 rounded"></a>
+                <a href="{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}"><img src="{{ post.getimageURL('large') }}" alt="{{ post.getName() }}" class="card-img-top mb-3 rounded" loading="lazy"></a>
             {% endif %}
         </div>
-        {{ post.getContent()[:300] | nl2br }}
+        {{ post.getContent | nl2br | markdown_to_html | u.truncate(300, '', false) | raw}}
         <a class="text-secondary text-decoration-none " href="
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}">[...]</a>
         <footer class="blockquote-footer text-end pt-3">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | format_date('medium', locale='fr') }}

@@ -12,7 +12,7 @@
     {{ form.checkbox("newsletter", "Newsletter") | raw}}
     </div>
     <button name="" type="submit" class="btn btn-success">
-        {% if user.getID() is not null %}
+        {% if user.getID is not null %}
             Modifier
         {% else %}
             Créer

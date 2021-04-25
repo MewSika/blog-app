@@ -63,7 +63,7 @@ class __TwigTemplate_7be4145c56235cde64b9f660ded060635e6f72f06414385022ae50259f9
     {
         $macros = $this->macros;
         // line 10
-        echo "<article class=\"\">
+        echo "<article>
     <h1 class=\"fw-bold text-start\"> ";
         // line 11
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 11), "html", null, true);
@@ -318,7 +318,7 @@ class __TwigTemplate_7be4145c56235cde64b9f660ded060635e6f72f06414385022ae50259f9
 {% endblock %}
 
 {% block content %}
-<article class=\"\">
+<article>
     <h1 class=\"fw-bold text-start\"> {{ post.getName() }}</h1><hr>
     {% include 'blog/_breadcrumb.twig' %}
     <aside class=\"text-center\">

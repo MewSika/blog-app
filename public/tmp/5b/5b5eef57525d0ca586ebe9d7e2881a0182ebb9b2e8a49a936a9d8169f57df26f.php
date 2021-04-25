@@ -54,14 +54,14 @@ class __TwigTemplate_afc746598cafd46fb45201e7235fc04387db3f98746d758f15f924da752
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getimageURL", [0 => "large"], "method", false, false, false, 7), "html", null, true);
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getName", [], "method", false, false, false, 7), "html", null, true);
-            echo "\" class=\"card-img-top mb-3 rounded\"></a>
+            echo "\" class=\"card-img-top mb-3 rounded\" loading=\"lazy\"></a>
             ";
         }
         // line 9
         echo "        </div>
         ";
         // line 10
-        echo nl2br(twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 10), 0, 300), "html", null, true));
+        echo $this->env->getRuntime('Twig\Extra\Markdown\MarkdownRuntime')->convert(nl2br(twig_escape_filter($this->env, twig_slice($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "getContent", [], "method", false, false, false, 10), 0, 300), "html", null, true)));
         echo "
         <a class=\"text-secondary text-decoration-none \" href=\"
             ";
@@ -158,10 +158,10 @@ class __TwigTemplate_afc746598cafd46fb45201e7235fc04387db3f98746d758f15f924da752
             <h3 class=\"card-title\"><a href=\"{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\" class=\"text-decoration-none text-dark fw-bold\">{{ post.getName() }}</a></h3>
         <hr>
             {% if post.getImage() %}
-                <a href=\"{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\"><img src=\"{{ post.getimageURL('large') }}\" alt=\"{{ post.getName() }}\" class=\"card-img-top mb-3 rounded\"></a>
+                <a href=\"{{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\"><img src=\"{{ post.getimageURL('large') }}\" alt=\"{{ post.getName() }}\" class=\"card-img-top mb-3 rounded\" loading=\"lazy\"></a>
             {% endif %}
         </div>
-        {{ post.getContent()[:300] | nl2br }}
+        {{ post.getContent()[:300] | nl2br | markdown_to_html}}
         <a class=\"text-secondary text-decoration-none \" href=\"
             {{ router.url('article', {'id': post.getID(), 'slug': post.getSlug()}) }}\">[...]</a>
         <footer class=\"blockquote-footer text-end pt-3\">{{ post.getAuthor() }}, le {{ post.getCreatedAt() | format_date('medium', locale='fr') }}

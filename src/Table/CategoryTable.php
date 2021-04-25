@@ -32,7 +32,11 @@ final class CategoryTable extends Table {
             } 
         }
     }
-
+    
+    /**
+     * Retourne un tableau d'articles trié par catégorie et la pagination pour l'affichage des articles
+     * @return void
+     */
     public function findPaginated()
     {
         $paginatedQuery = new PaginatedQuery(
@@ -45,7 +49,12 @@ final class CategoryTable extends Table {
         (new CategoryTable($this->pdo))->hydratePost($posts);
         return [$posts, $paginatedQuery];
     }
-
+    
+    /**
+     * Renvoie la liste des catégorie
+     *
+     * @return array
+     */
     public function list(): array
     {
         $categories = $this->queryAndFetchAll("

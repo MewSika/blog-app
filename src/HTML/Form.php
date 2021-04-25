@@ -47,7 +47,7 @@ HTML;
         <label class="font-weight-bold small mb-0" for="field{$key}">{$label}</label>
         <div class="{$class}">
             {$this->getErrorFeedback($key)}
-            <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="10" rows="10" placeholder="{$placeholder}" required>{$value}</textarea>
+            <textarea class="{$this->getInputClass($key)} text-justify" id="{$key}" name="{$key}" cols="10" rows="10">{$value}</textarea>
         </div>
 HTML;
     }

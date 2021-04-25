@@ -9,26 +9,34 @@ final class PostTable extends Table {
 
     protected $table = "post";
     protected $class = Post::class;
-
+    
+    /**
+     * @param App\Model\Post $post
+     * @return void
+     */
     public function updatePost(Post $post): void
     {
         $this->update([
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'author' => $post->getAuthor(),
-            'created_at' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:i:s'),
             'content' => $post->getContent(),
             'image' => $post->getImage()
         ], $post->getID());
     }
-
+    
+    /**
+     * @param App\Model\Post $post
+     * @return void
+     */
     public function createPost(Post $post): void
     {
         $id = $this->create([
             'name' => $post->getName(),
             'author' => $post->getAuthor(),
             'slug' => $post->getSlug(),
-            'created_at' => $post->getCreatedAt()->format('Y-m-d h:i:s'),
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:i:s'),
             'content' => $post->getContent(),
             'image' => $post->getImage()
         ]);
@@ -54,8 +62,8 @@ final class PostTable extends Table {
     /**
      * Affiche les articles avec la pagination
      *
-     * @param  array $params
-     * @param  string $key
+     * @param  array $params tableau de paramètres dans le cas d'une recherche
+     * @param  string $key clef du tableau de la recherche 
      * @return void
      */
     public function findPaginated(?array $params = [], ?string $key = null)
@@ -72,7 +80,6 @@ final class PostTable extends Table {
         (new CategoryTable($this->pdo))->hydratePost($posts);
         return [$posts, $paginatedQuery];
     }
-
         
     /**
      * @param  int $categoryID
@@ -92,7 +99,6 @@ final class PostTable extends Table {
         (new CategoryTable($this->pdo))->hydratePost($posts);
         return [$posts, $paginatedQuery];
     }
-
         
     /**
      * Récupère les derniers articles rédigés
@@ -102,12 +108,20 @@ final class PostTable extends Table {
     {
         return $this->queryAndFetchAll("SELECT * FROM {$this->table} ORDER BY created_at DESC LIMIT {$limit}");
     }
-
+    
+    /**
+     * @param  int $id
+     * @return Post
+     */
     public function getNextPost(int $id): ?Post
     {
         return $this->queryAndFetch("SELECT * FROM {$this->table} WHERE id > $id ORDER BY created_at ASC LIMIT 1");
     }
-
+    
+    /**
+     * @param  int $id
+     * @return Post
+     */
     public function getPrevioustPost(int $id): ?Post
     {
         return $this->queryAndFetch("SELECT * FROM {$this->table} WHERE id < $id ORDER BY created_at DESC LIMIT 1");

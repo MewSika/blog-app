@@ -20,6 +20,7 @@ $twig->addExtension(new Twig\Extension\DebugExtension());
 $twig->addExtension(new App\Twig\CustomExtensions());
 $twig->addExtension(new Twig\Extra\Intl\IntlExtension());
 $twig->addExtension(new Twig\Extra\Markdown\MarkdownExtension());
+$twig->addExtension(new Twig\Extra\String\StringExtension());
 $twig->addGlobal('current_page', $_SERVER['REQUEST_URI']);
 /* Extension pour Markdown */
 $twig->addRuntimeLoader(new class implements Twig\RuntimeLoader\RuntimeLoaderInterface {
@@ -41,7 +42,6 @@ if (isset($_GET['p']) && $_GET['p'] === '1') {
     http_response_code(302);
     exit();
 }
-
 
 $router = new App\Router($twig, dirname(__DIR__). '/controllers');
 $router

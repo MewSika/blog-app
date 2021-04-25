@@ -12,7 +12,7 @@ class FighterValidator extends AbstractValidator {
                                             'weight_cat_id', 'weight', 'stance', 'reach', 'height',
                                             'SLpM', 'Str_Acc', 'SApM', 'Str_Def', 'TD_Avg', 'TD_Acc', 'TD_Def', 'Sub_Avg'
                                             ]);
-        $this->validator->rule('alpha', ['stance']);
+        $this->validator->rule('regex', ['stance', 'name'], '/^[\w\séèêàçù\'"€]*$/');
         $this->validator->rule('integer', [ 'sex', 'win', 'lose', 'draw', 'nc',
                                             'weight', 'reach', 'height',
                                             'SLpM', 'Str_Acc', 'SApM', 'Str_Def', 'TD_Avg', 'TD_Acc', 'TD_Def', 'Sub_Avg'
@@ -23,5 +23,6 @@ class FighterValidator extends AbstractValidator {
             return !$table->exists($field, $value, $fighterID);
         }, ['name'], 'Cette valeur est déjà utilisé');
         $this->validator->rule('lengthBetween', ['name', 'slug'], 3, 100);
+
     }
 }

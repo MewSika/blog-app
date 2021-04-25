@@ -7,12 +7,12 @@
 {% endblock %}
 
 {% block content %}
-<article class="">
+<article>
     <h1 class="fw-bold text-start"> {{ post.getName() }}</h1><hr>
     {% include 'blog/_breadcrumb.twig' %}
     <aside class="text-center">
         {% if post.getImage() %}
-          <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName }}" class="card-img-top">
+          <img src="{{ post.getImageURL('large') }}" alt="{{ post.getName }}" class="card-img-top" loading="lazy">
         {% endif %}
         <p class="text-muted text-end">Publié le {{ post.getCreatedAt|format_date('full', locale='fr') }}</p>
         <p class="text-end fw-light fst-italic">

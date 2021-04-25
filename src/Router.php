@@ -63,7 +63,6 @@ class Router {
         ($controller !== null) ?: $controller = "e404";
         
         echo require $this->controllerPath . DIRECTORY_SEPARATOR . $controller   .'.php';
-
         return $this;
     }
 }

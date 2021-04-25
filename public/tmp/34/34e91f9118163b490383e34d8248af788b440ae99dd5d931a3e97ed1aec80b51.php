@@ -68,7 +68,7 @@ class __TwigTemplate_ace63df83ad9a66198aab032e5d2a7701fdbd8fba30d7bde7e84b4d59ad
     <button name=\"\" type=\"submit\" class=\"btn btn-success\">
         ";
         // line 15
-        if ( !(null === twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getID", [], "method", false, false, false, 15))) {
+        if ( !(null === twig_get_attribute($this->env, $this->source, ($context["user"] ?? null), "getID", [], "any", false, false, false, 15))) {
             // line 16
             echo "            Modifier
         ";
@@ -113,7 +113,7 @@ class __TwigTemplate_ace63df83ad9a66198aab032e5d2a7701fdbd8fba30d7bde7e84b4d59ad
     {{ form.checkbox(\"newsletter\", \"Newsletter\") | raw}}
     </div>
     <button name=\"\" type=\"submit\" class=\"btn btn-success\">
-        {% if user.getID() is not null %}
+        {% if user.getID is not null %}
             Modifier
         {% else %}
             Créer
